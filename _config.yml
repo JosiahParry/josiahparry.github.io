@@ -26,3 +26,5 @@ github:
 
 gems:
   - jekyll-paginate
+
+paginate: 5
