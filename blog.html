@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
@@ -183,16 +183,16 @@ head(tbl2_long)</code></pre>
 <p>Now if you look at both of your tables you may notice that your second data frame doesn’t contain information about your employees. So combining these data will corrupt your individual employee performance. So the best option I see is to summarize each table by <strong>Department</strong>. In addition to this problem, the <code>earnings</code> for the second table are stored as <em>strings</em>, and you can’t sum up the alphabet, so that will have to converted into a numeric.</p>
 <p>Assuming that there will be multiple dates in these tables, the tables will be grouped by <strong>Department &amp; Date</strong>.</p>
 <p>I used some handy functions from <code>dplyr</code> package to create the summary tables.</p>
-<pre class="r"><code>tbl1_depts &lt;- tbl1 %&gt;% 
+<pre class="r"><code>tbl1_depts &lt;- tbl1 %&gt;%
                        group_by(department, date) %&gt;% # Groups by department first, then date
-                       summarize(number_employees = n(), # number employes is the number of times Dept# Occurs 
+                       summarize(number_employees = n(), # number employes is the number of times Dept# Occurs
                                  calls_made = sum(calls_made), # The total number of calls made by each employee
                                 training_time = sum(training_time)) # The sum ammount of training time for all employees
 
 head(tbl1_depts)</code></pre>
 <pre><code>## Source: local data frame [3 x 5]
 ## Groups: department [3]
-## 
+##
 ##   department     date number_employees calls_made training_time
 ##        &lt;chr&gt;    &lt;chr&gt;            &lt;int&gt;      &lt;dbl&gt;         &lt;dbl&gt;
 ## 1      Dept1 01-01-16                2        150            10
@@ -201,12 +201,12 @@ head(tbl1_depts)</code></pre>
 <p>Cleaning the second table required changed <code>earnings</code> into a numeric. The <code>stringr</code> package is a helpful package from the <strong>tidyverse</strong> to clean strings.</p>
 <pre class="r"><code>library(stringr)
 
-tbl2_long$earnings &lt;- tbl2_long$earnings %&gt;% 
+tbl2_long$earnings &lt;- tbl2_long$earnings %&gt;%
                         str_replace_all(&quot;\\$&quot;, &quot;&quot;) %&gt;% # &quot;\\&quot; are escape characters makes &quot;$&quot; detectable
                         as.numeric() # Converts strings into numerics</code></pre>
 <p>Then rinse and repeat the summary for the second table. The only difference are the fields used.</p>
-<pre class="r"><code>tbl2_depts &lt;- tbl2_long %&gt;% 
-                        group_by(department, date) %&gt;% 
+<pre class="r"><code>tbl2_depts &lt;- tbl2_long %&gt;%
+                        group_by(department, date) %&gt;%
                         summarize(earnings = sum(earnings))</code></pre>
 </div>
 </div>
@@ -219,7 +219,7 @@ tbl2_long$earnings &lt;- tbl2_long$earnings %&gt;%
 tbl_full</code></pre>
 <pre><code>## Source: local data frame [3 x 6]
 ## Groups: department [?]
-## 
+##
 ##   department     date number_employees calls_made training_time earnings
 ##        &lt;chr&gt;    &lt;chr&gt;            &lt;int&gt;      &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;
 ## 1      Dept1 01-01-16                2        150            10      225
