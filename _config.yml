@@ -28,6 +28,8 @@ gems :
   - jekyll-paginate-multiple
 paginate_path: "blog/page:num"
 paginate: 5
+paginate_path: "page:num"
+paginate: 5
 
 paginate_multiple:
   - paginate: 5
