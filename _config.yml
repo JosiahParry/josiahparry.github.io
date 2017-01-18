@@ -10,7 +10,7 @@ title:            Josiah Parry
 tagline:          'A blog for myself, and for you to read.'
 description:      'Josiah Parry.'
 url:              "github.com/josiahparry"
-baseurl:           "/josiahparry.github.io/"
+baseurl:           "/"
 
 
 author:
