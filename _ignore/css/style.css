@@ -10,6 +10,19 @@
 /*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/
+#bio_list {
+	list-style-type: circle;
+	font-family: inherit;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Lato', sans-serif;
+	font-size: 12pt;
+	font-weight: 300;
+	color: #8A8A8A;
+	margin-bottom: 1.5em;
+	line-height: 180%;
+	margin-left: 10%;
+}
 
 	body {
 		margin: 0px;
