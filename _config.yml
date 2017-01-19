@@ -30,11 +30,6 @@ gems :
 paginate_path: "blog/page:num"
 paginate: 5
 
-assets:
-  compress:
-    css: false | true | default - development: false, production: true
-    js: false | true | default - development: false, production: true
-
   #
 
   autowrite: true
