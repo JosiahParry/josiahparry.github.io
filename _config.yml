@@ -30,7 +30,6 @@ paginate_path: "blog/page:num"
 paginate: 5
 
   #
-JEKYLL_ENV=production
 
 assets:
   compress:
