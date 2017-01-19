@@ -32,33 +32,6 @@ paginate: 5
   #
 
 assets:
-  compress:
-    css: true
-    js:  true
-
-  #
-
-  autowrite: true
-  cache: .asset-cache
-  cache_type: memory | filesystem | default: filesystem
-  skip_baseurl_with_cdn: false
-  skip_prefix_with_cdn: false
-  prefix: "/assets"
-  digest: true
-
-  #
-
-  assets:
-    - "*.png"
-    - "bundle.css"
-
-  #
-
   sources:
-    - _assets/css
-
-  features:
-    liquid: true | false | default: false
-    integrity: true | false | default: false
-    automatic_img_size: true | false | n(fixnum): 2,4,6,8 | default: true
-    automatic_img_alt : true | false | default: true
+      - _assets/css
+      - _assets/images
