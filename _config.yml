@@ -24,6 +24,7 @@ github:
   repo:           https://github.com/josiahparry/josiahparry.github.io
 
 gems :
+  - jekyll-assets
   - jekyll-paginate
 
 paginate_path: "blog/page:num"
