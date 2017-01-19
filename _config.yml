@@ -30,6 +30,14 @@ paginate_path: "blog/page:num"
 paginate: 5
 
   #
+JEKYLL_ENV=production
+
+assets:
+  compress:
+    css: false | true | default - development: false, production: true
+    js: false | true | default - development: false, production: true
+
+  #
 
   autowrite: true
   cache: false | directory | default: .asset-cache
@@ -50,14 +58,6 @@ paginate: 5
 
   sources:
     - _assets/css
-    - _assets/images
-    - _assets/javascripts
-    - _assets/stylesheets
-    - _assets/fonts
-    - _assets/img
-    - _assets/js
-
-  #
 
   features:
     liquid: true | false | default: false
