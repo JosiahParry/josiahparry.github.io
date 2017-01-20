@@ -435,4 +435,5 @@ pre code, pre tt {
   font-weight: 400;
   position: fixed;
   bottom: 0;
+  width: 100%;
 }
