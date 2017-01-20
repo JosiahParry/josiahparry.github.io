@@ -35,3 +35,5 @@ assets:
   sources:
       - _assets/css
       - _assets/images
+
+excerpt_length: 100
