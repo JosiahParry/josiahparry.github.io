@@ -3,6 +3,7 @@ title: "Cleaning Raw Traffic Counter"
 subtitle: "Custom Functions"
 author: "Josiah Parry"
 output: html_document
+layout: default
 ---
 
 
