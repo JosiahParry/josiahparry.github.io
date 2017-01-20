@@ -61,6 +61,7 @@ a:hover {
   width: 60%;
   float: left;
   padding-left: 5%;
+  margin-left: auto;
 }
 
 #etc {
@@ -68,6 +69,7 @@ a:hover {
   float: right;
   padding-right: 5%;
   line-height: 160%;
+  margin-right: auto;
 }
 
 #etc p {
