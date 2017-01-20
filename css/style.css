@@ -69,6 +69,7 @@ h2 {
   padding-left: .75%;
   float: right;
   line-height: 160%;
+  margin-right: auto;
 }
 
 .bio a {
@@ -131,6 +132,7 @@ nav > ul > li > ul {
 		padding: 0px 0px 0px 0px;
     width: 23.25%;
     padding-left: 3%;
+    margin-left: auto;
 }
 
 #sidebar ul {
