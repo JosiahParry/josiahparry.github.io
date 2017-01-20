@@ -19,6 +19,7 @@ list_dat_dirs <- function(dir, extension = "RAW", case_sensitive = FALSE) {
                                         fixed(extension, ignore_case = case_sensitive))]
 }
 ```
+
 ### Nuances
 This function will list all directories within a root directory with a specified ending extension. There are a few nuances (bugs, rather) of this function. The most important is that the target directories (those with the raw counts) should contain **only** raw count files; other nuances will be elaborated on in the following sections. 
 
