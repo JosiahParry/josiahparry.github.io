@@ -24,24 +24,20 @@ a {
   padding-bottom: 2%;
 }
 
-Skip to content
+#post {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 2%;
+}
 
 
-Search…
-All gists
-GitHub
-New gist @JosiahParry
-  Star 76
-  Fork 29
-  @tuzztuzz/github.css
-Created 5 years ago
-Embed
+
+
 <script src="https://gist.github.com/tuzz/3331384.js"></script>
-  Download ZIP
- Code  Revisions 5  Stars 76  Forks 29
-Github Markdown Stylesheet
-Raw
- github.css
+
 body {
   font-family: Helvetica, arial, sans-serif;
   font-size: 14px;
