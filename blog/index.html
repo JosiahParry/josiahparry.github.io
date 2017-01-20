@@ -22,7 +22,7 @@ title: Blog
                 <span class="post-date">
                   {{ post.date | date_to_string}}
                 </span><br>
-                {{ post.content | truncatewords: 300 }}
+                {{ post.content | split: "<div class="language-r highlighter-rouge">" | first }}
               </section>
             </div>
             <hr class="ruler">
