@@ -1,0 +1,12 @@
+.post a {
+  color: inherit;
+}
+
+#wrap .fluid-row {
+  background-color: #FFF;
+}
+
+.post-date {
+  font-size: 14pt;
+  font-weight: 300;
+}
