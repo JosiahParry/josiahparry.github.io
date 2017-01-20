@@ -429,4 +429,7 @@ pre code, pre tt {
   background-color: transparent;
   border: none;
 }
- 
+
+.ruler {
+  height: 4px;
+}
