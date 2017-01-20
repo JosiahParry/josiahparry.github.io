@@ -17,7 +17,7 @@ title: Blog
                 <span class="post-date">
                   {{ post.date | date_to_string}}
                 </span><br>
-                {{ post.content | strip_html | truncatewords:75 }}
+                {{ post.content | truncatewords:75 }}
               </section>
             </div>
             <hr>
