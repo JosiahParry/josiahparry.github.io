@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: post
 ---
 
 # Cleaning & Joining Counters
-Josiah Parry  
+Josiah Parry
 
 
 This will go through the cleaning and joining process for **LRPC** 2013 and 2014 data.
@@ -25,10 +25,10 @@ counts_14 <- list_dat_dirs("/Volumes/GIS/LRPC/2014") %>% read_counters(n_skip = 
 Next these data need to be associated to their counter locations / associated data from `lrpc`. The common field to be joined on is the counter field. However in the `lrpc` file the field name is `COMBNUMS` and both `counts_13` and `counts_14`, the field name is `counter`.
 
 ```r
-full_counts_13 <- left_join(counts_13, lrpc, by = c("counter" = "COMBNUMS")) %>% 
+full_counts_13 <- left_join(counts_13, lrpc, by = c("counter" = "COMBNUMS")) %>%
   distinct(counter, date_time, total, .keep_all = T)
 
-full_counts_14 <- left_join(counts_14, lrpc, by = c("counter" = "COMBNUMS")) %>% 
+full_counts_14 <- left_join(counts_14, lrpc, by = c("counter" = "COMBNUMS")) %>%
   distinct(counter, date_time, total, .keep_all = T)
 ```
 Now these should be saved to text files.
