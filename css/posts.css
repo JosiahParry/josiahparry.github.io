@@ -433,4 +433,6 @@ pre code, pre tt {
   background-color: #FFE3AD;
   padding: 15px;
   font-weight: 400;
+  position: fixed;
+  bottom: 0;
 }
