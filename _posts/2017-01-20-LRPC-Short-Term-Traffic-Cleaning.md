@@ -80,6 +80,7 @@ lrpc_roads$COMBNUMS <- lrpc_roads$COMBNUMS %>% stringr::str_replace_all(":", "")
 
 Preview the newly formatted `lrpc_roads$COMBNUMS`:
 
+
 ```r
 head(lrpc_roads$COMBNUMS, n = 20)
 ```
@@ -90,7 +91,9 @@ head(lrpc_roads$COMBNUMS, n = 20)
 ## [13] "62163052" "82171054" "62271051" "82343044" "82343064" "61343002"
 ## [19] "61343001" "81343061"
 ```
+
 Now time to reformat the column titles:
+
 
 ```r
 colnames(lrpc_roads) <- colnames(lrpc_roads) %>% stringr::str_replace("_", "")
@@ -146,12 +149,15 @@ head(lrpc_roads, n = 20)
 ```r
 #write_csv(lrpc_roads, "../data/lrpc_counters.csv")
 ```
+
+
 # Cleaning Raw Short Term Count Data
 
 This section will go through the functions I used to clean raw short term count data collected for the *LRPC*. These data were manually exported as ASCII comma separated text files and organized into directories prior to the cleaning process.
 
 
 ## `list_dat_dirs()`
+
 During my first run through of cleaning the raw counter data I had to write down the file path of each raw count folder (or directory). In order to make this easier in the future I created the function `list_dat_dirs()`, or **list data directories**. The goal of this is to automate the collection of file path names. 
 
 The function is written as follows:
@@ -164,10 +170,14 @@ list_dat_dirs <- function(dir, extension = "RAW", case_sensitive = FALSE) {
                                         fixed(extension, ignore_case = case_sensitive))]
 }
 ```
+
+
 ### Nuances
+
 This function will list all directories within a root directory with a specified ending extension. There are a few nuances (bugs, rather) of this function. The most important is that the target directories (those with the raw counts) should contain **only** raw count files; other nuances will be elaborated on in the following sections. 
 
 ### Function Arguments
+
 **`dir`**: *Short for directory*
 This is the path name of root directory that contains sub-directories of counts. The directory path name should be in quotations. 
 
@@ -180,6 +190,7 @@ The default extension name is `"RAW"` due to the formatting of data on my hard d
 A logical argument that determines if the function should look for directories with, or without respect to case sensitivity; the default if `FALSE`.
 
 ### Example
+
 This example will demonstrate the output / uses of the function. This example will draw directly from the raw counter cleaning I have done.
 
 ```r
@@ -274,6 +285,7 @@ The number of lines to skip before reading in the **csv**. The default is `n_ski
 3a. Feed raw count directory paths to `read_counters()`
 
 ### Case study
+
 I will review how I cleaned 2013 data using the above functions.
 
 I manually converted raw counts from **TraxPro** to `.txt` comma separate files and organized them into sub-directories. The file structure looks like `ROOT > YEAR > WEEK > RAW`: where there are multiple years of data in the root directory, in my case, `2013 and 2014`. Each year has a number of weeks that data was collected, and within each week folder there is another folder containing the raw count data in a `.txt` file. 
