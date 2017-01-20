@@ -1,0 +1,94 @@
+
+.location {
+  display: block;
+  font-weight: 600;
+  font-size: 16pt;
+  padding-bottom: 3px;
+}
+
+h2 {
+  margin-bottom: 5px
+}
+
+h3, h4 {
+  margin-bottom: 3px;
+  margin-top: 0px;
+}
+
+
+.description {
+  margin-top: 5px;
+  text-align: justify;
+}
+.position {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 14pt;
+}
+.position::after {
+  content: " //"
+}
+
+.date {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 12pt;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #749BBC;
+}
+
+.description a {
+  font-weight: 500;
+  line-height: 160%;
+}
+
+.location a:hover {
+  font-size: 18pt;
+}
+
+.description a:hover{
+  font-size: 13pt;
+}
+
+#experience {
+  width: 60%;
+  float: left;
+  padding-left: 5%;
+}
+
+#etc {
+  width: 27.5%;
+  float: right;
+  padding-right: 5%;
+  line-height: 160%;
+}
+
+#etc p {
+  display: block;
+  margin: 0;
+}
+.minor {
+  font-weight: 500;
+}
+
+#etc .date {
+  font-size: 12pt;
+  font-style: italic;
+}
+
+#etc a {
+  font-weight: 400;
+}
+
+#etc ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}

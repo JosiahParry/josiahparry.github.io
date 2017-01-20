@@ -1,64 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CV</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-  <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/skel.min.js"></script>
-  <script src="js/skel-panels.min.js"></script>
-  <script src="js/init.js"></script>
-  <noscript>
-    <link rel="stylesheet" href="css/skel-noscript.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </noscript>
-  <!--[if lte IE 8]><link rel="stylesheet" href="{{ site.baseurl }}css/ie/v8.css" /><![endif]-->
-  <!--[if lte IE 9]><link rel="stylesheet" href="{{ site.baseurl }}css/ie/v9.css" /><![endif]-->
+  <title>Josiah Parry</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css"/>
+  <link href="css/fa.css" rel="stylesheet" type="text/css"/>
+  <link href="css/cv.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-  <div id="wrapper">
+  <div id="wrap">
 
-    <!-- Header -->
-    <div id="header">
-      <div class="container">
-
-        <!-- Logo -->
-        <div id="logo">
-          <h1><a href="http://linkedin.com/in/josiahparry">Josiah Parry</a></h1>
-          <span>Sociologist in training. R-stats & GIS.</span>
+    <header id="header">
+      <h1><a href="https://linkedin.com/in/josiahparry">
+        Josiah Parry</a>
+      </h1>
+      <span>Sociologist in training. R-stat & GIS</span>
+      <nav id="nav">
+        <ul>
+          <li><a href="https://josiahparry.github.io">
+            Homepage</a>
+          </li>
+          <li><a href="https://josiahparry.github.io/blog">
+            Blog</a>
+          </li>
+          <li class="active"><a href="https://josiahparry.github.io/CV">
+            CV</a>
+          </li>
+          <li><a href="https://linkedin.com/in/josiahparry">
+            LinkedIn</a>
+          </li>
+          <li><a href="https://github.com/josiahparry">
+            GitHub</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div id="experience">
+      <h2 class="cv_cat">Experience</h2>
+        <section>
+          <span class="location first"><a href="https://plymouth.edu">Plymouth State University</a></span>
+          <span class="position">Teaching Assistant & Tutor</span>
+          <span class="date">September 2016 - Present</span>
+          <p class="description">Teaching Assistant for Intro to Geographic Information Systems. I assist students with in class assignments and hold out of class tutoring hours where I assist with individual and class projects.</p>
+        </section>
+        <section>
+          <span class="location"><a href="https://datacamp.com">DataCamp</a></span>
+          <span class="position">Content Development Intern</span>
+          <span class="date">May - September 2016</span>
+          <p class = "description">Collaborated in the development of <a href="https://www.datacamp.com/courses/introduction-to-portfolio-analysis-in-r">Introduction to Portfolio Analysis</a>, <a href="https://www.datacamp.com/courses/manipulating-time-series-data-in-r-with-xts-zoo">Manipulating Time Series Data in R with xts & zoo</a>, and <a href="https://www.datacamp.com/courses/financial-trading-in-r">Financial Trading in R</a>. Developed course exercises, content, and facilitated accessibility. Extended in-house R package by creating custom functions for cleaning and accessing database content.</p>
+        </section>
+        <section>
+          <span class="location">Landscape Value Assessment [PPGIS] Study</span>
+          <span class="position">Student Researcher</span>
+          <span class="date">September 2015 - May 2016</span>
+          <p class="description">I, with the aid of two Plymouth State faculty conducted a pilot study to test the efficacy of public participatory GIS (PPGIS). Was conducted in collaboration with the <a href="http://newfoundlake.org/"> Newfound Lake Region Association (NLRA)</a>. Insights in regards to percieved threats, conservation priorities, and locations for development are being used by the NLRA in their public outreach strategies.</p>
+        </section>
+        <section>
+          <span class="location"><a href="http://www.asa.org/">American Student Assitance</a></span>
+          <span class="position">Salesforce Aministrator Intern</span>
+          <span class="date">January - May 2016</span>
+          <p class="description">Through agile project management I developed new <a href="https://salesforce.com">Salesforce</a> sales pipelines for their <a href="https://www.saltmoney.org/index.html">SALT</a> program. This involved creating objects, triggers, dashboards, reports, and general administration. Report building required advanced SOQL queries.
+        </section>
+        <section>
+          <span class="location"><a href="https://www.tardisk.com/">TarDisk LLC</a></span>
+          <span class="position">Media & Marketing Intern</span>
+          <span class="date">January - March 2015</span>
+          <p class="description">Working out of the Harvard Innovation Labs, I, along with the two founders of TarDisk, prepared the company launch. I designed, coordinated and executed their <a href="https://www.kickstarter.com/projects/tardisk/tardisk-256gb-macbook-storage-expansion-module">Kickstarter</a> campaign (which became a staff pick). The campaign raised $128 thousand dollars ($32k goal), recieved $100k of credit from Google and led to an attempted acquisition by <a href="https://Dropbox.com">Dropbox</a>.</p>
         </div>
+    <div id="etc">
+      <h2 id="education">Education</h2>
+        <h3 class="location">B.A.</h3>
+        <h4>Plymouth State University</h4>
+        <span class="date">Fall&nbsp2014 - Expected&nbspFall&nbsp2017</span>
+        <p><span class="minor">Major</span>:Anthropology&nbsp&&nbspSociology</p>
+        <p><span class="minor">Minor</span>:General Mathematics</p>
+        <p><span class="minor">Certificate</span>:Geographic Information&nbspSystems</p>
 
-        <!-- Nav -->
-        <nav id="nav">
-          <ul>
-            <li><a href="https://josiahparry.github.io">Homepage</a></li>
-            <li><a href="https://josiahparry.github.io/blog/index.html">Blog</a></li>
-            <li class="active"><a href="https://josiahparry.github.io/cv.html">CV</a></li>
-            <li><a href="http://linkedin.com/in/josiahparry">LinkedIn</a></li>
-            <li><a href="http://github.com/josiahparry">Github</a></li>
-          </ul>
-        </nav>
-      </div>
+      <h2 class="cv_cat">Scholarship</h2>
+        <ul>
+          <li><a href="http://nestval2016.ubishops.ca/"> NESTVAL Conference Presenter (Oct. 2016)</a></li>
+          <li>Showcase of Excellence (Spring 2016)</li>
+          <li>Best in Sociology (Spring 2016)</li>
+          <li>Deans List (Fall 2015)</li>
+          <li>Best in Sociology (Spring 2015)</li>
+          <li>Principals Merit Scholar (2014-2018)</li>
+        </ul>
+
+      <h3 class="skills">Skills</h3>
+        <ul class="skills">
+          <li>R-Programming</li>
+          <li>Machine Learning</li>
+          <li>GIS & Remote Sensing</li>
+          <li>Statistics</li>
+          <li>Quantitative Research</li>
+          <li>Salesforce</li>
+          <li>Git & Project Versioning</li>
+          <li>Natural Language (NLP)</li>
+          <li>Adobe Creative Suite</li>
+        </ul>
     </div>
-    <!-- /Header -->
-    <!-- Content -->
-    <h2>Experience</h2>
-    <h2>Education</h2>
-    <h2>Scholarship</h2>
-    <h3>Skills</h3>
 
 
-    <!-- /Content -->
 
-    <div id="copyright">
-      <div class="container">
-        Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
-      </div>
-    </div>
-
-    </div>
-  </body>
+  </div>
+</body>
 </html>
