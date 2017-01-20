@@ -24,17 +24,6 @@ a {
   padding-bottom: 2%;
 }
 
-#single_post {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 4%;
-  padding-right: 4%;
-  padding-bottom: 2%;
-}
-
-
-
 
 <script src="https://gist.github.com/tuzz/3331384.js"></script>
 
@@ -427,4 +416,13 @@ pre code, pre tt {
 
 .ruler {
   height: 4px;
+}
+
+#single_post {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 2%;
 }
