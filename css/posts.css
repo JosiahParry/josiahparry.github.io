@@ -1,6 +1,9 @@
 .post a {
   color: inherit;
-  text-decoration: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 #wrap .fluid-row {
