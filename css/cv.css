@@ -94,3 +94,12 @@ a:hover {
   list-style: none;
   padding: 0;
 }
+
+#etc h4 a {
+  font-weight: 600;
+}
+#projects {
+  clear: left;
+  padding-left: 5%;
+  padding-right: 5%;
+}
