@@ -99,6 +99,7 @@ a:hover {
   font-weight: 600;
 }
 #projects {
+  width: 60%;
   clear: left;
   padding-left: 5%;
   padding-right: 5%;
