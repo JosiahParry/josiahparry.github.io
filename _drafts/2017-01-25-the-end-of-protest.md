@@ -24,21 +24,24 @@ output:
  - > "...potential campaign issues where a small amount of pressure could yield exponential force." p. 47
    - Note: Seems that our current political system is not chaotic. However, there may be a way to enable (think a dummy variable) chaos within the body politic.
      - Meta-note: Chaos as in a chaotic system, not anarchy.
-  - > "The only way to really know for sure what causes a social revoluton to succeed is to provoke events and watch them flicker, fade of ignite." p.51
 
-       - Successful protest is agile. Iteration is a counter to the slow nature of a bureaucracy (government), as protest can avoid formalities. Slowness is good though. Slowness is what allows laws to be enacted for the long run, and prevent them from being repealed quickly. Slowness in a bueaucracy protects rights and enables protest.
+- > "The only way to really know for sure what causes a social revoluton to succeed is to provoke events and watch them flicker, fade of ignite." p.51
+
+     - Successful protest is agile. Iteration is a counter to the slow nature of a bureaucracy (government), as protest can avoid formalities. Slowness is good though. Slowness is what allows laws to be enacted for the long run, and prevent them from being repealed quickly. Slowness in a bueaucracy protects rights and enables protest.
 
 ### Ch. 6: The Point of Protest
+
   - > "Activism is crucial to a healthy society because revolutions drive social progress." p. 54
 
-      - Peaceful activism is a sign of a healthy democracy. I argue that it illustrates a body politic that is able to speak out for social change without fear of violent revolt. When peaceful activisim is enabled, legislators are, by virtue of a healthy democracy, reactive through dialogue and hopefully, legislature.
-      - > *Those who make peaceful revolution impossible will make violent revolution inevitable.* - J. F. Kennedy
+    - Peaceful activism is a sign of a healthy democracy. I argue that it illustrates a body politic that is able to speak out for social change without fear of violent revolt. When peaceful activisim is enabled, legislators are, by virtue of a healthy democracy, reactive through dialogue and hopefully, legislature.
+      - > *Those who make peaceful revolution impossible will make violent revolution inevitable.* - J. F. Kennedy p. 54
 
   - > "Revolutions that come from the people, and wars started by governments, involve a similar process of ideological stimulation and social deprogramming designed to heal society through abnormal collective action." p. 58
 
     - Goal of revolution and protest is to prosperity of humanity. Revolution strives for a humanitarian end, though it shall never be achieved.
 
 ### Ch. 7: A Unified Theory of Revolution
+
   - > "A repressive status quo functions by promulgating broken theoriesof change, thereby disconnecting the link between protest and change so that our actions will fail and our time will be squandered." p. 72
   - > "...indicated six ... factors [that] had a significant impact on the success of protests groups. The factors were (1) bureaucratization, (2) centralization, (3) use of selective incentives, (4) use of violence, (5) recipience of violence, and (6) factionalism." p. 78
   - > "Revolution is impossible without a national crisis affecting both the exploted and the exploiters." - Lenin p.85
@@ -94,7 +97,7 @@ output:
   - > "Revolutions, however, do happen and have happened many times in history. You are in the midst of one right now." p. 256
 
     - If we are always revolting, there will be no peace. This premise is self defeating. The question should no longer be of revolution, but of maintenance and adjustment.
-    
+
 _________
 
 White's goal is a planetary peaceful democracy. Do I hear the start of a new Star Wars confederate? How can we maintain order of such a mass? Is the opportunity of protest and revolution a sign of a healthy democracy? It may help us heal our wounds without the need of a violent revolution. The sign of a healthy democracy is the ability to moderate the people via the people, not via authority.
