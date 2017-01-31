@@ -1,9 +1,6 @@
 # Tidy your employee data
-Josiah Parry  
-November 17, 2016  
+ 
 This notebook was used to help a fellow redditor with their data issues. 
-
-
 Hey there! I think this document might be the best way to help you out so you can see how I'm thinking through this. First and foremost there are two packages that you will need to use, these being from the [tidyverse](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/). Chances are you have heard of the *tidyverse*, and you will probably not stop hearing about it. It's essentially a set of packages created by [Hadley Wickham](http://hadley.nz/), [Garret Grolemund](https://github.com/garrettgman) (both from R-Studio), [David Robinson](https://github.com/dgrtwo), and others with a set of [tidy principles](http://vita.had.co.nz/papers/tidy-data.pdf).
 
 First and foremost load the packages you need: 
