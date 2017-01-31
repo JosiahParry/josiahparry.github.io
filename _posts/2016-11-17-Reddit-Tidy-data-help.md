@@ -1,9 +1,9 @@
 # Tidy your employee data
- 
-This notebook was used to help a fellow redditor with their data issues. 
-Hey there! I think this document might be the best way to help you out so you can see how I'm thinking through this. First and foremost there are two packages that you will need to use, these being from the [tidyverse](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/). Chances are you have heard of the *tidyverse*, and you will probably not stop hearing about it. It's essentially a set of packages created by [Hadley Wickham](http://hadley.nz/), [Garret Grolemund](https://github.com/garrettgman) (both from R-Studio), [David Robinson](https://github.com/dgrtwo), and others with a set of [tidy principles](http://vita.had.co.nz/papers/tidy-data.pdf).
 
-First and foremost load the packages you need: 
+This notebook was used to help a fellow redditor with their data issues.
+Hey there! I think this document might be the best way to help you out so you can see how I'm thinking through this. First and foremost there are two packages that you will need to use, these being from the [tidyverse](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/). Chances are you have heard of the *tidyverse*, and you will probably not stop hearing about it. It's essentially a set of packages created by [Hadley Wickham](http://hadley.nz/), [Garret Grolemund](https://github.com/garrettgman) (both from R-Studio), [David Robinson](https://github.com/dgrtwo), and others with a set of [tidy principles](http://vita.had.co.nz/papers/tidy-data.pdf).
+<!--split-->
+First and foremost load the packages you need:
 
 ```r
 library(tidyr)
@@ -57,11 +57,11 @@ head(tbl2)
 ```
 ###Tidying
 
-Now on to the fun part, **tidying**. Your second table has a few things going on. Your column headers are actually a factor level you want within another *variable* called `department`. In order to arrage these data to match the long & tidy format of your first table, you will need to use the function `gather()` from the `tidyr` package. 
+Now on to the fun part, **tidying**. Your second table has a few things going on. Your column headers are actually a factor level you want within another *variable* called `department`. In order to arrage these data to match the long & tidy format of your first table, you will need to use the function `gather()` from the `tidyr` package.
 
 #### gather() function
 
-The gather function takes a number of arguments. As an aside, I always have to go back to my notes on `gather()` and `spread()` tidying functions. The first argument needed is `data`, but I personally think it is best practice to **pipe** in the data argument using the *pipe operator* (`%>%`). The pipe essentially sends the data from left to right. Next is the name of the variable that is currently the column headers, in this case `department` (this is referred in the documentation as the `key`). Following the `key` argument is the `value` argument, which are the values underneath the keys (in your case `earnings`). Lastly we need to specify which columns to gather on. For your case I specified everything **BUT** the `date` variable. 
+The gather function takes a number of arguments. As an aside, I always have to go back to my notes on `gather()` and `spread()` tidying functions. The first argument needed is `data`, but I personally think it is best practice to **pipe** in the data argument using the *pipe operator* (`%>%`). The pipe essentially sends the data from left to right. Next is the name of the variable that is currently the column headers, in this case `department` (this is referred in the documentation as the `key`). Following the `key` argument is the `value` argument, which are the values underneath the keys (in your case `earnings`). Lastly we need to specify which columns to gather on. For your case I specified everything **BUT** the `date` variable.
 
 
 ```r
@@ -84,16 +84,16 @@ head(tbl2_long)
 ```
 
 #### Inconsistent Data
-Now if you look at both of your tables you may notice that your second data frame doesn't contain information about your employees. So combining these data will corrupt your individual employee performance. So the best option I see is to summarize each table by **Department**. In addition to this problem, the `earnings` for the second table are stored as *strings*, and you can't sum up the alphabet, so that will have to converted into a numeric. 
+Now if you look at both of your tables you may notice that your second data frame doesn't contain information about your employees. So combining these data will corrupt your individual employee performance. So the best option I see is to summarize each table by **Department**. In addition to this problem, the `earnings` for the second table are stored as *strings*, and you can't sum up the alphabet, so that will have to converted into a numeric.
 
 Assuming that there will be multiple dates in these tables, the tables will be grouped by **Department & Date**.
 
 I used some handy functions from `dplyr` package to create the summary tables.
 
 ```r
-tbl1_depts <- tbl1 %>% 
+tbl1_depts <- tbl1 %>%
                        group_by(department, date) %>% # Groups by department first, then date
-                       summarize(number_employees = n(), # number employes is the number of times Dept# Occurs 
+                       summarize(number_employees = n(), # number employes is the number of times Dept# Occurs
                                  calls_made = sum(calls_made), # The total number of calls made by each employee
                                 training_time = sum(training_time)) # The sum ammount of training time for all employees
 
@@ -103,7 +103,7 @@ head(tbl1_depts)
 ```
 ## Source: local data frame [3 x 5]
 ## Groups: department [3]
-## 
+##
 ##   department     date number_employees calls_made training_time
 ##        <chr>    <chr>            <int>      <dbl>         <dbl>
 ## 1      Dept1 01-01-16                2        150            10
@@ -111,25 +111,25 @@ head(tbl1_depts)
 ## 3      Dept3 01-01-16                1         85             5
 ```
 
-Cleaning the second table required changed `earnings` into a numeric. The `stringr` package is a helpful package from the **tidyverse** to clean strings. 
+Cleaning the second table required changed `earnings` into a numeric. The `stringr` package is a helpful package from the **tidyverse** to clean strings.
 
 ```r
 library(stringr)
 
-tbl2_long$earnings <- tbl2_long$earnings %>% 
+tbl2_long$earnings <- tbl2_long$earnings %>%
                         str_replace_all("\\$", "") %>% # "\\" are escape characters makes "$" detectable
                         as.numeric() # Converts strings into numerics
 ```
 Then rinse and repeat the summary for the second table. The only difference are the fields used.
 
 ```r
-tbl2_depts <- tbl2_long %>% 
-                        group_by(department, date) %>% 
+tbl2_depts <- tbl2_long %>%
+                        group_by(department, date) %>%
                         summarize(earnings = sum(earnings))
 ```
 
 ### Merging
-This is extremely easy with the use of the **dplyr** package. We will use an `inner_join()`. Inner joins return all columns from both data, where there are matching observations in both tables (referred to as *x and y*). 
+This is extremely easy with the use of the **dplyr** package. We will use an `inner_join()`. Inner joins return all columns from both data, where there are matching observations in both tables (referred to as *x and y*).
 
 I personally prefer a `full_join()` because it will preserve `NA`s. However the outcome is the same for these tables.
 
@@ -143,7 +143,7 @@ tbl_full
 ```
 ## Source: local data frame [3 x 6]
 ## Groups: department [?]
-## 
+##
 ##   department     date number_employees calls_made training_time earnings
 ##        <chr>    <chr>            <int>      <dbl>         <dbl>    <dbl>
 ## 1      Dept1 01-01-16                2        150            10      225
@@ -152,4 +152,3 @@ tbl_full
 ```
 
 #### I hope that was helpful!
-

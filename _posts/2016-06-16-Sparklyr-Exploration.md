@@ -1,11 +1,11 @@
 # sparklyr Exploration: Kmeans, Linear & Logistic Regression
-Josiah Parry  
 
-This document will explore some of the basic machine learning functions of MLlib interface in the new package *sparklyr* from **RStudio** that was just announced yesterday (6/29/16) at the *useR* conference! The *sparklyr* package also provides for an interface to use *dplyr* as well. 
+This document will explore some of the basic machine learning functions of MLlib interface in the new package *sparklyr* from **RStudio** that was just announced yesterday (6/29/16) at the *useR* conference! The *sparklyr* package also provides for an interface to use *dplyr* as well.
+ <!--split-->
 
 ### Installing and preparing sparklyr
 
-The following lines of code will install *sparklyr* and the lastest version of spark. sparklyr works with a full integration of the *dplyr* package. 
+The following lines of code will install *sparklyr* and the lastest version of spark. sparklyr works with a full integration of the *dplyr* package.
 
 
 ```r
@@ -16,7 +16,7 @@ library(dplyr)
 
 # install spark
 spark_install(version = "1.6.2")
-# Connecting to spark using spark_connect, on a local connection. 
+# Connecting to spark using spark_connect, on a local connection.
 sc <- spark_connect(master = "local")
 ```
 
@@ -24,14 +24,14 @@ sc <- spark_connect(master = "local")
 
 This will be an example of using Spark's linear regression model on the classic wine quality data set. The code will compare the output from *sparklyr* and the base R `lm()` function.
 
-This regression will try to predict wine quality based on its pH, alcohol, density, and wine type. 
+This regression will try to predict wine quality based on its pH, alcohol, density, and wine type.
 
 
 ```r
 # Loading local data
 wine <- read.csv("wine_classification.csv")
 # The copy_to function copys the local data frame to a spark data table
-wine_tbl <- copy_to(sc, wine) 
+wine_tbl <- copy_to(sc, wine)
 
 # Set a seed
 set.seed(0)
@@ -44,7 +44,7 @@ Let's first create our model using Spark's linear regression.
 fit <- wine_tbl %>% ml_linear_regression(response = "quality",
                                          features = c("pH", "alcohol", "density", "type"))
 ```
-Note that this throws an error *"... does not support the StringType type..."*. In order to fit the regression model we need to conver `type` into binary using dummy variable. Since there are only 2 factor levels, we only need 1 dummy variable. I will do this using *dplyr* and an ifelse statement. 
+Note that this throws an error *"... does not support the StringType type..."*. In order to fit the regression model we need to conver `type` into binary using dummy variable. Since there are only 2 factor levels, we only need 1 dummy variable. I will do this using *dplyr* and an ifelse statement.
 
 
 ```r
@@ -62,7 +62,7 @@ Now that we have created a working linear regression model usin Spark, lets crea
 
 
 ```r
-# creating lm using base functions 
+# creating lm using base functions
 fit_base <- lm(quality ~ pH + alcohol + density + white, data = wine_tbl)
 ```
 Now its time to compare the output of these models.
@@ -80,13 +80,13 @@ Call:
 quality ~ pH + alcohol + density + white
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--3.09370 -0.50118  0.02525  0.50473  3.48359 
+     Min       1Q   Median       3Q      Max
+-3.09370 -0.50118  0.02525  0.50473  3.48359
 
 Coefficients:
-               Estimate  Std. Error  t value  Pr(>|t|)    
+               Estimate  Std. Error  t value  Pr(>|t|)
 (Intercept)  30.2243682   5.5927285   5.4042 6.811e-08 ***
-pH           -0.0083494   0.0724080  -0.1153    0.9082    
+pH           -0.0083494   0.0724080  -0.1153    0.9082
 alcohol      -0.3607972   0.0130215 -27.7077 < 2.2e-16 ***
 density     -22.1625961   5.4908946  -4.0362 5.513e-05 ***
 white        -0.2221567   0.0335749  -6.6168 4.057e-11 ***
@@ -100,13 +100,13 @@ Call:
 lm(formula = quality ~ pH + alcohol + density + white, data = wine_tbl)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--3.0937 -0.5012  0.0253  0.5047  3.4836 
+    Min      1Q  Median      3Q     Max
+-3.0937 -0.5012  0.0253  0.5047  3.4836
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
+              Estimate Std. Error t value Pr(>|t|)
 (Intercept)  30.224368   5.592729   5.404 6.81e-08 ***
-pH           -0.008349   0.072408  -0.115    0.908    
+pH           -0.008349   0.072408  -0.115    0.908
 alcohol      -0.360797   0.013022 -27.708  < 2e-16 ***
 density     -22.162596   5.490895  -4.036 5.51e-05 ***
 white        -0.222157   0.033575  -6.617 4.06e-11 ***
@@ -114,7 +114,7 @@ white        -0.222157   0.033575  -6.617 4.06e-11 ***
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.7736 on 4995 degrees of freedom
-Multiple R-squared:  0.2119,	Adjusted R-squared:  0.2113 
+Multiple R-squared:  0.2119,	Adjusted R-squared:  0.2113
 F-statistic: 335.8 on 4 and 4995 DF,  p-value: < 2.2e-16
 ```
 
@@ -131,7 +131,7 @@ wine <- wine %>% mutate(white = ifelse(type == "White", 1, 0))
 # Create k-means using base
 base_kmeans <- kmeans(wine[, c("quality", "pH", "alcohol", "density", "white")], 3, iter.max = 10)
 ```
-Now that we have created our base k-mean clusters, lets see how they compare to the Spark k-means function. 
+Now that we have created our base k-mean clusters, lets see how they compare to the Spark k-means function.
 
 
 ```r
@@ -144,7 +144,7 @@ Now that we have our models, lets compare their outputs.
 
 
 ```r
-# Time to compare the centers 
+# Time to compare the centers
 # creating data frame from kmeans centers
 base_centers <- data.frame(base_kmeans$centers)
 
@@ -173,18 +173,18 @@ The differences in the centers are quite minimal, perhaps due to randomness or d
 
 ### Logistic Regression
 
-For this demonstration I will use the same data set that is used in the **Intro to Credit Risk Modeling in R** from **DataCamp**. The course uses logistic regression to predict default rates. We will create a similar model using the base `glm()` function, and the MLlib logit model function `ml_logistic_regression()`. 
+For this demonstration I will use the same data set that is used in the **Intro to Credit Risk Modeling in R** from **DataCamp**. The course uses logistic regression to predict default rates. We will create a similar model using the base `glm()` function, and the MLlib logit model function `ml_logistic_regression()`.
 
 The model I will create will predict loan status, based on the loan ammount, age of borrower, and their employment duration. Loan status is binary where **1** is a default and **0** is a non-default.
 
 Now lets load our data:
 
 ```r
-# load the data 
+# load the data
 loan_data <- readRDS("loan_data.rds")
 loan_data_tbl <- copy_to(sc, loan_data) # copying it to spark
 ```
-Printed are the first 10 rows. 
+Printed are the first 10 rows.
 
 ```r
  loan_status loan_amnt int_rate grade emp_length home_ownership annual_inc   age
@@ -218,17 +218,17 @@ Job aborted due to stage failure: Task 1 in stage 9.0 failed 1 times, most recen
 ```
 After a bit of playing around with this model and building it from the base up, it turns out that the function just doesn't seem to like the variable. I then changed the 3rd predictor to be `annual_inc`. The only difference between these two variables are the type. `emp_length` is of the class double, whereas `annual_inc` is of the class integer. I feel as this is a quite cumbersome aspect of `ml_logistic_regression()` function. Perhaps this points to some other underlying processes of Spark that I am not aware of.
 
-Now I will create another Spark model using `annual_inc` in the place of `emp_length`. Because of this, I will create another base model using the same predictors to make sure that we can compare the models. 
+Now I will create another Spark model using `annual_inc` in the place of `emp_length`. Because of this, I will create another base model using the same predictors to make sure that we can compare the models.
 
 ```r
-spark_logit_ann_inc <- ml_logistic_regression(loan_data_tbl, response = "loan_status", 
+spark_logit_ann_inc <- ml_logistic_regression(loan_data_tbl, response = "loan_status",
                                               features = c("loan_amnt","age", "annual_inc"))
 
 # Recreate glm() using same predictors as spark logit
-base_logit_ann_inc <- glm(loan_status ~ loan_amnt + age + annual_inc, family = binomial, 
+base_logit_ann_inc <- glm(loan_status ~ loan_amnt + age + annual_inc, family = binomial,
                           data = loan_data_tbl)
 ```
-Since both models have been created, I would like to compare the outputs of them. Intuitively I use the function `summary()` to see the outputs of my model. 
+Since both models have been created, I would like to compare the outputs of them. Intuitively I use the function `summary()` to see the outputs of my model.
 
 ```r
 summary(base_logit_ann_inc)
@@ -240,18 +240,18 @@ summary(spark_logit_ann_inc)
 > summary(base_logit_ann_inc)
 
 Call:
-glm(formula = loan_status ~ loan_amnt + age + annual_inc, family = binomial, 
+glm(formula = loan_status ~ loan_amnt + age + annual_inc, family = binomial,
     data = loan_data_tbl)
 
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--0.5702  -0.5119  -0.4855  -0.4413   3.6706  
+Deviance Residuals:
+    Min       1Q   Median       3Q      Max
+-0.5702  -0.5119  -0.4855  -0.4413   3.6706
 
 Coefficients:
-              Estimate Std. Error z value Pr(>|z|)    
+              Estimate Std. Error z value Pr(>|z|)
 (Intercept) -1.661e+00  9.227e-02 -17.998  < 2e-16 ***
-loan_amnt    9.025e-06  3.330e-06   2.710  0.00672 ** 
-age         -4.717e-03  3.125e-03  -1.510  0.13117    
+loan_amnt    9.025e-06  3.330e-06   2.710  0.00672 **
+age         -4.717e-03  3.125e-03  -1.510  0.13117
 annual_inc  -5.991e-06  6.149e-07  -9.743  < 2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
@@ -269,8 +269,8 @@ Call:
 loan_status ~ loan_amnt + age + annual_inc
 
 Coefficients:
-  (Intercept)     loan_amnt           age    annual_inc 
--1.660598e+00  9.025112e-06 -4.716760e-03 -5.990944e-06 
+  (Intercept)     loan_amnt           age    annual_inc
+-1.660598e+00  9.025112e-06 -4.716760e-03 -5.990944e-06
 ```
 
-Immediately there is one key difference. The summary of the spark model only shows us the coefficients! On intitial glance, it looks as if the base function has a more robust output. However on further inspection, the spark model creates an output that holds the features (predictors), response variable, coefficients, ROC, and AUC. The key differences here are that the base model doesn't calculate ROC, and AUC. Also, in contrast, the Spark model doesn't create an output for significance levels and measures of deviance; these measures are arguably more important. 
+Immediately there is one key difference. The summary of the spark model only shows us the coefficients! On intitial glance, it looks as if the base function has a more robust output. However on further inspection, the spark model creates an output that holds the features (predictors), response variable, coefficients, ROC, and AUC. The key differences here are that the base model doesn't calculate ROC, and AUC. Also, in contrast, the Spark model doesn't create an output for significance levels and measures of deviance; these measures are arguably more important.

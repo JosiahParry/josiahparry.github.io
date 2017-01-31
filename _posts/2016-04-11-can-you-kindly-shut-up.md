@@ -5,6 +5,8 @@ subtitle: My struggle trying to hear myself think.
 
 I’m told that not moving your mouth to the words you are reading is the sign of a good reader. Good readers are able to recognize the symbols and interpret them directly without a second level of interaction.
 
+<!--split-->
+
 I believe myself to be a competent reader. I read quickly and thoroughly, sometimes. I am one of those readers that moves their mouth to the words. Not to understand, but to hear them. I struggle with this. People can look at words on a page and read effortlessly. I am not this way. I put eyes to paper and I see the shape of the letters, arrangement of the words, distribution of the paragraphs, the font style and the kerning. I hear the words of the barista to my right, I hear the tap of the foot on barstool — a beat to a rhythm, a rhythm I want to hear — , I hear the low hum of the refrigerator.
 
 Damnit! I don’t see the meaning, I don’t hear the words. I read out loud to myself often to make the world around me shut up. To create my own internal quiet by hearing my voice above the rest of the sounds. I inhale breath and exhale words, and somewhere in-between I hope to hear them and understand them.

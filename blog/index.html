@@ -22,7 +22,7 @@ title: Blog
                 <span class="post-date">
                   {{ post.date | date_to_string}}
                 </span><br>
-                {{ post.content | split: "<p>" | first }}<p><a href="{{ post.url }}">...continued.</a></p>
+                {{ post.content | split: "<!--split-->" | first }}<p><a href="{{ post.url }}">...continued.</a></p>
               </section>
             </div>
             <hr class="ruler">
