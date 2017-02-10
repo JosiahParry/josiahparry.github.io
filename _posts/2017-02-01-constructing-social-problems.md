@@ -1,6 +1,7 @@
 ---
 title: Critical Constructivism
 subtitle: Constructing Social Problems
+thumbnail: "http://josiahparry.com/images/favicon.png"
 ---
 
 
@@ -19,7 +20,7 @@ One question that arises for all phenomena is when does a phenomenon become a so
 |    |    |    |    |    |
 +----+----+----+----+----+
 ```
-
+<!--split-->
 We ask: When does the phenomenon become a social problem? Where do you draw the line? Inherently there is a problem as the word *problem* is a value judgement. However we can define it as **a phenomenon regarded as bad or undesireable by a *significant* number of people who mobilize to alleviate it**. Another problem is the value judgement involved in the employment of the word **significant**.
 
 Thus a visualization of a social problem might look like this:

@@ -1,8 +1,9 @@
 ---
-subtitle: Expediting your R & QGIS workflow
+title: "Writing CSVTs for QGIS in R"
+subtitle: "Expediting your R & QGIS workflow"
 ---
 
-Much of my *GIS* work is done in *R* by aggregating and summarizing data sets using the data manipulation tools offered by the tidyverse. However, I have always faced one troubling problem with [**QGIS**](https://www.google.com/search?q=qgis&oq=qgis&aqs=chrome.0.0l2j69i59j0j69i60j0.902j0j4&sourceid=chrome&ie=UTF-8). In order for **QGIS** to understand what type of fields are provided in a text delimited file, it needs an accompanying text file known as a **csvt**. **csvt**s are unique, and I have never seen anything like them in other programs.  The way a **csvt** works is by specifying the type of each field in the text file. For example you might have a file `county_poverty.csv`, and want to associate it to your `county.shp` shapefile in **QGIS**. In order for **QGIS** to read your fields properly, you would need to provide a supplemental file called `county_poverty.csvt`, which might look like `"Integer", "Real", "String", "Date"`.
+Much of my *GIS* work is done in *R* by aggregating and summarizing data sets using the data manipulation tools offered by the tidyverse. However, I have always faced one troubling problem with [**QGIS**](https://www.google.com/search?q=qgis&oq=qgis&aqs=chrome.0.0l2j69i59j0j69i60j0.902j0j4&sourceid=chrome&ie=UTF-8). In order for **QGIS** to understand what type of fields are provided in a text delimited file, it needs an accompanying text file known as a **csvt**. **csvt**s are unique, and I have never seen anything like them in other programs. <!--split--> The way a **csvt** works is by specifying the type of each field in the text file. For example you might have a file `county_poverty.csv`, and want to associate it to your `county.shp` shapefile in **QGIS**. In order for **QGIS** to read your fields properly, you would need to provide a supplemental file called `county_poverty.csvt`, which might look like `"Integer", "Real", "String", "Date"`.
 
 I have alway just gone with the dirty route of opening my text editor and manually entering the field types. Recently I have been needing to many more conversions from **R** to **QGIS**, and it has been bothering me. Like any other programmer with a problem, I spent *a lot of time* to make it a lot shorter in the future.
 
