@@ -1,3 +1,9 @@
+---
+layout: post
+title: Tidying Employee Data
+excerpt: "Using R to understand business data. A quick guide to help a fellow redditor"
+---
+
 # Tidy your employee data
 
 This notebook was used to help a fellow redditor with their data issues.
