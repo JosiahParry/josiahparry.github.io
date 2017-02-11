@@ -25,6 +25,7 @@ github:
 gems :
   - jekyll-assets
   - jekyll-paginate
+  - jekyll-feed
 
 paginate_path: "blog/page:num"
 paginate: 5
