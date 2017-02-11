@@ -4,3 +4,8 @@
 <meta name="twitter:image" content="http://josiahparry.com/images/favicon.png">
 <meta name="twitter:text:title" content="{{ page.title }}">
 <meta name="twitter:text:description" content="{{ page.excerpt }}">
+{% if page.image %}
+  <meta content="{{ page.image }}" property="og:image">
+{% else %}
+  <meta content="http://josiahparry.com/images/favicon.png" property="og:image">
+{% endif %}

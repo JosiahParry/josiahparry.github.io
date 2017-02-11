@@ -3,7 +3,7 @@ title: "Writing CSVTs for QGIS in R"
 subtitle: "Expediting your R & QGIS workflow"
 tags: R
 category: R
-image: http://josiahparry.com/images/favicon.png
+image: http://josiahparry.com/images/r_qgis_puzzle.png
 excerpt: Much of my GIS work is done in R using the tools offered by the tidyverse. However, I have always faced one troubling problem with QGIS."
 ---
 
