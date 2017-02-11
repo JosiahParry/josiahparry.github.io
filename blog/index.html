@@ -13,6 +13,7 @@ title: Blog
         <div>
           <section>
             {% for post in paginator.posts %}
+            {% feed_meta %}
             <div class="post">
               <header>
                 <h2><a href="{{ post.url }}">
