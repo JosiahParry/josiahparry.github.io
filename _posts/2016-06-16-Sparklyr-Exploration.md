@@ -1,5 +1,5 @@
 ---
-tags: R
+category: R
 ---
 
 <meta name="twitter:site" content="@josiahparry">

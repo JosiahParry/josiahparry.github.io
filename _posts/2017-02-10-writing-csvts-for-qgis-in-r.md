@@ -2,7 +2,6 @@
 title: "Writing CSVTs for QGIS in R"
 subtitle: "Expediting your R & QGIS workflow"
 tags: R
-label: R
 category: R
 ---
 <meta name="twitter:card" content="summary">
