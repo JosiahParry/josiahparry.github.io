@@ -1,3 +1,7 @@
+---
+tags: R
+---
+
 <meta name="twitter:site" content="@josiahparry">
 <meta name="twitter:creator" content="@josiahparry">
 <meta name="twitter:image" content="http://josiahparry.com/images/favicon.png">
