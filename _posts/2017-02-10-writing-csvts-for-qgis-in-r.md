@@ -4,6 +4,7 @@ subtitle: "Expediting your R & QGIS workflow"
 tags: R
 category: R
 image: http://josiahparry.com/images/favicon.png
+excerpt: Much of my GIS work is done in R using the tools offered by the tidyverse. However, I have always faced one troubling problem with QGIS."
 ---
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@josiahparry">
