@@ -7,7 +7,7 @@ $(function() {
       loadNewPostsThreshold = 3000;
 
   // Load the JSON file containing all URLs
-  $.getJSON('http://josiahparry.com/blog/all-posts.json', function(data) {
+  $.getJSON('http://josiahparry.com/all-posts.json', function(data) {
     postURLs = data["posts"];
 
     // If there aren't any more posts available to load than already visible, disable fetching
