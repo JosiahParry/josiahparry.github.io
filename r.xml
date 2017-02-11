@@ -20,7 +20,7 @@
 				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
 			</item>
       <section>
-        { content}
+        {{ post. content }}
       </section>
 		{% endfor %}
 	</channel>
