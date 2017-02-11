@@ -1,3 +1,10 @@
+<meta name="twitter:site" content="@josiahparry">
+<meta name="twitter:creator" content="@josiahparry">
+<meta name="twitter:image" content="http://josiahparry.com/images/favicon.png">
+<meta name="twitter:text:title" content="Josiah Parry: Constructing Social Problems">
+<meta name="twitter:text:description" content="This book prompts a few questions: (1) what is the goal of a revolution? (2) What is the goal after a successful revolution? (3) How does one conduct an effective protest or revolution?">
+
+
 # The End of Protest — A Review
 
 I just finished the book [***The End of Protest — A New Playbook for Revolution*** by Micah White](https://endofprotest.com/). I've been nibbling at this book since the spring of 2016. It has provided me with much to think about the political structure and state of the US and the role of the body politic in maintaining an honest democracy.

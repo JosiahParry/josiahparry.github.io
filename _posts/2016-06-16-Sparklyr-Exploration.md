@@ -1,3 +1,9 @@
+<meta name="twitter:site" content="@josiahparry">
+<meta name="twitter:creator" content="@josiahparry">
+<meta name="twitter:image" content="http://josiahparry.com/images/favicon.png">
+<meta name="twitter:text:title" content="Josiah Parry: Sparklyr Exploration">
+<meta name="twitter:text:description" content="This document will explore some of the basic machine learning functions of MLlib interface in the new package *sparklyr* from **RStudio** that was just announced yesterday (6/29/16) at the *useR* conference!">
+
 # sparklyr Exploration: Kmeans, Linear & Logistic Regression
 
 This document will explore some of the basic machine learning functions of MLlib interface in the new package *sparklyr* from **RStudio** that was just announced yesterday (6/29/16) at the *useR* conference! The *sparklyr* package also provides for an interface to use *dplyr* as well.

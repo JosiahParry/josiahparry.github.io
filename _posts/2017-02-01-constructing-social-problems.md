@@ -3,6 +3,12 @@ title: Critical Constructivism
 subtitle: Constructing Social Problems
 thumbnail: "http://josiahparry.com/images/favicon.png"
 ---
+<meta name="twitter:site" content="@josiahparry">
+<meta name="twitter:creator" content="@josiahparry">
+<meta name="twitter:image" content="http://josiahparry.com/images/favicon.png">
+<meta name="twitter:text:title" content="Josiah Parry: Constructing Social Problems">
+<meta name="twitter:text:description" content="A social structure is composed of individuals, groups, institutions and the relationships between them.">
+
 
 
 ## Social Structure
