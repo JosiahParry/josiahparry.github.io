@@ -3,6 +3,7 @@ title: Critical Constructivism
 subtitle: Constructing Social Problems
 thumbnail: "http://josiahparry.com/images/favicon.png"
 ---
+<meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@josiahparry">
 <meta name="twitter:creator" content="@josiahparry">
 <meta name="twitter:image" content="http://josiahparry.com/images/favicon.png">
