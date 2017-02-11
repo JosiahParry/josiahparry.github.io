@@ -2,7 +2,7 @@
 title: "Writing CSVTs for QGIS in R"
 subtitle: "Expediting your R & QGIS workflow"
 ---
-<meta property="og:image" content="http://josiahparry.com/images/favicon.png" />
+<link rel="image_src" href="http://josiahparry.com/images/favicon.png" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@josiahparry">
 <meta name="twitter:creator" content="@josiahparry">
