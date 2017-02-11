@@ -3,6 +3,7 @@ title: "Writing CSVTs for QGIS in R"
 subtitle: "Expediting your R & QGIS workflow"
 tags: R
 category: R
+image: http://josiahparry.com/images/favicon.png
 ---
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@josiahparry">
