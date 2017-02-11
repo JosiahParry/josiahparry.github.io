@@ -9,11 +9,12 @@ title:            Josiah Parry
 tagline:          'A blog for myself, and for you to read.'
 description:      'Josiah Parry.'
 url:              "https://josiahparry.github.io"
-baseurl:           "/"
+baseurl:           ""
 
 
 author:
   name:           'Josiah Parry'
+  twitter: josiahparry
 
 
 # Custom vars
