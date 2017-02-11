@@ -284,3 +284,7 @@ Coefficients:
 ```
 
 Immediately there is one key difference. The summary of the spark model only shows us the coefficients! On intitial glance, it looks as if the base function has a more robust output. However on further inspection, the spark model creates an output that holds the features (predictors), response variable, coefficients, ROC, and AUC. The key differences here are that the base model doesn't calculate ROC, and AUC. Also, in contrast, the Spark model doesn't create an output for significance levels and measures of deviance; these measures are arguably more important.
+
+
+
+Be sure to checkout [R-Bloggers](https://www.r-bloggers.com/) for great R tips!

@@ -75,3 +75,5 @@ You now can import this dataset into **QGIS** no problem!
 
 
 If you have any tips about making this code even more efficient, let me know on [twitter](https://twitter.com/JosiahParry) or [email](mailto:josiah.parry@yahoo.com?Subject=Your%20Code%20Stinks%20I%20Can%20Make%20It%20Better!)!
+
+Be sure to checkout [R-Bloggers](https://www.r-bloggers.com/) for great R tips!
