@@ -1,9 +1,7 @@
-<meta name="twitter:site" content="@josiahparry">
-<meta name="twitter:creator" content="@josiahparry">
-<meta name="twitter:image" content="http://josiahparry.com/images/favicon.png">
-<meta name="twitter:text:title" content="Josiah Parry: Constructing Social Problems">
-<meta name="twitter:text:description" content="This book prompts a few questions: (1) what is the goal of a revolution? (2) What is the goal after a successful revolution? (3) How does one conduct an effective protest or revolution?">
-
+---
+title: "The End of Protest - A Review"
+excerpt: "This book prompts a few questions: (1) what is the goal of a revolution? (2) What is the goal after a successful revolution? (3) How does one conduct an effective protest or revolution?"
+---
 
 # The End of Protest — A Review
 

@@ -1,3 +1,7 @@
+---
+title: "LRPC Short Term Traffic Program Cleaning"
+excerpt: "The goal of this notebook is to clean, and standardize road names associated with traffic counter locations used by the Lakes Region Planning Commision (LRPC) of New Hampshire."
+---
 # LRPC Short Term Traffic Cleaning
 
 The goal of this notebook is to clean, and standardize road names associated with traffic counter locations used by the Lakes Region Planning Commision (LRPC) of New Hampshire. The current data used by the **LRPC** is not in accordance with standard practice of the *NH DOT* and therefore difficult to associate with shapefiles provided by *NH GRANIT*, and other data provided by *NH DOT*.

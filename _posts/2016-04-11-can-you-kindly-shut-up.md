@@ -1,6 +1,7 @@
 ---
 title: Can you kindly shut up?
 subtitle: My struggle trying to hear myself think.
+excerpt: "I’m told that not moving your mouth to the words you are reading is the sign of a good reader. Good readers are able to recognize the symbols and interpret them directly without a second level of interaction."
 ---
 
 I’m told that not moving your mouth to the words you are reading is the sign of a good reader. Good readers are able to recognize the symbols and interpret them directly without a second level of interaction.
