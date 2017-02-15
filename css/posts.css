@@ -426,3 +426,13 @@ pre code, pre tt {
   padding-right: 4%;
   padding-top: 2%;
 }
+
+
+
+.pagination {
+    text-transform: uppercase;
+    background-color: #FFE3AD;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
