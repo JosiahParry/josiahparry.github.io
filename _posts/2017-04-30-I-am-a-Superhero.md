@@ -2,24 +2,24 @@
 
 You could say my roommate and I are superheroes. We're constantly saving the world from impending doom. We have a few superpowers, but our two strongest are recycling and reusing.
 
-The other day in the face of rapidly increasing global temperatures and more frequent extreme weather events we were on our way to the local grocery store when we had a slip-up and forgot our conservationist equivalent to the batarang, our reusable canvas bag (thanks to [The New Yorker](https://subscribe.newyorker.com/subscribe/newyorker/109777?source=google_sem&gclid=CjwKEAjwlpbIBRCx4eT8l9W26igSJAAuQ_HGyzx5PbIhUEPn3nXvK3l57AHi3K5Rao4iys_BktFl-xoCDdfw_wcB)).
+The other day in the face of rapidly increasing global temperatures and more frequent extreme weather events, we were on our way to the local grocery store when we had a slip-up and forgot our conservationist equivalent to the batarang, our reusable canvas bag (thanks to [The New Yorker](https://subscribe.newyorker.com/subscribe/newyorker/109777?source=google_sem&gclid=CjwKEAjwlpbIBRCx4eT8l9W26igSJAAuQ_HGyzx5PbIhUEPn3nXvK3l57AHi3K5Rao4iys_BktFl-xoCDdfw_wcB)).
 
 <!--split-->
 
-"Bro!" I exclaimed. Tucker was startled and concerned. "We forgot our reusable bags. Should we go back and get them?" He sat there and thought for a second. He didn't want to drive back. His car's catalytic converter isn't working at full capacity and he was concerned about his emissions.
+"Bro!" I exclaimed. Tucker was startled and concerned. "We forgot our reusable bags. Should we go back and get them?" He sat there and thought for a second. He didn't want to drive back. His car's catalytic converter wasn't working at full capacity and he was concerned about his emissions.
 
-"Well," I said, "what would be worse? Us using plastic bags, or driving back just to get our reusable ones?" We sat there googling various things for a while, but soon gave up and went about our shopping. After all of our purchases we used only three plastic grocery bags.
+"Well," I said, "what would be worse? Us using plastic bags, or driving back home just to get our reusable ones?" We sat there googling various things for a while, but soon gave up and went about our shopping. After all of our purchases we used only three plastic grocery bags.
 
-This even has stuck with me and now, I am here to figure it out. *What would've been worse, driving back home to get our reusable bags, or using those three bags?* As the good empirical person I am I will use science (google) and R to solve this question.
+*What would've been worse, driving back home to get our reusable bags, or using those three bags?* As the empirical person I am, I used science (Google) and R to solve this question.
 
 ## Framing the Question
-In order to solve this problem, I wanted to operationalize my previous use of the word *"worse"*. *Worse* is going to be measured in carbon dioxide emissions. I had a new research question.
+In order to solve this problem, I wanted to operationalize my previous use of the word *"worse"*. *Worse* was going to be measured in carbon dioxide emissions. I had a new research question.
 
 **Research Question:** *What would've made my carbon footprint smallest? Driving home to get our reusable bags, or using plastic grocery bags?*
 
 ## What do the data say?
 
-I started by evaluating the carbon footprint of my shopping bags. I first evaluated the carbon footprint of plastic. It turns out that the production and incernation of 1kg of plastic produces nearly 6kg of CO<sub>2</sub> ([1](http://timeforchange.org/plastic-bags-and-plastic-bottles-CO2-emissions)), and each plastic grocery bag weights 5.5kg ([2](https://alumni.stanford.edu/get/page/magazine/article/?article_id=30162)). This means the total footprint for a bag is the CO<sub>2</sub> per kg, multiplied by total mass (in kg) of a grocery bag.
+I started by evaluating the carbon footprint of my shopping bags. I first evaluated the carbon footprint of plastic. It turns out that the production and incinernation of 1kg of plastic produces nearly 6kg of CO<sub>2</sub> ([1](http://timeforchange.org/plastic-bags-and-plastic-bottles-CO2-emissions)), and each plastic grocery bag weights 5.5kg ([2](https://alumni.stanford.edu/get/page/magazine/article/?article_id=30162)). This means the total footprint for a bag is the CO<sub>2</sub> per kg, multiplied by total mass (in kg) of a grocery bag.
 
 
 ```r
@@ -60,9 +60,9 @@ paste(round(emiss_one_way, 3), "kg of CO2 emitted in a one way trip")
 ## [1] "0.682 kg of CO2 emitted in a one way trip"
 ```
 
-This calculation might be a little conservative due to the poor catalytic converter. Using my expert opinion, I decided that I could assume his vehicle emits 20% more than a standard car.
+This calculation might have been a little conservative due to the poor catalytic converter. Using my expert opinion, I decided that I could assume his vehicle emits 20% more than a standard car.
 
-At this point, I was very close to figuring out which was *worse*, driving for the reusable bags, or using plastic grocery bags. My final steps were to find the total CO<sub>2</sub> emitted by my roommate and me plus our driving emissions, and compare it to our driving emissions plus our hypothetical drive back home.
+At this point, I was very close to figuring out which was *worse*, driving for the reusable bags, or using plastic grocery bags. My final steps were to find the total CO<sub>2</sub> emitted by my roommate and me including our driving emissions, and compare it to our driving emissions including our hypothetical drive back home.
 
 
 ```r
