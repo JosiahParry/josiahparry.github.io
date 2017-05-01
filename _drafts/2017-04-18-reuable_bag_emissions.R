@@ -1,5 +1,3 @@
-5.627
-
 # The average plastic grocery bag weighs 5.5kg (https://alumni.stanford.edu/get/page/magazine/article/?article_id=30162)
 # Carbon footprint of 1kg of plastic is ~6kg CO2 (http://timeforchange.org/plastic-bags-and-plastic-bottles-CO2-emissions)
 
