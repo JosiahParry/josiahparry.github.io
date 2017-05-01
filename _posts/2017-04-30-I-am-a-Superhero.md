@@ -1,4 +1,8 @@
-# I m a Superhero
+---
+title: "I am a Superhero"
+subtitle: subtitle: "Saving the world one bag at a time"
+thumbnail: "http://josiahparry.com/images/favicon.png"
+---
 
 You could say my roommate and I are superheroes. We're constantly saving the world from impending doom. We have a few superpowers, but our two strongest are recycling and reusing.
 
