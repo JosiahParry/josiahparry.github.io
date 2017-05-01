@@ -1,6 +1,6 @@
 ---
 title: "I am a Superhero"
-subtitle: subtitle: "Saving the world one bag at a time"
+subtitle: "Saving the world one bag at a time"
 thumbnail: "http://josiahparry.com/images/favicon.png"
 ---
 
