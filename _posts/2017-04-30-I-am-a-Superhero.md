@@ -1,17 +1,12 @@
-# I am a Superhero
-Josiah Parry  
-4/30/2017  
+# I m a Superhero
 
+You could say my roommate and I are superheroes. We're constantly saving the world from impending doom. We have a few superpowers, but our two strongest are recycling and reusing.
 
+The other day in the face of rapidly increasing global temperatures and more frequent extreme weather events we were on our way to the local grocery store when we had a slip-up and forgot our conservationist equivalent to the batarang, our reusable canvas bag (thanks to [The New Yorker](https://subscribe.newyorker.com/subscribe/newyorker/109777?source=google_sem&gclid=CjwKEAjwlpbIBRCx4eT8l9W26igSJAAuQ_HGyzx5PbIhUEPn3nXvK3l57AHi3K5Rao4iys_BktFl-xoCDdfw_wcB)).
 
+<!--split-->
 
-## The Dilemma
-
-You could say my roommate and I are superheroes. We're constantly saving the world from impending doom. We have a few superpowers, but our two strongest are recycling and reusing. 
-
-The other day in the face of rapidly increasing global temperatures and more frequent extreme weather events we were on our way to the local grocery store when we had a slip-up and forgot our conservationist equivalent to the batarang, our reusable canvas bag (thanks to [The New Yorker](https://subscribe.newyorker.com/subscribe/newyorker/109777?source=google_sem&gclid=CjwKEAjwlpbIBRCx4eT8l9W26igSJAAuQ_HGyzx5PbIhUEPn3nXvK3l57AHi3K5Rao4iys_BktFl-xoCDdfw_wcB)). 
-
-"Bro!" I exclaimed. Tucker was startled and concerned. "We forgot our reusable bags. Should we go back and get them?" He sat there and thought for a second. He didn't want to drive back. His car's catalytic converter isn't working at full capacity and he was concerned about his emissions. 
+"Bro!" I exclaimed. Tucker was startled and concerned. "We forgot our reusable bags. Should we go back and get them?" He sat there and thought for a second. He didn't want to drive back. His car's catalytic converter isn't working at full capacity and he was concerned about his emissions.
 
 "Well," I said, "what would be worse? Us using plastic bags, or driving back just to get our reusable ones?" We sat there googling various things for a while, but soon gave up and went about our shopping. After all of our purchases we used only three plastic grocery bags.
 
@@ -20,7 +15,7 @@ This even has stuck with me and now, I am here to figure it out. *What would've 
 ## Framing the Question
 In order to solve this problem, I wanted to operationalize my previous use of the word *"worse"*. *Worse* is going to be measured in carbon dioxide emissions. I had a new research question.
 
-**Research Question:** *What would've made my carbon footprint smallest? Driving home to get our reusable bags, or using plastic grocery bags?* 
+**Research Question:** *What would've made my carbon footprint smallest? Driving home to get our reusable bags, or using plastic grocery bags?*
 
 ## What do the data say?
 
@@ -52,7 +47,7 @@ paste("Total footprint for 3 bags is", bag_footprint * 3, "kg")
 ## [1] "Total footprint for 3 bags is 57.75 kg"
 ```
 
-Next up to figure out was how much our we emitted on our car ride to the store and back for our complete footprint. To figure this out, I started by figuring out how much CO<sub>2</sub> is emitted per gallon and using that as a basis for the rest of my vehicular emission analysis. According to the US Energy Information Administration, a standard gallon of E10 gasoline (gasoline that contains 10% ethanol) produces 17.68 pounds of CO<sub>2</sub> ([3](https://www.eia.gov/tools/faqs/faq.php?id=307&t=11)). Next steps were to convert this to kgs, and figure out how many miles were driven to get groceries. There are `0.454` kgs in 1 pound ([4](http://www.convertunits.com/from/lb/to/kg)) and according to Google maps, the grocery store was 1.7 miles away. I also assumed that my roommates car gets 20 miles to the gallon like he claims. 
+Next up to figure out was how much our we emitted on our car ride to the store and back for our complete footprint. To figure this out, I started by figuring out how much CO<sub>2</sub> is emitted per gallon and using that as a basis for the rest of my vehicular emission analysis. According to the US Energy Information Administration, a standard gallon of E10 gasoline (gasoline that contains 10% ethanol) produces 17.68 pounds of CO<sub>2</sub> ([3](https://www.eia.gov/tools/faqs/faq.php?id=307&t=11)). Next steps were to convert this to kgs, and figure out how many miles were driven to get groceries. There are `0.454` kgs in 1 pound ([4](http://www.convertunits.com/from/lb/to/kg)) and according to Google maps, the grocery store was 1.7 miles away. I also assumed that my roommates car gets 20 miles to the gallon like he claims.
 
 ```r
 ethanol_emiss <- 17.68 * 0.453592
@@ -109,4 +104,3 @@ Time For Change: [1](http://timeforchange.org/plastic-bags-and-plastic-bottles-C
 Stanford: [2](https://alumni.stanford.edu/get/page/magazine/article/?article_id=30162)<br>
 US EIA: [3](https://www.eia.gov/tools/faqs/faq.php?id=307&t=11)<br>
 Convert Units: [4](http://www.convertunits.com/from/lb/to/kg)<br>
-
