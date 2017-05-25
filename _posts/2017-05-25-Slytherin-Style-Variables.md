@@ -8,10 +8,10 @@ Today I will be tackling variable naming conventions in R. As background, R was 
 
 <!--split-->
 
-- All lowercase & uppercase: `thisvariable` or `THISVARIABLE`
-- Camel case: `thisVariable` or `ThisVariable`
-- Period separated: `this.variable`
-- Underscore separated (or snake case): `this_variable`
+  - All lowercase & uppercase: `thisvariable` or `THISVARIABLE`
+  - Camel case: `thisVariable` or `ThisVariable`
+  - Period separated: `this.variable`
+  - Underscore separated (or snake case): `this_variable`
 
 Many arguments about variable naming conventions center around the concept of readability—that being the ability to read through anyone's code and understand what is being assigned to what, where, how, and why. This post will examine common variable naming conventions why (or why not) you should use them. Off the bat, I think we can all agree that single-case (upper or lower) variable names are difficult to read (`isthiseasytoread` or `ISTHISEASIER`? Yeah, `I_thought.not`). Let it be known that this post **only** examines variable naming conventions this is by no means a thorough style guide.
 
