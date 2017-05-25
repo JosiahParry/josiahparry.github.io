@@ -1,5 +1,5 @@
 ---
-title: "Slytherin Style Variable"
+title: "Slytherin Style Variables"
 subtitle: "The Case for Underscore Separated Variable Names"
 tags: "R"
 excerpt: "Many arguments about variable naming conventions center around the concept of readability—that being the ability to read through anyone's code and understand what is being assigned to what, where, how, and why. This post will examine common variable naming conventions why (or why not) you should use them."
