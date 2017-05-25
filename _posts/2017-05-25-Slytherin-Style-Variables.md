@@ -4,8 +4,7 @@ subtitle: "The Case for Underscore Separated Variable Names"
 tags: "R"
 ---
 
-Today I will be tackling variable naming conventions in R. As background, R was the first programming language I learned (this probably explains my love for it). When I began I wasn't necessarily sure what to name things when I was creating objects or variables. I would create variables with ridiculous names such as `thisthing` or `mymann`. Eventually I started to contextually notice different variable naming patterns while learning R and other languages such as PHP and Python, among others. The most commonly used naming conventions I came across during this time were the following:
-<!--split-->
+Today I will be tackling variable naming conventions in R. As background, R was the first programming language I learned (this probably explains my love for it). When I began I wasn't necessarily sure what to name things when I was creating objects or variables. I would create variables with ridiculous names such as `thisthing` or `mymann`. Eventually I started to contextually notice different variable naming patterns while learning R and other languages such as PHP and Python, among others.<!--split--> The most commonly used naming conventions I came across during this time were the following:
 
 - All lowercase & uppercase: `thisvariable` or `THISVARIABLE`
 - Camel case: `thisVariable` or `ThisVariable`
