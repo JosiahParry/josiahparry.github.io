@@ -11,6 +11,8 @@ geniusR enables quick and easy download of song lyrics. The intent behind the pa
 
 This package was inspired by the release of Kendrick Lamar's most recent album, **DAMN.**. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.
 
+<!--split-->
+
 The functions in this package enable easy access of individual song lyrics, album tracklists, and lyrics to whole albums.
 
 ## Individual songs `genius_lyrics()`
