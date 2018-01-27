@@ -1,9 +1,7 @@
 ---
-subtitle: "Basics for acquiring song lyrics as text data"
+subtitle: Basics for acquiring song lyrics as text data
 thumbnail: "http://josiahparry.com/images/favicon.png"
 ---
-
-## geniusR
 
 `geniusR` enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.
 
