@@ -1,13 +1,13 @@
 ---
-title: "Introducing geniusR"
+title: Introducing geniusR
 subtitle: "Basics for acquiring song lyrics as text data"
-author: "Josiah Parry"
+
 thumbnail: "http://josiahparry.com/images/favicon.png"
 ---
 
-# geniusR
+## geniusR
 
-geniusR enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.
+`geniusR` enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.
 
 This package was inspired by the release of Kendrick Lamar's most recent album, **DAMN.**. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.
 
