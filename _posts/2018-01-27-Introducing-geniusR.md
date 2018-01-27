@@ -78,21 +78,21 @@ damn_tracks %&gt;%
 
 <pre><code>## # A tibble: 14 x 2
 ##    title                  track_n
-##    &lt;chr&gt;                    &lt;dbl&gt;
-##  1 DUCKWORTH.               14.0
-##  2 GOD.                     13.0
-##  3 FEAR.                    12.0
-##  4 XXX. (Ft. U2)            11.0
-##  5 LOVE. (Ft. Zacari)       10.0
-##  6 LUST.                     9.00
-##  7 HUMBLE.                   8.00
-##  8 PRIDE.                    7.00
-##  9 LOYALTY. (Ft. Rihanna)    6.00
-## 10 FEEL.                     5.00
-## 11 ELEMENT.                  4.00
-## 12 YAH.                      3.00
-## 13 DNA.                      2.00
-## 14 BLOOD.                    1.00
+##    &lt;chr&gt;                    &lt;int&gt;
+##  1 DUCKWORTH.               14
+##  2 GOD.                     13
+##  3 FEAR.                    12
+##  4 XXX. (Ft. U2)            11
+##  5 LOVE. (Ft. Zacari)       10
+##  6 LUST.                     9
+##  7 HUMBLE.                   8
+##  8 PRIDE.                    7
+##  9 LOYALTY. (Ft. Rihanna)    6
+## 10 FEEL.                     5
+## 11 ELEMENT.                  4
+## 12 YAH.                      3
+## 13 DNA.                      2
+## 14 BLOOD.                    1
 </code></pre>
 
 ### Album Lyrics
