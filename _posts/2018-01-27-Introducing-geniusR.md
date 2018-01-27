@@ -23,7 +23,12 @@ Getting lyrics to a single song is pretty easy. Let's get in our **ELEMENT.** an
 
 First, let's set up our libraries / working environment.
 
-
+<pre><code class="prettyprint">
+devtools::install_github("josiahparry/geniusR")
+library(geniusR)
+library(tidyverse)
+library(tidytext)
+</code></pre>
 
 `genius_lyrics()` returns only the barebones. Utilizing `dplyr` we can also create a new variable with the line number to help in future [tidytext](https://github.com/juliasilge/tidytext) analysis. This will be covered in a later vignette / post.
 
