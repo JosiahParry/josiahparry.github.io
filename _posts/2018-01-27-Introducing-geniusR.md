@@ -2,7 +2,7 @@
 title: "Introducing geniusR"
 subtitle: "Basics for acquiring song lyrics as text data"
 author: "Josiah Parry"
-date: "2018-01-27"
+thumbnail: "http://josiahparry.com/images/favicon.png"
 ---
 
 # geniusR
