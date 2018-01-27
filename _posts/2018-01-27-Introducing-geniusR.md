@@ -1,5 +1,6 @@
 ---
 title: Introducing geniusR
+category: R
 subtitle: Basics for acquiring song lyrics as text data
 excerpt: "geniusR enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format."
 

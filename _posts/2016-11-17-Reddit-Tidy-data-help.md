@@ -1,5 +1,6 @@
 ---
 layout: post
+category: R
 title: Tidying Employee Data
 excerpt: "Using R to understand business data. A quick guide to help a fellow redditor"
 ---
