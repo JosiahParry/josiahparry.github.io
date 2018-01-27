@@ -16,12 +16,14 @@ a {
 }
 
 .post {
+  text-transform: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 5%;
+
 }
 
 
