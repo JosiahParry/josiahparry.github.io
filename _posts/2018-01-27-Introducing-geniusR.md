@@ -1,7 +1,5 @@
 ---
-title: Introducing geniusR
 subtitle: "Basics for acquiring song lyrics as text data"
-
 thumbnail: "http://josiahparry.com/images/favicon.png"
 ---
 
