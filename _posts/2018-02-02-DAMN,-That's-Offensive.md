@@ -326,7 +326,7 @@ create a new tibble called `bad_count`.
       ggplot(aes(album, n_bad, fill = album)) +
       geom_col() + josi_theme()
 
-![](images/2018_02_02/unnamed-chunk-10-1.png)
+![](../images/2018_02_02/unnamed-chunk-10-1.png)
 
 It is important to note that raw counts can be misleading sometimes.
 What if one album twice as many words as the other? That would
@@ -347,7 +347,7 @@ this case `# profanities / total # of words`.
       geom_col() +
       josi_theme()
 
-![](images/2018_02_02/unnamed-chunk-11-1.png)
+![](../images/2018_02_02/unnamed-chunk-11-1.png)
 
 It looks like there has been a reduction in the amount of offensive
 words used between these two albums.
@@ -374,7 +374,7 @@ will then pipe the resultant tibble into a nice plot.
       labs(title = "Most Common Offensive Words") +
       josi_theme()
 
-![](images/2018_02_02/unnamed-chunk-12-1.png)
+![](../images/2018_02_02/unnamed-chunk-12-1.png)
 
 ### How does offensive language progress through the each album?
 
@@ -400,7 +400,7 @@ any wrenches into the analysis.
            x = NULL, y = NULL) +
       coord_flip()
 
-![](images/2018_02_02/unnamed-chunk-13-1.png) From this we can see
+![](../images/2018_02_02/unnamed-chunk-13-1.png) From this we can see
 that the most offensive songs in **DAMN.** and **Section.80** are
 "FEAR.", and "The Spiteful Chant" respectively.
 
@@ -495,7 +495,7 @@ We can plot words pairwise.
       # Angle the text to look prettier
       theme(axis.text.x = element_text(angle = 90)) + josi_theme()
 
-![](images/2018_02_02/unnamed-chunk-16-1.png) We could also
+![](../images/2018_02_02/unnamed-chunk-16-1.png) We could also
 visualize this a litle differently by looking at the count of bigrams
 using a fun adaptation of the bar chart called the *lollipop* chart.
 
@@ -516,7 +516,7 @@ using a fun adaptation of the bar chart called the *lollipop* chart.
       geom_text(color = "white", size = 2) +
       coord_flip() + josi_theme()
 
-![](images/2018_02_02/unnamed-chunk-17-1.png)
+![](../images/2018_02_02/unnamed-chunk-17-1.png)
 
 Looking at Section 80, we can tell that "fuck" appears most frequently
 with "that" and "with". If you are familiar with the song *"A.D.H.D"*
@@ -538,7 +538,7 @@ Now we can look at just the song *"A.D.H.D"* by filtering and counting.
       ggplot(aes(bigram, n, label = paste("n =", n))) + geom_col() + josi_theme() +
       geom_text(vjust = 3, color = "white")
 
-![](images/2018_02_02/unnamed-chunk-19-1.png) From this we see that
+![](../images/2018_02_02/unnamed-chunk-19-1.png) From this we see that
 the phrase *"fuck that"* occurs 11 times alone in *"A.D.H.D"*.
 
 ------------------------------------------------------------------------
@@ -660,7 +660,7 @@ informative.
       coord_flip() + josi_theme() +
       geom_text(size = 2, color = "white", hjust = 1.5)
 
-![](images/2018_02_02/unnamed-chunk-22-1.png)
+![](../images/2018_02_02/unnamed-chunk-22-1.png)
 
 This plot shows us that the phrases *"lil bitch"* and *"fuck that"* are
 the most unique to each album with similar scores of `0.017`.
