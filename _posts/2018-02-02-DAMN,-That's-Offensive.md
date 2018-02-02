@@ -1,7 +1,20 @@
+---
+title: DAMN, That's Offensive
+subtitle: A f'ing fun introduction to tidytext analysis with geniusR
+date: "2018-02-02"
+category: R
+excerpt: "My recent package [`geniusR`](https://github.com/josiahparry.geniusR)
+was created with the idea of a tidytext analysis of song lyrics in mind."
+---
+
+# Introduction
+
+<p> </p>
+
 My recent package [`geniusR`](https://github.com/josiahparry.geniusR)
 was created with the idea of a tidytext analysis of song lyrics in mind.
 I now wish to introduce you to the concepts and application of tidytext
-analysis through the use of `geniusR`. If you would like an introduction
+analysis through the use of `geniusR`. <!--split--> If you would like an introduction
 to `geniusR` please read my [Introduction to
 geniusR](https://medium.com/@JosiahParry/introducing-geniusr-b0177ce7b4d7).
 Additionally, I recommend that you give [Text Mining in R: A Tidy
