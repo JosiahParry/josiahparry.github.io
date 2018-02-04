@@ -469,8 +469,8 @@ the word that most follows *"fuck"*.
     ## # ... with 761 more rows
 
 From this we can tell that the most common offensive word in the first
-position, that is `word1` is *"fuck"*. *"fuck"* is most often followed
-by *"with"*, or *"that"*. With
+position, `word1`, is *"fuck"*. and that *"fuck"* is most often followed
+by *"with"*, or *"that"*.
 
 We can plot words pairwise.
 
