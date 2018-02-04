@@ -404,8 +404,9 @@ that the most offensive songs in **DAMN.** and **Section.80** are
 "FEAR.", and "The Spiteful Chant" respectively.
 
 <hr>
-Bigrams
--------
+
+## Bigrams
+
 
 Moving past the unigram, we can evaluate word pairings. This will
 require a bit more wrangling than the unigrams. We will utilize the
@@ -432,9 +433,7 @@ What's happening:
 -   We then filter to identify bigrams with an offensive word in it
     using `dplyr::filter()`.
     -   This filter statement in plain language says:
-    -   *"If `word1` is in `profanities` give me that row. OR (the
-        > single bar, or pipe depending on your background, `|`) `word2`
-        > is in`profanities`, give me that row."*
+    -   *"If `word1` is in `profanities` give me that row OR (the single bar, or pipe depending on your background, `|`) `word2`is in `profanities`, give me that row."*
 
 <!-- -->
 
