@@ -1,106 +1,104 @@
+/****************************************
+       Education sections
+*****************************************/
 
-.location {
-  display: block;
+
+/* customized education fields */
+.ul-edu .minor {
+  font-size: .95rem;
+}
+
+.ul-edu .cert {
+  font-size: .95rem;
+} 
+
+
+/****************************************
+       Resume 
+*****************************************/
+
+/* Experience section */
+.cv_description {
+  line-height: 160%;
+  padding-left: 5%;
+  margin-bottom: 1.5rem;
+}
+
+.cv_section {
   font-weight: 600;
-  font-size: 16pt;
-  padding-bottom: 3px;
+  margin-bottom: .5rem;
+
 }
 
-h2 {
-  margin-bottom: 5px
+.cv_role {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: .11rem;
 }
 
-h3, h4 {
-  margin-bottom: 3px;
-  margin-top: 0px;
-}
-
-
-.description {
-  margin-top: 5px;
-  text-align: justify;
-}
-.position {
-  display: inline-block;
+.cv_org {
+  font-size: 1rem;
   font-weight: 400;
-  font-size: 14pt;
-}
-.position::after {
-  content: " //"
+  margin-bottom: 0;
 }
 
-.date {
-  display: inline-block;
+.cv_date {
+  font-size: .9rem;
   font-weight: 300;
-  font-size: 12pt;
+  margin-bottom: .3rem;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
 
-a:hover {
-  color: #749BBC;
-}
+/*     Styling Skills and Software    */
 
-.description a {
-  font-weight: 500;
-  line-height: 160%;
-}
-
-.location a:hover {
-  font-size: 18pt;
-}
-
-.description a:hover{
-  font-size: 13pt;
-}
-
-#experience {
-  width: 60%;
-  float: left;
-  padding-left: 5%;
-  margin-left: auto;
-}
-
-#etc {
-  width: 27.5%;
-  float: right;
-  padding-right: 5%;
-  line-height: 160%;
-  margin-right: auto;
-}
-
-#etc p {
-  display: block;
-  margin: 0;
-}
-.minor {
-  font-weight: 500;
-}
-
-#etc .date {
-  font-size: 12pt;
-  font-style: italic;
-}
-
-#etc a {
-  font-weight: 400;
-}
-
-#etc ul {
-  width: 100%;
+.skills_tech ul {
   list-style: none;
-  padding: 0;
+  padding-left: 2.5%;
 }
 
-#etc h4 a {
-  font-weight: 600;
+.skills_tech p {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
-#projects {
-  width: 60%;
-  clear: left;
-  padding-left: 5%;
-  padding-right: 5%;
+
+/* Make experience and skills responsive
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+}
+
+.resume {
+  width: 65%;
+}
+
+.skills_tech {
+  width: 35%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 800px) {
+    .column {
+        width: 100%;
+    }
+}
+
+
+
+/* for some reason post code is broken. I probabl did something */
+/* fix all code */
+code {
+  font-family: "Roboto Mono", monospace;
+  font-size: 85%;
+}
+
+.prettyprint {
+  font-size: .8rem;
+  
 }
