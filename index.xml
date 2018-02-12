@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Josiah Parry on Josiah Parry</title>
+    <link>/</link>
+    <description>Recent content in Josiah Parry on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>geniusR</title>
+      <link>/project/geniusr/</link>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/geniusr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introducing geniusR</title>
+      <link>/post/introducing-geniusr/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introducing-geniusr/</guid>
+      <description>&lt;div id=&#34;introducing-geniusr&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introducing geniusR&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;geniusR&lt;/code&gt; enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.&lt;/p&gt;
+&lt;p&gt;This package was inspired by the release of Kendrick Lamar’s most recent album, &lt;strong&gt;DAMN.&lt;/strong&gt;. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.&lt;/p&gt;
+&lt;p&gt;The functions in this package enable easy access of individual song lyrics, album tracklists, and lyrics to whole albums.&lt;/p&gt;
+&lt;div id=&#34;install-and-load-the-package&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install and load the package&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;josiahparry/geniusR&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Load the package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(geniusR)
+library(tidyverse) # For manipulation&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;getting-lyrics&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Getting Lyrics&lt;/h1&gt;
+&lt;div id=&#34;whole-albums&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Whole Albums&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;genius_album()&lt;/code&gt; allows you to download the lyrics for an entire album in a &lt;code&gt;tidy&lt;/code&gt; format. There are two arguments &lt;code&gt;artists&lt;/code&gt; and &lt;code&gt;album&lt;/code&gt;. Supply the quoted name of artist and the album (if it gives you issues check that you have the album name and artists as specified on &lt;a href=&#34;https://genius.com&#34;&gt;Genius&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;This returns a tidy data frame with three columns:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;title&lt;/code&gt;: track name&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;track_n&lt;/code&gt;: track number&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;text&lt;/code&gt;: lyrics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;emotions_math &amp;lt;- genius_album(artist = &amp;quot;Margaret Glaspy&amp;quot;, album = &amp;quot;Emotions and Math&amp;quot;)
+emotions_math&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 371 x 3
+##    title             track_n text                                  
+##    &amp;lt;chr&amp;gt;               &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                                 
+##  1 Emotions and Math       1 Oh when I got you by my side          
+##  2 Emotions and Math       1 Everything&amp;#39;s alright                  
+##  3 Emotions and Math       1 Its just when your gone               
+##  4 Emotions and Math       1 I start to snooze the alarm           
+##  5 Emotions and Math       1 Cause I stay up until 4 in the morning
+##  6 Emotions and Math       1 Counting all the days &amp;#39;til you&amp;#39;re back
+##  7 Emotions and Math       1 Shivering in an ice cold bath         
+##  8 Emotions and Math       1 Of emotions and math                  
+##  9 Emotions and Math       1 Oh it&amp;#39;s a shame                       
+## 10 Emotions and Math       1 And I&amp;#39;m to blame                      
+## # ... with 361 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;multiple-albums&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Multiple Albums&lt;/h2&gt;
+&lt;p&gt;If you wish to download multiple albums from multiple artists, try and keep it tidy and avoid binding rows if you can. We can achieve this in a tidy workflow by creating a tibble with two columns: &lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;album&lt;/code&gt; where each row is an artist and their album. We can then iterate over those columns with &lt;code&gt;purrr:map2()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In this example I will extract 3 albums from Kendrick Lamar and Sara Bareilles (two of my favotire musicians). The first step is to create the tibble with artists and album titles.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;albums &amp;lt;-  tibble(
+  artist = c(
+    rep(&amp;quot;Kendrick Lamar&amp;quot;, 3), 
+    rep(&amp;quot;Sara Bareilles&amp;quot;, 3)
+    ),
+  album = c(
+    &amp;quot;Section 80&amp;quot;, &amp;quot;Good Kid, M.A.A.D City&amp;quot;, &amp;quot;DAMN.&amp;quot;,
+    &amp;quot;The Blessed Unrest&amp;quot;, &amp;quot;Kaleidoscope Heart&amp;quot;, &amp;quot;Little Voice&amp;quot;
+    )
+)
+
+albums&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 2
+##   artist         album                 
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;                 
+## 1 Kendrick Lamar Section 80            
+## 2 Kendrick Lamar Good Kid, M.A.A.D City
+## 3 Kendrick Lamar DAMN.                 
+## 4 Sara Bareilles The Blessed Unrest    
+## 5 Sara Bareilles Kaleidoscope Heart    
+## 6 Sara Bareilles Little Voice&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No we can iterate over each row using the &lt;code&gt;map2&lt;/code&gt; function. This allows us to feed each value from the &lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;album&lt;/code&gt; columns to the &lt;code&gt;genius_album()&lt;/code&gt; function. Utilizing a &lt;code&gt;map&lt;/code&gt; call within a &lt;code&gt;dplyr::mutate()&lt;/code&gt; function creates a list column where each value is a &lt;code&gt;tibble&lt;/code&gt; with the data frame from &lt;code&gt;genius_album()&lt;/code&gt;. We will later unnest this.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## We will have an additional artist column that will have to be dropped
+album_lyrics &amp;lt;- albums %&amp;gt;% 
+  mutate(tracks = map2(artist, album, genius_album))
+
+album_lyrics&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+##   artist         album                  tracks              
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;                  &amp;lt;list&amp;gt;              
+## 1 Kendrick Lamar Section 80             &amp;lt;tibble [1,184 × 3]&amp;gt;
+## 2 Kendrick Lamar Good Kid, M.A.A.D City &amp;lt;tibble [2,193 × 3]&amp;gt;
+## 3 Kendrick Lamar DAMN.                  &amp;lt;tibble [1,077 × 3]&amp;gt;
+## 4 Sara Bareilles The Blessed Unrest     &amp;lt;tibble [666 × 3]&amp;gt;  
+## 5 Sara Bareilles Kaleidoscope Heart     &amp;lt;tibble [568 × 3]&amp;gt;  
+## 6 Sara Bareilles Little Voice           &amp;lt;tibble [577 × 3]&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now when you view this you will see that each value within the &lt;code&gt;tracks&lt;/code&gt; column is &lt;code&gt;&amp;lt;tibble&amp;gt;&lt;/code&gt;. This means that that value is infact another &lt;code&gt;tibble&lt;/code&gt;. We expand this using &lt;code&gt;tidyr::unnest()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Unnest the lyrics to expand 
+lyrics &amp;lt;- album_lyrics %&amp;gt;% 
+  unnest(tracks) %&amp;gt;%    # Expanding the lyrics 
+  arrange(desc(artist)) # Arranging by artist name 
+
+head(lyrics)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   artist         album              title track_n text                    
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;              &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                   
+## 1 Sara Bareilles The Blessed Unrest Brave       1 You can be amazing      
+## 2 Sara Bareilles The Blessed Unrest Brave       1 You can turn a phrase i…
+## 3 Sara Bareilles The Blessed Unrest Brave       1 You can be the outcast  
+## 4 Sara Bareilles The Blessed Unrest Brave       1 Or be the backlash of s…
+## 5 Sara Bareilles The Blessed Unrest Brave       1 Or you can start speaki…
+## 6 Sara Bareilles The Blessed Unrest Brave       1 Nothing&amp;#39;s gonna hurt yo…&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;song-lyrics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Song Lyrics&lt;/h2&gt;
+&lt;div id=&#34;genius_lyrics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;code&gt;genius_lyrics()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Getting lyrics to a single song is pretty easy. Let’s get in our &lt;strong&gt;ELEMENT.&lt;/strong&gt; and checkout &lt;strong&gt;DNA.&lt;/strong&gt; by &lt;em&gt;Kendrick Lamar&lt;/em&gt;. But first, note that the &lt;code&gt;genius_lyrics()&lt;/code&gt; function takes two main arguments, &lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;song&lt;/code&gt;. Be sure to spell the name of the artist and the song correctly.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DNA &amp;lt;- genius_lyrics(artist = &amp;quot;Kendrick Lamar&amp;quot;, song = &amp;quot;DNA.&amp;quot;)
+
+DNA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 95 x 3
+##    title text                                                         line
+##    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;                                                       &amp;lt;int&amp;gt;
+##  1 DNA.  I got, I got, I got, I got—                                     1
+##  2 DNA.  Loyalty, got royalty inside my DNA                              2
+##  3 DNA.  Cocaine quarter piece, got war and peace inside my DNA          3
+##  4 DNA.  I got power, poison, pain and joy inside my DNA                 4
+##  5 DNA.  I got hustle though, ambition, flow inside my DNA               5
+##  6 DNA.  I was born like this, since one like this, immaculate conc…     6
+##  7 DNA.  I transform like this, perform like this, was Yeshua new w…     7
+##  8 DNA.  I don&amp;#39;t contemplate, I meditate, then off your fucking head     8
+##  9 DNA.  This that put-the-kids-to-bed                                   9
+## 10 DNA.  This that I got, I got, I got, I got—                          10
+## # ... with 85 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This returns a &lt;code&gt;tibble&lt;/code&gt; with three columns &lt;code&gt;title&lt;/code&gt;, &lt;code&gt;text&lt;/code&gt;, and &lt;code&gt;line&lt;/code&gt;. However, you can specifiy additional arguments to control the amount of information to be returned using the &lt;code&gt;info&lt;/code&gt; argument.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;info = &amp;quot;title&amp;quot;&lt;/code&gt; (default): Return the lyrics, line number, and song title.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;info = &amp;quot;simple&amp;quot;&lt;/code&gt;: Return just the lyrics and line number.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;info = &amp;quot;artist&amp;quot;&lt;/code&gt;: Return the lyrics, line number, and artist.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;info = &amp;quot;all&amp;quot;&lt;/code&gt;: Return lyrics, line number, song title, artist.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tracklists&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tracklists&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;genius_tracklist()&lt;/code&gt;, given an &lt;code&gt;artist&lt;/code&gt; and an &lt;code&gt;album&lt;/code&gt; will return a barebones &lt;code&gt;tibble&lt;/code&gt; with the track title, track number, and the url to the lyrics.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genius_tracklist(artist = &amp;quot;Basement&amp;quot;, album = &amp;quot;Colourmeinkindness&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
+##    title     track_n track_url                                   
+##    &amp;lt;chr&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                                       
+##  1 Whole           1 https://genius.com/Basement-whole-lyrics    
+##  2 Covet           2 https://genius.com/Basement-covet-lyrics    
+##  3 Spoiled         3 https://genius.com/Basement-spoiled-lyrics  
+##  4 Pine            4 https://genius.com/Basement-pine-lyrics     
+##  5 Bad Apple       5 https://genius.com/Basement-bad-apple-lyrics
+##  6 Breathe         6 https://genius.com/Basement-breathe-lyrics  
+##  7 Control         7 https://genius.com/Basement-control-lyrics  
+##  8 Black           8 https://genius.com/Basement-black-lyrics    
+##  9 Comfort         9 https://genius.com/Basement-comfort-lyrics  
+## 10 Wish           10 https://genius.com/Basement-wish-lyrics&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;nitty-gritty&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Nitty Gritty&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;genius_lyrics()&lt;/code&gt; generates a url to Genius which is fed to &lt;code&gt;genius_url()&lt;/code&gt;, the function that does the heavy lifting of actually fetching lyrics.&lt;/p&gt;
+&lt;p&gt;I have not figured out all of the patterns that are used for generating the Genius.com urls, so errors are bound to happen. If &lt;code&gt;genius_lyrics()&lt;/code&gt; returns an error. Try utilizing &lt;code&gt;genius_tracklist()&lt;/code&gt; and &lt;code&gt;genius_url()&lt;/code&gt; together to get the song lyrics.&lt;/p&gt;
+&lt;p&gt;For example, say “(No One Knows Me) Like the Piano” by &lt;em&gt;Sampha&lt;/em&gt; wasn’t working in a standard &lt;code&gt;genius_lyrics()&lt;/code&gt; call.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;piano &amp;lt;- genius_lyrics(&amp;quot;Sampha&amp;quot;, &amp;quot;(No One Knows Me) Like the Piano&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We could grab the tracklist for the album &lt;em&gt;Process&lt;/em&gt; which the song is from. We could then isolate the url for &lt;em&gt;(No One Knows Me) Like the Piano&lt;/em&gt; and feed that into `genius_url().&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Get the tracklist for 
+process &amp;lt;- genius_tracklist(&amp;quot;Sampha&amp;quot;, &amp;quot;Process&amp;quot;)
+
+# Filter down to find the individual song
+piano_info &amp;lt;- process %&amp;gt;% 
+  filter(title == &amp;quot;(No One Knows Me) Like the Piano&amp;quot;)
+
+# Filter song using string detection
+# process %&amp;gt;% 
+#  filter(stringr::str_detect(title, coll(&amp;quot;Like the piano&amp;quot;, ignore_case = TRUE)))
+
+piano_url &amp;lt;- piano_info$track_url&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have the url, feed it into &lt;code&gt;genius_url()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genius_url(piano_url, info = &amp;quot;simple&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 13 x 1
+##    text                                                                   
+##    &amp;lt;chr&amp;gt;                                                                  
+##  1 No one knows me like the piano in my mother&amp;#39;s home                     
+##  2 You would show me I had something some people call a soul              
+##  3 And you dropped out the sky, oh you arrived when I was three years old 
+##  4 No one knows me like the piano in my mother&amp;#39;s home                     
+##  5 You know I left, I flew the nest                                       
+##  6 And you know I won&amp;#39;t be long                                           
+##  7 And in my chest you know me best                                       
+##  8 And you know I&amp;#39;ll be back home                                         
+##  9 An angel by her side, all of the times I knew we couldn&amp;#39;t cope         
+## 10 They said that it&amp;#39;s her time, no tears in sight, I kept the feelings c…
+## 11 And you took hold of me and never, never, never let me go              
+## 12 &amp;#39;Cause no one knows me like the piano in my mother&amp;#39;s home              
+## 13 In my mother&amp;#39;s home&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;on-the-internals&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;On the Internals&lt;/h1&gt;
+&lt;div id=&#34;generative-functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Generative functions&lt;/h2&gt;
+&lt;p&gt;This package works almost entirely on pattern detection. The urls from &lt;em&gt;Genius&lt;/em&gt; are (mostly) easily reproducible (shout out to &lt;a href=&#34;https://twitter.com/CivicAngela&#34;&gt;Angela Li&lt;/a&gt; for pointing this out).&lt;/p&gt;
+&lt;p&gt;The two functions that generate urls are &lt;code&gt;gen_song_url()&lt;/code&gt; and &lt;code&gt;gen_album_url()&lt;/code&gt;. To see how the functions work, try feeding an artist and song title to &lt;code&gt;gen_song_url()&lt;/code&gt; and an artist and album title to &lt;code&gt;gen_album_url()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gen_song_url(&amp;quot;Laura Marling&amp;quot;, &amp;quot;Soothing&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;https://genius.com/Laura-Marling-Soothing-lyrics&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gen_album_url(&amp;quot;Daniel Caesar&amp;quot;, &amp;quot;Freudian&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;https://genius.com/albums/Daniel-Caesar/Freudian&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;genius_lyrics()&lt;/code&gt; calls &lt;code&gt;gen_song_url()&lt;/code&gt; and feeds the output to &lt;code&gt;genius_url()&lt;/code&gt; which preforms the scraping.&lt;/p&gt;
+&lt;p&gt;Getting lyrics for albums is slightly more involved. It first calls &lt;code&gt;genius_tracklist()&lt;/code&gt; which first calls &lt;code&gt;gen_album_url()&lt;/code&gt; then using the handy package &lt;code&gt;rvest&lt;/code&gt; scrapes the song titles, track numbers, and song lyric urls. Next, the song urls from the output are iterated over and fed to &lt;code&gt;genius_url()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To make this more clear, take a look inside of &lt;code&gt;genius_album()&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genius_album &amp;lt;- function(artist = NULL, album = NULL, info = &amp;quot;simple&amp;quot;) {
+
+  # Obtain tracklist from genius_tracklist
+  album &amp;lt;- genius_tracklist(artist, album) %&amp;gt;%
+
+    # Iterate over the url to the song title
+    mutate(lyrics = map(track_url, genius_url, info)) %&amp;gt;%
+
+    # Unnest the tibble with lyrics
+    unnest(lyrics) %&amp;gt;%
+    
+    # Deselect the track url
+    select(-track_url)
+
+
+  return(album)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;notes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Notes:&lt;/h3&gt;
+&lt;p&gt;As this is my first &lt;em&gt;“package”&lt;/em&gt; there will be many issues. Please submit an issue and I will do my best to attend to it.&lt;/p&gt;
+&lt;p&gt;There are already issues of which I am present (the lack of error handling). If you would like to take those on, please go ahead and make a pull request. Please contact me on &lt;a href=&#34;twitter.com/josiahparry&#34;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2018-01-27-introducing-geniusr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/2018-01-27-introducing-geniusr/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+
+&lt;div id=&#34;introducing-geniusr&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introducing geniusR&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;geniusR&lt;/code&gt; enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.&lt;/p&gt;
+&lt;p&gt;This package was inspired by the release of Kendrick Lamar’s most recent album, &lt;strong&gt;DAMN.&lt;/strong&gt;. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.&lt;/p&gt;
+&lt;p&gt;The functions in this package enable easy access of individual song lyrics, album tracklists, and lyrics to whole albums.&lt;/p&gt;
+&lt;div id=&#34;install-and-load-the-package&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install and load the package&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;josiahparry/geniusR&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Load the package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(geniusR)
+library(tidyverse) # For manipulation&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;getting-lyrics&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Getting Lyrics&lt;/h1&gt;
+&lt;div id=&#34;whole-albums&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Whole Albums&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;genius_album()&lt;/code&gt; allows you to download the lyrics for an entire album in a &lt;code&gt;tidy&lt;/code&gt; format. There are two arguments &lt;code&gt;artists&lt;/code&gt; and &lt;code&gt;album&lt;/code&gt;. Supply the quoted name of artist and the album (if it gives you issues check that you have the album name and artists as specified on &lt;a href=&#34;https://genius.com&#34;&gt;Genius&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;This returns a tidy data frame with three columns:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;title&lt;/code&gt;: track name&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;track_n&lt;/code&gt;: track number&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;text&lt;/code&gt;: lyrics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;emotions_math &amp;lt;- genius_album(artist = &amp;quot;Margaret Glaspy&amp;quot;, album = &amp;quot;Emotions and Math&amp;quot;)
+emotions_math&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 371 x 3
+##    title             track_n text                                  
+##    &amp;lt;chr&amp;gt;               &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                                 
+##  1 Emotions and Math       1 Oh when I got you by my side          
+##  2 Emotions and Math       1 Everything&amp;#39;s alright                  
+##  3 Emotions and Math       1 Its just when your gone               
+##  4 Emotions and Math       1 I start to snooze the alarm           
+##  5 Emotions and Math       1 Cause I stay up until 4 in the morning
+##  6 Emotions and Math       1 Counting all the days &amp;#39;til you&amp;#39;re back
+##  7 Emotions and Math       1 Shivering in an ice cold bath         
+##  8 Emotions and Math       1 Of emotions and math                  
+##  9 Emotions and Math       1 Oh it&amp;#39;s a shame                       
+## 10 Emotions and Math       1 And I&amp;#39;m to blame                      
+## # ... with 361 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;multiple-albums&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Multiple Albums&lt;/h2&gt;
+&lt;p&gt;If you wish to download multiple albums from multiple artists, try and keep it tidy and avoid binding rows if you can. We can achieve this in a tidy workflow by creating a tibble with two columns: &lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;album&lt;/code&gt; where each row is an artist and their album. We can then iterate over those columns with &lt;code&gt;purrr:map2()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In this example I will extract 3 albums from Kendrick Lamar and Sara Bareilles (two of my favotire musicians). The first step is to create the tibble with artists and album titles.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;albums &amp;lt;-  tibble(
+  artist = c(
+    rep(&amp;quot;Kendrick Lamar&amp;quot;, 3), 
+    rep(&amp;quot;Sara Bareilles&amp;quot;, 3)
+    ),
+  album = c(
+    &amp;quot;Section 80&amp;quot;, &amp;quot;Good Kid, M.A.A.D City&amp;quot;, &amp;quot;DAMN.&amp;quot;,
+    &amp;quot;The Blessed Unrest&amp;quot;, &amp;quot;Kaleidoscope Heart&amp;quot;, &amp;quot;Little Voice&amp;quot;
+    )
+)
+
+albums&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 2
+##   artist         album                 
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;                 
+## 1 Kendrick Lamar Section 80            
+## 2 Kendrick Lamar Good Kid, M.A.A.D City
+## 3 Kendrick Lamar DAMN.                 
+## 4 Sara Bareilles The Blessed Unrest    
+## 5 Sara Bareilles Kaleidoscope Heart    
+## 6 Sara Bareilles Little Voice&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No we can iterate over each row using the &lt;code&gt;map2&lt;/code&gt; function. This allows us to feed each value from the &lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;album&lt;/code&gt; columns to the &lt;code&gt;genius_album()&lt;/code&gt; function. Utilizing a &lt;code&gt;map&lt;/code&gt; call within a &lt;code&gt;dplyr::mutate()&lt;/code&gt; function creates a list column where each value is a &lt;code&gt;tibble&lt;/code&gt; with the data frame from &lt;code&gt;genius_album()&lt;/code&gt;. We will later unnest this.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## We will have an additional artist column that will have to be dropped
+album_lyrics &amp;lt;- albums %&amp;gt;% 
+  mutate(tracks = map2(artist, album, genius_album))
+
+album_lyrics&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+##   artist         album                  tracks              
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;                  &amp;lt;list&amp;gt;              
+## 1 Kendrick Lamar Section 80             &amp;lt;tibble [1,184 × 3]&amp;gt;
+## 2 Kendrick Lamar Good Kid, M.A.A.D City &amp;lt;tibble [2,193 × 3]&amp;gt;
+## 3 Kendrick Lamar DAMN.                  &amp;lt;tibble [1,077 × 3]&amp;gt;
+## 4 Sara Bareilles The Blessed Unrest     &amp;lt;tibble [666 × 3]&amp;gt;  
+## 5 Sara Bareilles Kaleidoscope Heart     &amp;lt;tibble [568 × 3]&amp;gt;  
+## 6 Sara Bareilles Little Voice           &amp;lt;tibble [577 × 3]&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now when you view this you will see that each value within the &lt;code&gt;tracks&lt;/code&gt; column is &lt;code&gt;&amp;lt;tibble&amp;gt;&lt;/code&gt;. This means that that value is infact another &lt;code&gt;tibble&lt;/code&gt;. We expand this using &lt;code&gt;tidyr::unnest()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Unnest the lyrics to expand 
+lyrics &amp;lt;- album_lyrics %&amp;gt;% 
+  unnest(tracks) %&amp;gt;%    # Expanding the lyrics 
+  arrange(desc(artist)) # Arranging by artist name 
+
+head(lyrics)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   artist         album              title track_n text                    
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;              &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                   
+## 1 Sara Bareilles The Blessed Unrest Brave       1 You can be amazing      
+## 2 Sara Bareilles The Blessed Unrest Brave       1 You can turn a phrase i…
+## 3 Sara Bareilles The Blessed Unrest Brave       1 You can be the outcast  
+## 4 Sara Bareilles The Blessed Unrest Brave       1 Or be the backlash of s…
+## 5 Sara Bareilles The Blessed Unrest Brave       1 Or you can start speaki…
+## 6 Sara Bareilles The Blessed Unrest Brave       1 Nothing&amp;#39;s gonna hurt yo…&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;song-lyrics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Song Lyrics&lt;/h2&gt;
+&lt;div id=&#34;genius_lyrics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;code&gt;genius_lyrics()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Getting lyrics to a single song is pretty easy. Let’s get in our &lt;strong&gt;ELEMENT.&lt;/strong&gt; and checkout &lt;strong&gt;DNA.&lt;/strong&gt; by &lt;em&gt;Kendrick Lamar&lt;/em&gt;. But first, note that the &lt;code&gt;genius_lyrics()&lt;/code&gt; function takes two main arguments, &lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;song&lt;/code&gt;. Be sure to spell the name of the artist and the song correctly.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DNA &amp;lt;- genius_lyrics(artist = &amp;quot;Kendrick Lamar&amp;quot;, song = &amp;quot;DNA.&amp;quot;)
+
+DNA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 95 x 3
+##    title text                                                         line
+##    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;                                                       &amp;lt;int&amp;gt;
+##  1 DNA.  I got, I got, I got, I got—                                     1
+##  2 DNA.  Loyalty, got royalty inside my DNA                              2
+##  3 DNA.  Cocaine quarter piece, got war and peace inside my DNA          3
+##  4 DNA.  I got power, poison, pain and joy inside my DNA                 4
+##  5 DNA.  I got hustle though, ambition, flow inside my DNA               5
+##  6 DNA.  I was born like this, since one like this, immaculate conc…     6
+##  7 DNA.  I transform like this, perform like this, was Yeshua new w…     7
+##  8 DNA.  I don&amp;#39;t contemplate, I meditate, then off your fucking head     8
+##  9 DNA.  This that put-the-kids-to-bed                                   9
+## 10 DNA.  This that I got, I got, I got, I got—                          10
+## # ... with 85 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This returns a &lt;code&gt;tibble&lt;/code&gt; with three columns &lt;code&gt;title&lt;/code&gt;, &lt;code&gt;text&lt;/code&gt;, and &lt;code&gt;line&lt;/code&gt;. However, you can specifiy additional arguments to control the amount of information to be returned using the &lt;code&gt;info&lt;/code&gt; argument.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;info = &amp;quot;title&amp;quot;&lt;/code&gt; (default): Return the lyrics, line number, and song title.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;info = &amp;quot;simple&amp;quot;&lt;/code&gt;: Return just the lyrics and line number.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;info = &amp;quot;artist&amp;quot;&lt;/code&gt;: Return the lyrics, line number, and artist.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;info = &amp;quot;all&amp;quot;&lt;/code&gt;: Return lyrics, line number, song title, artist.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tracklists&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tracklists&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;genius_tracklist()&lt;/code&gt;, given an &lt;code&gt;artist&lt;/code&gt; and an &lt;code&gt;album&lt;/code&gt; will return a barebones &lt;code&gt;tibble&lt;/code&gt; with the track title, track number, and the url to the lyrics.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genius_tracklist(artist = &amp;quot;Basement&amp;quot;, album = &amp;quot;Colourmeinkindness&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
+##    title     track_n track_url                                   
+##    &amp;lt;chr&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                                       
+##  1 Whole           1 https://genius.com/Basement-whole-lyrics    
+##  2 Covet           2 https://genius.com/Basement-covet-lyrics    
+##  3 Spoiled         3 https://genius.com/Basement-spoiled-lyrics  
+##  4 Pine            4 https://genius.com/Basement-pine-lyrics     
+##  5 Bad Apple       5 https://genius.com/Basement-bad-apple-lyrics
+##  6 Breathe         6 https://genius.com/Basement-breathe-lyrics  
+##  7 Control         7 https://genius.com/Basement-control-lyrics  
+##  8 Black           8 https://genius.com/Basement-black-lyrics    
+##  9 Comfort         9 https://genius.com/Basement-comfort-lyrics  
+## 10 Wish           10 https://genius.com/Basement-wish-lyrics&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;nitty-gritty&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Nitty Gritty&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;genius_lyrics()&lt;/code&gt; generates a url to Genius which is fed to &lt;code&gt;genius_url()&lt;/code&gt;, the function that does the heavy lifting of actually fetching lyrics.&lt;/p&gt;
+&lt;p&gt;I have not figured out all of the patterns that are used for generating the Genius.com urls, so errors are bound to happen. If &lt;code&gt;genius_lyrics()&lt;/code&gt; returns an error. Try utilizing &lt;code&gt;genius_tracklist()&lt;/code&gt; and &lt;code&gt;genius_url()&lt;/code&gt; together to get the song lyrics.&lt;/p&gt;
+&lt;p&gt;For example, say “(No One Knows Me) Like the Piano” by &lt;em&gt;Sampha&lt;/em&gt; wasn’t working in a standard &lt;code&gt;genius_lyrics()&lt;/code&gt; call.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;piano &amp;lt;- genius_lyrics(&amp;quot;Sampha&amp;quot;, &amp;quot;(No One Knows Me) Like the Piano&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We could grab the tracklist for the album &lt;em&gt;Process&lt;/em&gt; which the song is from. We could then isolate the url for &lt;em&gt;(No One Knows Me) Like the Piano&lt;/em&gt; and feed that into `genius_url().&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Get the tracklist for 
+process &amp;lt;- genius_tracklist(&amp;quot;Sampha&amp;quot;, &amp;quot;Process&amp;quot;)
+
+# Filter down to find the individual song
+piano_info &amp;lt;- process %&amp;gt;% 
+  filter(title == &amp;quot;(No One Knows Me) Like the Piano&amp;quot;)
+
+# Filter song using string detection
+# process %&amp;gt;% 
+#  filter(stringr::str_detect(title, coll(&amp;quot;Like the piano&amp;quot;, ignore_case = TRUE)))
+
+piano_url &amp;lt;- piano_info$track_url&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have the url, feed it into &lt;code&gt;genius_url()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genius_url(piano_url, info = &amp;quot;simple&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 13 x 1
+##    text                                                                   
+##    &amp;lt;chr&amp;gt;                                                                  
+##  1 No one knows me like the piano in my mother&amp;#39;s home                     
+##  2 You would show me I had something some people call a soul              
+##  3 And you dropped out the sky, oh you arrived when I was three years old 
+##  4 No one knows me like the piano in my mother&amp;#39;s home                     
+##  5 You know I left, I flew the nest                                       
+##  6 And you know I won&amp;#39;t be long                                           
+##  7 And in my chest you know me best                                       
+##  8 And you know I&amp;#39;ll be back home                                         
+##  9 An angel by her side, all of the times I knew we couldn&amp;#39;t cope         
+## 10 They said that it&amp;#39;s her time, no tears in sight, I kept the feelings c…
+## 11 And you took hold of me and never, never, never let me go              
+## 12 &amp;#39;Cause no one knows me like the piano in my mother&amp;#39;s home              
+## 13 In my mother&amp;#39;s home&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;on-the-internals&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;On the Internals&lt;/h1&gt;
+&lt;div id=&#34;generative-functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Generative functions&lt;/h2&gt;
+&lt;p&gt;This package works almost entirely on pattern detection. The urls from &lt;em&gt;Genius&lt;/em&gt; are (mostly) easily reproducible (shout out to &lt;a href=&#34;https://twitter.com/CivicAngela&#34;&gt;Angela Li&lt;/a&gt; for pointing this out).&lt;/p&gt;
+&lt;p&gt;The two functions that generate urls are &lt;code&gt;gen_song_url()&lt;/code&gt; and &lt;code&gt;gen_album_url()&lt;/code&gt;. To see how the functions work, try feeding an artist and song title to &lt;code&gt;gen_song_url()&lt;/code&gt; and an artist and album title to &lt;code&gt;gen_album_url()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gen_song_url(&amp;quot;Laura Marling&amp;quot;, &amp;quot;Soothing&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;https://genius.com/Laura-Marling-Soothing-lyrics&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gen_album_url(&amp;quot;Daniel Caesar&amp;quot;, &amp;quot;Freudian&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;https://genius.com/albums/Daniel-Caesar/Freudian&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;genius_lyrics()&lt;/code&gt; calls &lt;code&gt;gen_song_url()&lt;/code&gt; and feeds the output to &lt;code&gt;genius_url()&lt;/code&gt; which preforms the scraping.&lt;/p&gt;
+&lt;p&gt;Getting lyrics for albums is slightly more involved. It first calls &lt;code&gt;genius_tracklist()&lt;/code&gt; which first calls &lt;code&gt;gen_album_url()&lt;/code&gt; then using the handy package &lt;code&gt;rvest&lt;/code&gt; scrapes the song titles, track numbers, and song lyric urls. Next, the song urls from the output are iterated over and fed to &lt;code&gt;genius_url()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To make this more clear, take a look inside of &lt;code&gt;genius_album()&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genius_album &amp;lt;- function(artist = NULL, album = NULL, info = &amp;quot;simple&amp;quot;) {
+
+  # Obtain tracklist from genius_tracklist
+  album &amp;lt;- genius_tracklist(artist, album) %&amp;gt;%
+
+    # Iterate over the url to the song title
+    mutate(lyrics = map(track_url, genius_url, info)) %&amp;gt;%
+
+    # Unnest the tibble with lyrics
+    unnest(lyrics) %&amp;gt;%
+    
+    # Deselect the track url
+    select(-track_url)
+
+
+  return(album)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;notes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Notes:&lt;/h3&gt;
+&lt;p&gt;As this is my first &lt;em&gt;“package”&lt;/em&gt; there will be many issues. Please submit an issue and I will do my best to attend to it.&lt;/p&gt;
+&lt;p&gt;There are already issues of which I am present (the lack of error handling). If you would like to take those on, please go ahead and make a pull request. Please contact me on &lt;a href=&#34;twitter.com/josiahparry&#34;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

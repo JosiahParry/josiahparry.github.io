@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.32.1" />
+  <meta name="author" content="Josiah Parry">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="Introducing geniusR geniusR enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.
+This package was inspired by the release of Kendrick Lamar’s most recent album, DAMN.. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/introducing-geniusr/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/cv.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-90934606-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/introducing-geniusr/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@josiahparry">
+  <meta property="twitter:creator" content="@josiahparry">
+  
+  <meta property="og:site_name" content="Josiah Parry">
+  <meta property="og:url" content="/post/introducing-geniusr/">
+  <meta property="og:title" content="Introducing geniusR | Josiah Parry">
+  <meta property="og:description" content="Introducing geniusR geniusR enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.
+This package was inspired by the release of Kendrick Lamar’s most recent album, DAMN.. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-01-27T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-01-27T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Introducing geniusR | Josiah Parry</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Josiah Parry</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post/">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#resume">
+            
+            <span>Résumé</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#photo">
+            
+            <span>Photography</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Introducing geniusR</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-01-27 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jan 27, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/r">R</a
+    >, 
+    
+    <a href="/categories/geniusr">geniusR</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Introducing%20geniusR&amp;url=%2fpost%2fintroducing-geniusr%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fintroducing-geniusr%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fintroducing-geniusr%2f&amp;title=Introducing%20geniusR"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fintroducing-geniusr%2f&amp;title=Introducing%20geniusR"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Introducing%20geniusR&amp;body=%2fpost%2fintroducing-geniusr%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      <div id="introducing-geniusr" class="section level1">
+<h1>Introducing geniusR</h1>
+<p><code>geniusR</code> enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.</p>
+<p>This package was inspired by the release of Kendrick Lamar’s most recent album, <strong>DAMN.</strong>. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.</p>
+<p>The functions in this package enable easy access of individual song lyrics, album tracklists, and lyrics to whole albums.</p>
+<div id="install-and-load-the-package" class="section level2">
+<h2>Install and load the package</h2>
+<pre class="r"><code>devtools::install_github(&quot;josiahparry/geniusR&quot;)</code></pre>
+<p>Load the package:</p>
+<pre class="r"><code>library(geniusR)
+library(tidyverse) # For manipulation</code></pre>
+</div>
+</div>
+<div id="getting-lyrics" class="section level1">
+<h1>Getting Lyrics</h1>
+<div id="whole-albums" class="section level2">
+<h2>Whole Albums</h2>
+<p><code>genius_album()</code> allows you to download the lyrics for an entire album in a <code>tidy</code> format. There are two arguments <code>artists</code> and <code>album</code>. Supply the quoted name of artist and the album (if it gives you issues check that you have the album name and artists as specified on <a href="https://genius.com">Genius</a>).</p>
+<p>This returns a tidy data frame with three columns:</p>
+<ul>
+<li><code>title</code>: track name</li>
+<li><code>track_n</code>: track number</li>
+<li><code>text</code>: lyrics</li>
+</ul>
+<pre class="r"><code>emotions_math &lt;- genius_album(artist = &quot;Margaret Glaspy&quot;, album = &quot;Emotions and Math&quot;)
+emotions_math</code></pre>
+<pre><code>## # A tibble: 371 x 3
+##    title             track_n text                                  
+##    &lt;chr&gt;               &lt;int&gt; &lt;chr&gt;                                 
+##  1 Emotions and Math       1 Oh when I got you by my side          
+##  2 Emotions and Math       1 Everything&#39;s alright                  
+##  3 Emotions and Math       1 Its just when your gone               
+##  4 Emotions and Math       1 I start to snooze the alarm           
+##  5 Emotions and Math       1 Cause I stay up until 4 in the morning
+##  6 Emotions and Math       1 Counting all the days &#39;til you&#39;re back
+##  7 Emotions and Math       1 Shivering in an ice cold bath         
+##  8 Emotions and Math       1 Of emotions and math                  
+##  9 Emotions and Math       1 Oh it&#39;s a shame                       
+## 10 Emotions and Math       1 And I&#39;m to blame                      
+## # ... with 361 more rows</code></pre>
+</div>
+<div id="multiple-albums" class="section level2">
+<h2>Multiple Albums</h2>
+<p>If you wish to download multiple albums from multiple artists, try and keep it tidy and avoid binding rows if you can. We can achieve this in a tidy workflow by creating a tibble with two columns: <code>artist</code> and <code>album</code> where each row is an artist and their album. We can then iterate over those columns with <code>purrr:map2()</code>.</p>
+<p>In this example I will extract 3 albums from Kendrick Lamar and Sara Bareilles (two of my favotire musicians). The first step is to create the tibble with artists and album titles.</p>
+<pre class="r"><code>albums &lt;-  tibble(
+  artist = c(
+    rep(&quot;Kendrick Lamar&quot;, 3), 
+    rep(&quot;Sara Bareilles&quot;, 3)
+    ),
+  album = c(
+    &quot;Section 80&quot;, &quot;Good Kid, M.A.A.D City&quot;, &quot;DAMN.&quot;,
+    &quot;The Blessed Unrest&quot;, &quot;Kaleidoscope Heart&quot;, &quot;Little Voice&quot;
+    )
+)
+
+albums</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   artist         album                 
+##   &lt;chr&gt;          &lt;chr&gt;                 
+## 1 Kendrick Lamar Section 80            
+## 2 Kendrick Lamar Good Kid, M.A.A.D City
+## 3 Kendrick Lamar DAMN.                 
+## 4 Sara Bareilles The Blessed Unrest    
+## 5 Sara Bareilles Kaleidoscope Heart    
+## 6 Sara Bareilles Little Voice</code></pre>
+<p>No we can iterate over each row using the <code>map2</code> function. This allows us to feed each value from the <code>artist</code> and <code>album</code> columns to the <code>genius_album()</code> function. Utilizing a <code>map</code> call within a <code>dplyr::mutate()</code> function creates a list column where each value is a <code>tibble</code> with the data frame from <code>genius_album()</code>. We will later unnest this.</p>
+<pre class="r"><code>## We will have an additional artist column that will have to be dropped
+album_lyrics &lt;- albums %&gt;% 
+  mutate(tracks = map2(artist, album, genius_album))
+
+album_lyrics</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   artist         album                  tracks              
+##   &lt;chr&gt;          &lt;chr&gt;                  &lt;list&gt;              
+## 1 Kendrick Lamar Section 80             &lt;tibble [1,184 × 3]&gt;
+## 2 Kendrick Lamar Good Kid, M.A.A.D City &lt;tibble [2,193 × 3]&gt;
+## 3 Kendrick Lamar DAMN.                  &lt;tibble [1,077 × 3]&gt;
+## 4 Sara Bareilles The Blessed Unrest     &lt;tibble [666 × 3]&gt;  
+## 5 Sara Bareilles Kaleidoscope Heart     &lt;tibble [568 × 3]&gt;  
+## 6 Sara Bareilles Little Voice           &lt;tibble [577 × 3]&gt;</code></pre>
+<p>Now when you view this you will see that each value within the <code>tracks</code> column is <code>&lt;tibble&gt;</code>. This means that that value is infact another <code>tibble</code>. We expand this using <code>tidyr::unnest()</code>.</p>
+<pre class="r"><code># Unnest the lyrics to expand 
+lyrics &lt;- album_lyrics %&gt;% 
+  unnest(tracks) %&gt;%    # Expanding the lyrics 
+  arrange(desc(artist)) # Arranging by artist name 
+
+head(lyrics)</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   artist         album              title track_n text                    
+##   &lt;chr&gt;          &lt;chr&gt;              &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;                   
+## 1 Sara Bareilles The Blessed Unrest Brave       1 You can be amazing      
+## 2 Sara Bareilles The Blessed Unrest Brave       1 You can turn a phrase i…
+## 3 Sara Bareilles The Blessed Unrest Brave       1 You can be the outcast  
+## 4 Sara Bareilles The Blessed Unrest Brave       1 Or be the backlash of s…
+## 5 Sara Bareilles The Blessed Unrest Brave       1 Or you can start speaki…
+## 6 Sara Bareilles The Blessed Unrest Brave       1 Nothing&#39;s gonna hurt yo…</code></pre>
+</div>
+<div id="song-lyrics" class="section level2">
+<h2>Song Lyrics</h2>
+<div id="genius_lyrics" class="section level3">
+<h3><code>genius_lyrics()</code></h3>
+<p>Getting lyrics to a single song is pretty easy. Let’s get in our <strong>ELEMENT.</strong> and checkout <strong>DNA.</strong> by <em>Kendrick Lamar</em>. But first, note that the <code>genius_lyrics()</code> function takes two main arguments, <code>artist</code> and <code>song</code>. Be sure to spell the name of the artist and the song correctly.</p>
+<pre class="r"><code>DNA &lt;- genius_lyrics(artist = &quot;Kendrick Lamar&quot;, song = &quot;DNA.&quot;)
+
+DNA</code></pre>
+<pre><code>## # A tibble: 95 x 3
+##    title text                                                         line
+##    &lt;chr&gt; &lt;chr&gt;                                                       &lt;int&gt;
+##  1 DNA.  I got, I got, I got, I got—                                     1
+##  2 DNA.  Loyalty, got royalty inside my DNA                              2
+##  3 DNA.  Cocaine quarter piece, got war and peace inside my DNA          3
+##  4 DNA.  I got power, poison, pain and joy inside my DNA                 4
+##  5 DNA.  I got hustle though, ambition, flow inside my DNA               5
+##  6 DNA.  I was born like this, since one like this, immaculate conc…     6
+##  7 DNA.  I transform like this, perform like this, was Yeshua new w…     7
+##  8 DNA.  I don&#39;t contemplate, I meditate, then off your fucking head     8
+##  9 DNA.  This that put-the-kids-to-bed                                   9
+## 10 DNA.  This that I got, I got, I got, I got—                          10
+## # ... with 85 more rows</code></pre>
+<p>This returns a <code>tibble</code> with three columns <code>title</code>, <code>text</code>, and <code>line</code>. However, you can specifiy additional arguments to control the amount of information to be returned using the <code>info</code> argument.</p>
+<ul>
+<li><code>info = &quot;title&quot;</code> (default): Return the lyrics, line number, and song title.</li>
+<li><code>info = &quot;simple&quot;</code>: Return just the lyrics and line number.</li>
+<li><code>info = &quot;artist&quot;</code>: Return the lyrics, line number, and artist.</li>
+<li><code>info = &quot;all&quot;</code>: Return lyrics, line number, song title, artist.</li>
+</ul>
+</div>
+</div>
+<div id="tracklists" class="section level2">
+<h2>Tracklists</h2>
+<p><code>genius_tracklist()</code>, given an <code>artist</code> and an <code>album</code> will return a barebones <code>tibble</code> with the track title, track number, and the url to the lyrics.</p>
+<pre class="r"><code>genius_tracklist(artist = &quot;Basement&quot;, album = &quot;Colourmeinkindness&quot;) </code></pre>
+<pre><code>## # A tibble: 10 x 3
+##    title     track_n track_url                                   
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;                                       
+##  1 Whole           1 https://genius.com/Basement-whole-lyrics    
+##  2 Covet           2 https://genius.com/Basement-covet-lyrics    
+##  3 Spoiled         3 https://genius.com/Basement-spoiled-lyrics  
+##  4 Pine            4 https://genius.com/Basement-pine-lyrics     
+##  5 Bad Apple       5 https://genius.com/Basement-bad-apple-lyrics
+##  6 Breathe         6 https://genius.com/Basement-breathe-lyrics  
+##  7 Control         7 https://genius.com/Basement-control-lyrics  
+##  8 Black           8 https://genius.com/Basement-black-lyrics    
+##  9 Comfort         9 https://genius.com/Basement-comfort-lyrics  
+## 10 Wish           10 https://genius.com/Basement-wish-lyrics</code></pre>
+</div>
+<div id="nitty-gritty" class="section level2">
+<h2>Nitty Gritty</h2>
+<p><code>genius_lyrics()</code> generates a url to Genius which is fed to <code>genius_url()</code>, the function that does the heavy lifting of actually fetching lyrics.</p>
+<p>I have not figured out all of the patterns that are used for generating the Genius.com urls, so errors are bound to happen. If <code>genius_lyrics()</code> returns an error. Try utilizing <code>genius_tracklist()</code> and <code>genius_url()</code> together to get the song lyrics.</p>
+<p>For example, say “(No One Knows Me) Like the Piano” by <em>Sampha</em> wasn’t working in a standard <code>genius_lyrics()</code> call.</p>
+<pre class="r"><code>piano &lt;- genius_lyrics(&quot;Sampha&quot;, &quot;(No One Knows Me) Like the Piano&quot;)</code></pre>
+<p>We could grab the tracklist for the album <em>Process</em> which the song is from. We could then isolate the url for <em>(No One Knows Me) Like the Piano</em> and feed that into `genius_url().</p>
+<pre class="r"><code># Get the tracklist for 
+process &lt;- genius_tracklist(&quot;Sampha&quot;, &quot;Process&quot;)
+
+# Filter down to find the individual song
+piano_info &lt;- process %&gt;% 
+  filter(title == &quot;(No One Knows Me) Like the Piano&quot;)
+
+# Filter song using string detection
+# process %&gt;% 
+#  filter(stringr::str_detect(title, coll(&quot;Like the piano&quot;, ignore_case = TRUE)))
+
+piano_url &lt;- piano_info$track_url</code></pre>
+<p>Now that we have the url, feed it into <code>genius_url()</code>.</p>
+<pre class="r"><code>genius_url(piano_url, info = &quot;simple&quot;)</code></pre>
+<pre><code>## # A tibble: 13 x 1
+##    text                                                                   
+##    &lt;chr&gt;                                                                  
+##  1 No one knows me like the piano in my mother&#39;s home                     
+##  2 You would show me I had something some people call a soul              
+##  3 And you dropped out the sky, oh you arrived when I was three years old 
+##  4 No one knows me like the piano in my mother&#39;s home                     
+##  5 You know I left, I flew the nest                                       
+##  6 And you know I won&#39;t be long                                           
+##  7 And in my chest you know me best                                       
+##  8 And you know I&#39;ll be back home                                         
+##  9 An angel by her side, all of the times I knew we couldn&#39;t cope         
+## 10 They said that it&#39;s her time, no tears in sight, I kept the feelings c…
+## 11 And you took hold of me and never, never, never let me go              
+## 12 &#39;Cause no one knows me like the piano in my mother&#39;s home              
+## 13 In my mother&#39;s home</code></pre>
+<hr />
+</div>
+</div>
+<div id="on-the-internals" class="section level1">
+<h1>On the Internals</h1>
+<div id="generative-functions" class="section level2">
+<h2>Generative functions</h2>
+<p>This package works almost entirely on pattern detection. The urls from <em>Genius</em> are (mostly) easily reproducible (shout out to <a href="https://twitter.com/CivicAngela">Angela Li</a> for pointing this out).</p>
+<p>The two functions that generate urls are <code>gen_song_url()</code> and <code>gen_album_url()</code>. To see how the functions work, try feeding an artist and song title to <code>gen_song_url()</code> and an artist and album title to <code>gen_album_url()</code>.</p>
+<pre class="r"><code>gen_song_url(&quot;Laura Marling&quot;, &quot;Soothing&quot;)</code></pre>
+<pre><code>## [1] &quot;https://genius.com/Laura-Marling-Soothing-lyrics&quot;</code></pre>
+<pre class="r"><code>gen_album_url(&quot;Daniel Caesar&quot;, &quot;Freudian&quot;)</code></pre>
+<pre><code>## [1] &quot;https://genius.com/albums/Daniel-Caesar/Freudian&quot;</code></pre>
+<p><code>genius_lyrics()</code> calls <code>gen_song_url()</code> and feeds the output to <code>genius_url()</code> which preforms the scraping.</p>
+<p>Getting lyrics for albums is slightly more involved. It first calls <code>genius_tracklist()</code> which first calls <code>gen_album_url()</code> then using the handy package <code>rvest</code> scrapes the song titles, track numbers, and song lyric urls. Next, the song urls from the output are iterated over and fed to <code>genius_url()</code>.</p>
+<p>To make this more clear, take a look inside of <code>genius_album()</code></p>
+<pre class="r"><code>genius_album &lt;- function(artist = NULL, album = NULL, info = &quot;simple&quot;) {
+
+  # Obtain tracklist from genius_tracklist
+  album &lt;- genius_tracklist(artist, album) %&gt;%
+
+    # Iterate over the url to the song title
+    mutate(lyrics = map(track_url, genius_url, info)) %&gt;%
+
+    # Unnest the tibble with lyrics
+    unnest(lyrics) %&gt;%
+    
+    # Deselect the track url
+    select(-track_url)
+
+
+  return(album)
+}</code></pre>
+<div id="notes" class="section level3">
+<h3>Notes:</h3>
+<p>As this is my first <em>“package”</em> there will be many issues. Please submit an issue and I will do my best to attend to it.</p>
+<p>There are already issues of which I am present (the lack of error handling). If you would like to take those on, please go ahead and make a pull request. Please contact me on <a href="twitter.com/josiahparry">Twitter</a>.</p>
+</div>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/geniusr">geniusR</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/nlp">nlp</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/text-mining">text mining</a>
+  
+</div>
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
