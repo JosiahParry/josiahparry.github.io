@@ -5,13 +5,8 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/project/geniusr/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
-=======
-      <loc>https://josiahparry.github.io/post/introducing-geniusr/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
     </url>
     
   
@@ -19,12 +14,8 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/post/introducing-geniusr/</loc>
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
-=======
-      <loc>https://josiahparry.github.io/talk/example-talk/</loc>
-      <lastmod>2017-01-01T00:00:00-05:00</lastmod>
     </url>
     
   
@@ -32,76 +23,7 @@
     
     <url>
     
-      <loc>https://josiahparry.github.io/post/</loc>
-      <lastmod>2017-01-01T00:00:00-05:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://josiahparry.github.io/tags/academic/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://josiahparry.github.io/publication/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://josiahparry.github.io/talk/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://josiahparry.github.io/project/deep-learning/</loc>
-      <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://josiahparry.github.io/project/example-external-project/</loc>
-      <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://josiahparry.github.io/publication/person-re-identification/</loc>
-      <lastmod>2015-09-01T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
-    </url>
-    
-  
-    
-    
-    <url>
-    
-<<<<<<< HEAD
       <loc>/2018-01-27-introducing-geniusr/</loc>
-=======
-      <loc>https://josiahparry.github.io/publication/clothing-search/</loc>
-      <lastmod>2013-07-01T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
     </url>
     
   
@@ -109,12 +31,7 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/categories/</loc>
-=======
-      <loc>https://josiahparry.github.io/publication_types/1/</loc>
-      <lastmod>2013-07-01T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <priority>0</priority>
     </url>
     
@@ -123,13 +40,8 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/tags/geniusr/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
-=======
-      <loc>https://josiahparry.github.io/publication_types/2/</loc>
-      <lastmod>2015-09-01T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <priority>0</priority>
     </url>
     
@@ -138,12 +50,8 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/categories/geniusr/</loc>
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
-=======
-      <loc>https://josiahparry.github.io/categories/</loc>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <priority>0</priority>
     </url>
     
@@ -152,12 +60,8 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/</loc>
       <lastmod>2017-10-15T00:00:00-04:00</lastmod>
-=======
-      <loc>https://josiahparry.github.io/tags/deep-learning/</loc>
-      <lastmod>2016-04-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -166,32 +70,7 @@
     
     <url>
     
-      <loc>https://josiahparry.github.io/tags/demo/</loc>
-      <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://josiahparry.github.io/tags/geniusr/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-<<<<<<< HEAD
       <loc>/tags/nlp/</loc>
-=======
-      <loc>https://josiahparry.github.io/categories/geniusr/</loc>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -201,21 +80,7 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/post/</loc>
-=======
-      <loc>https://josiahparry.github.io/</loc>
-      <lastmod>2017-10-15T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://josiahparry.github.io/tags/nlp/</loc>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -225,13 +90,8 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/project/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
-=======
-      <loc>https://josiahparry.github.io/project/</loc>
-      <lastmod>2016-04-27T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <priority>0</priority>
     </url>
     
@@ -240,12 +100,7 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/publication_types/</loc>
-=======
-      <loc>https://josiahparry.github.io/publication_types/</loc>
-      <lastmod>2013-07-01T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <priority>0</priority>
     </url>
     
@@ -254,13 +109,8 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/tags/r/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
-=======
-      <loc>https://josiahparry.github.io/tags/r/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <priority>0</priority>
     </url>
     
@@ -269,11 +119,7 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/categories/r/</loc>
-=======
-      <loc>https://josiahparry.github.io/categories/r/</loc>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -283,13 +129,8 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/tags/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
-=======
-      <loc>https://josiahparry.github.io/tags/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <priority>0</priority>
     </url>
     
@@ -298,11 +139,7 @@
     
     <url>
     
-<<<<<<< HEAD
       <loc>/tags/text-mining/</loc>
-=======
-      <loc>https://josiahparry.github.io/tags/text-mining/</loc>
->>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
