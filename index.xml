@@ -2,7 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Josiah Parry on Josiah Parry</title>
+<<<<<<< HEAD
     <link>/</link>
+=======
+    <link>https://josiahparry.github.io/</link>
+>>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
     <description>Recent content in Josiah Parry on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -11,6 +15,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+<<<<<<< HEAD
       <title>geniusR</title>
       <link>/project/geniusr/</link>
       <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
@@ -25,11 +30,19 @@
       <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/introducing-geniusr/</guid>
+=======
+      <title>Introducing geniusR</title>
+      <link>https://josiahparry.github.io/post/introducing-geniusr/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://josiahparry.github.io/post/introducing-geniusr/</guid>
+>>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
       <description>&lt;div id=&#34;introducing-geniusr&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introducing geniusR&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;geniusR&lt;/code&gt; enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.&lt;/p&gt;
 &lt;p&gt;This package was inspired by the release of Kendrick Lamar’s most recent album, &lt;strong&gt;DAMN.&lt;/strong&gt;. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.&lt;/p&gt;
 &lt;p&gt;The functions in this package enable easy access of individual song lyrics, album tracklists, and lyrics to whole albums.&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div id=&#34;install-and-load-the-package&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Install and load the package&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;josiahparry/geniusR&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
@@ -249,10 +262,109 @@ piano_url &amp;lt;- piano_info$track_url&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+=======
+&lt;div id=&#34;individual-songs-genius_lyrics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Individual songs &lt;code&gt;genius_lyrics()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Getting lyrics to a single song is pretty easy. Let’s get in our &lt;strong&gt;ELEMENT.&lt;/strong&gt; and checkout &lt;strong&gt;DNA.&lt;/strong&gt;. But first, note that the &lt;code&gt;genius_lyrics()&lt;/code&gt; function takes two arguments, &lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;song&lt;/code&gt;. Be sure to spell the name of the artist and the song correctly, but don’t worry about capitalization.&lt;/p&gt;
+&lt;p&gt;First, let’s set up our libraries / working environment.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;prettyprint&#34;&gt;
+devtools::install_github(&#34;josiahparry/geniusR&#34;)
+library(geniusR)
+library(tidyverse)
+library(tidytext)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;genius_lyrics()&lt;/code&gt; returns only the barebones. Utilizing &lt;code&gt;dplyr&lt;/code&gt; we can also create a new variable with the line number to help in future &lt;a href=&#34;https://github.com/juliasilge/tidytext&#34;&gt;tidytext&lt;/a&gt; analysis. This will be covered in a later vignette / post.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;prettyprint &#34;&gt;DNA &amp;lt;- genius_lyrics(artist = &amp;quot;Kendrick Lamar&amp;quot;, song = &amp;quot;DNA.&amp;quot;)
+DNA %&amp;gt;%
+  mutate(line = row_number())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 99 x 2
+##    text                                                              line
+##    &amp;lt;chr&amp;gt;                                                            &amp;lt;int&amp;gt;
+##  1 I got, I got, I got, I got—                                          1
+##  2 Loyalty, got royalty inside my DNA                                   2
+##  3 Cocaine quarter piece, got war and peace inside my DNA               3
+##  4 I got power, poison, pain and joy inside my DNA                      4
+##  5 I got hustle though, ambition flow inside my DNA                     5
+##  6 I was born like this, since one like this, immaculate conception     6
+##  7 I transform like this, perform like this, was Yeshua new weapon      7
+##  8 I don&#39;t contemplate, I meditate, then off your fucking head          8
+##  9 This that put-the-kids-to-bed                                        9
+## 10 This that I got, I got, I got, I got—                               10
+## # ... with 89 more rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;album-level-information&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Album Level Information&lt;/h2&gt;
+&lt;div id=&#34;tracklists&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Tracklists&lt;/h3&gt;
+&lt;p&gt;There are two key functions to be utilized at the album level: &lt;code&gt;genius_tracklist()&lt;/code&gt; and &lt;code&gt;genius_album()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I often only know an album name and none of the track titles. Often I only know the position in the tracklist. For this reason, I created a tool to provide an album tracklist. This function, &lt;code&gt;genius_tracklist()&lt;/code&gt; takes the arguments &lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;album&lt;/code&gt;. Simple enough, right?&lt;/p&gt;
+&lt;p&gt;Let’s get the tracklist for the original release of &lt;strong&gt;DAMN.&lt;/strong&gt;. However, real Kendrick fans know that the album was intended to be listened to in chronological &lt;em&gt;and&lt;/em&gt; reverse order—as is on the collector’s release.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;prettyprint &#34;&gt;damn_tracks &amp;lt;- genius_tracklist(artist = &amp;quot;Kendrick Lamar&amp;quot;, album = &amp;quot;DAMN.&amp;quot;)
+
+# Collector&#39;s reverse order
+damn_tracks %&amp;gt;%
+  arrange(-track_n)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 14 x 2
+##    title                  track_n
+##    &amp;lt;chr&amp;gt;                    &amp;lt;int&amp;gt;
+##  1 DUCKWORTH.               14
+##  2 GOD.                     13
+##  3 FEAR.                    12
+##  4 XXX. (Ft. U2)            11
+##  5 LOVE. (Ft. Zacari)       10
+##  6 LUST.                     9
+##  7 HUMBLE.                   8
+##  8 PRIDE.                    7
+##  9 LOYALTY. (Ft. Rihanna)    6
+## 10 FEEL.                     5
+## 11 ELEMENT.                  4
+## 12 YAH.                      3
+## 13 DNA.                      2
+## 14 BLOOD.                    1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;album-lyrics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Album Lyrics&lt;/h3&gt;
+&lt;p&gt;If lyrics for a full album are what you desire, look no further than &lt;code&gt;genius_album()&lt;/code&gt;. With a little help from &lt;a href=&#34;https://github.com/tidyverse/purrr&#34;&gt;&lt;code&gt;purrr&lt;/code&gt;&lt;/a&gt; you can avoid the annoying iterations! &lt;code&gt;genius_album()&lt;/code&gt; is designed for simple use. Provide it with only two argument—&lt;code&gt;artist&lt;/code&gt; and &lt;code&gt;album&lt;/code&gt;—and you’ll have lyrics in no time!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;genius_album()&lt;/code&gt; returns a tibble with a column of nested data frames where each song’s lyrics are contained. Nesting the lyrics was done to have a less cluttered data frame. You can unnest the lyrics by setting &lt;code&gt;nested = FALSE&lt;/code&gt;. Alternatively, you can pipe it into an &lt;code&gt;unnest()&lt;/code&gt; call.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;prettyprint &#34;&gt;DAMN &amp;lt;- genius_album(artist = &amp;quot;Kendrick Lamar&amp;quot;, album = &amp;quot;DAMN.&amp;quot;, nested = FALSE)
+
+# Alternative method
+#genius_album(artist = &amp;quot;Kendrick Lamar&amp;quot;, album = &amp;quot;DAMN.&amp;quot;) %&amp;gt;%
+#  unnest(lyrics)
+
+head(DAMN)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 4
+##   title  track_n text                                                 line
+##   &amp;lt;chr&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                                               &amp;lt;int&amp;gt;
+## 1 BLOOD.       1 Is it wickedness?                                       1
+## 2 BLOOD.       1 Is it weakness?                                         2
+## 3 BLOOD.       1 You decide                                              3
+## 4 BLOOD.       1 Are we gonna live or die?                               4
+## 5 BLOOD.       1 &amp;quot;So I was takin&#39; a walk the other day, and I seen …     5
+## 6 BLOOD.       1 {Gunshot}                                               6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bam. Easy peasy. Now you have a sweet data frame ready for a tidy text analysis!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
+      <title>Example Talk</title>
+      <link>https://josiahparry.github.io/talk/example-talk/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://josiahparry.github.io/talk/example-talk/</guid>
+      <description>&lt;p&gt;Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+>>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
+</description>
+    </item>
+    
+    <item>
+<<<<<<< HEAD
       <title></title>
       <link>/2018-01-27-introducing-geniusr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -486,6 +598,51 @@ piano_url &amp;lt;- piano_info$track_url&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+=======
+      <title>Deep Learning</title>
+      <link>https://josiahparry.github.io/project/deep-learning/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://josiahparry.github.io/project/deep-learning/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
+
+&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
+
+&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
+
+&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
+
+&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>External Project</title>
+      <link>https://josiahparry.github.io/project/example-external-project/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://josiahparry.github.io/project/example-external-project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Person Re-Identification System For Mobile Devices</title>
+      <link>https://josiahparry.github.io/publication/person-re-identification/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://josiahparry.github.io/publication/person-re-identification/</guid>
+      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mobile visual clothing search</title>
+      <link>https://josiahparry.github.io/publication/clothing-search/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://josiahparry.github.io/publication/clothing-search/</guid>
+      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+>>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
 </description>
     </item>
     

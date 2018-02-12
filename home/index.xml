@@ -2,7 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homes on Josiah Parry</title>
+<<<<<<< HEAD
     <link>/home/</link>
+=======
+    <link>https://josiahparry.github.io/home/</link>
+>>>>>>> 47230d6a94ec4be019c7a713ebb5c0f83ba30f67
     <description>Recent content in Homes on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
