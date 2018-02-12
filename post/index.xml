@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Josiah Parry</title>
-    <link>/post/</link>
+    <link>https://josiahparry.github.io/post/</link>
     <description>Recent content in Posts on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Introducing geniusR</title>
-      <link>/post/introducing-geniusr/</link>
+      <link>https://josiahparry.github.io/post/introducing-geniusr/</link>
       <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/introducing-geniusr/</guid>
+      <guid>https://josiahparry.github.io/post/introducing-geniusr/</guid>
       <description>&lt;div id=&#34;introducing-geniusr&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introducing geniusR&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;geniusR&lt;/code&gt; enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.&lt;/p&gt;
