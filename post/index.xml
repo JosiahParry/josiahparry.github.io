@@ -92,10 +92,10 @@ album_lyrics&lt;/code&gt;&lt;/pre&gt;
 ##   artist         album                  tracks              
 ##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;                  &amp;lt;list&amp;gt;              
 ## 1 Kendrick Lamar Section 80             &amp;lt;tibble [1,184 × 3]&amp;gt;
-## 2 Kendrick Lamar Good Kid, M.A.A.D City &amp;lt;tibble [2,193 × 3]&amp;gt;
+## 2 Kendrick Lamar Good Kid, M.A.A.D City &amp;lt;tibble [2,192 × 3]&amp;gt;
 ## 3 Kendrick Lamar DAMN.                  &amp;lt;tibble [1,077 × 3]&amp;gt;
 ## 4 Sara Bareilles The Blessed Unrest     &amp;lt;tibble [666 × 3]&amp;gt;  
-## 5 Sara Bareilles Kaleidoscope Heart     &amp;lt;tibble [568 × 3]&amp;gt;  
+## 5 Sara Bareilles Kaleidoscope Heart     &amp;lt;tibble [582 × 3]&amp;gt;  
 ## 6 Sara Bareilles Little Voice           &amp;lt;tibble [577 × 3]&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now when you view this you will see that each value within the &lt;code&gt;tracks&lt;/code&gt; column is &lt;code&gt;&amp;lt;tibble&amp;gt;&lt;/code&gt;. This means that that value is infact another &lt;code&gt;tibble&lt;/code&gt;. We expand this using &lt;code&gt;tidyr::unnest()&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Unnest the lyrics to expand 
@@ -129,7 +129,7 @@ DNA&lt;/code&gt;&lt;/pre&gt;
 ##  2 DNA.  Loyalty, got royalty inside my DNA                              2
 ##  3 DNA.  Cocaine quarter piece, got war and peace inside my DNA          3
 ##  4 DNA.  I got power, poison, pain and joy inside my DNA                 4
-##  5 DNA.  I got hustle though, ambition, flow inside my DNA               5
+##  5 DNA.  I got hustle though, ambition flow inside my DNA                5
 ##  6 DNA.  I was born like this, since one like this, immaculate conc…     6
 ##  7 DNA.  I transform like this, perform like this, was Yeshua new w…     7
 ##  8 DNA.  I don&amp;#39;t contemplate, I meditate, then off your fucking head     8
