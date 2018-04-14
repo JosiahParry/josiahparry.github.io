@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/tidy-coursera-r-programming/</loc>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/project/geniusr/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
     </url>
@@ -32,8 +41,8 @@
     
     <url>
     
-      <loc>/tags/geniusr/</loc>
-      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+      <loc>/tags/coursera/</loc>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -44,6 +53,16 @@
     
       <loc>/categories/geniusr/</loc>
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/geniusr/</loc>
+      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -73,7 +92,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -101,8 +120,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -111,8 +130,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -122,7 +141,7 @@
     <url>
     
       <loc>/tags/</loc>
-      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -133,6 +152,36 @@
     
       <loc>/tags/text-mining/</loc>
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/tidyverse/</loc>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/tutorial/</loc>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/tutorial/</loc>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
