@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.51" />
+  <meta name="author" content="Josiah Parry">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using Relay. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.
+In order to solve this problem, a large csv must be split into multiple csv’s for upload.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/write-chunked-csv/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/cv.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-90934606-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/write-chunked-csv/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@josiahparry">
+  <meta property="twitter:creator" content="@josiahparry">
+  
+  <meta property="og:site_name" content="Josiah Parry">
+  <meta property="og:url" content="/post/write-chunked-csv/">
+  <meta property="og:title" content="Chunking your csv | Josiah Parry">
+  <meta property="og:description" content="Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using Relay. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.
+In order to solve this problem, a large csv must be split into multiple csv’s for upload.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-10-27T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-10-27T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Chunking your csv | Josiah Parry</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Josiah Parry</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post/">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#resume">
+            
+            <span>Résumé</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Chunking your csv</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-10-27 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Oct 27, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/r">R</a
+    >, 
+    
+    <a href="/categories/tutorial">tutorial</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Chunking%20your%20csv&amp;url=%2fpost%2fwrite-chunked-csv%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fwrite-chunked-csv%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fwrite-chunked-csv%2f&amp;title=Chunking%20your%20csv"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fwrite-chunked-csv%2f&amp;title=Chunking%20your%20csv"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Chunking%20your%20csv&amp;body=%2fpost%2fwrite-chunked-csv%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using <a href="relaytxt.io">Relay</a>. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.</p>
+<p>In order to solve this problem, a large csv must be split into multiple csv’s for upload. Though this could be solved with excel and Google Sheets, who wants to labor over that?</p>
+<p>Here I will go through the methodology of writing a csv into multiple. I will use data from the <a href="https://www.google.com/search?q=quantitative+social+science&amp;oq=quantitative+social+science&amp;aqs=chrome..69i57j69i61j69i65j69i60l2j69i59.5035j0j1&amp;sourceid=chrome&amp;ie=UTF-8">Quantitative Social Science</a> book by Kosuke Imai.</p>
+<pre class="r"><code>library(tidyverse)
+
+social &lt;- read_csv(&quot;https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/social.csv&quot;)
+
+dim(social)</code></pre>
+<pre><code>## [1] 305866      6</code></pre>
+<p>This dataset has 305k observations and 6 columns. For this example let’s say we wanted to split this into files of 15,000 rows or fewer. We can use the following custom funciton:</p>
+<pre class="r"><code>write_csv_chunk &lt;- function(filepath, n, output_name) {
+  df &lt;- read_csv(filepath) # 1. read original file
+  
+  n_files &lt;- ceiling(nrow(df)/n) # 2. identify how many files to make
+  
+  chunk_starts &lt;- seq(1, n*n_files, by = n) #  3. identify the rown number to start on
+  
+  for (i in 1:n_files) { # 4. iterate through the csv to write the files
+    chunk_end &lt;- n*i # 4a
+    df_to_write &lt;- slice(df, chunk_starts[i]:chunk_end) # 4b
+    fpath &lt;- paste0(output_name, &quot;_&quot;, i, &quot;.csv&quot;) # 4c
+    write_csv(df_to_write,  fpath) # 4d
+    message(paste0(fpath, &quot; was written.&quot;)) # 4e
+  }
+}</code></pre>
+<p>The function has a few steps. Let’s walk through them. The step numbers are commented above.</p>
+<ol style="list-style-type: decimal">
+<li>Read in the csv.</li>
+<li>Identify the number of files that will have to be created.</li>
+</ol>
+<ul>
+<li>This will be the number of rows of the data frame divided by the number of rows we want each file to have. This number will be rounded up to handle a remainder.</li>
+<li>In this case <code>ceiling(nrow(social) / 15000)</code> is equal to 21.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Identify the row number to begin splitting the dataframe for each file.</li>
+</ol>
+<ul>
+<li>This will be a factor of our <code>n</code> plus 1, but will never exceed the <code>nrow(df)</code>,</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>This is the fun part, writing our files. The number of iterations is the number of files.</li>
+</ol>
+<ul>
+<li><em>4a</em>: The ending row number is the iteration number multiplied by the number of rows.</li>
+<li><em>4b</em>: use <code>slice()</code> to cute the original data frame into the chunk beginning and chunk end</li>
+<li><em>4c</em>: Creating the file paththat will be written.</li>
+<li><em>4d</em>: Write the csv!</li>
+<li><em>4e</em>: Print a message about the file being printed.</li>
+</ul>
+<pre class="r"><code>soc_fpath &lt;- &quot;https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/social.csv&quot;
+write_csv_chunk(filepath = soc_fpath, n = 25000, &quot;../../static/data/chunk_data/social_chunked&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_1.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_2.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_3.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_4.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_5.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_6.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_7.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_8.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_9.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_10.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_11.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_12.csv was written.</code></pre>
+<pre><code>## ../../static/data/chunk_data/social_chunked_13.csv was written.</code></pre>
+<p>Now that we have these files split up, it will be good to know how to get them back into one piece! Check out my blog post on reading multiple csvs in as one data frame <a href="josiahparry.com/post/read-chunked-csv">here</a>.</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/tidyverse">tidyverse</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/tutorial">tutorial</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/data-manipulation">data manipulation</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></li>
+        
+        <li><a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a></li>
+        
+        <li><a href="/project/geniusr/">geniusR</a></li>
+        
+        <li><a href="/post/introducing-geniusr/">Introducing geniusR</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

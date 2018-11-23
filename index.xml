@@ -11,12 +11,278 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Chunking your csv</title>
+      <link>/post/write-chunked-csv/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/write-chunked-csv/</guid>
+      <description>
+
+
+&lt;p&gt;Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using &lt;a href=&#34;relaytxt.io&#34;&gt;Relay&lt;/a&gt;. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.&lt;/p&gt;
+&lt;p&gt;In order to solve this problem, a large csv must be split into multiple csv’s for upload. Though this could be solved with excel and Google Sheets, who wants to labor over that?&lt;/p&gt;
+&lt;p&gt;Here I will go through the methodology of writing a csv into multiple. I will use data from the &lt;a href=&#34;https://www.google.com/search?q=quantitative+social+science&amp;amp;oq=quantitative+social+science&amp;amp;aqs=chrome..69i57j69i61j69i65j69i60l2j69i59.5035j0j1&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&#34;&gt;Quantitative Social Science&lt;/a&gt; book by Kosuke Imai.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+social &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/social.csv&amp;quot;)
+
+dim(social)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 305866      6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This dataset has 305k observations and 6 columns. For this example let’s say we wanted to split this into files of 15,000 rows or fewer. We can use the following custom funciton:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;write_csv_chunk &amp;lt;- function(filepath, n, output_name) {
+  df &amp;lt;- read_csv(filepath) # 1. read original file
+  
+  n_files &amp;lt;- ceiling(nrow(df)/n) # 2. identify how many files to make
+  
+  chunk_starts &amp;lt;- seq(1, n*n_files, by = n) #  3. identify the rown number to start on
+  
+  for (i in 1:n_files) { # 4. iterate through the csv to write the files
+    chunk_end &amp;lt;- n*i # 4a
+    df_to_write &amp;lt;- slice(df, chunk_starts[i]:chunk_end) # 4b
+    fpath &amp;lt;- paste0(output_name, &amp;quot;_&amp;quot;, i, &amp;quot;.csv&amp;quot;) # 4c
+    write_csv(df_to_write,  fpath) # 4d
+    message(paste0(fpath, &amp;quot; was written.&amp;quot;)) # 4e
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The function has a few steps. Let’s walk through them. The step numbers are commented above.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Read in the csv.&lt;/li&gt;
+&lt;li&gt;Identify the number of files that will have to be created.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This will be the number of rows of the data frame divided by the number of rows we want each file to have. This number will be rounded up to handle a remainder.&lt;/li&gt;
+&lt;li&gt;In this case &lt;code&gt;ceiling(nrow(social) / 15000)&lt;/code&gt; is equal to 21.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Identify the row number to begin splitting the dataframe for each file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This will be a factor of our &lt;code&gt;n&lt;/code&gt; plus 1, but will never exceed the &lt;code&gt;nrow(df)&lt;/code&gt;,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;This is the fun part, writing our files. The number of iterations is the number of files.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;4a&lt;/em&gt;: The ending row number is the iteration number multiplied by the number of rows.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;4b&lt;/em&gt;: use &lt;code&gt;slice()&lt;/code&gt; to cute the original data frame into the chunk beginning and chunk end&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;4c&lt;/em&gt;: Creating the file paththat will be written.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;4d&lt;/em&gt;: Write the csv!&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;4e&lt;/em&gt;: Print a message about the file being printed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;soc_fpath &amp;lt;- &amp;quot;https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/social.csv&amp;quot;
+write_csv_chunk(filepath = soc_fpath, n = 25000, &amp;quot;../../static/data/chunk_data/social_chunked&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_1.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_2.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_3.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_4.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_5.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_6.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_7.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_8.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_9.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_10.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_11.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_12.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ../../static/data/chunk_data/social_chunked_13.csv was written.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have these files split up, it will be good to know how to get them back into one piece! Check out my blog post on reading multiple csvs in as one data frame &lt;a href=&#34;josiahparry.com/post/read-chunked-csv&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Reading Multiple csvs as 1 data frame</title>
+      <link>/post/read-chunked-csv/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/read-chunked-csv/</guid>
+      <description>
+
+
+&lt;p&gt;In an earlier &lt;a href=&#34;josiahparry.com/post/write-chunked-csv&#34;&gt;posting&lt;/a&gt; I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs.&lt;/p&gt;
+&lt;p&gt;Thankfully &lt;code&gt;purrr&lt;/code&gt; has a beautiful function called &lt;code&gt;map_df()&lt;/code&gt; which will make this into a two liner. This process has essentially 3 steps.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Create a vector of all &lt;code&gt;.csv&lt;/code&gt; files that should be merged together.&lt;/li&gt;
+&lt;li&gt;Read each file using &lt;code&gt;readr::read_csv()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Combine each dataframe into one.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;map_df()&lt;/code&gt; maps (applys) a function to each value of an object and produces a dataframe of all outputs.&lt;/p&gt;
+&lt;p&gt;For this example I will use the csvs I created in a previous tutorial utilizing a dataset from the Quantitative Social Science book.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Get all csv file names 
+file_names &amp;lt;- list.files(&amp;quot;../../static/data/chunk_data&amp;quot;, pattern = &amp;quot;\\.csv&amp;quot;, full.names = TRUE)
+file_names&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;../../static/data/chunk_data/social_chunked_1.csv&amp;quot; 
+##  [2] &amp;quot;../../static/data/chunk_data/social_chunked_10.csv&amp;quot;
+##  [3] &amp;quot;../../static/data/chunk_data/social_chunked_11.csv&amp;quot;
+##  [4] &amp;quot;../../static/data/chunk_data/social_chunked_12.csv&amp;quot;
+##  [5] &amp;quot;../../static/data/chunk_data/social_chunked_13.csv&amp;quot;
+##  [6] &amp;quot;../../static/data/chunk_data/social_chunked_2.csv&amp;quot; 
+##  [7] &amp;quot;../../static/data/chunk_data/social_chunked_3.csv&amp;quot; 
+##  [8] &amp;quot;../../static/data/chunk_data/social_chunked_4.csv&amp;quot; 
+##  [9] &amp;quot;../../static/data/chunk_data/social_chunked_5.csv&amp;quot; 
+## [10] &amp;quot;../../static/data/chunk_data/social_chunked_6.csv&amp;quot; 
+## [11] &amp;quot;../../static/data/chunk_data/social_chunked_7.csv&amp;quot; 
+## [12] &amp;quot;../../static/data/chunk_data/social_chunked_8.csv&amp;quot; 
+## [13] &amp;quot;../../static/data/chunk_data/social_chunked_9.csv&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.2.1     ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# apply 
+all_csvs &amp;lt;- map_df(file_names, read_csv)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   sex = col_character(),
+##   yearofbirth = col_double(),
+##   primary2004 = col_double(),
+##   messages = col_character(),
+##   primary2006 = col_double(),
+##   hhsize = col_double()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# preview the data
+head(all_csvs)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 6
+##   sex    yearofbirth primary2004 messages   primary2006 hhsize
+##   &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;            &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 male          1941           0 Civic Duty           0      2
+## 2 female        1947           0 Civic Duty           0      2
+## 3 male          1951           0 Hawthorne            1      3
+## 4 female        1950           0 Hawthorne            1      3
+## 5 female        1982           0 Hawthorne            1      3
+## 6 male          1981           0 Control              0      3&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Coursera R-Programming: Week 2 Problems</title>
       <link>/post/tidy-coursera-r-programming/</link>
       <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/tidy-coursera-r-programming/</guid>
-      <description>&lt;p&gt;Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R. During this time one this has become apparent, people are teaching the old paradigm of R and avoiding the tidyverse all together.&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R. During this time one this has become apparent, people are teaching the old paradigm of R and avoiding the tidyverse all together.&lt;/p&gt;
 &lt;p&gt;I recently had a student reach out to me in need of help with the first programming assignment from the &lt;a href=&#34;https://www.coursera.org/learn/r-programming&#34;&gt;Coursera R-Programming&lt;/a&gt; course (part of the Johns Hopkins Data Science Specialization). This particular student was struggling with combining the her new knowledge of R data types, conditional statements, looping, control statements, scoping, and functions to solve the assignment problem set. I provided her with a walk through of each question in base R, the style of the course. I couldn’t help but empathize with her as I too learned the long way first. However I thought that she shouldn’t be learning the hard way first (see David Robinson’s &lt;a href=&#34;http://varianceexplained.org/r/teach-hard-way/&#34;&gt;blog post&lt;/a&gt;, &lt;em&gt;“Don’t teach students the hard way first”&lt;/em&gt;), she should be learning the effective way.&lt;/p&gt;
 &lt;p&gt;In my written response to her, I gave her solutions to her problems in base R and using the tidyverse. Here, I will go over the problems and adress them from a tidy perspective. This will not serve as a full introduction to the tidyverse. For an introduction and a reason why the tidyverse is superior to base R, I leave you with &lt;a href=&#34;http://stat545.com/block009_dplyr-intro.html&#34;&gt;&lt;strong&gt;Stat 545&lt;/strong&gt;: &lt;em&gt;Introduction to dplyr&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The assignment utilizes a directory of data called &lt;code&gt;specdata&lt;/code&gt; which can be downloaded &lt;a href=&#34;https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2Fspecdata.zip&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;, and describes it:&lt;/p&gt;
@@ -371,7 +637,10 @@ specdata %&amp;gt;%
       <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/introducing-geniusr/</guid>
-      <description>&lt;div id=&#34;introducing-geniusr&#34; class=&#34;section level1&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;introducing-geniusr&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introducing geniusR&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;geniusR&lt;/code&gt; enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.&lt;/p&gt;
 &lt;p&gt;This package was inspired by the release of Kendrick Lamar’s most recent album, &lt;strong&gt;DAMN.&lt;/strong&gt;. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.&lt;/p&gt;

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.32.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="Josiah Parry">
 
   
@@ -93,7 +93,7 @@
   <meta property="og:description" content="Data Science &amp; GIS Analyst">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-07-15T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-10-27T00:00:00&#43;00:00">
   
 
   
@@ -270,8 +270,8 @@
 
   <span class="article-date">
     
-    <time datetime="2018-07-15 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Jul 15, 2018
+    <time datetime="2018-10-27 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Oct 27, 2018
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -281,13 +281,28 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    14 min read
+    3 min read
   </span>
   
 
   
   
 
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/r">R</a
+    >, 
+    
+    <a href="/categories/tutorial">tutorial</a
+    >
+    
+  </span>
+  
   
 
   
@@ -298,15 +313,86 @@
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="/post/user-2018-07-17/" itemprop="url">Tidy Lyrical Analysis</a>
+    <a href="/post/write-chunked-csv/" itemprop="url">Chunking your csv</a>
   </h3>
   <div class="article-style" itemprop="articleBody">
     
-    Talk Overview  Who I am What does it mean to be tidy geniusR tidytext Tidytext Analysis With geniusR Give it a go! Workshopping tidy text analysis   What does it mean to be tidy?  I will refer you to this beautiful paper by Hadley Wickham The short of it is that: Each variable is a column Each observation is a row Each type of observational unit is a table Does anyone have a definition?
+    Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using Relay. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.
+In order to solve this problem, a large csv must be split into multiple csv’s for upload.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/user-2018-07-17/" class="btn btn-primary btn-outline">
+    <a href="/post/write-chunked-csv/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-10-27 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Oct 27, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/r">R</a
+    >, 
+    
+    <a href="/categories/tutorial">tutorial</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/read-chunked-csv/" itemprop="url">Reading Multiple csvs as 1 data frame</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    In an earlier posting I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs.
+Thankfully purrr has a beautiful function called map_df() which will make this into a two liner. This process has essentially 3 steps.
+Create a vector of all .csv files that should be merged together. Read each file using readr::read_csv() Combine each dataframe into one.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/read-chunked-csv/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.32.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="Josiah Parry">
 
   
@@ -74,8 +74,8 @@
   
 
   
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
-  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="alternate" href="/tags/tidyverse/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/tags/tidyverse/index.xml" type="application/rss+xml" title="Josiah Parry">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -91,16 +91,16 @@
   
   <meta property="og:site_name" content="Josiah Parry">
   <meta property="og:url" content="/tags/tidyverse/">
-  <meta property="og:title" content="Tidyverse | Josiah Parry">
+  <meta property="og:title" content="tidyverse | Josiah Parry">
   <meta property="og:description" content="Data Science &amp; GIS Analyst">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-04-14T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-10-27T00:00:00&#43;00:00">
   
 
   
 
-  <title>Tidyverse | Josiah Parry</title>
+  <title>tidyverse | Josiah Parry</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -256,11 +256,32 @@
 
 <div class="universal-wrapper">
 
-  <h1>Tidyverse</h1>
+  <h1>tidyverse</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="/post/write-chunked-csv/">Chunking your csv</a></h2>
+    <div class="article-style">
+      
+      Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using Relay. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.
+In order to solve this problem, a large csv must be split into multiple csv’s for upload.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></h2>
+    <div class="article-style">
+      
+      In an earlier posting I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs.
+Thankfully purrr has a beautiful function called map_df() which will make this into a two liner. This process has essentially 3 steps.
+Create a vector of all .csv files that should be merged together. Read each file using readr::read_csv() Combine each dataframe into one.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a></h2>

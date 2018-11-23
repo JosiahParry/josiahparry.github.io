@@ -5,8 +5,8 @@
     
     <url>
     
-      <loc>http://josiahparry.com/post/introducing-letters-to-a-layperson/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <loc>/post/write-chunked-csv/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -14,8 +14,8 @@
     
     <url>
     
-      <loc>http://josiahparry.com/project/letters/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <loc>/post/read-chunked-csv/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -23,7 +23,7 @@
     
     <url>
     
-      <loc>http://josiahparry.com/post/tidy-coursera-r-programming/</loc>
+      <loc>/post/tidy-coursera-r-programming/</loc>
       <lastmod>2018-04-14T00:00:00+00:00</lastmod>
     </url>
     
@@ -32,7 +32,7 @@
     
     <url>
     
-      <loc>http://josiahparry.com/project/geniusr/</loc>
+      <loc>/project/geniusr/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
     </url>
     
@@ -41,7 +41,7 @@
     
     <url>
     
-      <loc>http://josiahparry.com/post/introducing-geniusr/</loc>
+      <loc>/post/introducing-geniusr/</loc>
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
     </url>
     
@@ -50,15 +50,7 @@
     
     <url>
     
-      <loc>http://josiahparry.com/post/2018-11-15-introducing-letters-to-a-layperson/</loc>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/categories/</loc>
+      <loc>/categories/</loc>
       <priority>0</priority>
     </url>
     
@@ -67,37 +59,7 @@
     
     <url>
     
-      <loc>http://josiahparry.com/tags/coursera/</loc>
-      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/categories/geniusr/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/tags/geniusr/</loc>
-      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/</loc>
+      <loc>/</loc>
       <lastmod>2017-10-15T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -107,8 +69,8 @@
     
     <url>
     
-      <loc>http://josiahparry.com/categories/letters/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <loc>/post/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -117,8 +79,8 @@
     
     <url>
     
-      <loc>http://josiahparry.com/tags/letters/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <loc>/project/</loc>
+      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -127,7 +89,66 @@
     
     <url>
     
-      <loc>http://josiahparry.com/tags/nlp/</loc>
+      <loc>/publication_types/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/r/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/r/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/coursera/</loc>
+      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/data-manipulation/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/geniusr/</loc>
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -137,8 +158,8 @@
     
     <url>
     
-      <loc>http://josiahparry.com/post/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <loc>/tags/geniusr/</loc>
+      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -147,66 +168,7 @@
     
     <url>
     
-      <loc>http://josiahparry.com/project/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/publication_types/</loc>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/categories/r/</loc>
-      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/tags/r/</loc>
-      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/tags/social-science/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/tags/</loc>
-      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>http://josiahparry.com/tags/text-mining/</loc>
+      <loc>/tags/nlp/</loc>
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -216,8 +178,8 @@
     
     <url>
     
-      <loc>http://josiahparry.com/tags/tidyverse/</loc>
-      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+      <loc>/tags/text-mining/</loc>
+      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -226,8 +188,8 @@
     
     <url>
     
-      <loc>http://josiahparry.com/categories/tutorial/</loc>
-      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+      <loc>/tags/tidyverse/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -236,8 +198,18 @@
     
     <url>
     
-      <loc>http://josiahparry.com/tags/tutorial/</loc>
-      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+      <loc>/categories/tutorial/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/tutorial/</loc>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
