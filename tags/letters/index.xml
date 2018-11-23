@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>letters on Josiah Parry</title>
+    <link>/tags/letters/</link>
+    <description>Recent content in letters on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 15 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/letters/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introducing: Letters to a layperson</title>
+      <link>/post/introducing-letters-to-a-layperson/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introducing-letters-to-a-layperson/</guid>
+      <description>I have been in the world of academia for nearly five years now. During this time I’ve read countless scholarly journal articles that I’ve struggled to wrap my head around. The academic language is riddled with obfuscating words like “milieux” and “nexus” which are often used to explain relatively simple concepts in a not so simple language. I’ve had to train myself to understand the academic language and translate it to regular people (layperson) speak.</description>
+    </item>
+    
+    <item>
+      <title>Letters to a layperson</title>
+      <link>/project/letters/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/letters/</guid>
+      <description>I have been in the world of academia for nearly five years now. During this time I’ve read countless scholarly journal articles that I’ve struggled to wrap my head around. The academic language is riddled with obfuscating words like “milieux” and “nexus” which are often used to explain relatively simple concepts in a not so simple language. I’ve had to train myself to understand the academic language and translate it to regular people (layperson) speak.</description>
+    </item>
+    
+  </channel>
+</rss>

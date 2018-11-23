@@ -5,6 +5,24 @@
     
     <url>
     
+      <loc>/post/introducing-letters-to-a-layperson/</loc>
+      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/project/letters/</loc>
+      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/write-chunked-csv/</loc>
       <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     </url>
@@ -70,7 +88,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -80,7 +98,7 @@
     <url>
     
       <loc>/project/</loc>
-      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -98,7 +116,7 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
+      <loc>/tags/r/</loc>
       <lastmod>2018-10-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -108,7 +126,7 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
+      <loc>/categories/r/</loc>
       <lastmod>2018-10-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -148,16 +166,6 @@
     
     <url>
     
-      <loc>/categories/geniusr/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/geniusr/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -168,8 +176,48 @@
     
     <url>
     
+      <loc>/categories/geniusr/</loc>
+      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/letters/</loc>
+      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/letters/</loc>
+      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/nlp/</loc>
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/social-science/</loc>
+      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -198,7 +246,7 @@
     
     <url>
     
-      <loc>/categories/tutorial/</loc>
+      <loc>/tags/tutorial/</loc>
       <lastmod>2018-10-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -208,7 +256,7 @@
     
     <url>
     
-      <loc>/tags/tutorial/</loc>
+      <loc>/categories/tutorial/</loc>
       <lastmod>2018-10-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
