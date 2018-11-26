@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>US</title>
+      <link>/tags/us/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/us/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>coursera</title>
       <link>/tags/coursera/</link>
       <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
@@ -49,9 +58,18 @@
     </item>
     
     <item>
+      <title>history</title>
+      <link>/tags/history/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/history/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>letters</title>
       <link>/tags/letters/</link>
-      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/letters/</guid>
       <description></description>
@@ -67,11 +85,38 @@
     </item>
     
     <item>
+      <title>political science</title>
+      <link>/tags/political-science/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/political-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>politics</title>
+      <link>/tags/politics/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/politics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>social science</title>
       <link>/tags/social-science/</link>
       <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/social-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sociology</title>
+      <link>/tags/sociology/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sociology/</guid>
       <description></description>
     </item>
     

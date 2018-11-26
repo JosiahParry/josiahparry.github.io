@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/us-representation-i/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/introducing-letters-to-a-layperson/</loc>
       <lastmod>2018-11-15T00:00:00+00:00</lastmod>
     </url>
@@ -88,7 +97,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -146,6 +155,16 @@
     
     <url>
     
+      <loc>/tags/us/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/coursera/</loc>
       <lastmod>2018-04-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -186,8 +205,18 @@
     
     <url>
     
+      <loc>/tags/history/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/letters/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -197,7 +226,7 @@
     <url>
     
       <loc>/categories/letters/</loc>
-      <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -216,8 +245,38 @@
     
     <url>
     
+      <loc>/tags/political-science/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/politics/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/social-science/</loc>
       <lastmod>2018-11-15T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/sociology/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
