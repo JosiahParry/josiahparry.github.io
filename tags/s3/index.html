@@ -18,7 +18,7 @@
   <meta name="description" content="Data Science &amp; GIS Analyst">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tags/r/">
+  <link rel="alternate" hreflang="en-us" href="/tags/s3/">
 
   
 
@@ -74,15 +74,15 @@
   
 
   
-  <link rel="alternate" href="/tags/r/index.xml" type="application/rss+xml" title="Josiah Parry">
-  <link rel="feed" href="/tags/r/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="alternate" href="/tags/s3/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/tags/s3/index.xml" type="application/rss+xml" title="Josiah Parry">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/r/">
+  <link rel="canonical" href="/tags/s3/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -90,8 +90,8 @@
   <meta property="twitter:creator" content="@josiahparry">
   
   <meta property="og:site_name" content="Josiah Parry">
-  <meta property="og:url" content="/tags/r/">
-  <meta property="og:title" content="R | Josiah Parry">
+  <meta property="og:url" content="/tags/s3/">
+  <meta property="og:title" content="s3 | Josiah Parry">
   <meta property="og:description" content="Data Science &amp; GIS Analyst">
   <meta property="og:locale" content="en-us">
   
@@ -100,7 +100,7 @@
 
   
 
-  <title>R | Josiah Parry</title>
+  <title>s3 | Josiah Parry</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -256,7 +256,7 @@
 
 <div class="universal-wrapper">
 
-  <h1>R</h1>
+  <h1>s3</h1>
 
   
 
@@ -267,56 +267,6 @@
     <div class="article-style">
       
       The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occured. To this end, I officially filed my complaint as an issue.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/write-chunked-csv/">Chunking your csv</a></h2>
-    <div class="article-style">
-      
-      Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using Relay. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.
-In order to solve this problem, a large csv must be split into multiple csv’s for upload.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></h2>
-    <div class="article-style">
-      
-      In an earlier posting I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs.
-Thankfully purrr has a beautiful function called map_df() which will make this into a two liner. This process has essentially 3 steps.
-Create a vector of all .csv files that should be merged together. Read each file using readr::read_csv() Combine each dataframe into one.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a></h2>
-    <div class="article-style">
-      
-      Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R. During this time one this has become apparent, people are teaching the old paradigm of R and avoiding the tidyverse all together.
-I recently had a student reach out to me in need of help with the first programming assignment from the Coursera R-Programming course (part of the Johns Hopkins Data Science Specialization).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/project/geniusr/">geniusR</a></h2>
-    <div class="article-style">
-      
-      A new R package for acquiring song lyrics in a tidy text format :metal:.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/introducing-geniusr/">Introducing geniusR</a></h2>
-    <div class="article-style">
-      
-      Introducing geniusR geniusR enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.
-This package was inspired by the release of Kendrick Lamar’s most recent album, DAMN.. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.
       
     </div>
   </div>

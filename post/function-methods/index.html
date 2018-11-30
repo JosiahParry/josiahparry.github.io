@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.51" />
+  <meta name="author" content="Josiah Parry">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occured. To this end, I officially filed my complaint as an issue.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/function-methods/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/cv.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-90934606-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/function-methods/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@josiahparry">
+  <meta property="twitter:creator" content="@josiahparry">
+  
+  <meta property="og:site_name" content="Josiah Parry">
+  <meta property="og:url" content="/post/function-methods/">
+  <meta property="og:title" content="Generic Functions | Josiah Parry">
+  <meta property="og:description" content="The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occured. To this end, I officially filed my complaint as an issue.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-11-28T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-11-28T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Generic Functions | Josiah Parry</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Josiah Parry</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post/">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#resume">
+            
+            <span>Résumé</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Generic Functions</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-11-28 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Nov 28, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    16 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/r">R</a
+    >, 
+    
+    <a href="/categories/tutorial">tutorial</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Generic%20Functions&amp;url=%2fpost%2ffunction-methods%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ffunction-methods%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ffunction-methods%2f&amp;title=Generic%20Functions"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ffunction-methods%2f&amp;title=Generic%20Functions"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Generic%20Functions&amp;body=%2fpost%2ffunction-methods%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#the-jargon">The Jargon</a></li>
+<li><a href="#the-generic-method">The Generic Method</a></li>
+<li><a href="#the-default-method">The Default Method</a></li>
+<li><a href="#sf-method"><code>sf</code> method</a></li>
+<li><a href="#tbl_graph-method"><code>tbl_graph</code> method</a></li>
+<li><a href="#review-tldr">Review (tl;dr)</a></li>
+</ul>
+</div>
+
+<p>Lately I have been doing more of my spatial analysis work in R with the help of the <code>sf</code> package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the <code>clean_names()</code> function from the <code>janitor</code> package. But lo, an egregious error occured. To this end, I officially filed my complaint as an <a href="https://github.com/sfirke/janitor/pull/249">issue</a>. The solution presented was to <em>simply</em> create a method for <code>sf</code> objects.</p>
+<p>Yeah, methods, how tough can those be? Apparently the process isn’t at all difficult. But figuring out the process? That was difficult. This post will explain how I went about the process for converting the <code>clean_names()</code> function into a <em>generic</em> (I’ll explain this in a second), and creating a <em>method</em> for <code>sf</code> and <code>tbl_graph</code> objects.</p>
+<div id="the-jargon" class="section level3">
+<h3>The Jargon</h3>
+<p>Okay, I want to address the jargon. What the hell is a <em>generic</em> function, and what is a <em>method</em>? But first, I want to give a quick tl;dr on what a function is. I define as function as bit of code that takes an input, changes it in some way, and produces an output. Even simpler, a function takes an input and creates an output.</p>
+<div id="generic-functions" class="section level4">
+<h4>Generic Functions</h4>
+<p>Now, what is a <em><strong>generic</strong></em> function? My favorite definition that I’ve seen so far comes from <em>LispWorks Ltd</em> (their website is a historic landmark, I recommend you give it a look for a reminder of what the internet used to be). They define a <a href="http://clhs.lisp.se/Body/07_fa.htm">generic function</a> as</p>
+<blockquote>
+<p>a function whose behavior depends on the classes or identities of the arguments supplied to it.</p>
+</blockquote>
+<p>This means that we have to create a function that looks at the class of an object and perform an operation based on the object class. That means if there is <code>&quot;numeric&quot;</code> or <code>&quot;list&quot;</code> object, they will be treated differently. These are called <code>methods</code>. Note: you can find the class of an object by using the <code>class()</code> function on any object.</p>
+</div>
+<div id="methods" class="section level4">
+<h4>Methods</h4>
+<p>To steal from <em>LispWorks Ltd</em> again, a <a href="http://clhs.lisp.se/Body/26_glo_m.htm#method">method</a> is</p>
+<blockquote>
+<p>part of a generic function which provides information about how that generic function should behave [for] certain classes.</p>
+</blockquote>
+<p>This means that a method is part of a generic function and has to be defined separately. Imagine we have a generic function called <code>f</code> with methods for <code>list</code> and <code>numeric</code> objects. The way that we would denote these methods is by putting a period after the function name and indicating the type of object the function is to be used on. These would look like <code>f.list</code> and <code>f.numeric</code> respectively.</p>
+<p>But to save time you can always create a <code>default</code> method which will be dispatched (used) on any object that it hasn’t been explicitly told how to operate on (by a specific method).</p>
+<p>Now that the intuition of what generic functions and methods R, we can begin the work of actually creating them. This tutorial will walk through the steps I took in changing the <code>clean_names()</code> from a standard function into a generic function with methods for <code>sf</code> objects and <code>tbl_graph</code> objects from the <a href="https://github.com/r-spatial/sf"><code>sf</code></a> and <a href="https://github.com/thomasp85/tidygraph"><code>tidygraph</code></a> packages respectively.</p>
+<p>A brief overview of the process:</p>
+<ol style="list-style-type: decimal">
+<li>Define the generic function</li>
+<li>Create a default method</li>
+<li>Create additional methods</li>
+</ol>
+<p>A quick note: The code that follows is not identical to that of the package. I will be changing it up to make it simpler to read and understand what is happening.</p>
+</div>
+</div>
+<div id="the-generic-method" class="section level3">
+<h3>The Generic Method</h3>
+<p>The first step, as described above, is to create a generic function. Generic functions are made by creating a new function with the body containing only a call to the <code>UseMethod()</code> function. The only argument to this is the name of your generic function—this should be the same as the name of the function you are making. This tells R that you are creating a generic function. Additionally, you should add any arguments that will be necessary for your function. Here, there are two arguments: <code>dat</code> and <code>case</code>. These indicate the data to be cleaned and the preferred style for them to be cleaned according to.</p>
+<p>I am not setting any default values for <code>dat</code> to make it required, whereas I am setting <code>case</code> to <code>&quot;snake&quot;</code>.</p>
+<pre class="r"><code>clean_names &lt;- function(dat, case = &quot;snake&quot;) {
+  UseMethod(&quot;clean_names&quot;)
+}</code></pre>
+<p>Now we have created a generic function. But this function doesn’t know how to run on any given object types. In other words, there are no methods associated with it. To illustrate this try using the <code>clean_names()</code> function we just defined on objects of different types.</p>
+<pre><code>clean_names(1) # numeric 
+clean_names(&quot;test&quot;) # character 
+clean_names(TRUE) # logical </code></pre>
+<pre><code>## [1] &quot;no applicable method for &#39;clean_names&#39; applied to an object of class \&quot;c(&#39;double&#39;, &#39;numeric&#39;)\&quot;&quot;</code></pre>
+<pre><code>## [1] &quot;no applicable method for &#39;clean_names&#39; applied to an object of class \&quot;character\&quot;&quot;</code></pre>
+<pre><code>## [1] &quot;no applicable method for &#39;clean_names&#39; applied to an object of class \&quot;logical\&quot;&quot;</code></pre>
+<p>The output of these calls say <code>no applicable method for 'x' applied to an object of [class]</code>. In order to prevent this from happening, we can create a default method. A default method will always be used if the function doesn’t have a method for the provided object type.</p>
+</div>
+<div id="the-default-method" class="section level3">
+<h3>The Default Method</h3>
+<p>Remember that methods are indicated by writing <code>function.method</code>. It is also important to note that the <code>method</code> should indicate an object class. To figure out what class an object is you can use the <code>class()</code> function. For example <code>class(1)</code> tells you that the number <code>1</code> is “numeric”.</p>
+<p>In this next step I want to create a default method that will be used on every object that there isn’t a method explicitly for. To do this I will create a function called <code>clean_names.default</code>.</p>
+<p>As background, the <code>clean_names()</code> function takes a data frame and changes column headers to fit a given style. <code>clean_names()</code> in the <a href="https://github.com/sfirke/janitor">development version</a> is based on the function <code>make_clean_names()</code> which takes a character vector and makes each value match a given style (the default is snake, and you should only use snake case because everything else is wrong * sarcasm * ).</p>
+<p>To prevent us from loading the entire <code>janitor</code> package and overwriting our version of the <code>clean_names()</code> function, we can import the <code>make_clean_names()</code> function directly from GitHub by reading the file directly.</p>
+<pre class="r"><code>source(&quot;https://raw.githubusercontent.com/sfirke/janitor/master/R/make_clean_names.R&quot;)</code></pre>
+<p>Now let’s see how this function works. For this we will use the ugliest character vector I have ever seen from the <a href="https://github.com/sfirke/janitor/blob/master/tests/testthat/test-clean-names.R">tests</a> for <code>clean_names()</code> (h/t <span class="citation">@sfirke</span> for making this).</p>
+<pre class="r"><code>ugly_names &lt;- c(
+  &quot;sp ace&quot;, &quot;repeated&quot;, &quot;a**^@&quot;, &quot;%&quot;, &quot;*&quot;, &quot;!&quot;,
+  &quot;d(!)9&quot;, &quot;REPEATED&quot;, &quot;can\&quot;&#39;t&quot;, &quot;hi_`there`&quot;, &quot;  leading spaces&quot;,
+  &quot;€&quot;, &quot;ação&quot;, &quot;Farœ&quot;, &quot;a b c d e f&quot;, &quot;testCamelCase&quot;, &quot;!leadingpunct&quot;,
+  &quot;average # of days&quot;, &quot;jan2009sales&quot;, &quot;jan 2009 sales&quot;
+)
+
+ugly_names</code></pre>
+<pre><code>##  [1] &quot;sp ace&quot;            &quot;repeated&quot;          &quot;a**^@&quot;            
+##  [4] &quot;%&quot;                 &quot;*&quot;                 &quot;!&quot;                
+##  [7] &quot;d(!)9&quot;             &quot;REPEATED&quot;          &quot;can\&quot;&#39;t&quot;          
+## [10] &quot;hi_`there`&quot;        &quot;  leading spaces&quot;  &quot;€&quot;                
+## [13] &quot;ação&quot;              &quot;Farœ&quot;              &quot;a b c d e f&quot;      
+## [16] &quot;testCamelCase&quot;     &quot;!leadingpunct&quot;     &quot;average # of days&quot;
+## [19] &quot;jan2009sales&quot;      &quot;jan 2009 sales&quot;</code></pre>
+<p>Now to see how this function works:</p>
+<pre class="r"><code>make_clean_names(ugly_names)</code></pre>
+<pre><code>##  [1] &quot;sp_ace&quot;                 &quot;repeated&quot;              
+##  [3] &quot;a&quot;                      &quot;percent&quot;               
+##  [5] &quot;x&quot;                      &quot;x_2&quot;                   
+##  [7] &quot;d_9&quot;                    &quot;repeated_2&quot;            
+##  [9] &quot;cant&quot;                   &quot;hi_there&quot;              
+## [11] &quot;leading_spaces&quot;         &quot;x_3&quot;                   
+## [13] &quot;acao&quot;                   &quot;faroe&quot;                 
+## [15] &quot;a_b_c_d_e_f&quot;            &quot;test_camel_case&quot;       
+## [17] &quot;leadingpunct&quot;           &quot;average_number_of_days&quot;
+## [19] &quot;jan2009sales&quot;           &quot;jan_2009_sales&quot;</code></pre>
+<p>Très magnifique!</p>
+<p>The body of the default method will take column names from a dataframe, clean them, and reassign them. Before we can do this, a dataframe is needed!</p>
+<pre class="r"><code># create a data frame with 20 columns
+test_df &lt;- as_tibble(matrix(sample(100, 20), ncol = 20))
+
+# makes the column names the `ugly_names` vector
+names(test_df) &lt;- ugly_names
+
+# print the data frame.
+test_df</code></pre>
+<pre><code>## # A tibble: 1 x 20
+##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&quot;&#39;t`
+##      &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
+## 1       72       86       9    33    62    43      66       36       25
+## # ... with 11 more variables: `hi_\`there\`` &lt;int&gt;, ` leading
+## #   spaces` &lt;int&gt;, `€` &lt;int&gt;, ação &lt;int&gt;, Farœ &lt;int&gt;, `a b c d e f` &lt;int&gt;,
+## #   testCamelCase &lt;int&gt;, `!leadingpunct` &lt;int&gt;, `average # of days` &lt;int&gt;,
+## #   jan2009sales &lt;int&gt;, `jan 2009 sales` &lt;int&gt;</code></pre>
+<p>The process for writing this function is:</p>
+<ul>
+<li>take a dataframe</li>
+<li>take the old column names and clean them</li>
+<li>reassign the column names as the new clean names</li>
+<li>return the object</li>
+</ul>
+<pre class="r"><code>clean_names.default &lt;- function(dat, case = &quot;snake&quot;) { 
+  # retrieve the old names
+  old_names &lt;- names(dat)
+  # clean the old names
+  new_names &lt;- make_clean_names(old_names, case = case)
+  # assign the column names as the clean names vector
+  names(dat) &lt;- new_names
+  # return the data
+  return(dat)
+  }</code></pre>
+<p>Now that the default method has been defined. Try running the function on our test dataframe!</p>
+<pre class="r"><code>clean_names(test_df)</code></pre>
+<pre><code>## # A tibble: 1 x 20
+##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
+##    &lt;int&gt;    &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt; &lt;int&gt;    &lt;int&gt;
+## 1     72       86     9      33    62    43    66         36    25        4
+## # ... with 10 more variables: leading_spaces &lt;int&gt;, x_3 &lt;int&gt;, acao &lt;int&gt;,
+## #   faroe &lt;int&gt;, a_b_c_d_e_f &lt;int&gt;, test_camel_case &lt;int&gt;,
+## #   leadingpunct &lt;int&gt;, average_number_of_days &lt;int&gt;, jan2009sales &lt;int&gt;,
+## #   jan_2009_sales &lt;int&gt;</code></pre>
+<p>Oh, my gorsh. Look at that! We can try replicating this with a named vector to see how the default method dispatched on unknown objects!</p>
+<pre class="r"><code># create a vector with 20 elements
+test_vect &lt;- c(1:20)
+
+# name each element with the ugly_names vector 
+names(test_vect) &lt;- ugly_names
+
+# try cleaning!
+clean_names(test_vect)</code></pre>
+<pre><code>##                 sp_ace               repeated                      a 
+##                      1                      2                      3 
+##                percent                      x                    x_2 
+##                      4                      5                      6 
+##                    d_9             repeated_2                   cant 
+##                      7                      8                      9 
+##               hi_there         leading_spaces                    x_3 
+##                     10                     11                     12 
+##                   acao                  faroe            a_b_c_d_e_f 
+##                     13                     14                     15 
+##        test_camel_case           leadingpunct average_number_of_days 
+##                     16                     17                     18 
+##           jan2009sales         jan_2009_sales 
+##                     19                     20</code></pre>
+<p>It looks like this default function works super well with named objects! Now, we will broach the problem I started with, <code>sf</code> objects.</p>
+</div>
+<div id="sf-method" class="section level3">
+<h3><code>sf</code> method</h3>
+<p>This section will go over the process for creating the <code>sf</code> method. If you have not ever used the <code>sf</code> package, I suggest you give it a try! It makes dataframe objects with spatial data associated with it. This allows you to perform many of the functions from the <code>tidyverse</code> to spatial data.</p>
+<p>Before getting into it, I want to create a test object to work with. I will take the <code>test_df</code> column, create longitude and latitude columns, and then convert it into an <code>sf</code> object. The details of <code>sf</code> objects is out of the scope of this post.</p>
+<pre class="r"><code>library(sf)</code></pre>
+<pre><code>## Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3</code></pre>
+<pre class="r"><code>test_sf &lt;- test_df %&gt;%
+  # create xy columns
+  mutate(long = -80, 
+         lat = 40) %&gt;% 
+  # convert to sf object 
+  st_as_sf(coords = c(&quot;long&quot;, &quot;lat&quot;))
+
+# converting geometry column name to poor style
+names(test_sf)[21] &lt;- &quot;Geometry&quot;
+
+# telling sf which column is now the geometry
+st_geometry(test_sf) &lt;- &quot;Geometry&quot;
+
+test_sf</code></pre>
+<pre><code>## Simple feature collection with 1 feature and 20 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -80 ymin: 40 xmax: -80 ymax: 40
+## epsg (SRID):    NA
+## proj4string:    NA
+## # A tibble: 1 x 21
+##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&quot;&#39;t`
+##      &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
+## 1       72       86       9    33    62    43      66       36       25
+## # ... with 12 more variables: `hi_\`there\`` &lt;int&gt;, ` leading
+## #   spaces` &lt;int&gt;, `€` &lt;int&gt;, ação &lt;int&gt;, Farœ &lt;int&gt;, `a b c d e f` &lt;int&gt;,
+## #   testCamelCase &lt;int&gt;, `!leadingpunct` &lt;int&gt;, `average # of days` &lt;int&gt;,
+## #   jan2009sales &lt;int&gt;, `jan 2009 sales` &lt;int&gt;, Geometry &lt;POINT&gt;</code></pre>
+<p>The <code>sf</code> object has been created. But now how does our default method of the <code>clean_names()</code> function work on this object? There is only one way to know, try it.</p>
+<pre><code>clean_names(test_sf)
+
+Error in st_geometry.sf(x) : attr(obj, &quot;sf_column&quot;) does not point to a geometry column. Did you rename it, without setting st_geometry(obj) &lt;- &quot;newname&quot;?</code></pre>
+<p>Notice how it fails. <code>sf</code> noticed that I changed the name of the geometry column without explicitly telling it I did so. Since the geometry column is <em>almost</em> always the last column of an sf object, we can use the <code>make_clean_names()</code> function on every column but the last one! To do this we will use the <code>rename_at()</code> function from <code>dplyr</code>. This function allows you rename columns based on their name or position, and a function that renames it (in this case, <code>make_clean_names()</code>).</p>
+<p>For this example dataset, say I wanted to clean the first column. How would I do that? Note that the first column is called <code>sp ace</code>. How this works can be seen in a simple example. In the below function call we are using the <code>rename_at()</code> function (for more, go <a href="https://dplyr.tidyverse.org/reference/select.html">here</a>), selecting the first column name, and renaming it using the <code>make_clean_names()</code> function.</p>
+<pre class="r"><code>rename_at(test_df, .vars = vars(1), .funs = make_clean_names)</code></pre>
+<pre><code>## # A tibble: 1 x 20
+##   sp_ace repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&quot;&#39;t`
+##    &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
+## 1     72       86       9    33    62    43      66       36       25
+## # ... with 11 more variables: `hi_\`there\`` &lt;int&gt;, ` leading
+## #   spaces` &lt;int&gt;, `€` &lt;int&gt;, ação &lt;int&gt;, Farœ &lt;int&gt;, `a b c d e f` &lt;int&gt;,
+## #   testCamelCase &lt;int&gt;, `!leadingpunct` &lt;int&gt;, `average # of days` &lt;int&gt;,
+## #   jan2009sales &lt;int&gt;, `jan 2009 sales` &lt;int&gt;</code></pre>
+<p>Notice how only the first column has been cleaned. It went from <code>sp ace</code> to <code>sp_ace</code>. The goal is to replicate this for all columns <em>except</em> the last one.</p>
+<p>To write the sf method, the above line of code can be adapted to select columns 1 through the number of columns <em>minus</em> 1 (so geometry isn’t selected). In order to make this work, we need to identify the second to last column—this will be supplied as the ending value of our selected variables.</p>
+<pre class="r"><code>clean_names.sf &lt;- function(dat, case = &quot;snake&quot;) {
+  # identify last column that is not geometry
+  last_col_to_clean &lt;- ncol(dat) - 1
+  # create a new dat object
+  dat &lt;- rename_at(dat, 
+                   # rename the first up until the second to last
+                   .vars = vars(1:last_col_to_clean), 
+                   # clean using the make_clean_names
+                   .funs = make_clean_names)
+  return(dat)
+}</code></pre>
+<p>Voilà! Our first non-default method has been created. This means that when an <code>sf</code> object is supplied to our generic function <code>clean_names()</code> it looks at the class of the object—<code>class(sf_object)</code>—notices it’s an <code>sf</code> object, then dispatches (uses) the <code>clean_names.sf()</code> method instead of the default.</p>
+<pre class="r"><code>clean_names(test_sf)</code></pre>
+<pre><code>## Simple feature collection with 1 feature and 20 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -80 ymin: 40 xmax: -80 ymax: 40
+## epsg (SRID):    NA
+## proj4string:    NA
+## # A tibble: 1 x 21
+##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
+##    &lt;int&gt;    &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt; &lt;int&gt;    &lt;int&gt;
+## 1     72       86     9      33    62    43    66         36    25        4
+## # ... with 11 more variables: leading_spaces &lt;int&gt;, x_3 &lt;int&gt;, acao &lt;int&gt;,
+## #   faroe &lt;int&gt;, a_b_c_d_e_f &lt;int&gt;, test_camel_case &lt;int&gt;,
+## #   leadingpunct &lt;int&gt;, average_number_of_days &lt;int&gt;, jan2009sales &lt;int&gt;,
+## #   jan_2009_sales &lt;int&gt;, Geometry &lt;POINT&gt;</code></pre>
+<p>Here we see that it worked exactly as we hoped. Every column but the last has been altered. This allows <code>sf</code> to name it’s geometry columns whatever it would like without disrupting it.</p>
+<p>Shortly after this addition was added to the package I became aware of another type of object that had problems using <code>clean_names()</code>. This is the <code>tbl_graph</code> object from the <code>tidygraph</code> package from Thomas Lin Pederson.</p>
+</div>
+<div id="tbl_graph-method" class="section level3">
+<h3><code>tbl_graph</code> method</h3>
+<p>In issue <a href="https://github.com/sfirke/janitor/issues/252">#252</a> <a href="https://github.com/gvdr">@gvdr</a> noted that calling <code>clean_names()</code> on a <code>tbl_graph</code> doesn’t execute. Thankfully <a href="https://github.com/Tazinho">@Tazinho</a> noted that you could easily clean the column headers by using the <code>rename_all()</code> function from <code>dplyr</code>.</p>
+<p>Here the solution was even easier than above. As a reminder, in order to make the <code>tbl_graph</code> method, we need to specify the name of the generic followed by the object class.</p>
+<pre class="r"><code>clean_names.tbl_graph &lt;- function(dat, case = &quot;snake&quot;) { 
+  # rename all columns
+  dat &lt;- rename_all(dat, make_clean_names)
+  return(dat)
+  }</code></pre>
+<p>In order to test the function, we will need a graph to test it on. This example draws on the example used in the issue.</p>
+<pre class="r"><code>library(tidygraph)
+# create test graph to test clean_names
+test_graph &lt;- play_erdos_renyi(0, 0.5) %&gt;% 
+  # attach test_df as columns 
+  bind_nodes(test_df)
+
+test_graph</code></pre>
+<pre><code>## # A tbl_graph: 1 nodes and 0 edges
+## #
+## # A rooted tree
+## #
+## # Node Data: 1 x 20 (active)
+##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&quot;&#39;t`
+##      &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
+## 1       72       86       9    33    62    43      66       36       25
+## # ... with 11 more variables: `hi_\`there\`` &lt;int&gt;, ` leading
+## #   spaces` &lt;int&gt;, `€` &lt;int&gt;, ação &lt;int&gt;, Farœ &lt;int&gt;, `a b c d e f` &lt;int&gt;,
+## #   testCamelCase &lt;int&gt;, `!leadingpunct` &lt;int&gt;, `average # of days` &lt;int&gt;,
+## #   jan2009sales &lt;int&gt;, `jan 2009 sales` &lt;int&gt;
+## #
+## # Edge Data: 0 x 2
+## # ... with 2 variables: from &lt;int&gt;, to &lt;int&gt;</code></pre>
+<p>Here we see that there is a graph with only 1 node and 0 edges (relations) with bad column headers (for more, visit the <a href="https://github.com/thomasp85/tidygraph/">GitHub page</a>). Now we can test this as well.</p>
+<pre class="r"><code>clean_names(test_graph)</code></pre>
+<pre><code>## # A tbl_graph: 1 nodes and 0 edges
+## #
+## # A rooted tree
+## #
+## # Node Data: 1 x 20 (active)
+##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
+##    &lt;int&gt;    &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt; &lt;int&gt;    &lt;int&gt;
+## 1     72       86     9      33    62    43    66         36    25        4
+## # ... with 10 more variables: leading_spaces &lt;int&gt;, x_3 &lt;int&gt;, acao &lt;int&gt;,
+## #   faroe &lt;int&gt;, a_b_c_d_e_f &lt;int&gt;, test_camel_case &lt;int&gt;,
+## #   leadingpunct &lt;int&gt;, average_number_of_days &lt;int&gt;, jan2009sales &lt;int&gt;,
+## #   jan_2009_sales &lt;int&gt;
+## #
+## # Edge Data: 0 x 2
+## # ... with 2 variables: from &lt;int&gt;, to &lt;int&gt;</code></pre>
+<p>It worked as anticipated!</p>
+</div>
+<div id="review-tldr" class="section level3">
+<h3>Review (tl;dr)</h3>
+<p>In the preceding sections we learned what generic functions and methods are. How to create a generic function, a default method, and methods for objects of different classes.</p>
+<ul>
+<li><strong>generic function</strong>: “A generic function is a function whose behavior depends on the classes or identities of the arguments supplied to it”</li>
+<li><strong>generic function method</strong>: “part of a generic function and which provides information about how that generic function should behave [for] certain classes”</li>
+</ul>
+<p>The process to create a function with a method is to:</p>
+<ol style="list-style-type: decimal">
+<li>Create a generic function with:
+<ul>
+<li><code>f_x &lt;- function() { UseMethod(&quot;f_x&quot;) }</code></li>
+</ul></li>
+<li>Define the default method with:
+<ul>
+<li><code>f_x.default &lt;- function() { do something }</code></li>
+</ul></li>
+<li>Define object class specific methods with:
+<ul>
+<li><code>f_x.class &lt;- function() { do something else}</code></li>
+</ul></li>
+</ol>
+<div id="notes" class="section level4">
+<h4>Notes</h4>
+<p>If you have not yet encountered the <code>janitor</code> package it will help you tremendously with various data cleaning processes. Clearly, <code>clean_names()</code> is my favorite function as it helps me enforce my preferred style (and the only). If you are not aware of <em>“proper”</em> R style, I suggest you read the <a href="http://adv-r.had.co.nz/Style.html">style guide</a> in <a href="http://adv-r.had.co.nz/">Advanced R</a>.</p>
+<p>While on the subject of <em>Advanced R</em>, I suggest you read the “Creating new methods and generics” <a href="http://adv-r.had.co.nz/OO-essentials.html">section</a> of it. I struggled comprehending it at first because I didn’t even know what a method was. However, if after reading this you feel like you want more, that’s the place to go.</p>
+<p>I’d like to thank <a href="https://github.com/sfirke">@sfirke</a> for being exceptionally helpful in guiding my contributions to the <code>janitor</code> package.</p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/tutorial">tutorial</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/packages">packages</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/functions">functions</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/methods">methods</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/generics">generics</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/s3">s3</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/write-chunked-csv/">Chunking your csv</a></li>
+        
+        <li><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></li>
+        
+        <li><a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a></li>
+        
+        <li><a href="/project/geniusr/">geniusR</a></li>
+        
+        <li><a href="/post/introducing-geniusr/">Introducing geniusR</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
