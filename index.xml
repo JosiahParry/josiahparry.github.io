@@ -124,7 +124,7 @@ test_df&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 20
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&amp;quot;&amp;#39;t`
 ##      &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1       72       86       9    33    62    43      66       36       25
+## 1       53       32      77    61     1    65      82       50       75
 ## # ... with 11 more variables: `hi_\`there\`` &amp;lt;int&amp;gt;, ` leading
 ## #   spaces` &amp;lt;int&amp;gt;, `€` &amp;lt;int&amp;gt;, ação &amp;lt;int&amp;gt;, Farœ &amp;lt;int&amp;gt;, `a b c d e f` &amp;lt;int&amp;gt;,
 ## #   testCamelCase &amp;lt;int&amp;gt;, `!leadingpunct` &amp;lt;int&amp;gt;, `average # of days` &amp;lt;int&amp;gt;,
@@ -151,7 +151,7 @@ test_df&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 20
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;      &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1     72       86     9      33    62    43    66         36    25        4
+## 1     53       32    77      61     1    65    82         50    75       37
 ## # ... with 10 more variables: leading_spaces &amp;lt;int&amp;gt;, x_3 &amp;lt;int&amp;gt;, acao &amp;lt;int&amp;gt;,
 ## #   faroe &amp;lt;int&amp;gt;, a_b_c_d_e_f &amp;lt;int&amp;gt;, test_camel_case &amp;lt;int&amp;gt;,
 ## #   leadingpunct &amp;lt;int&amp;gt;, average_number_of_days &amp;lt;int&amp;gt;, jan2009sales &amp;lt;int&amp;gt;,
@@ -210,7 +210,7 @@ test_sf&lt;/code&gt;&lt;/pre&gt;
 ## # A tibble: 1 x 21
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&amp;quot;&amp;#39;t`
 ##      &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1       72       86       9    33    62    43      66       36       25
+## 1       53       32      77    61     1    65      82       50       75
 ## # ... with 12 more variables: `hi_\`there\`` &amp;lt;int&amp;gt;, ` leading
 ## #   spaces` &amp;lt;int&amp;gt;, `€` &amp;lt;int&amp;gt;, ação &amp;lt;int&amp;gt;, Farœ &amp;lt;int&amp;gt;, `a b c d e f` &amp;lt;int&amp;gt;,
 ## #   testCamelCase &amp;lt;int&amp;gt;, `!leadingpunct` &amp;lt;int&amp;gt;, `average # of days` &amp;lt;int&amp;gt;,
@@ -225,7 +225,7 @@ Error in st_geometry.sf(x) : attr(obj, &amp;quot;sf_column&amp;quot;) does not p
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 20
 ##   sp_ace repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&amp;quot;&amp;#39;t`
 ##    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1     72       86       9    33    62    43      66       36       25
+## 1     53       32      77    61     1    65      82       50       75
 ## # ... with 11 more variables: `hi_\`there\`` &amp;lt;int&amp;gt;, ` leading
 ## #   spaces` &amp;lt;int&amp;gt;, `€` &amp;lt;int&amp;gt;, ação &amp;lt;int&amp;gt;, Farœ &amp;lt;int&amp;gt;, `a b c d e f` &amp;lt;int&amp;gt;,
 ## #   testCamelCase &amp;lt;int&amp;gt;, `!leadingpunct` &amp;lt;int&amp;gt;, `average # of days` &amp;lt;int&amp;gt;,
@@ -254,7 +254,7 @@ Error in st_geometry.sf(x) : attr(obj, &amp;quot;sf_column&amp;quot;) does not p
 ## # A tibble: 1 x 21
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;      &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1     72       86     9      33    62    43    66         36    25        4
+## 1     53       32    77      61     1    65    82         50    75       37
 ## # ... with 11 more variables: leading_spaces &amp;lt;int&amp;gt;, x_3 &amp;lt;int&amp;gt;, acao &amp;lt;int&amp;gt;,
 ## #   faroe &amp;lt;int&amp;gt;, a_b_c_d_e_f &amp;lt;int&amp;gt;, test_camel_case &amp;lt;int&amp;gt;,
 ## #   leadingpunct &amp;lt;int&amp;gt;, average_number_of_days &amp;lt;int&amp;gt;, jan2009sales &amp;lt;int&amp;gt;,
@@ -286,7 +286,7 @@ test_graph&lt;/code&gt;&lt;/pre&gt;
 ## # Node Data: 1 x 20 (active)
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&amp;quot;&amp;#39;t`
 ##      &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1       72       86       9    33    62    43      66       36       25
+## 1       53       32      77    61     1    65      82       50       75
 ## # ... with 11 more variables: `hi_\`there\`` &amp;lt;int&amp;gt;, ` leading
 ## #   spaces` &amp;lt;int&amp;gt;, `€` &amp;lt;int&amp;gt;, ação &amp;lt;int&amp;gt;, Farœ &amp;lt;int&amp;gt;, `a b c d e f` &amp;lt;int&amp;gt;,
 ## #   testCamelCase &amp;lt;int&amp;gt;, `!leadingpunct` &amp;lt;int&amp;gt;, `average # of days` &amp;lt;int&amp;gt;,
@@ -303,7 +303,7 @@ test_graph&lt;/code&gt;&lt;/pre&gt;
 ## # Node Data: 1 x 20 (active)
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;      &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1     72       86     9      33    62    43    66         36    25        4
+## 1     53       32    77      61     1    65    82         50    75       37
 ## # ... with 10 more variables: leading_spaces &amp;lt;int&amp;gt;, x_3 &amp;lt;int&amp;gt;, acao &amp;lt;int&amp;gt;,
 ## #   faroe &amp;lt;int&amp;gt;, a_b_c_d_e_f &amp;lt;int&amp;gt;, test_camel_case &amp;lt;int&amp;gt;,
 ## #   leadingpunct &amp;lt;int&amp;gt;, average_number_of_days &amp;lt;int&amp;gt;, jan2009sales &amp;lt;int&amp;gt;,

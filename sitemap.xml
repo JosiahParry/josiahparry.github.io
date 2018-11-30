@@ -2,7 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     
-    
     <url>
     
       <loc>/post/function-methods/</loc>
@@ -10,7 +9,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -20,7 +18,6 @@
     
   
     
-    
     <url>
     
       <loc>/post/introducing-letters-to-a-layperson/</loc>
@@ -28,7 +25,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -38,7 +34,6 @@
     
   
     
-    
     <url>
     
       <loc>/post/write-chunked-csv/</loc>
@@ -46,7 +41,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -56,7 +50,6 @@
     
   
     
-    
     <url>
     
       <loc>/post/tidy-coursera-r-programming/</loc>
@@ -64,7 +57,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -74,7 +66,6 @@
     
   
     
-    
     <url>
     
       <loc>/post/introducing-geniusr/</loc>
@@ -83,14 +74,12 @@
     
   
     
-    
     <url>
     
       <loc>/post/2018-11-28-function-methods.nb/</loc>
     </url>
     
   
-    
     
     <url>
     
@@ -99,7 +88,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -110,7 +98,6 @@
     
   
     
-    
     <url>
     
       <loc>/post/</loc>
@@ -119,7 +106,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -130,7 +116,6 @@
     
   
     
-    
     <url>
     
       <loc>/publication_types/</loc>
@@ -138,17 +123,6 @@
     </url>
     
   
-    
-    
-    <url>
-    
-      <loc>/categories/r/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
     
     <url>
     
@@ -159,6 +133,14 @@
     
   
     
+    <url>
+    
+      <loc>/categories/r/</loc>
+      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
     
     <url>
     
@@ -169,7 +151,6 @@
     
   
     
-    
     <url>
     
       <loc>/tags/us/</loc>
@@ -178,7 +159,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -189,7 +169,6 @@
     
   
     
-    
     <url>
     
       <loc>/tags/data-manipulation/</loc>
@@ -198,7 +177,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -209,7 +187,6 @@
     
   
     
-    
     <url>
     
       <loc>/tags/generics/</loc>
@@ -218,17 +195,6 @@
     </url>
     
   
-    
-    
-    <url>
-    
-      <loc>/categories/geniusr/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
     
     <url>
     
@@ -239,6 +205,14 @@
     
   
     
+    <url>
+    
+      <loc>/categories/geniusr/</loc>
+      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
     
     <url>
     
@@ -249,6 +223,14 @@
     
   
     
+    <url>
+    
+      <loc>/tags/letters/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
     
     <url>
     
@@ -259,17 +241,6 @@
     
   
     
-    
-    <url>
-    
-      <loc>/tags/letters/</loc>
-      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
     <url>
     
       <loc>/tags/methods/</loc>
@@ -278,7 +249,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -289,7 +259,6 @@
     
   
     
-    
     <url>
     
       <loc>/tags/packages/</loc>
@@ -298,7 +267,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -309,7 +277,6 @@
     
   
     
-    
     <url>
     
       <loc>/tags/politics/</loc>
@@ -318,7 +285,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -329,7 +295,6 @@
     
   
     
-    
     <url>
     
       <loc>/tags/social-science/</loc>
@@ -338,7 +303,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -349,7 +313,6 @@
     
   
     
-    
     <url>
     
       <loc>/tags/text-mining/</loc>
@@ -358,7 +321,6 @@
     </url>
     
   
-    
     
     <url>
     
@@ -369,20 +331,18 @@
     
   
     
-    
     <url>
     
-      <loc>/categories/tutorial/</loc>
+      <loc>/tags/tutorial/</loc>
       <lastmod>2018-11-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
   
     
-    
     <url>
     
-      <loc>/tags/tutorial/</loc>
+      <loc>/categories/tutorial/</loc>
       <lastmod>2018-11-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
