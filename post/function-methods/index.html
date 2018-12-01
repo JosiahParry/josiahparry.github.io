@@ -15,7 +15,7 @@
   
     
   
-  <meta name="description" content="The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occured. To this end, I officially filed my complaint as an issue.">
+  <meta name="description" content="The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occurred. To this end, I officially filed my complaint as an issue.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/function-methods/">
@@ -116,7 +116,7 @@
   <meta property="og:site_name" content="Josiah Parry">
   <meta property="og:url" content="/post/function-methods/">
   <meta property="og:title" content="[Not so] generic functions | Josiah Parry">
-  <meta property="og:description" content="The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occured. To this end, I officially filed my complaint as an issue."><meta property="og:image" content="/img/portrait.jpg">
+  <meta property="og:description" content="The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occurred. To this end, I officially filed my complaint as an issue."><meta property="og:image" content="/img/portrait.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-11-28T00:00:00&#43;00:00">
@@ -288,6 +288,27 @@
           <a class="nav-link" href="/#contact">
             
             <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.r-bloggers.com/" target="_blank" rel="noopener">
+            
+            <span>R Bloggers</span>
             
           </a>
         </li>
@@ -467,7 +488,7 @@
 </ul>
 </div>
 
-<p>Lately I have been doing more of my spatial analysis work in R with the help of the <code>sf</code> package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the <code>clean_names()</code> function from the <code>janitor</code> package. But lo, an egregious error occured. To this end, I officially filed my complaint as an <a href="https://github.com/sfirke/janitor/pull/249">issue</a>. The solution presented was to <em>simply</em> create a method for <code>sf</code> objects.</p>
+<p>Lately I have been doing more of my spatial analysis work in R with the help of the <code>sf</code> package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the <code>clean_names()</code> function from the <code>janitor</code> package. But lo, an egregious error occurred. To this end, I officially filed my complaint as an <a href="https://github.com/sfirke/janitor/pull/249">issue</a>. The solution presented was to <em>simply</em> create a method for <code>sf</code> objects.</p>
 <p>Yeah, methods, how tough can those be? Apparently the process isn’t at all difficult. But figuring out the process? That was difficult. This post will explain how I went about the process for converting the <code>clean_names()</code> function into a <em>generic</em> (I’ll explain this in a second), and creating a <em>method</em> for <code>sf</code> and <code>tbl_graph</code> objects.</p>
 <div id="the-jargon" class="section level3">
 <h3>The Jargon</h3>
@@ -562,7 +583,7 @@ test_df</code></pre>
 <pre><code>## # A tibble: 1 x 20
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&quot;&#39;t`
 ##      &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
-## 1       33       81      93    87    50    52     100       69       41
+## 1       95        7      17     6     9    11       1       37       69
 ## # ... with 11 more variables: `hi_\`there\`` &lt;int&gt;, ` leading
 ## #   spaces` &lt;int&gt;, `€` &lt;int&gt;, ação &lt;int&gt;, Farœ &lt;int&gt;, `a b c d e f` &lt;int&gt;,
 ## #   testCamelCase &lt;int&gt;, `!leadingpunct` &lt;int&gt;, `average # of days` &lt;int&gt;,
@@ -589,7 +610,7 @@ test_df</code></pre>
 <pre><code>## # A tibble: 1 x 20
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &lt;int&gt;    &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt; &lt;int&gt;    &lt;int&gt;
-## 1     33       81    93      87    50    52   100         69    41       38
+## 1     95        7    17       6     9    11     1         37    69       49
 ## # ... with 10 more variables: leading_spaces &lt;int&gt;, x_3 &lt;int&gt;, acao &lt;int&gt;,
 ## #   faroe &lt;int&gt;, a_b_c_d_e_f &lt;int&gt;, test_camel_case &lt;int&gt;,
 ## #   leadingpunct &lt;int&gt;, average_number_of_days &lt;int&gt;, jan2009sales &lt;int&gt;,
@@ -648,7 +669,7 @@ test_sf</code></pre>
 ## # A tibble: 1 x 21
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&quot;&#39;t`
 ##      &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
-## 1       33       81      93    87    50    52     100       69       41
+## 1       95        7      17     6     9    11       1       37       69
 ## # ... with 12 more variables: `hi_\`there\`` &lt;int&gt;, ` leading
 ## #   spaces` &lt;int&gt;, `€` &lt;int&gt;, ação &lt;int&gt;, Farœ &lt;int&gt;, `a b c d e f` &lt;int&gt;,
 ## #   testCamelCase &lt;int&gt;, `!leadingpunct` &lt;int&gt;, `average # of days` &lt;int&gt;,
@@ -663,7 +684,7 @@ Error in st_geometry.sf(x) : attr(obj, &quot;sf_column&quot;) does not point to 
 <pre><code>## # A tibble: 1 x 20
 ##   sp_ace repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&quot;&#39;t`
 ##    &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
-## 1     33       81      93    87    50    52     100       69       41
+## 1     95        7      17     6     9    11       1       37       69
 ## # ... with 11 more variables: `hi_\`there\`` &lt;int&gt;, ` leading
 ## #   spaces` &lt;int&gt;, `€` &lt;int&gt;, ação &lt;int&gt;, Farœ &lt;int&gt;, `a b c d e f` &lt;int&gt;,
 ## #   testCamelCase &lt;int&gt;, `!leadingpunct` &lt;int&gt;, `average # of days` &lt;int&gt;,
@@ -692,7 +713,7 @@ Error in st_geometry.sf(x) : attr(obj, &quot;sf_column&quot;) does not point to 
 ## # A tibble: 1 x 21
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &lt;int&gt;    &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt; &lt;int&gt;    &lt;int&gt;
-## 1     33       81    93      87    50    52   100         69    41       38
+## 1     95        7    17       6     9    11     1         37    69       49
 ## # ... with 11 more variables: leading_spaces &lt;int&gt;, x_3 &lt;int&gt;, acao &lt;int&gt;,
 ## #   faroe &lt;int&gt;, a_b_c_d_e_f &lt;int&gt;, test_camel_case &lt;int&gt;,
 ## #   leadingpunct &lt;int&gt;, average_number_of_days &lt;int&gt;, jan2009sales &lt;int&gt;,
@@ -724,7 +745,7 @@ test_graph</code></pre>
 ## # Node Data: 1 x 20 (active)
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&quot;&#39;t`
 ##      &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;
-## 1       33       81      93    87    50    52     100       69       41
+## 1       95        7      17     6     9    11       1       37       69
 ## # ... with 11 more variables: `hi_\`there\`` &lt;int&gt;, ` leading
 ## #   spaces` &lt;int&gt;, `€` &lt;int&gt;, ação &lt;int&gt;, Farœ &lt;int&gt;, `a b c d e f` &lt;int&gt;,
 ## #   testCamelCase &lt;int&gt;, `!leadingpunct` &lt;int&gt;, `average # of days` &lt;int&gt;,
@@ -741,7 +762,7 @@ test_graph</code></pre>
 ## # Node Data: 1 x 20 (active)
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &lt;int&gt;    &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt; &lt;int&gt;    &lt;int&gt;
-## 1     33       81    93      87    50    52   100         69    41       38
+## 1     95        7    17       6     9    11     1         37    69       49
 ## # ... with 10 more variables: leading_spaces &lt;int&gt;, x_3 &lt;int&gt;, acao &lt;int&gt;,
 ## #   faroe &lt;int&gt;, a_b_c_d_e_f &lt;int&gt;, test_camel_case &lt;int&gt;,
 ## #   leadingpunct &lt;int&gt;, average_number_of_days &lt;int&gt;, jan2009sales &lt;int&gt;,
@@ -993,6 +1014,8 @@ test_graph</code></pre>
       
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/R.min.js"></script>
         
       
 

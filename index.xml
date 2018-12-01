@@ -29,7 +29,7 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Lately I have been doing more of my spatial analysis work in R with the help of the &lt;code&gt;sf&lt;/code&gt; package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the &lt;code&gt;clean_names()&lt;/code&gt; function from the &lt;code&gt;janitor&lt;/code&gt; package. But lo, an egregious error occured. To this end, I officially filed my complaint as an &lt;a href=&#34;https://github.com/sfirke/janitor/pull/249&#34;&gt;issue&lt;/a&gt;. The solution presented was to &lt;em&gt;simply&lt;/em&gt; create a method for &lt;code&gt;sf&lt;/code&gt; objects.&lt;/p&gt;
+&lt;p&gt;Lately I have been doing more of my spatial analysis work in R with the help of the &lt;code&gt;sf&lt;/code&gt; package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the &lt;code&gt;clean_names()&lt;/code&gt; function from the &lt;code&gt;janitor&lt;/code&gt; package. But lo, an egregious error occurred. To this end, I officially filed my complaint as an &lt;a href=&#34;https://github.com/sfirke/janitor/pull/249&#34;&gt;issue&lt;/a&gt;. The solution presented was to &lt;em&gt;simply&lt;/em&gt; create a method for &lt;code&gt;sf&lt;/code&gt; objects.&lt;/p&gt;
 &lt;p&gt;Yeah, methods, how tough can those be? Apparently the process isn’t at all difficult. But figuring out the process? That was difficult. This post will explain how I went about the process for converting the &lt;code&gt;clean_names()&lt;/code&gt; function into a &lt;em&gt;generic&lt;/em&gt; (I’ll explain this in a second), and creating a &lt;em&gt;method&lt;/em&gt; for &lt;code&gt;sf&lt;/code&gt; and &lt;code&gt;tbl_graph&lt;/code&gt; objects.&lt;/p&gt;
 &lt;div id=&#34;the-jargon&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;The Jargon&lt;/h3&gt;
@@ -124,7 +124,7 @@ test_df&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 20
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&amp;quot;&amp;#39;t`
 ##      &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1       33       81      93    87    50    52     100       69       41
+## 1       95        7      17     6     9    11       1       37       69
 ## # ... with 11 more variables: `hi_\`there\`` &amp;lt;int&amp;gt;, ` leading
 ## #   spaces` &amp;lt;int&amp;gt;, `€` &amp;lt;int&amp;gt;, ação &amp;lt;int&amp;gt;, Farœ &amp;lt;int&amp;gt;, `a b c d e f` &amp;lt;int&amp;gt;,
 ## #   testCamelCase &amp;lt;int&amp;gt;, `!leadingpunct` &amp;lt;int&amp;gt;, `average # of days` &amp;lt;int&amp;gt;,
@@ -151,7 +151,7 @@ test_df&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 20
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;      &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1     33       81    93      87    50    52   100         69    41       38
+## 1     95        7    17       6     9    11     1         37    69       49
 ## # ... with 10 more variables: leading_spaces &amp;lt;int&amp;gt;, x_3 &amp;lt;int&amp;gt;, acao &amp;lt;int&amp;gt;,
 ## #   faroe &amp;lt;int&amp;gt;, a_b_c_d_e_f &amp;lt;int&amp;gt;, test_camel_case &amp;lt;int&amp;gt;,
 ## #   leadingpunct &amp;lt;int&amp;gt;, average_number_of_days &amp;lt;int&amp;gt;, jan2009sales &amp;lt;int&amp;gt;,
@@ -210,7 +210,7 @@ test_sf&lt;/code&gt;&lt;/pre&gt;
 ## # A tibble: 1 x 21
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&amp;quot;&amp;#39;t`
 ##      &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1       33       81      93    87    50    52     100       69       41
+## 1       95        7      17     6     9    11       1       37       69
 ## # ... with 12 more variables: `hi_\`there\`` &amp;lt;int&amp;gt;, ` leading
 ## #   spaces` &amp;lt;int&amp;gt;, `€` &amp;lt;int&amp;gt;, ação &amp;lt;int&amp;gt;, Farœ &amp;lt;int&amp;gt;, `a b c d e f` &amp;lt;int&amp;gt;,
 ## #   testCamelCase &amp;lt;int&amp;gt;, `!leadingpunct` &amp;lt;int&amp;gt;, `average # of days` &amp;lt;int&amp;gt;,
@@ -225,7 +225,7 @@ Error in st_geometry.sf(x) : attr(obj, &amp;quot;sf_column&amp;quot;) does not p
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 20
 ##   sp_ace repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&amp;quot;&amp;#39;t`
 ##    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1     33       81      93    87    50    52     100       69       41
+## 1     95        7      17     6     9    11       1       37       69
 ## # ... with 11 more variables: `hi_\`there\`` &amp;lt;int&amp;gt;, ` leading
 ## #   spaces` &amp;lt;int&amp;gt;, `€` &amp;lt;int&amp;gt;, ação &amp;lt;int&amp;gt;, Farœ &amp;lt;int&amp;gt;, `a b c d e f` &amp;lt;int&amp;gt;,
 ## #   testCamelCase &amp;lt;int&amp;gt;, `!leadingpunct` &amp;lt;int&amp;gt;, `average # of days` &amp;lt;int&amp;gt;,
@@ -254,7 +254,7 @@ Error in st_geometry.sf(x) : attr(obj, &amp;quot;sf_column&amp;quot;) does not p
 ## # A tibble: 1 x 21
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;      &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1     33       81    93      87    50    52   100         69    41       38
+## 1     95        7    17       6     9    11     1         37    69       49
 ## # ... with 11 more variables: leading_spaces &amp;lt;int&amp;gt;, x_3 &amp;lt;int&amp;gt;, acao &amp;lt;int&amp;gt;,
 ## #   faroe &amp;lt;int&amp;gt;, a_b_c_d_e_f &amp;lt;int&amp;gt;, test_camel_case &amp;lt;int&amp;gt;,
 ## #   leadingpunct &amp;lt;int&amp;gt;, average_number_of_days &amp;lt;int&amp;gt;, jan2009sales &amp;lt;int&amp;gt;,
@@ -286,7 +286,7 @@ test_graph&lt;/code&gt;&lt;/pre&gt;
 ## # Node Data: 1 x 20 (active)
 ##   `sp ace` repeated `a**^@`   `%`   `*`   `!` `d(!)9` REPEATED `can&amp;quot;&amp;#39;t`
 ##      &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1       33       81      93    87    50    52     100       69       41
+## 1       95        7      17     6     9    11       1       37       69
 ## # ... with 11 more variables: `hi_\`there\`` &amp;lt;int&amp;gt;, ` leading
 ## #   spaces` &amp;lt;int&amp;gt;, `€` &amp;lt;int&amp;gt;, ação &amp;lt;int&amp;gt;, Farœ &amp;lt;int&amp;gt;, `a b c d e f` &amp;lt;int&amp;gt;,
 ## #   testCamelCase &amp;lt;int&amp;gt;, `!leadingpunct` &amp;lt;int&amp;gt;, `average # of days` &amp;lt;int&amp;gt;,
@@ -303,7 +303,7 @@ test_graph&lt;/code&gt;&lt;/pre&gt;
 ## # Node Data: 1 x 20 (active)
 ##   sp_ace repeated     a percent     x   x_2   d_9 repeated_2  cant hi_there
 ##    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;      &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1     33       81    93      87    50    52   100         69    41       38
+## 1     95        7    17       6     9    11     1         37    69       49
 ## # ... with 10 more variables: leading_spaces &amp;lt;int&amp;gt;, x_3 &amp;lt;int&amp;gt;, acao &amp;lt;int&amp;gt;,
 ## #   faroe &amp;lt;int&amp;gt;, a_b_c_d_e_f &amp;lt;int&amp;gt;, test_camel_case &amp;lt;int&amp;gt;,
 ## #   leadingpunct &amp;lt;int&amp;gt;, average_number_of_days &amp;lt;int&amp;gt;, jan2009sales &amp;lt;int&amp;gt;,
