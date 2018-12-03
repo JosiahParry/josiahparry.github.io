@@ -19,7 +19,7 @@
       <description>
 
 
-&lt;p&gt;This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it. I will draw on the simplicty of Chris Albon’s post. For steps to do the following in Python, I recommend his &lt;a href=&#34;https://chrisalbon.com/machine_learning/trees_and_forests/feature_importance/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it. I will draw on the simplicity of Chris Albon’s post. For steps to do the following in Python, I recommend his &lt;a href=&#34;https://chrisalbon.com/machine_learning/trees_and_forests/feature_importance/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Feature Importance by Chris Albon&#34; src=&#34;https://chrisalbon.com/images/machine_learning_flashcards/Feature_Importance_print.png&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;If you’ve ever created a decision tree, you’ve probably looked at measures of feature importance. In the above flashcard, impurity refers to how many times a feature was use and lead to a misclassification. Here, we’re looking at the importance of a feature, so how much it helped in the classification or prediction of an outcome.&lt;/p&gt;
 &lt;p&gt;This example will draw on the build in data &lt;code&gt;Sonar&lt;/code&gt; from the &lt;code&gt;mlbench&lt;/code&gt; package.&lt;/p&gt;
