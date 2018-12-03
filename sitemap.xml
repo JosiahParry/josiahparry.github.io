@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/xgb-ggplot/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/function-methods/</loc>
       <lastmod>2018-11-28T00:00:00+00:00</lastmod>
     </url>
@@ -101,7 +109,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -126,8 +134,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -135,8 +143,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -145,7 +153,7 @@
     <url>
     
       <loc>/tags/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -180,6 +188,15 @@
     
     <url>
     
+      <loc>/tags/decision-trees/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/functions/</loc>
       <lastmod>2018-11-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -198,15 +215,6 @@
     
     <url>
     
-      <loc>/categories/geniusr/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/tags/geniusr/</loc>
       <lastmod>2018-02-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -216,7 +224,34 @@
     
     <url>
     
+      <loc>/categories/geniusr/</loc>
+      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/ggplot/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/history/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/letters/</loc>
       <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -234,8 +269,17 @@
     
     <url>
     
-      <loc>/tags/letters/</loc>
-      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <loc>/tags/machine-learning/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/machine-learning/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -333,8 +377,8 @@
     
     <url>
     
-      <loc>/categories/tutorial/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <loc>/tags/tutorial/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -342,7 +386,7 @@
     
     <url>
     
-      <loc>/tags/tutorial/</loc>
+      <loc>/categories/tutorial/</loc>
       <lastmod>2018-11-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>

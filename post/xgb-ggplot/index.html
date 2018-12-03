@@ -15,10 +15,11 @@
   
     
   
-  <meta name="description" content="Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like. It was the first attempt at creating some sort of agreement between the 13 original states to form a central government. In the end, the Articles of Confederation made the new central government too weak to accomplish anything. Then, in 1787 representatives from each state met in Philadelphia to entirely scrap the Articles of Confederation in a meeting that became known as the Constitutional Convention.">
+  <meta name="description" content="This post will go over extracting variable importance and creating a function for creating a ggplot object for it. I will draw on the simplicty of Chris Albon’s post. For steps to do the following in Python, I recommend his post.
+If you’ve ever created a decision tree, you’ve probably looked at measures of variable importance. In the above flashcard, impurity refers to how many times a feature was use and lead to a misclassification.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/us-representation-i/">
+  <link rel="alternate" hreflang="en-us" href="/post/xgb-ggplot/">
 
   
 
@@ -102,7 +103,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/us-representation-i/">
+  <link rel="canonical" href="/post/xgb-ggplot/">
 
   
   
@@ -114,21 +115,22 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Josiah Parry">
-  <meta property="og:url" content="/post/us-representation-i/">
-  <meta property="og:title" content="US Representation: Part I | Josiah Parry">
-  <meta property="og:description" content="Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like. It was the first attempt at creating some sort of agreement between the 13 original states to form a central government. In the end, the Articles of Confederation made the new central government too weak to accomplish anything. Then, in 1787 representatives from each state met in Philadelphia to entirely scrap the Articles of Confederation in a meeting that became known as the Constitutional Convention."><meta property="og:image" content="/img/portrait.jpg">
+  <meta property="og:url" content="/post/xgb-ggplot/">
+  <meta property="og:title" content="xgboost feature importance | Josiah Parry">
+  <meta property="og:description" content="This post will go over extracting variable importance and creating a function for creating a ggplot object for it. I will draw on the simplicty of Chris Albon’s post. For steps to do the following in Python, I recommend his post.
+If you’ve ever created a decision tree, you’ve probably looked at measures of variable importance. In the above flashcard, impurity refers to how many times a feature was use and lead to a misclassification."><meta property="og:image" content="/img/portrait.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-11-25T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2018-12-01T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2018-11-25T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2018-12-01T00:00:00&#43;00:00">
   
 
   
 
-  <title>US Representation: Part I | Josiah Parry</title>
+  
+
+  <title>xgboost feature importance | Josiah Parry</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -351,10 +353,10 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">US Representation: Part I</h1>
+  <h1 itemprop="name">xgboost feature importance</h1>
 
   
-  <p class="page-subtitle">The Connecticut Compromise and it&rsquo;s lasting effects</p>
+  <p class="page-subtitle">Using ggplot for feature evaluation</p>
   
 
   
@@ -371,9 +373,9 @@
 
   <span class="article-date">
     
-    <meta content="2018-11-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-    <time datetime="2018-11-25 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-      Nov 25, 2018
+    <meta content="2018-12-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-12-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Dec 1, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -383,7 +385,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    3 min read
   </span>
   
 
@@ -397,7 +399,9 @@
   <span class="article-categories">
     <i class="fas fa-folder"></i>
     
-    <a href="/categories/letters/">letters</a>
+    <a href="/categories/r/">R</a>, 
+    
+    <a href="/categories/machine-learning/">machine learning</a>
     
   </span>
   
@@ -409,35 +413,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=US%20Representation%3a%20Part%20I&amp;url=%2fpost%2fus-representation-i%2f"
+         href="https://twitter.com/intent/tweet?text=xgboost%20feature%20importance&amp;url=%2fpost%2fxgb-ggplot%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fus-representation-i%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fxgb-ggplot%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fus-representation-i%2f&amp;title=US%20Representation%3a%20Part%20I"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fxgb-ggplot%2f&amp;title=xgboost%20feature%20importance"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fus-representation-i%2f&amp;title=US%20Representation%3a%20Part%20I"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fxgb-ggplot%2f&amp;title=xgboost%20feature%20importance"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=US%20Representation%3a%20Part%20I&amp;body=%2fpost%2fus-representation-i%2f">
+         href="mailto:?subject=xgboost%20feature%20importance&amp;body=%2fpost%2fxgb-ggplot%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -476,20 +480,139 @@
       
 
 
-<p>Before the United States created the Constitution, something called the <a href="https://history.state.gov/milestones/1776-1783/articles"><em>Articles of Confederation</em></a> defined what the US Government would look like. It was the first attempt at creating some sort of agreement between the 13 original states to form a central government. In the end, the Articles of Confederation made the new central government too weak to accomplish anything. Then, in 1787 representatives from each state met in Philadelphia to entirely scrap the Articles of Confederation in a meeting that became known as the <a href="https://history.state.gov/milestones/1784-1800/convention-and-ratification">Constitutional Convention</a>. They would then end up creating the Constitution of the United States of America which we all know today.</p>
-<p>During this time, there were three main issues at hand. Representatives of the convention sought to give each state enough autonomy to function independently. They engaged in heated debated about how much power each state should be given and eventually, the issue of slavery — (3) how would slaves be counted for tax and representation purposes?</p>
-<p>The debate surrounding how much power (or representation) that would be given to each state in the new government was the source of much rancour at the convention. There were two leading ideas that addressed this problem. One of which was that each state would have an equal say regardless of its physical size or the number of people within it. The other was that each state would have power relative to their total population.</p>
-<p>These ideas were presented as the <a href="https://en.wikipedia.org/wiki/New_Jersey_Plan"><em>New Jersey Plan</em></a> and the <a href="https://en.wikipedia.org/wiki/Virginia_Plan"><em>Virginia Plan</em></a>. James Madison drafted the Virginia Plan which also would be known as the “large-state-plan” and was intended to introduce proportional representation—effectively giving states with the most people the most power.</p>
-<p>Small states, feeling threatened by this, introduced the New Jersey plan. The New Jersey plan was an attempt to level the playing field between small and big states. The New Jersey plan would give each state 1 vote in the new government and would allow states like Delaware to have as much weight in votes as big states.</p>
-<p>In a move that would be known as the <a href="https://www.senate.gov/artandhistory/history/minute/A_Great_Compromise.htm">Great Compromise</a> (or the Connecticut compromise), the representatives from Connecticut (a medium sized state) suggested that both ideas be put into effect. This idea created what is called a “bicameral legislature”—a legislative (law-making) body with two parts.</p>
-<p>One part of the new government would provide equal representation for each of the states. This became known as the <em>Senate</em> which today has two representatives for each state. The other part of the new government became the <em>House of Representatives</em> (also known more generally as “Congress”). This new body gave each state <em>“one [representative] for every Thirty Thousand [people]”</em>. But as the US population grew so did the number of representatives in Washington DC. Eventually rules had to change to prevent the number of representatives from getting any more out of hand . Today, the House of Representatives has 435 congresspeople (more <a href="https://en.wikipedia.org/wiki/United_States_congressional_apportionment#Past_increases">here</a>).</p>
-<p>Though the Connecticut compromise was an act of genius, it also implemented one of most reprehensible policies in US history: <em>the 3/5ths compromise</em>. Slavery was the largest economic driving force in Southern states created by a seemingly endless supply of cost-free labor. Looking at the prospect of proportional representation, large slave owning states wanted each slave to be counted towards their population. For reference slaves composed 43% of the population of South Carolina, 41.6% of Virginia, 35.5% of Georgia, and 32% of North Carolina.</p>
-<p><img src="/post/2018-11-25-representation-i_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>But there is one major catch, slaves were treated as property and not people. They were not given the same “inalienable rights” as everyone else. This was seen as unfair because slaves would not <em>actually</em> be <em>represented</em> in congress. If only free people were to be counted, that would punish slave holding states and empower Northern states.</p>
-<p>Eventually representatives of the convention came to a solution, one that still haunts our country until this very day. It was decided that 3 out of every 5 slaves would be counted for representation purposes (called apportionment). This compromise gave Southern states more representative power than their free population actually dictated. This rule stayed in effect until 1865 when the 13th Amendment was ratified.</p>
-<p>This compromise created the government that we have today. It paved the foundation for the Senate and the House of Representatives. The effects of this decision are being seen today. During the time of the Connecticut Compromise the United States was still a fledgling rural nation. Today, we are a leader in industry, play an outsized role in global economics, and we have seen an enormous push to city and suburban areas. This compromise is demonstrating an increasing rural bias in American politics.</p>
-<p>In a following post I will examine the implications of increasing urbanization on governing and legislation in the United States.</p>
-<p>If you still feel like you want more, check out <a href="https://www.youtube.com/watch?v=kCCmuftyj8A">this</a> fun youtube video on constitutional compromises.</p>
+<p>This post will go over extracting variable importance and creating a function for creating a ggplot object for it. I will draw on the simplicty of Chris Albon’s post. For steps to do the following in Python, I recommend his <a href="https://chrisalbon.com/machine_learning/trees_and_forests/feature_importance/">post</a>.</p>
+<p><img alt="Feature Importance by Chris Albon" src="https://chrisalbon.com/images/machine_learning_flashcards/Feature_Importance_print.png"/></p>
+<p>If you’ve ever created a decision tree, you’ve probably looked at measures of variable importance. In the above flashcard, impurity refers to how many times a feature was use and lead to a misclassification. Here, we’re looking at the importance of a feature, so how much it helped in the classification or prediction of an outcome.</p>
+<p>This example will draw on the build in data <code>Sonar</code> from the <code>mlbench</code> package.</p>
+<div id="prepping-environment" class="section level3">
+<h3>Prepping Environment</h3>
+<pre class="r"><code>library(caret)
+library(xgboost)
+library(tidyverse)</code></pre>
+</div>
+<div id="loading-the-data" class="section level3">
+<h3>Loading the data</h3>
+<pre class="r"><code>data(&quot;Sonar&quot;, package = &quot;mlbench&quot;)</code></pre>
+</div>
+<div id="train-the-decision-tree" class="section level3">
+<h3>Train the decision tree</h3>
+<pre class="r"><code>xgb_fit &lt;- train(Class ~ .,
+                 data = Sonar,
+                 method = &quot;xgbLinear&quot;)</code></pre>
+<pre class="r"><code>xgb_fit</code></pre>
+<pre><code>## eXtreme Gradient Boosting 
+## 
+## 208 samples
+##  60 predictor
+##   2 classes: &#39;M&#39;, &#39;R&#39; 
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 208, 208, 208, 208, 208, 208, ... 
+## Resampling results across tuning parameters:
+## 
+##   lambda  alpha  nrounds  Accuracy   Kappa    
+##   0e+00   0e+00   50      0.7954411  0.5856736
+##   0e+00   0e+00  100      0.7955067  0.5859968
+##   0e+00   0e+00  150      0.7955067  0.5859968
+##   0e+00   1e-04   50      0.7931161  0.5807902
+##   0e+00   1e-04  100      0.7896880  0.5736899
+##   0e+00   1e-04  150      0.7896880  0.5736899
+##   0e+00   1e-01   50      0.7974045  0.5899654
+##   0e+00   1e-01  100      0.8007978  0.5965433
+##   0e+00   1e-01  150      0.8018652  0.5987027
+##   1e-04   0e+00   50      0.7936100  0.5817500
+##   1e-04   0e+00  100      0.7902008  0.5746993
+##   1e-04   0e+00  150      0.7902008  0.5746993
+##   1e-04   1e-04   50      0.7916874  0.5777943
+##   1e-04   1e-04  100      0.7883283  0.5708511
+##   1e-04   1e-04  150      0.7883283  0.5708511
+##   1e-04   1e-01   50      0.7974045  0.5899654
+##   1e-04   1e-01  100      0.8007978  0.5965433
+##   1e-04   1e-01  150      0.8018652  0.5987027
+##   1e-01   0e+00   50      0.7937810  0.5824365
+##   1e-01   0e+00  100      0.7958099  0.5863334
+##   1e-01   0e+00  150      0.7958099  0.5863334
+##   1e-01   1e-04   50      0.7953707  0.5854209
+##   1e-01   1e-04  100      0.7963228  0.5873658
+##   1e-01   1e-04  150      0.7963228  0.5873658
+##   1e-01   1e-01   50      0.7987849  0.5923712
+##   1e-01   1e-01  100      0.8034709  0.6018293
+##   1e-01   1e-01  150      0.8049729  0.6047501
+## 
+## Tuning parameter &#39;eta&#39; was held constant at a value of 0.3
+## Accuracy was used to select the optimal model using the largest value.
+## The final values used for the model were nrounds = 150, lambda =
+##  0.1, alpha = 0.1 and eta = 0.3.</code></pre>
+</div>
+<div id="extract-feature-importance" class="section level3">
+<h3>Extract feature importance</h3>
+<p>Since we are using the <code>caret</code> package we can use the built in function to extract feature importance, or the function from the <code>xgboost</code> package. We will do both.</p>
+<div id="caret-feature-importance" class="section level4">
+<h4><code>caret</code> feature importance</h4>
+<pre class="r"><code>caret_imp &lt;- varImp(xgb_fit)
+caret_imp</code></pre>
+<pre><code>## xgbLinear variable importance
+## 
+##   only 20 most important variables shown (out of 60)
+## 
+##     Overall
+## V11 100.000
+## V45  26.941
+## V16  24.354
+## V21  21.665
+## V51  18.798
+## V4   18.140
+## V48  14.366
+## V9   12.607
+## V31  12.489
+## V27  12.347
+## V15  11.269
+## V34   9.125
+## V37   8.805
+## V20   8.792
+## V52   8.114
+## V28   7.162
+## V32   5.897
+## V55   4.584
+## V17   4.490
+## V49   4.129</code></pre>
+</div>
+<div id="xgboost-feature-importance" class="section level4">
+<h4><code>xgboost</code> feature importance</h4>
+<pre class="r"><code>xgb_imp &lt;- xgb.importance(feature_names = xgb_fit$finalModel$feature_names,
+               model = xgb_fit$finalModel)
+
+head(xgb_imp)</code></pre>
+<pre><code>##    Feature       Gain      Cover  Frequency
+## 1:     V11 0.25619824 0.12851517 0.03283582
+## 2:     V45 0.06902206 0.04458378 0.03582090
+## 3:     V16 0.06239349 0.04163116 0.01492537
+## 4:     V21 0.05550596 0.03471532 0.02686567
+## 5:     V51 0.04816044 0.04527492 0.05373134
+## 6:      V4 0.04647540 0.03484923 0.03880597</code></pre>
+</div>
+</div>
+<div id="plotting-feature-importance" class="section level3">
+<h3>Plotting feature importance</h3>
+<div id="caret" class="section level4">
+<h4>caret</h4>
+<p>You have a few options when it comes to plotting feature importance. You can call plot on the saved object from caret as follows:</p>
+<pre class="r"><code>plot(caret_imp)</code></pre>
+<p><img src="/post/2018-12-1-plot_xgboost_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(caret_imp) +
+  theme_minimal()</code></pre>
+<p><img src="/post/2018-12-1-plot_xgboost_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="xgboost" class="section level4">
+<h4><code>xgboost</code></h4>
+<p>You can use the plot functionality from <code>xgboost</code></p>
+<pre class="r"><code>xgb.plot.importance(xgb_imp)</code></pre>
+<p><img src="/post/2018-12-1-plot_xgboost_files/figure-html/unnamed-chunk-10-1.png" width="672" /> Or use their ggplot feature</p>
+<pre class="r"><code>xgb.ggplot.importance(xgb_imp)</code></pre>
+<p><img src="/post/2018-12-1-plot_xgboost_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+</div>
 
     </div>
 
@@ -498,17 +621,15 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/letters/">letters</a>
+  <a class="badge badge-light" href="/tags/r/">R</a>
   
-  <a class="badge badge-light" href="/tags/politics/">politics</a>
+  <a class="badge badge-light" href="/tags/machine-learning/">machine learning</a>
   
-  <a class="badge badge-light" href="/tags/history/">history</a>
+  <a class="badge badge-light" href="/tags/decision-trees/">decision trees</a>
   
-  <a class="badge badge-light" href="/tags/political-science/">political science</a>
+  <a class="badge badge-light" href="/tags/tutorial/">tutorial</a>
   
-  <a class="badge badge-light" href="/tags/sociology/">sociology</a>
-  
-  <a class="badge badge-light" href="/tags/us/">US</a>
+  <a class="badge badge-light" href="/tags/ggplot/">ggplot</a>
   
 </div>
 
@@ -611,9 +732,15 @@
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/project/letters/">Letters to a layperson</a></li>
+        <li><a href="/post/function-methods/">[Not so] generic functions</a></li>
         
-        <li><a href="/post/introducing-letters-to-a-layperson/">Introducing: Letters to a layperson</a></li>
+        <li><a href="/post/write-chunked-csv/">Chunking your csv</a></li>
+        
+        <li><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></li>
+        
+        <li><a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a></li>
+        
+        <li><a href="/project/geniusr/">geniusR</a></li>
         
       </ul>
     </div>
