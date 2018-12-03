@@ -4,7 +4,7 @@
     
     <url>
     
-      <loc>/post/xgb-ggplot/</loc>
+      <loc>/post/xgb-feature-importance/</loc>
       <lastmod>2018-12-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -134,7 +134,7 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
+      <loc>/categories/r/</loc>
       <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -143,7 +143,7 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
+      <loc>/tags/r/</loc>
       <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -215,8 +215,8 @@
     
     <url>
     
-      <loc>/tags/geniusr/</loc>
-      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+      <loc>/categories/geniusr/</loc>
+      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -224,8 +224,8 @@
     
     <url>
     
-      <loc>/categories/geniusr/</loc>
-      <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+      <loc>/tags/geniusr/</loc>
+      <lastmod>2018-02-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -251,15 +251,6 @@
     
     <url>
     
-      <loc>/tags/letters/</loc>
-      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/categories/letters/</loc>
       <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -269,8 +260,8 @@
     
     <url>
     
-      <loc>/tags/machine-learning/</loc>
-      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <loc>/tags/letters/</loc>
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -279,6 +270,15 @@
     <url>
     
       <loc>/categories/machine-learning/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/machine-learning/</loc>
       <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -377,8 +377,8 @@
     
     <url>
     
-      <loc>/tags/tutorial/</loc>
-      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <loc>/categories/tutorial/</loc>
+      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -386,8 +386,8 @@
     
     <url>
     
-      <loc>/categories/tutorial/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <loc>/tags/tutorial/</loc>
+      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

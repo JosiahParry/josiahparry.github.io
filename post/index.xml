@@ -14,12 +14,12 @@
     
     <item>
       <title>xgboost feature importance</title>
-      <link>/post/xgb-ggplot/</link>
+      <link>/post/xgb-feature-importance/</link>
       <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/xgb-ggplot/</guid>
-      <description>This post will go over extracting variable importance and creating a function for creating a ggplot object for it. I will draw on the simplicty of Chris Albon’s post. For steps to do the following in Python, I recommend his post.
-If you’ve ever created a decision tree, you’ve probably looked at measures of variable importance. In the above flashcard, impurity refers to how many times a feature was use and lead to a misclassification.</description>
+      <guid>/post/xgb-feature-importance/</guid>
+      <description>This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it. I will draw on the simplicty of Chris Albon’s post. For steps to do the following in Python, I recommend his post.
+If you’ve ever created a decision tree, you’ve probably looked at measures of feature importance. In the above flashcard, impurity refers to how many times a feature was use and lead to a misclassification.</description>
     </item>
     
     <item>
