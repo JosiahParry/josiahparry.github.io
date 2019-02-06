@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 01 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BARI</title>
+      <link>/tags/bari/</link>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bari/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>R</title>
@@ -24,7 +33,7 @@
     <item>
       <title>US</title>
       <link>/tags/us/</link>
-      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/us/</guid>
       <description></description>
@@ -150,7 +159,7 @@
     <item>
       <title>political science</title>
       <link>/tags/political-science/</link>
-      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/political-science/</guid>
       <description></description>
@@ -159,7 +168,7 @@
     <item>
       <title>politics</title>
       <link>/tags/politics/</link>
-      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/politics/</guid>
       <description></description>

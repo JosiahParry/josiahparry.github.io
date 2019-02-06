@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/shutdown-politics/</loc>
+      <lastmod>2019-02-06T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/xgb-feature-importance/</loc>
       <lastmod>2018-12-01T00:00:00+00:00</lastmod>
     </url>
@@ -92,7 +100,9 @@
     
     <url>
     
-      <loc>/post/2018-11-28-function-methods.nb/</loc>
+      <loc>/tags/bari/</loc>
+      <lastmod>2019-02-06T00:00:00+00:00</lastmod>
+      <priority>0</priority>
     </url>
     
   
@@ -117,7 +127,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -161,7 +171,7 @@
     <url>
     
       <loc>/tags/</loc>
-      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -170,7 +180,7 @@
     <url>
     
       <loc>/tags/us/</loc>
-      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -323,7 +333,7 @@
     <url>
     
       <loc>/tags/political-science/</loc>
-      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -332,7 +342,16 @@
     <url>
     
       <loc>/tags/politics/</loc>
-      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-06T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/politics/</loc>
+      <lastmod>2019-02-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
