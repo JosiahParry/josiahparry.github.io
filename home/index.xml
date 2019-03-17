@@ -6,19 +6,19 @@
     <description>Recent content in Homes on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
+    <copyright>&amp;copy; 2019</copyright>
     <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Introducing geniusR</title>
+      <title>genius 0.0.1.0 now on CRAN!</title>
       <link>/home/hero/</link>
       <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
       
       <guid>/home/hero/</guid>
-      <description>Introducing geniusR. A new R package for acquiring song lyrics as text data in a format &#34;hardwired for tidytext&#34;. 🤘 Get Started!
+      <description>Introducing genius. A new R package for acquiring song lyrics as text data in a format &#34;hardwired for tidytext&#34;. 🤘 Get Started!
 
 
   </description>
