@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.1.1">
+  <meta name="generator" content="Hugo 0.52" />
+  <meta name="author" content="Josiah Parry">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="Since I created genius, I’ve wanted to make a version for python. But frankly, that’s a daunting task for me seeing as my python skills are intermediate at best. But recently I’ve been made aware of the package plumber. To put it plainly, plumber takes your R code and makes it accessible via an API.
+I thought this would be difficult. I was so wrong.
+ Using plumber Plumber works by using roxygen like comments (#*).">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/genius-api/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/cv.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-90934606-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/genius-api/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Josiah Parry">
+  <meta property="og:url" content="/post/genius-api/">
+  <meta property="og:title" content="genius Plumber API | Josiah Parry">
+  <meta property="og:description" content="Since I created genius, I’ve wanted to make a version for python. But frankly, that’s a daunting task for me seeing as my python skills are intermediate at best. But recently I’ve been made aware of the package plumber. To put it plainly, plumber takes your R code and makes it accessible via an API.
+I thought this would be difficult. I was so wrong.
+ Using plumber Plumber works by using roxygen like comments (#*)."><meta property="og:image" content="/img/img/bubbles.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-03-30T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-03-30T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>genius Plumber API | Josiah Parry</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Josiah Parry</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post/">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.r-bloggers.com/" target="_blank" rel="noopener">
+            
+            <span>R Bloggers</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">genius Plumber API</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-03-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-03-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Mar 30, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/r/">R</a>, 
+    
+    <a href="/categories/docker/">Docker</a>, 
+    
+    <a href="/categories/python/">Python</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=genius%20Plumber%20API&amp;url=%2fpost%2fgenius-api%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fgenius-api%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fgenius-api%2f&amp;title=genius%20Plumber%20API"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fgenius-api%2f&amp;title=genius%20Plumber%20API"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=genius%20Plumber%20API&amp;body=%2fpost%2fgenius-api%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>Since I created <code>genius</code>, I’ve wanted to make a version for python. But frankly, that’s a daunting task for me seeing as my python skills are intermediate at best. But recently I’ve been made aware of the package <code>plumber</code>. To put it plainly, <code>plumber</code> takes your R code and makes it accessible via an API.</p>
+<p>I thought this would be difficult. I was so wrong.</p>
+<div class="figure">
+<img src="https://media.giphy.com/media/l0MYOMxG9ijrXhF3q/giphy.gif" />
+
+</div>
+<div id="using-plumber" class="section level2">
+<h2>Using plumber</h2>
+<p>Plumber works by using <code>roxygen</code> like comments (<code>#*</code>). Using a single comment, you can define the request type and the end point. Following that you define a function. The arguments to the funciton become the query parameters.</p>
+<p>The main <code>genius</code> functions only require two main arguments <code>artist</code> and <code>album</code> or <code>song</code>. Making these accessible by API is as simple as:</p>
+<pre><code>#* @get /track
+function(artist, song) {
+  genius::genius_lyrics(artist, song)
+}</code></pre>
+<p>With this line of code I created an endpoint called <code>track</code> to retrieve song lyrics. The two parameters as defined by the anonymous function are <code>artist</code> and <code>song</code>. This means that song lyrics are accessible with a query looking like <code>http://hostname/track?artist=artist_name&amp;song=song_name</code>.</p>
+<p>But as it stands, this isn’t enough to host the API locally. Save your functions with plumber documentation into a file (I named mine <code>plumber.R</code>).</p>
+<div id="creating-the-api" class="section level3">
+<h3>Creating the API</h3>
+<p>Creating the API is probably the easiest part. It takes quite literally, two lines of code. The function <code>plumb()</code> takes two arguments, the <code>file</code> which contains your plumber commented code, and the <code>dir</code>ectory that houses it.</p>
+<p><code>plumb()</code> creates a router which is “responsible for taking an incoming request, submitting it through the appropriate filters.”</p>
+<p>I created a plumber router which would be used to route income queries.</p>
+<pre><code>pr &lt;- plumb(&quot;plumber.R&quot;)</code></pre>
+<p>The next step is to actually run the router. Again, this is quite simple by calling the <code>run()</code> method of the <code>pr</code> object. All I need to do is specify the <code>port</code> that the API will listen on, and optionally the <code>host</code> address.</p>
+<pre><code>pr$run(port = 80, host = &quot;0.0.0.0&quot;)</code></pre>
+<p>Now I can construct queries in my browser. An example query is <code>http://localhost/track?artist=andrew%20bird&amp;song=proxy%20war</code>. Sending this request produces a very friendly <code>json</code> output.</p>
+<pre><code>[
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:1,&quot;lyric&quot;:&quot;He don&#39;t have to get over her&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:2,&quot;lyric&quot;:&quot;She don&#39;t to have get over him&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:3,&quot;lyric&quot;:&quot;With all their words preserved forevermore&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:4,&quot;lyric&quot;:&quot;You don&#39;t have to get over her&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:5,&quot;lyric&quot;:&quot;She don&#39;t have to get over you&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:6,&quot;lyric&quot;:&quot;It&#39;s true these two have never met before&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:7,&quot;lyric&quot;:&quot;At least not in real life&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:8,&quot;lyric&quot;:&quot;Where your words cut like a knife&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:9,&quot;lyric&quot;:&quot;Conjuring blood, biblical floods&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:10,&quot;lyric&quot;:&quot;Looks that stop time&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:11,&quot;lyric&quot;:&quot;You don&#39;t have to remember&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:12,&quot;lyric&quot;:&quot;We forget what memories are for&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:13,&quot;lyric&quot;:&quot;Now we store them in the atmosphere&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:14,&quot;lyric&quot;:&quot;If you don&#39;t want to get too close&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:15,&quot;lyric&quot;:&quot;You don&#39;t have to get too close&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:16,&quot;lyric&quot;:&quot;It&#39;s just what we&#39;re calling peer-to-peer&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:17,&quot;lyric&quot;:&quot;You don&#39;t want to get over&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:18,&quot;lyric&quot;:&quot;You don&#39;t have to get over&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:19,&quot;lyric&quot;:&quot;We store them in the atmosphere&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:20,&quot;lyric&quot;:&quot;If you don&#39;t want to get over her&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:21,&quot;lyric&quot;:&quot;She don&#39;t have to get over you&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:22,&quot;lyric&quot;:&quot;It&#39;s true these two have never met before&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:23,&quot;lyric&quot;:&quot;At least not in real life&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:24,&quot;lyric&quot;:&quot;Where your words cut like a knife&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:25,&quot;lyric&quot;:&quot;Conjuring blood, biblical floods&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:26,&quot;lyric&quot;:&quot;Looks that stop time&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:27,&quot;lyric&quot;:&quot;If you don&#39;t want to get over her&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:28,&quot;lyric&quot;:&quot;You don&#39;t have to get over her&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:29,&quot;lyric&quot;:&quot;If you don&#39;t want to get too close&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:30,&quot;lyric&quot;:&quot;You don&#39;t have to get too close&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:31,&quot;lyric&quot;:&quot;If you want to remember&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:32,&quot;lyric&quot;:&quot;If you don&#39;t want to get over&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:33,&quot;lyric&quot;:&quot;If you don&#39;t want to get over&quot;},
+{&quot;track_title&quot;:&quot;Proxy War&quot;,&quot;line&quot;:34,&quot;lyric&quot;:&quot;If you don&#39;t want to get over&quot;}
+]</code></pre>
+</div>
+</div>
+<div id="writing-a-python-wrapper" class="section level2">
+<h2>Writing a Python Wrapper</h2>
+<p>One of the appeals of writing an API is that it can be accessed from any language. This was the inspiriation of creating this API. I want to be able to call R using Python. Creating an API is a great intermediary as writing an API wrapper is much easier for me than recreating all of the code that I wrote in R.</p>
+<p>I want to be able to recreate the three main functions of <code>genius</code>. These are <code>genius_lyrics()</code>, <code>genius_album()</code>, and <code>genius_tracklist()</code>. In doing this there are two steps I have to consider. The first is creating query urls, and the second is parsing json.</p>
+<p>To create the urls, the <code>requests</code> library is used. Next, I created a template for the urls.</p>
+<pre><code>import requests
+url_template = &quot;http://localhost:80/track?artist={}&amp;song={}&quot;</code></pre>
+<p>The idea here is that the <code>{}</code> characters will be filled with provided parameters by using the <code>.format()</code> method.</p>
+<p>For example, if I wanted to get lyrics for Proxy War by Andrew Bird, I would supply <code>&quot;Andrew Bird&quot;</code> and <code>&quot;Proxy War&quot;</code> as the arguments to <code>format()</code>. It’s important to note that these arguments are taken positionally. The url is created using this method.</p>
+<pre><code>url = url_template.format(&quot;andrew bird&quot;, &quot;proxy war&quot;)</code></pre>
+<p>Now I am at the point where I can ping the server to receive the json. This is accomplished by using the <code>.get()</code> method from <code>requests</code>.</p>
+<pre><code>response = requests.get(url)</code></pre>
+<p>This returns an object that contains the json response. Next, in order to get this into a format that can be analysed, it needs to be parsed. I prefer a Pandas <code>DataFrame</code>, and fortunately Pandas has a lovely <code>read_json</code> function. I will call the <code>.content</code> attribute of the <code>response</code> objectm and feed that into the <code>read_json()</code> function.</p>
+<pre><code>import pandas as pd
+
+proxy_war = pd.read_json(response.content)
+
+proxy_war.head()
+
+    line    lyric                                   track_title
+0   1   He don&#39;t have to get over her               Proxy War
+1   2   She don&#39;t to have get over him              Proxy War
+2   3   With all their words preserved forevermore  Proxy War
+3   4   You don&#39;t have to get over her              Proxy War
+4   5   She don&#39;t have to get over you              Proxy War</code></pre>
+<p>Beautiful. Song lyrics are available through this API and can easily be accessed via python. The next step is to generalize this and the other two functions. The below is the code to create the <code>genius_lyrics()</code> function in python. It works almost identically as in R. However, at this moment it does not have the ability to set the <code>info</code> argument. But this can be changed easily in the original <code>plumber.R</code> file.</p>
+<pre><code># Define genius_lyrics()
+def genius_lyrics(artist, song):
+
+    url_template = &quot;http://localhost:80/track?artist={}&amp;song={}&quot;
+    
+    url = url_template.format(artist, song)
+
+    response = requests.get(url)
+    
+    song = pd.read_json(response.content)
+    
+    return(song)</code></pre>
+<p>At this point I’m feeling extremely stoked on the fact that I can use <code>genius</code> with python. Who says R and python practitioners can’t work together?</p>
+<div class="figure">
+<img src="https://media.giphy.com/media/l2JJyDYEX1tXFmCd2/giphy.gif" />
+
+</div>
+</div>
+<div id="containerize-with-docker" class="section level2">
+<h2>Containerize with Docker</h2>
+<div class="figure">
+<img src="https://media.giphy.com/media/cUMNWzWZ5n75LvcCIe/giphy.gif" />
+
+</div>
+<p>To make the process of setting up this genius API up easier for those who don’t necessarily interact with R, I created a lightweight-ish Docker container. The idea for this was to be able to pull a Docker image, run a command, and then the API will be available on a local port without having to interact with R at all.</p>
+<p>I’m not the most experience person with creating Docker containers but I can borrow code quite well. Fortunately I came across some wonderful <a href="https://nolisllc.com/assets/presentations/r-tensorflow-api.pdf">slides</a> from <code>rstudio::conf 2019</code>. <a href="https://twitter.com/heatherklus">Heather Nollis</a> and <a href="https://twitter.com/skyetetra">Jacqueline Nolis</a> presented on “API development with R and TensorFlow at T-Mobile”.</p>
+<p>This container needs two things: a linux environment and an installation of R with plumber, genius, and its dependencies. An organization called <a href="https://www.rocker-project.org/">The Rocker Project</a> has created a number of Docker images that are stable and easy to install.</p>
+<p>Since <code>genius</code> relies on many packages from the <a href="https://tidyverse.org">tidyverse</a>, the <a href="https://hub.docker.com/r/rocker/tidyverse"><code>rocker/tidyverse</code></a> image was used. To use their wonderful image, only one line is needed in my <code>Dockerfile</code>.</p>
+<pre><code># Import existing Docker image
+FROM rocker/tidyverse:3.5.2</code></pre>
+<p>Now, not knowing exactly what I was doing, I copied code from Jacqueline and Heather’s sample <code>Dockerfile</code> in their slides. Their comment says that this is necessary to have the <em>“needed linux libraries for plumber”</em>, I went with it.</p>
+<pre><code># install needed linux libraries for plumber
+RUN apt-get update -qq &amp;&amp; apt-get install -y \
+  libssl-dev \
+  libcurl4-gnutls-dev</code></pre>
+<p><code>genius</code> and <code>plumber</code> are not part of the tidyverse image and have to be installed manually. The following lines tell Docker to run the listed R commands. For some unknown reason there was an issue with installing <code>genius</code> from CRAN so the <code>repos</code> argument was stated explicitly.</p>
+<pre><code># Install R packages
+RUN R -e &quot;install.packages(&#39;genius&#39;, repos = &#39;http://cran.rstudio.com/&#39;)&quot;
+RUN R -e &quot;install.packages(&#39;plumber&#39;)&quot;</code></pre>
+<p>In addition to the <code>Dockerfile</code> there are two files in my directory which are used to launch the API. The <code>plumber.R</code> and <code>launch_api.R</code> files. These need to be copied into the container. The line <code>COPY / /</code> copies from the location <code>/</code> in my directory to the location <code>/</code> in the container.</p>
+<p>The Docker image has the libraries and files needed, but it needs to be able to actually launch the API. Since the <code>plumber.R</code> file specifies that the API will be listening on port <code>80</code>, I need to expose that port in my Docker image using <code>EXPOSE 80</code>.</p>
+<p>The last part of this is to run the <code>launch_api.R</code> so the API is available. The <code>ENTRYPOINT</code> command tells Docker what to run when the container is launched. In this case <code>ENTRYPOINT [&quot;Rscript&quot;, &quot;launch_api.R&quot;]</code> tells Docker to run the <code>Rscript</code> command with the argument <code>launch_api.R</code>. And with that, the <code>Dockerfile</code> is complete and read to run.</p>
+<p>The image needs to be built and ran. The simplest way to do this for me was to work from <a href="https://cloud.docker.com/repository/docker/josiahparry/genius-api">Dockerhub</a>. Thus to run this container only three lines of code are needed!</p>
+<pre><code>docker pull josiahparry/genius-api:working
+
+docker build -t josiahparry/genius-api .
+
+docker run --rm -p 80:80 josiahparry/genius-api</code></pre>
+<div class="figure">
+<img src="https://media.giphy.com/media/3o7qDEq2bMbcbPRQ2c/giphy.gif" />
+
+</div>
+<p>Boom, now you have an API that will be able to use the functionality of <code>genius</code>. If you wish to use Python with the API, I wrote a simple script which creates a nice tidy <a href="https://github.com/JosiahParry/genius-api/blob/master/genius.py">wrapper</a> around it.</p>
+<hr />
+<p>If anyone is interested in writing a more stable Python library that can call the functionality described above I’d love your help to make <code>genius</code> more readily available to the python community.</p>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/docker/">Docker</a>
+  
+  <a class="badge badge-light" href="/tags/python/">Python</a>
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/genius/">genius</a>
+  
+  <a class="badge badge-light" href="/tags/plumber/">plumber</a>
+  
+  <a class="badge badge-light" href="/tags/api/">api</a>
+  
+  <a class="badge badge-light" href="/tags/tutorial/">tutorial</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/portrait.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Josiah Parry</a></h5>
+    <h6 class="card-subtitle">Social Data Scientist</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/josiahparry" >
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//github.com/josiahparry" >
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//linkedin.com/in/josiahparry" >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:josiah.parry@yahoo.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/xgb-feature-importance/">xgboost feature importance</a></li>
+        
+        <li><a href="/post/function-methods/">[Not so] generic functions</a></li>
+        
+        <li><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></li>
+        
+        <li><a href="/post/write-chunked-csv/">Chunking your csv</a></li>
+        
+        <li><a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/R.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.74b0d3361475b08c40cf31120e82937b.js"></script>
+
+    
+
+  </body>
+</html>
+

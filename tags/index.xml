@@ -22,9 +22,27 @@
     </item>
     
     <item>
+      <title>Docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -36,6 +54,15 @@
       <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/us/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>api</title>
+      <link>/tags/api/</link>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/api/</guid>
       <description></description>
     </item>
     
@@ -81,6 +108,15 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/generics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>genius</title>
+      <link>/tags/genius/</link>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/genius/</guid>
       <description></description>
     </item>
     
@@ -153,6 +189,15 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/packages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plumber</title>
+      <link>/tags/plumber/</link>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/plumber/</guid>
       <description></description>
     </item>
     
@@ -231,7 +276,7 @@
     <item>
       <title>tutorial</title>
       <link>/tags/tutorial/</link>
-      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/tutorial/</guid>
       <description></description>

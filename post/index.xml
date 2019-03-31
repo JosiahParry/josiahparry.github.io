@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Sun, 17 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>genius Plumber API</title>
+      <link>/post/genius-api/</link>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/genius-api/</guid>
+      <description>Since I created genius, I’ve wanted to make a version for python. But frankly, that’s a daunting task for me seeing as my python skills are intermediate at best. But recently I’ve been made aware of the package plumber. To put it plainly, plumber takes your R code and makes it accessible via an API.
+I thought this would be difficult. I was so wrong.
+ Using plumber Plumber works by using roxygen like comments (#*).</description>
+    </item>
     
     <item>
       <title>The Fallacy of one person, one vote</title>
@@ -107,6 +118,15 @@ I recently had a student reach out to me in need of help with the first programm
       <guid>/post/introducing-geniusr/</guid>
       <description>Introducing geniusR geniusR enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.
 This package was inspired by the release of Kendrick Lamar’s most recent album, DAMN.. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2019-03-30-plumber-genius-api.nb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-03-30-plumber-genius-api.nb/</guid>
+      <description>code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
     </item>
     
   </channel>

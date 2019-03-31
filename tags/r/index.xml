@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Sat, 01 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>genius Plumber API</title>
+      <link>/post/genius-api/</link>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/genius-api/</guid>
+      <description>Since I created genius, I’ve wanted to make a version for python. But frankly, that’s a daunting task for me seeing as my python skills are intermediate at best. But recently I’ve been made aware of the package plumber. To put it plainly, plumber takes your R code and makes it accessible via an API.
+I thought this would be difficult. I was so wrong.
+ Using plumber Plumber works by using roxygen like comments (#*).</description>
+    </item>
     
     <item>
       <title>xgboost feature importance</title>
