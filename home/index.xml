@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>genius 0.0.1.0 now on CRAN!</title>
+      <title>genius 2.2.0 now on CRAN!</title>
       <link>/home/hero/</link>
       <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
       
@@ -30,8 +30,9 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/about/</guid>
-      <description>About Me My name is Josiah Parry. I am a person of eclectic interests; some of which are social science, politics, espresso, data science, and music. I devote much of my time to utilising data to understand social systems. During the 2018 midterm elections I served as the New Hampshire Data Director for NextGen Rising.
-I am currently a Masters student at Northeastern University studying Urban Informatics in the School of Public Policy and Urban Affairs.</description>
+      <description>About Me My name is Josiah Parry. I am a person of eclectic interests; some of which are social science, politics, espresso, data science, and music. I am currently working at RStudio as a Customer Success Representative.
+I am a Masters student at Northeastern University studying Urban Informatics in the School of Public Policy and Urban Affairs under Dr. Dan O&amp;rsquo;Brien
+If you would like to sponsor a cup of coffee, press the button below!</description>
     </item>
     
     <item>
@@ -49,9 +50,16 @@ I am currently a Masters student at Northeastern University studying Urban Infor
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/resume/</guid>
-      <description>Experience  NH Data Director
-NextGen America April - November 2018  Database Administrator
-Accenture June - August 2017  Maintained Oracle 11g &amp; 12c databases   Automated daily reporting utilizing Linux &amp;  PL/SQL  scripts   Analyzed &amp; Optimized production queries   Managed DB versioning with Git, Gerrit, and Jenkins   Handled handover calls with offshore team   GIS Teaching Assistant Plymouth State University September 2016 - December 2017  Selected to assist in instruction of Introduction to GIS by faculty  Hosted out of class tutoring in GIS   Instructed data management, spatial analysis, and cartography  Spatial Data Analyst Lakes Region Planning Commission December 2016 - May 2017  Integrated 10 years of data into single organized structure   Created custom R package to read and manage traffic count data   Utilized R &amp; QGIS to perform spatio-temporal analysis of NH Lakes Region Traffic Patterns   Compared state to regional traffic &amp; presented results   Curriculum Development Intern (R-Finance) DataCamp</description>
+      <description>Experience  Customer Success Representative
+RStudio
+April - Present
+ Data Science Consultant
+International Consulting Associates Inc.
+November 2018 - April 2019
+Provide advisory services for key leadership of FDA medical device unit Improved internal dashboard by identifying inefficiencies and creating new KPIs Developed anomaly detection models performing at 90-98% accuracy (no information rate ~70%)  Research Assistant
+Boston Area Research Initiative
+January - April 2019
+Use Census data to uncover and communicate insights about the Boston region in the context of a government shutdown Update internal databases with ‘13-’17 American Community Survey data and create novel regional metrics  Data Analytics Bootcamp Assistant</description>
     </item>
     
     <item>
