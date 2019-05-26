@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Sat, 30 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>genius tutorial</title>
+      <link>/post/2019-05-08-genius-learnr-tutorial/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-05-08-genius-learnr-tutorial/</guid>
+      <description>Introducing genius You want to start analysing song lyrics, where do you go? There have been music information retrieval papers written on the topic of programmatically extracting lyrics from the web. Dozens of people have gone through the laborious task of scraping song lyrics from websites. Even a recent winner of the Shiny competition scraped lyrics from Genius.com.
+I too have been there. Scraping websites is not always the best use of your time.</description>
+    </item>
     
     <item>
       <title>genius Plumber API</title>

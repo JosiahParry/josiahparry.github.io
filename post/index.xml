@@ -7,10 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Sat, 30 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introducing trendyy</title>
+      <link>/post/2019-05-25-introducing-trendyy/</link>
+      <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-05-25-introducing-trendyy/</guid>
+      <description>trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
+The inspiration for this package was to provide a tidy interface to the trends data.
+Getting Started Installation You can install trendyy from CRAN using install.packages(&amp;quot;trendyy&amp;quot;).
+ Usage Use trendy() to search Google Trends. The only mandatory argument is search_terms. This is a character vector with the terms of interest.</description>
+    </item>
+    
+    <item>
+      <title>genius tutorial</title>
+      <link>/post/2019-05-08-genius-learnr-tutorial/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-05-08-genius-learnr-tutorial/</guid>
+      <description>Introducing genius You want to start analysing song lyrics, where do you go? There have been music information retrieval papers written on the topic of programmatically extracting lyrics from the web. Dozens of people have gone through the laborious task of scraping song lyrics from websites. Even a recent winner of the Shiny competition scraped lyrics from Genius.com.
+I too have been there. Scraping websites is not always the best use of your time.</description>
+    </item>
     
     <item>
       <title>genius Plumber API</title>

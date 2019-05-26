@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.1.1">
+  <meta name="generator" content="Hugo 0.52" />
+  <meta name="author" content="Josiah Parry">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
+The inspiration for this package was to provide a tidy interface to the trends data.
+Getting Started Installation You can install trendyy from CRAN using install.packages(&quot;trendyy&quot;).
+ Usage Use trendy() to search Google Trends. The only mandatory argument is search_terms. This is a character vector with the terms of interest.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2019-05-25-introducing-trendyy/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/cv.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-90934606-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2019-05-25-introducing-trendyy/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Josiah Parry">
+  <meta property="og:url" content="/post/2019-05-25-introducing-trendyy/">
+  <meta property="og:title" content="Introducing trendyy | Josiah Parry">
+  <meta property="og:description" content="trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
+The inspiration for this package was to provide a tidy interface to the trends data.
+Getting Started Installation You can install trendyy from CRAN using install.packages(&quot;trendyy&quot;).
+ Usage Use trendy() to search Google Trends. The only mandatory argument is search_terms. This is a character vector with the terms of interest."><meta property="og:image" content="/img/img/bubbles.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-05-25T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-05-25T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Introducing trendyy | Josiah Parry</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Josiah Parry</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post/">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Introducing trendyy</h1>
+
+  
+  <p class="page-subtitle">A tidy wrapper for gtrendsR</p>
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-05-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-05-25 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      May 25, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/r/">R</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Introducing%20trendyy&amp;url=%2fpost%2f2019-05-25-introducing-trendyy%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2f2019-05-25-introducing-trendyy%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2019-05-25-introducing-trendyy%2f&amp;title=Introducing%20trendyy"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2019-05-25-introducing-trendyy%2f&amp;title=Introducing%20trendyy"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Introducing%20trendyy&amp;body=%2fpost%2f2019-05-25-introducing-trendyy%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p><code>trendyy</code> is a package for querying Google Trends. It is build around <a href="https://github.com/PMassicotte">Philippe Massicotte</a>’s package <a href="https://github.com/PMassicotte/gtrendsR"><code>gtrendsR</code></a> which accesses this data wonderfully.</p>
+<p>The inspiration for this package was to provide a tidy interface to the trends data.</p>
+<div id="getting-started" class="section level2">
+<h2>Getting Started</h2>
+<div id="installation" class="section level3">
+<h3>Installation</h3>
+<p>You can install <code>trendyy</code> from CRAN using <code>install.packages(&quot;trendyy&quot;)</code>.</p>
+</div>
+<div id="usage" class="section level3">
+<h3>Usage</h3>
+<p>Use <code>trendy()</code> to search Google Trends. The only mandatory argument is <code>search_terms</code>. This is a character vector with the terms of interest. It is important to note that Google Trends is only capable of comparing up to five terms. Thus, if your <code>search_terms</code> vector is longer than 5, it will search each term individually. This will remove the direct comparative advantage that Google Trends gives you.</p>
+<div id="additional-arguments" class="section level4">
+<h4>Additional arguments</h4>
+<p><img src="https://imgs.xkcd.com/comics/iso_8601_2x.png" /></p>
+<ul>
+<li><code>from</code>: The beginning date of the query in <code>&quot;YYYY-MM-DD&quot;</code> format.</li>
+<li><code>to</code>: The end date of the query in <code>&quot;YYYY-MM-DD&quot;</code> format.</li>
+<li><code>...</code> : any additional arguments that would be passed to <code>gtrendsR::gtrends()</code>. Note that it might be useful to indicate the geography of interest. See <code>gtrendsR::countries</code> for list of possible geographies.</li>
+</ul>
+</div>
+<div id="accessor-functions" class="section level4">
+<h4>Accessor Functions</h4>
+<ul>
+<li><code>get_interest()</code>: Retrieve interest over time</li>
+<li><code>get_interest_city()</code>: Retrieve interest by city</li>
+<li><code>get_interest_country()</code>: Retrieve interest by country</li>
+<li><code>get_interest_dma()</code>: Retrieve interest by DMA</li>
+<li><code>get_interest_region()</code>: Retrieve interest by region</li>
+<li><code>get_related_queries()</code>: Retrieve related queries</li>
+<li><code>get_related_topics()</code>: Retrieve related topics</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p>Seeing as I found an interest in this due to the relatively pervasive use of Google Trends in political analysis, I will compare the top five polling candidates in the 2020 Democratic Primary. As of May 22nd, they were Joe Biden, Kamala Harris, Beto O’Rourke, Bernie Sanders, and Elizabeth Warren.</p>
+<p>First, I will create a vector of my desired search terms. Second, I will pass that vector to <code>trendy()</code> specifying my query date range from the first of 2019 until today (May 25th, 2019).</p>
+<pre class="r"><code>candidates &lt;- c(&quot;Joe Biden&quot;, &quot;Kamala Harris&quot;, &quot;Beto O&#39;Rourke&quot;, &quot;Bernie Sanders&quot;, &quot;Elizabeth Warren&quot;)
+
+candidate_trends &lt;- trendy(candidates, from = &quot;2019-01-01&quot;, to = Sys.Date())</code></pre>
+<p>Now that we have a trendy object, we can print it out to get a summary of the trends.</p>
+<pre class="r"><code>candidate_trends</code></pre>
+<pre><code>## ~Trendy results~
+## 
+## Search Terms: Joe Biden, Kamala Harris, Beto O&#39;Rourke, Bernie Sanders, Elizabeth Warren
+## 
+## (&gt;^.^)&gt; ~~~~~~~~~~~~~~~~~~~~ summary ~~~~~~~~~~~~~~~~~~~~ &lt;(^.^&lt;)
+## # A tibble: 5 x 5
+##   keyword          max_hits min_hits from       to        
+##   &lt;chr&gt;               &lt;dbl&gt;    &lt;dbl&gt; &lt;date&gt;     &lt;date&gt;    
+## 1 Bernie Sanders         93        2 2019-01-01 2019-05-23
+## 2 Beto O&#39;Rourke           5        1 2019-01-01 2019-05-23
+## 3 Elizabeth Warren       34        1 2019-01-01 2019-05-23
+## 4 Joe Biden              84        1 2019-01-01 2019-05-23
+## 5 Kamala Harris         100        1 2019-01-01 2019-05-23</code></pre>
+<p>In order to retrieve the trend data, use <code>get_interest()</code>. Note, that this is dplyr friendly.</p>
+<pre class="r"><code>get_interest(candidate_trends)</code></pre>
+<pre><code>## # A tibble: 715 x 7
+##    date                 hits geo   time          keyword  gprop category   
+##    &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;      
+##  1 2019-01-01 00:00:00     3 world 2019-01-01 2… Joe Bid… web   All catego…
+##  2 2019-01-02 00:00:00     3 world 2019-01-01 2… Joe Bid… web   All catego…
+##  3 2019-01-03 00:00:00     3 world 2019-01-01 2… Joe Bid… web   All catego…
+##  4 2019-01-04 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
+##  5 2019-01-05 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
+##  6 2019-01-06 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
+##  7 2019-01-07 00:00:00     5 world 2019-01-01 2… Joe Bid… web   All catego…
+##  8 2019-01-08 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
+##  9 2019-01-09 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
+## 10 2019-01-10 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
+## # … with 705 more rows</code></pre>
+<div id="plotting-interest" class="section level3">
+<h3>Plotting Interest</h3>
+<pre class="r"><code>candidate_trends %&gt;% 
+  get_interest() %&gt;% 
+  ggplot(aes(date, hits, color = keyword)) +
+  geom_line() +
+  geom_point(alpha = .2) +
+  theme_minimal() +
+  theme(legend.position = &quot;bottom&quot;) +
+  labs(x = &quot;&quot;, 
+       y = &quot;Relative Search Popularity&quot;,
+       title = &quot;Google Search Popularity&quot;)</code></pre>
+<p><img src="/post/2019-05-25-introducing-trendyy_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>It is also possible to view the related search queries for a given set of keywords using <code>get_related_queries()</code>.</p>
+<pre class="r"><code>candidate_trends %&gt;% 
+  get_related_queries() %&gt;% 
+  group_by(keyword) %&gt;% 
+  sample_n(2)</code></pre>
+<pre><code>## # A tibble: 10 x 5
+## # Groups:   keyword [5]
+##    subject  related_queries value                  keyword      category   
+##    &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;                  &lt;chr&gt;        &lt;chr&gt;      
+##  1 17       top             bernie sanders running Bernie Sand… All catego…
+##  2 Breakout rising          karl lagerfeld         Bernie Sand… All catego…
+##  3 +60%     rising          beto orourke net worth Beto ORourke All catego…
+##  4 +400%    rising          beto orourke running … Beto ORourke All catego…
+##  5 Breakout rising          elizabeth warren tax … Elizabeth W… All catego…
+##  6 Breakout rising          elizabeth warren live… Elizabeth W… All catego…
+##  7 Breakout rising          joe biden kissing      Joe Biden    All catego…
+##  8 Breakout rising          joe biden lucy flores  Joe Biden    All catego…
+##  9 Breakout rising          kamala harris nephew   Kamala Harr… All catego…
+## 10 Breakout rising          jussie smollett and k… Kamala Harr… All catego…</code></pre>
+</div>
+<div id="useful-resources" class="section level3">
+<h3>Useful Resources</h3>
+<ul>
+<li><a href="https://support.google.com/trends/answer/4365533?hl=en">How Trends Data Is Adjusted</a></li>
+<li><a href="https://medium.com/google-news-lab/what-is-google-trends-data-and-what-does-it-mean-b48f07342ee8">Post by Google News Lab</a></li>
+</ul>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/trendyy/">trendyy</a>
+  
+  <a class="badge badge-light" href="/tags/tutorial/">tutorial</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/portrait.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Josiah Parry</a></h5>
+    <h6 class="card-subtitle">Social Data Scientist</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/josiahparry" >
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//github.com/josiahparry" >
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//linkedin.com/in/josiahparry" >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:josiah.parry@yahoo.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/2019-05-08-genius-learnr-tutorial/">genius tutorial</a></li>
+        
+        <li><a href="/post/genius-api/">genius Plumber API</a></li>
+        
+        <li><a href="/post/xgb-feature-importance/">xgboost feature importance</a></li>
+        
+        <li><a href="/post/function-methods/">[Not so] generic functions</a></li>
+        
+        <li><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/R.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.74b0d3361475b08c40cf31120e82937b.js"></script>
+
+    
+
+  </body>
+</html>
+
