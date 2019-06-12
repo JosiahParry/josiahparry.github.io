@@ -15,13 +15,11 @@
   
     
   
-  <meta name="description" content="trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
-The inspiration for this package was to provide a tidy interface to the trends data.
-Getting Started Installation You can install trendyy from CRAN using install.packages(&quot;trendyy&quot;).
- Usage Use trendy() to search Google Trends. The only mandatory argument is search_terms. This is a character vector with the terms of interest.">
+  <meta name="description" content="Over the past few years we have seen Google Trends becoming quite ubiquitous in politics. Pundits have used Google seach trends as talking points. It is not uncommon to hear news about a candidates search trends the days following a town hall or significant rally. It seems that Google trends are becoming the go to proxy for a candidate’s salience.
+As a campaign, you are interested in the popularity of a candidate relative to another one.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/2019-05-25-introducing-trendyy/">
+  <link rel="alternate" hreflang="en-us" href="/post/trendyy-4-campaigns/">
 
   
 
@@ -105,7 +103,7 @@ Getting Started Installation You can install trendyy from CRAN using install.pac
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/2019-05-25-introducing-trendyy/">
+  <link rel="canonical" href="/post/trendyy-4-campaigns/">
 
   
   
@@ -116,24 +114,22 @@ Getting Started Installation You can install trendyy from CRAN using install.pac
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Josiah Parry">
-  <meta property="og:url" content="/post/2019-05-25-introducing-trendyy/">
-  <meta property="og:title" content="Introducing trendyy | Josiah Parry">
-  <meta property="og:description" content="trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
-The inspiration for this package was to provide a tidy interface to the trends data.
-Getting Started Installation You can install trendyy from CRAN using install.packages(&quot;trendyy&quot;).
- Usage Use trendy() to search Google Trends. The only mandatory argument is search_terms. This is a character vector with the terms of interest."><meta property="og:image" content="/img/img/bubbles.jpg">
+  <meta property="og:url" content="/post/trendyy-4-campaigns/">
+  <meta property="og:title" content="Google Trends for Campaigns | Josiah Parry">
+  <meta property="og:description" content="Over the past few years we have seen Google Trends becoming quite ubiquitous in politics. Pundits have used Google seach trends as talking points. It is not uncommon to hear news about a candidates search trends the days following a town hall or significant rally. It seems that Google trends are becoming the go to proxy for a candidate’s salience.
+As a campaign, you are interested in the popularity of a candidate relative to another one."><meta property="og:image" content="/img/img/bubbles.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-05-25T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2019-06-11T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-05-25T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2019-06-11T00:00:00&#43;00:00">
   
 
   
 
-  <title>Introducing trendyy | Josiah Parry</title>
+  
+
+  <title>Google Trends for Campaigns | Josiah Parry</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -297,10 +293,8 @@ Getting Started Installation You can install trendyy from CRAN using install.pac
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Introducing trendyy</h1>
+  <h1 itemprop="name">Google Trends for Campaigns</h1>
 
-  
-  <p class="page-subtitle">A tidy wrapper for gtrendsR</p>
   
 
   
@@ -317,9 +311,9 @@ Getting Started Installation You can install trendyy from CRAN using install.pac
 
   <span class="article-date">
     
-    <meta content="2019-05-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-    <time datetime="2019-05-25 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-      May 25, 2019
+    <meta content="2019-06-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-06-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Jun 11, 2019
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -329,7 +323,7 @@ Getting Started Installation You can install trendyy from CRAN using install.pac
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    6 min read
   </span>
   
 
@@ -355,35 +349,35 @@ Getting Started Installation You can install trendyy from CRAN using install.pac
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Introducing%20trendyy&amp;url=%2fpost%2f2019-05-25-introducing-trendyy%2f"
+         href="https://twitter.com/intent/tweet?text=Google%20Trends%20for%20Campaigns&amp;url=%2fpost%2ftrendyy-4-campaigns%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2f2019-05-25-introducing-trendyy%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftrendyy-4-campaigns%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2019-05-25-introducing-trendyy%2f&amp;title=Introducing%20trendyy"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftrendyy-4-campaigns%2f&amp;title=Google%20Trends%20for%20Campaigns"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2019-05-25-introducing-trendyy%2f&amp;title=Introducing%20trendyy"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftrendyy-4-campaigns%2f&amp;title=Google%20Trends%20for%20Campaigns"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Introducing%20trendyy&amp;body=%2fpost%2f2019-05-25-introducing-trendyy%2f">
+         href="mailto:?subject=Google%20Trends%20for%20Campaigns&amp;body=%2fpost%2ftrendyy-4-campaigns%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -422,49 +416,45 @@ Getting Started Installation You can install trendyy from CRAN using install.pac
       
 
 
-<p><code>trendyy</code> is a package for querying Google Trends. It is build around <a href="https://github.com/PMassicotte">Philippe Massicotte</a>’s package <a href="https://github.com/PMassicotte/gtrendsR"><code>gtrendsR</code></a> which accesses this data wonderfully.</p>
-<p>The inspiration for this package was to provide a tidy interface to the trends data.</p>
-<div id="getting-started" class="section level2">
-<h2>Getting Started</h2>
-<div id="installation" class="section level3">
-<h3>Installation</h3>
-<p>You can install <code>trendyy</code> from CRAN using <code>install.packages(&quot;trendyy&quot;)</code>.</p>
+<p>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics. Pundits have used Google seach trends as talking points. It is not uncommon to hear news about a candidates search trends the days following a town hall or significant rally. It seems that Google trends are becoming the go to proxy for a candidate’s salience.</p>
+<p>As a campaign, you are interested in the popularity of a candidate <em>relative</em> to another one. If candidate A has seen a gain from 50 to 70, that is all well and good. But how does that compare with candidates C and D? There are others potential use cases—that may be less fraught with media interruptions. For example, one can keep track of the popularity of possible policy issues—i.e. healthcare, gun safety, women’s rights.</p>
+<p>Though the usefulness of Google Trends search popularity is still unclear, it may be something that your campaign might like to track. In this chapter we will explore how to acquire and utilize trend data using R. This chapter will describe how one can utilize Google Trends data to compare candidate search popularity and view related search terms. This will be done with the tidyverse, and the package <code>trendyy</code> for accessing this data.</p>
+<div id="google-trends-data" class="section level2">
+<h2>Google Trends Data</h2>
+<div id="relative-popularity" class="section level3">
+<h3>Relative Popularity</h3>
+<p>The key metric that Google Trends provides is the <em>relative</em> popularity of a search term by a given geography. Relative search popularity is scaled from 0 to 100. This number is scaled based on population and geography size (for more information go <a href="https://support.google.com/trends/answer/4365533?hl=en">here</a>). This number may be useful on it’s own, but the strength of Google Trends is it’s ability to compare multiple terms. Using Google Trends we can compare up to 5 search terms—presumably candidates.</p>
 </div>
-<div id="usage" class="section level3">
-<h3>Usage</h3>
-<p>Use <code>trendy()</code> to search Google Trends. The only mandatory argument is <code>search_terms</code>. This is a character vector with the terms of interest. It is important to note that Google Trends is only capable of comparing up to five terms. Thus, if your <code>search_terms</code> vector is longer than 5, it will search each term individually. This will remove the direct comparative advantage that Google Trends gives you.</p>
-<div id="additional-arguments" class="section level4">
-<h4>Additional arguments</h4>
-<p><img src="https://imgs.xkcd.com/comics/iso_8601_2x.png" /></p>
-<ul>
-<li><code>from</code>: The beginning date of the query in <code>&quot;YYYY-MM-DD&quot;</code> format.</li>
-<li><code>to</code>: The end date of the query in <code>&quot;YYYY-MM-DD&quot;</code> format.</li>
-<li><code>...</code> : any additional arguments that would be passed to <code>gtrendsR::gtrends()</code>. Note that it might be useful to indicate the geography of interest. See <code>gtrendsR::countries</code> for list of possible geographies.</li>
-</ul>
-</div>
-<div id="accessor-functions" class="section level4">
-<h4>Accessor Functions</h4>
-<ul>
-<li><code>get_interest()</code>: Retrieve interest over time</li>
-<li><code>get_interest_city()</code>: Retrieve interest by city</li>
-<li><code>get_interest_country()</code>: Retrieve interest by country</li>
-<li><code>get_interest_dma()</code>: Retrieve interest by DMA</li>
-<li><code>get_interest_region()</code>: Retrieve interest by region</li>
-<li><code>get_related_queries()</code>: Retrieve related queries</li>
-<li><code>get_related_topics()</code>: Retrieve related topics</li>
-</ul>
+<div id="related-queries" class="section level3">
+<h3>Related Queries</h3>
+<p>In addition to popularity, Google Trends provides you with related queries. This can help your media team understand in what context their candidate is being associated online.</p>
 </div>
 </div>
-</div>
-<div id="example" class="section level2">
-<h2>Example</h2>
-<p>Seeing as I found an interest in this due to the relatively pervasive use of Google Trends in political analysis, I will compare the top five polling candidates in the 2020 Democratic Primary. As of May 22nd, they were Joe Biden, Kamala Harris, Beto O’Rourke, Bernie Sanders, and Elizabeth Warren.</p>
-<p>First, I will create a vector of my desired search terms. Second, I will pass that vector to <code>trendy()</code> specifying my query date range from the first of 2019 until today (May 25th, 2019).</p>
-<pre class="r"><code>candidates &lt;- c(&quot;Joe Biden&quot;, &quot;Kamala Harris&quot;, &quot;Beto O&#39;Rourke&quot;, &quot;Bernie Sanders&quot;, &quot;Elizabeth Warren&quot;)
+<div id="trendyy" class="section level2">
+<h2><code>trendyy</code></h2>
+<p>Now that we have an intuition of how Google Trends may be utilized, we will look at how actually acquire these data in R. To get started install the package using <code>install.packages(&quot;trendyy&quot;)</code>.</p>
+<p>Once the package is installed, load the <code>tidyverse</code> and <code>trendyy</code>.</p>
+<pre class="r"><code>library(trendyy)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.1.0          ✔ purrr   0.3.0.9000
+## ✔ tibble  2.1.1          ✔ dplyr   0.7.8     
+## ✔ tidyr   0.8.2          ✔ stringr 1.4.0     
+## ✔ readr   1.2.1          ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<p>In this example we will look at the top five polling candidates as of today (6/10/2019). These are, in no particular order, Joe Biden, Kamala Harris, Beto O’Rourke, Bernie Sanders, and Elizabeth Warren. Create a vector with the search terms that you will use (in this case the above candidates).</p>
+<pre class="r"><code>candidates &lt;- c(&quot;Joe Biden&quot;, &quot;Kamala Harris&quot;, &quot;Beto O&#39;Rourke&quot;, &quot;Bernie Sanders&quot;, &quot;Elizabeth Warren&quot;)</code></pre>
+<p>Next we will use the <code>trendyy</code> package to get search popularity. The function <code>trendy()</code> has three main arguments: <code>search_terms</code>, <code>from</code>, and <code>to</code> (in the form of <code>&quot;yyyy-mm-dd&quot;</code>). The first argument is the only mandatory one. Provide a vector of length 5 or less as the first argument. Here we will use the <code>candidates</code> vector and look at data from the past two weeks. I will create two variables for the beginning and end dates. This will be to demonstrate how functions can be used to programatically search date ranges.</p>
+<pre class="r"><code># to today
+end &lt;- Sys.Date()
+# from 2 weeks ago
+begin &lt;- Sys.Date() - 14</code></pre>
+<p>Pass these arguments to <code>trendy()</code> and save them to a variable.</p>
+<pre class="r"><code>candidate_trends &lt;- trendy(search_terms = candidates, from = begin, to = end)
 
-candidate_trends &lt;- trendy(candidates, from = &quot;2019-01-01&quot;, to = Sys.Date())</code></pre>
-<p>Now that we have a trendy object, we can print it out to get a summary of the trends.</p>
-<pre class="r"><code>candidate_trends</code></pre>
+candidate_trends</code></pre>
 <pre><code>## ~Trendy results~
 ## 
 ## Search Terms: Joe Biden, Kamala Harris, Beto O&#39;Rourke, Bernie Sanders, Elizabeth Warren
@@ -473,67 +463,62 @@ candidate_trends &lt;- trendy(candidates, from = &quot;2019-01-01&quot;, to = Sy
 ## # A tibble: 5 x 5
 ##   keyword          max_hits min_hits from       to        
 ##   &lt;chr&gt;               &lt;dbl&gt;    &lt;dbl&gt; &lt;date&gt;     &lt;date&gt;    
-## 1 Bernie Sanders         93        2 2019-01-01 2019-05-23
-## 2 Beto O&#39;Rourke           5        1 2019-01-01 2019-05-23
-## 3 Elizabeth Warren       34        1 2019-01-01 2019-05-23
-## 4 Joe Biden              84        1 2019-01-01 2019-05-23
-## 5 Kamala Harris         100        1 2019-01-01 2019-05-23</code></pre>
-<p>In order to retrieve the trend data, use <code>get_interest()</code>. Note, that this is dplyr friendly.</p>
-<pre class="r"><code>get_interest(candidate_trends)</code></pre>
-<pre><code>## # A tibble: 715 x 7
+## 1 Bernie Sanders         42       33 2019-05-28 2019-06-09
+## 2 Beto O&#39;Rourke           3        1 2019-05-28 2019-06-09
+## 3 Elizabeth Warren       65       20 2019-05-28 2019-06-09
+## 4 Joe Biden              71       34 2019-05-28 2019-06-09
+## 5 Kamala Harris         100       12 2019-05-28 2019-06-09</code></pre>
+<p>Trendy creates an object of class <code>trendy</code> see <code>class(candidate_trends)</code> trendy. There are a number of accessor functions. We will use <code>get_interest()</code> and <code>get_related_queries()</code>. See the documentation of the others.</p>
+<p>To access to relative popularity, we will use <code>get_interest(trendy)</code>.</p>
+<pre class="r"><code>popularity &lt;- get_interest(candidate_trends)
+
+popularity</code></pre>
+<pre><code>## # A tibble: 65 x 7
 ##    date                 hits geo   time          keyword  gprop category   
 ##    &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;      
-##  1 2019-01-01 00:00:00     3 world 2019-01-01 2… Joe Bid… web   All catego…
-##  2 2019-01-02 00:00:00     3 world 2019-01-01 2… Joe Bid… web   All catego…
-##  3 2019-01-03 00:00:00     3 world 2019-01-01 2… Joe Bid… web   All catego…
-##  4 2019-01-04 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
-##  5 2019-01-05 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
-##  6 2019-01-06 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
-##  7 2019-01-07 00:00:00     5 world 2019-01-01 2… Joe Bid… web   All catego…
-##  8 2019-01-08 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
-##  9 2019-01-09 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
-## 10 2019-01-10 00:00:00     2 world 2019-01-01 2… Joe Bid… web   All catego…
-## # … with 705 more rows</code></pre>
-<div id="plotting-interest" class="section level3">
-<h3>Plotting Interest</h3>
-<pre class="r"><code>candidate_trends %&gt;% 
-  get_interest() %&gt;% 
-  ggplot(aes(date, hits, color = keyword)) +
-  geom_line() +
-  geom_point(alpha = .2) +
-  theme_minimal() +
-  theme(legend.position = &quot;bottom&quot;) +
-  labs(x = &quot;&quot;, 
-       y = &quot;Relative Search Popularity&quot;,
-       title = &quot;Google Search Popularity&quot;)</code></pre>
-<p><img src="/post/2019-05-25-introducing-trendyy_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>It is also possible to view the related search queries for a given set of keywords using <code>get_related_queries()</code>.</p>
+##  1 2019-05-28 00:00:00    58 world 2019-05-28 2… Joe Bid… web   All catego…
+##  2 2019-05-29 00:00:00    71 world 2019-05-28 2… Joe Bid… web   All catego…
+##  3 2019-05-30 00:00:00    61 world 2019-05-28 2… Joe Bid… web   All catego…
+##  4 2019-05-31 00:00:00    43 world 2019-05-28 2… Joe Bid… web   All catego…
+##  5 2019-06-01 00:00:00    34 world 2019-05-28 2… Joe Bid… web   All catego…
+##  6 2019-06-02 00:00:00    36 world 2019-05-28 2… Joe Bid… web   All catego…
+##  7 2019-06-03 00:00:00    35 world 2019-05-28 2… Joe Bid… web   All catego…
+##  8 2019-06-04 00:00:00    43 world 2019-05-28 2… Joe Bid… web   All catego…
+##  9 2019-06-05 00:00:00    53 world 2019-05-28 2… Joe Bid… web   All catego…
+## 10 2019-06-06 00:00:00    49 world 2019-05-28 2… Joe Bid… web   All catego…
+## # … with 55 more rows</code></pre>
+<p>For related queries we will use <code>get_related_queries(trendy)</code>. Note that you can either pipe the object or pass it directly.</p>
 <pre class="r"><code>candidate_trends %&gt;% 
   get_related_queries() %&gt;% 
-  group_by(keyword) %&gt;% 
-  sample_n(2)</code></pre>
-<pre><code>## # A tibble: 10 x 5
-## # Groups:   keyword [5]
-##    subject  related_queries value                  keyword      category   
-##    &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;                  &lt;chr&gt;        &lt;chr&gt;      
-##  1 17       top             bernie sanders running Bernie Sand… All catego…
-##  2 Breakout rising          karl lagerfeld         Bernie Sand… All catego…
-##  3 +60%     rising          beto orourke net worth Beto ORourke All catego…
-##  4 +400%    rising          beto orourke running … Beto ORourke All catego…
-##  5 Breakout rising          elizabeth warren tax … Elizabeth W… All catego…
-##  6 Breakout rising          elizabeth warren live… Elizabeth W… All catego…
-##  7 Breakout rising          joe biden kissing      Joe Biden    All catego…
-##  8 Breakout rising          joe biden lucy flores  Joe Biden    All catego…
-##  9 Breakout rising          kamala harris nephew   Kamala Harr… All catego…
-## 10 Breakout rising          jussie smollett and k… Kamala Harr… All catego…</code></pre>
+  # picking queries for a random candidate
+  filter(keyword == sample(candidates, 1))</code></pre>
+<pre><code>## # A tibble: 36 x 5
+##    subject related_queries value                keyword   category      
+##    &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;                &lt;chr&gt;     &lt;chr&gt;         
+##  1 100     top             trump                Joe Biden All categories
+##  2 50      top             joe biden 2020       Joe Biden All categories
+##  3 44      top             bernie sanders       Joe Biden All categories
+##  4 39      top             donald trump         Joe Biden All categories
+##  5 36      top             joe biden age        Joe Biden All categories
+##  6 30      top             joe biden news       Joe Biden All categories
+##  7 24      top             how old is joe biden Joe Biden All categories
+##  8 17      top             joe biden abortion   Joe Biden All categories
+##  9 17      top             joe biden polls      Joe Biden All categories
+## 10 16      top             creepy joe biden     Joe Biden All categories
+## # … with 26 more rows</code></pre>
 </div>
-<div id="useful-resources" class="section level3">
-<h3>Useful Resources</h3>
-<ul>
-<li><a href="https://support.google.com/trends/answer/4365533?hl=en">How Trends Data Is Adjusted</a></li>
-<li><a href="https://medium.com/google-news-lab/what-is-google-trends-data-and-what-does-it-mean-b48f07342ee8">Post by Google News Lab</a></li>
-</ul>
-</div>
+<div id="visualizing-trends" class="section level2">
+<h2>Visualizing Trends</h2>
+<p>I’m guessing your director enjoys charts—so do I. To make the data more accessible, use the <code>popularity</code> tibble to create a time series chart of popularity over the past two weeks. We will use <code>ggplot2</code>. Remember that time should be displayed on the x axis. We want to have a line for each candidate, so map the color aesthetic to the keyword.</p>
+<pre class="r"><code>ggplot(popularity, 
+       aes(x = date, y = hits, color = keyword)) + 
+  geom_line() +
+  labs(x = &quot;&quot;, y = &quot;Search Popularity&quot;, 
+       title = &quot;Google popularity of top 5 polling candidates&quot;) + 
+  theme_minimal() +
+  theme(legend.position = &quot;bottom&quot;, 
+        legend.title = element_blank())</code></pre>
+<p><img src="/post/2019-06-11-trendyy-campaigns_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 
     </div>
@@ -543,9 +528,17 @@ candidate_trends &lt;- trendy(candidates, from = &quot;2019-01-01&quot;, to = Sy
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/trendyy/">trendyy</a>
+  <a class="badge badge-light" href="/tags/r/">R</a>
   
   <a class="badge badge-light" href="/tags/tutorial/">tutorial</a>
+  
+  <a class="badge badge-light" href="/tags/politics/">politics</a>
+  
+  <a class="badge badge-light" href="/tags/youthvote/">youthvote</a>
+  
+  <a class="badge badge-light" href="/tags/campaigns/">campaigns</a>
+  
+  <a class="badge badge-light" href="/tags/trendyy/">trendyy</a>
   
 </div>
 
@@ -648,15 +641,15 @@ candidate_trends &lt;- trendy(candidates, from = &quot;2019-01-01&quot;, to = Sy
       <h3>Related</h3>
       <ul>
         
+        <li><a href="/post/scraping-4-campaigns/">Web-scraping for Campaigns</a></li>
+        
+        <li><a href="/post/2019-05-25-introducing-trendyy/">Introducing trendyy</a></li>
+        
         <li><a href="/post/2019-05-08-genius-learnr-tutorial/">genius tutorial</a></li>
         
         <li><a href="/post/genius-api/">genius Plumber API</a></li>
         
         <li><a href="/post/xgb-feature-importance/">xgboost feature importance</a></li>
-        
-        <li><a href="/post/function-methods/">[Not so] generic functions</a></li>
-        
-        <li><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></li>
         
       </ul>
     </div>

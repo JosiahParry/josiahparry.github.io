@@ -11,6 +11,122 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Google Trends for Campaigns</title>
+      <link>/post/trendyy-4-campaigns/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/trendyy-4-campaigns/</guid>
+      <description>
+
+
+&lt;p&gt;Over the past few years we have seen Google Trends becoming quite ubiquitous in politics. Pundits have used Google seach trends as talking points. It is not uncommon to hear news about a candidates search trends the days following a town hall or significant rally. It seems that Google trends are becoming the go to proxy for a candidate’s salience.&lt;/p&gt;
+&lt;p&gt;As a campaign, you are interested in the popularity of a candidate &lt;em&gt;relative&lt;/em&gt; to another one. If candidate A has seen a gain from 50 to 70, that is all well and good. But how does that compare with candidates C and D? There are others potential use cases—that may be less fraught with media interruptions. For example, one can keep track of the popularity of possible policy issues—i.e. healthcare, gun safety, women’s rights.&lt;/p&gt;
+&lt;p&gt;Though the usefulness of Google Trends search popularity is still unclear, it may be something that your campaign might like to track. In this chapter we will explore how to acquire and utilize trend data using R. This chapter will describe how one can utilize Google Trends data to compare candidate search popularity and view related search terms. This will be done with the tidyverse, and the package &lt;code&gt;trendyy&lt;/code&gt; for accessing this data.&lt;/p&gt;
+&lt;div id=&#34;google-trends-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Google Trends Data&lt;/h2&gt;
+&lt;div id=&#34;relative-popularity&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Relative Popularity&lt;/h3&gt;
+&lt;p&gt;The key metric that Google Trends provides is the &lt;em&gt;relative&lt;/em&gt; popularity of a search term by a given geography. Relative search popularity is scaled from 0 to 100. This number is scaled based on population and geography size (for more information go &lt;a href=&#34;https://support.google.com/trends/answer/4365533?hl=en&#34;&gt;here&lt;/a&gt;). This number may be useful on it’s own, but the strength of Google Trends is it’s ability to compare multiple terms. Using Google Trends we can compare up to 5 search terms—presumably candidates.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;related-queries&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Related Queries&lt;/h3&gt;
+&lt;p&gt;In addition to popularity, Google Trends provides you with related queries. This can help your media team understand in what context their candidate is being associated online.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;trendyy&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;trendyy&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Now that we have an intuition of how Google Trends may be utilized, we will look at how actually acquire these data in R. To get started install the package using &lt;code&gt;install.packages(&amp;quot;trendyy&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Once the package is installed, load the &lt;code&gt;tidyverse&lt;/code&gt; and &lt;code&gt;trendyy&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(trendyy)
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.1.0          ✔ purrr   0.3.0.9000
+## ✔ tibble  2.1.1          ✔ dplyr   0.7.8     
+## ✔ tidyr   0.8.2          ✔ stringr 1.4.0     
+## ✔ readr   1.2.1          ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this example we will look at the top five polling candidates as of today (6/10/2019). These are, in no particular order, Joe Biden, Kamala Harris, Beto O’Rourke, Bernie Sanders, and Elizabeth Warren. Create a vector with the search terms that you will use (in this case the above candidates).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;candidates &amp;lt;- c(&amp;quot;Joe Biden&amp;quot;, &amp;quot;Kamala Harris&amp;quot;, &amp;quot;Beto O&amp;#39;Rourke&amp;quot;, &amp;quot;Bernie Sanders&amp;quot;, &amp;quot;Elizabeth Warren&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next we will use the &lt;code&gt;trendyy&lt;/code&gt; package to get search popularity. The function &lt;code&gt;trendy()&lt;/code&gt; has three main arguments: &lt;code&gt;search_terms&lt;/code&gt;, &lt;code&gt;from&lt;/code&gt;, and &lt;code&gt;to&lt;/code&gt; (in the form of &lt;code&gt;&amp;quot;yyyy-mm-dd&amp;quot;&lt;/code&gt;). The first argument is the only mandatory one. Provide a vector of length 5 or less as the first argument. Here we will use the &lt;code&gt;candidates&lt;/code&gt; vector and look at data from the past two weeks. I will create two variables for the beginning and end dates. This will be to demonstrate how functions can be used to programatically search date ranges.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# to today
+end &amp;lt;- Sys.Date()
+# from 2 weeks ago
+begin &amp;lt;- Sys.Date() - 14&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pass these arguments to &lt;code&gt;trendy()&lt;/code&gt; and save them to a variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;candidate_trends &amp;lt;- trendy(search_terms = candidates, from = begin, to = end)
+
+candidate_trends&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ~Trendy results~
+## 
+## Search Terms: Joe Biden, Kamala Harris, Beto O&amp;#39;Rourke, Bernie Sanders, Elizabeth Warren
+## 
+## (&amp;gt;^.^)&amp;gt; ~~~~~~~~~~~~~~~~~~~~ summary ~~~~~~~~~~~~~~~~~~~~ &amp;lt;(^.^&amp;lt;)
+## # A tibble: 5 x 5
+##   keyword          max_hits min_hits from       to        
+##   &amp;lt;chr&amp;gt;               &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;    
+## 1 Bernie Sanders         42       33 2019-05-28 2019-06-09
+## 2 Beto O&amp;#39;Rourke           3        1 2019-05-28 2019-06-09
+## 3 Elizabeth Warren       65       20 2019-05-28 2019-06-09
+## 4 Joe Biden              71       34 2019-05-28 2019-06-09
+## 5 Kamala Harris         100       12 2019-05-28 2019-06-09&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Trendy creates an object of class &lt;code&gt;trendy&lt;/code&gt; see &lt;code&gt;class(candidate_trends)&lt;/code&gt; trendy. There are a number of accessor functions. We will use &lt;code&gt;get_interest()&lt;/code&gt; and &lt;code&gt;get_related_queries()&lt;/code&gt;. See the documentation of the others.&lt;/p&gt;
+&lt;p&gt;To access to relative popularity, we will use &lt;code&gt;get_interest(trendy)&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;popularity &amp;lt;- get_interest(candidate_trends)
+
+popularity&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 65 x 7
+##    date                 hits geo   time          keyword  gprop category   
+##    &amp;lt;dttm&amp;gt;              &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;      
+##  1 2019-05-28 00:00:00    58 world 2019-05-28 2… Joe Bid… web   All catego…
+##  2 2019-05-29 00:00:00    71 world 2019-05-28 2… Joe Bid… web   All catego…
+##  3 2019-05-30 00:00:00    61 world 2019-05-28 2… Joe Bid… web   All catego…
+##  4 2019-05-31 00:00:00    43 world 2019-05-28 2… Joe Bid… web   All catego…
+##  5 2019-06-01 00:00:00    34 world 2019-05-28 2… Joe Bid… web   All catego…
+##  6 2019-06-02 00:00:00    36 world 2019-05-28 2… Joe Bid… web   All catego…
+##  7 2019-06-03 00:00:00    35 world 2019-05-28 2… Joe Bid… web   All catego…
+##  8 2019-06-04 00:00:00    43 world 2019-05-28 2… Joe Bid… web   All catego…
+##  9 2019-06-05 00:00:00    53 world 2019-05-28 2… Joe Bid… web   All catego…
+## 10 2019-06-06 00:00:00    49 world 2019-05-28 2… Joe Bid… web   All catego…
+## # … with 55 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For related queries we will use &lt;code&gt;get_related_queries(trendy)&lt;/code&gt;. Note that you can either pipe the object or pass it directly.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;candidate_trends %&amp;gt;% 
+  get_related_queries() %&amp;gt;% 
+  # picking queries for a random candidate
+  filter(keyword == sample(candidates, 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 36 x 5
+##    subject related_queries value                keyword   category      
+##    &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;           &amp;lt;chr&amp;gt;                &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;         
+##  1 100     top             trump                Joe Biden All categories
+##  2 50      top             joe biden 2020       Joe Biden All categories
+##  3 44      top             bernie sanders       Joe Biden All categories
+##  4 39      top             donald trump         Joe Biden All categories
+##  5 36      top             joe biden age        Joe Biden All categories
+##  6 30      top             joe biden news       Joe Biden All categories
+##  7 24      top             how old is joe biden Joe Biden All categories
+##  8 17      top             joe biden abortion   Joe Biden All categories
+##  9 17      top             joe biden polls      Joe Biden All categories
+## 10 16      top             creepy joe biden     Joe Biden All categories
+## # … with 26 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualizing-trends&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualizing Trends&lt;/h2&gt;
+&lt;p&gt;I’m guessing your director enjoys charts—so do I. To make the data more accessible, use the &lt;code&gt;popularity&lt;/code&gt; tibble to create a time series chart of popularity over the past two weeks. We will use &lt;code&gt;ggplot2&lt;/code&gt;. Remember that time should be displayed on the x axis. We want to have a line for each candidate, so map the color aesthetic to the keyword.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(popularity, 
+       aes(x = date, y = hits, color = keyword)) + 
+  geom_line() +
+  labs(x = &amp;quot;&amp;quot;, y = &amp;quot;Search Popularity&amp;quot;, 
+       title = &amp;quot;Google popularity of top 5 polling candidates&amp;quot;) + 
+  theme_minimal() +
+  theme(legend.position = &amp;quot;bottom&amp;quot;, 
+        legend.title = element_blank())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-06-11-trendyy-campaigns_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Web-scraping for Campaigns</title>
       <link>/post/scraping-4-campaigns/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
@@ -1986,355 +2102,6 @@ head(all_csvs)&lt;/code&gt;&lt;/pre&gt;
       
       <guid>/project/2018-07-15-user/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Coursera R-Programming: Week 2 Problems</title>
-      <link>/post/tidy-coursera-r-programming/</link>
-      <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidy-coursera-r-programming/</guid>
-      <description>
-
-
-&lt;p&gt;Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R. During this time one this has become apparent, people are teaching the old paradigm of R and avoiding the tidyverse all together.&lt;/p&gt;
-&lt;p&gt;I recently had a student reach out to me in need of help with the first programming assignment from the &lt;a href=&#34;https://www.coursera.org/learn/r-programming&#34;&gt;Coursera R-Programming&lt;/a&gt; course (part of the Johns Hopkins Data Science Specialization). This particular student was struggling with combining the her new knowledge of R data types, conditional statements, looping, control statements, scoping, and functions to solve the assignment problem set. I provided her with a walk through of each question in base R, the style of the course. I couldn’t help but empathize with her as I too learned the long way first. However I thought that she shouldn’t be learning the hard way first (see David Robinson’s &lt;a href=&#34;http://varianceexplained.org/r/teach-hard-way/&#34;&gt;blog post&lt;/a&gt;, &lt;em&gt;“Don’t teach students the hard way first”&lt;/em&gt;), she should be learning the effective way.&lt;/p&gt;
-&lt;p&gt;In my written response to her, I gave her solutions to her problems in base R and using the tidyverse. Here, I will go over the problems and adress them from a tidy perspective. This will not serve as a full introduction to the tidyverse. For an introduction and a reason why the tidyverse is superior to base R, I leave you with &lt;a href=&#34;http://stat545.com/block009_dplyr-intro.html&#34;&gt;&lt;strong&gt;Stat 545&lt;/strong&gt;: &lt;em&gt;Introduction to dplyr&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The assignment utilizes a directory of data called &lt;code&gt;specdata&lt;/code&gt; which can be downloaded &lt;a href=&#34;https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2Fspecdata.zip&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;, and describes it:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The zip file contains 332 comma-separated-value (CSV) files containing pollution monitoring data for fine particulate matter (PM) air pollution at 332 locations in the United States. Each file contains data from a single monitor and the ID number for each monitor is contained in the file name. For example, data for monitor 200 is contained in the file “200.csv”. Each file contains three variables:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Date&lt;/strong&gt;: the date of the observation in &lt;code&gt;YYYY-MM-DD&lt;/code&gt; format (year-month-day)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;sulfate&lt;/strong&gt;: the level of sulfate PM in the air on that date (measured in micrograms per cubic meter)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;nitrate&lt;/strong&gt;: the level of nitrate PM in the air on that date (measured in micrograms per cubic meter)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;For this programming assignment you will need to unzip this file and create the directory ‘specdata’. Once you have unzipped the zip file, do not make any modifications to the files in the ‘specdata’ directory. In each file you’ll notice that there are many days where either sulfate or nitrate (or both) are missing (coded as NA). This is common with air pollution monitoring data in the United States.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr /&gt;
-&lt;div id=&#34;part-i&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Part I&lt;/h1&gt;
-&lt;p&gt;Problem 1:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Write a function named ‘pollutantmean’ that calculates the mean of a pollutant (sulfate or nitrate) across a specified list of monitors. The function ‘pollutantmean’ takes three arguments: ‘directory’, ‘pollutant’, and ‘id’. Given a vector monitor ID numbers, ‘pollutantmean’ reads that monitors’ particulate matter data from the directory specified in the ‘directory’ argument and returns the mean of the pollutant across all of the monitors, ignoring any missing values coded as NA. A prototype of the function is as follows&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt; pollutantmean &amp;lt;- function(directory, pollutant, id = 1:332){
-    ## &amp;#39;directory&amp;#39; is a character vector of length 1 indicating
-    ## the location of the CSV files
-    
-    ## &amp;#39;pollutant&amp;#39; is a character vector of length 1 indicating
-    ## the name of the pollutant for which we will calculate the 
-    ## mean; either &amp;quot;sulfate&amp;quot; or &amp;quot;nitrate&amp;quot;
-
-    ## &amp;#39;id&amp;#39; is an integer vector indicating the monitor ID numbers
-    ## to be used
-
-    ## Return the mean of the pollutant across all monitors list
-    ## in the &amp;#39;id&amp;#39; vector (ignoring NA values)
-    ## NOTE: Do not round the result!
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Before we tackle the function, I believe the best approach is to first solve the problem in a regular script. This problem has four clear steps:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Identify files in the directory&lt;/li&gt;
-&lt;li&gt;Subset files based on provided ID&lt;/li&gt;
-&lt;li&gt;Read the files&lt;/li&gt;
-&lt;li&gt;Calculate and return the mean on the desired column&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This problem gives us a directory of files from which we need to read in the data based on the provided IDs. For the sake of this walk through we will randomly sample 10 values within the range designated in the problem statement (332).&lt;/p&gt;
-&lt;p&gt;We will first generate random IDs, then identify all of the files within the specified directory and obtain their file paths using the &lt;code&gt;list.files()&lt;/code&gt; function. After this we will subset our file list based on the IDs, then iterate over our file list and read in each file as a csv using &lt;code&gt;purrr:map_df()&lt;/code&gt; combined with &lt;code&gt;readr::read_csv()&lt;/code&gt;. Fortunately &lt;code&gt;map_df()&lt;/code&gt; returns a nice and pretty data frame which lets us avoid having to explicitly bind each unique data frame.&lt;/p&gt;
-&lt;div id=&#34;identify-files&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Identify Files&lt;/h4&gt;
-&lt;p&gt;Here we create 10 random IDs and store them in the &lt;code&gt;ids&lt;/code&gt; variable. Next we use &lt;code&gt;list.files()&lt;/code&gt; to look within the &lt;code&gt;specdata&lt;/code&gt; folder that we downloaded above. Everyone’s path will most likely be different. Be sure to obtain the correct file path—help for &lt;a href=&#34;http://osxdaily.com/2013/06/19/copy-file-folder-path-mac-os-x/&#34;&gt;Mac&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Next we identify the files we need based on the sampled &lt;code&gt;ids&lt;/code&gt; and store the subset in the &lt;code&gt;files_filtered&lt;/code&gt; variable. We use the values of the &lt;code&gt;ids&lt;/code&gt; to locate the file paths positionally. For example, ID number 1 is the first file, number 10 is the tenth, etc.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load our handy dandy functions
-library(tidyverse)
-
-# 10 random IDs in ID range
-ids &amp;lt;- sample(1:332, 10)
-
-# Identify all files within the directory
-files &amp;lt;- list.files(&amp;quot;../../data/specdata&amp;quot;, full.names = TRUE)
-
-# Subset the data
-files_filtered &amp;lt;- files[ids]
-
-# View the files to verify
-paste(ids, files_filtered)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;302 ../../data/specdata/302.csv&amp;quot; &amp;quot;140 ../../data/specdata/140.csv&amp;quot;
-##  [3] &amp;quot;326 ../../data/specdata/326.csv&amp;quot; &amp;quot;324 ../../data/specdata/324.csv&amp;quot;
-##  [5] &amp;quot;59 ../../data/specdata/059.csv&amp;quot;  &amp;quot;104 ../../data/specdata/104.csv&amp;quot;
-##  [7] &amp;quot;181 ../../data/specdata/181.csv&amp;quot; &amp;quot;147 ../../data/specdata/147.csv&amp;quot;
-##  [9] &amp;quot;78 ../../data/specdata/078.csv&amp;quot;  &amp;quot;232 ../../data/specdata/232.csv&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;reading-the-files&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Reading the Files&lt;/h4&gt;
-&lt;p&gt;Now that we have identified the files that we are going to read in, we can use &lt;code&gt;purrr:map_df()&lt;/code&gt; to apply the &lt;code&gt;readr::read_csv()&lt;/code&gt; function to each value of &lt;code&gt;files_filtered&lt;/code&gt; and return a data frame (hence the &lt;code&gt;_df()&lt;/code&gt; suffix). We supply additional arguments to &lt;code&gt;read_csv()&lt;/code&gt; to ensure that every column is read in properly.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Read in the subset of the data. Notice the brackets after files[]
-specdata &amp;lt;- map_df(files_filtered, read_csv, 
-                   col_types = list(
-                     col_date(),
-                     col_double(),
-                     col_double(),
-                     col_integer()
-                   ))
-
-glimpse(specdata)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Observations: 24,470
-## Variables: 4
-## $ Date    &amp;lt;date&amp;gt; 2001-01-01, 2001-01-02, 2001-01-03, 2001-01-04, 2001-...
-## $ sulfate &amp;lt;dbl&amp;gt; NA, NA, NA, NA, NA, NA, 4.78, NA, NA, NA, NA, NA, NA, ...
-## $ nitrate &amp;lt;dbl&amp;gt; NA, NA, NA, NA, NA, NA, 6.12, NA, NA, NA, NA, NA, NA, ...
-## $ ID      &amp;lt;int&amp;gt; 302, 302, 302, 302, 302, 302, 302, 302, 302, 302, 302,...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next, we get to utilize some &lt;code&gt;dplyr&lt;/code&gt; magic. Here we take the &lt;code&gt;specdata&lt;/code&gt; object we created from reading in our files, deselct the &lt;code&gt;Date&lt;/code&gt; column, then utilize &lt;code&gt;summarise_if()&lt;/code&gt; to apply the &lt;code&gt;mean()&lt;/code&gt; function to our data. &lt;code&gt;summarise_if()&lt;/code&gt; requires that we provide a logical statement as the first argument. &lt;em&gt;If&lt;/em&gt; (hence the &lt;code&gt;_if()&lt;/code&gt; suffix) the logical statement evaluates to &lt;code&gt;TRUE&lt;/code&gt; on a column then it will apply a list of functions to those columns where the statement evaluated to &lt;code&gt;TRUE&lt;/code&gt;. We can also specify additional arguments to the functions. Here we specify &lt;code&gt;na.rm = TRUE&lt;/code&gt; for handling missing values.&lt;/p&gt;
-&lt;p&gt;In this case, we are checking to see if our columns are of the data type &lt;code&gt;double&lt;/code&gt; using the &lt;code&gt;is.double()&lt;/code&gt; function. If you’re wondering why we didn’t use &lt;code&gt;is.numeric()&lt;/code&gt;, it’s because the &lt;code&gt;ID&lt;/code&gt; column is an integer which is considered numeric.&lt;/p&gt;
-&lt;p&gt;If we wanted to take the underlying vector of one of the columns, we can also, use &lt;code&gt;dplyr::pull(col_name)&lt;/code&gt;. This will be helpful later when we want to obtain the mean of just one column.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Obtain mean nitrate
-specdata %&amp;gt;% 
-  select(-Date) %&amp;gt;% 
-  summarise_if(is.double, mean, na.rm = TRUE) %&amp;gt;% 
-  # Pull just the sulfate column
-  pull(sulfate)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3.539072&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;specdata %&amp;gt;% 
-  select(-Date) %&amp;gt;% 
-  summarise_if(is.double, mean, na.rm = TRUE) %&amp;gt;% 
-  # Pull just the nitrate column
-  pull(nitrate)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.604677&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now that we have all of the tools, we can put this together into a single function, which I will call &lt;code&gt;pollutant_mean()&lt;/code&gt; to somewhat adhere—functions should take the name of verbs—to the tidyverse style guide.&lt;/p&gt;
-&lt;p&gt;Here we have three arguments:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;directory&lt;/code&gt;: Where to look for the files&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pollutant&lt;/code&gt;: Which pollutant (nitrate or sulfate) to evaluate
-&lt;ul&gt;
-&lt;li&gt;This needs to be a character value unless we want to get into &lt;a href=&#34;https://dplyr.tidyverse.org/articles/programming.html&#34;&gt;tidyeval&lt;/a&gt;, which frankly I will leave to the professionals. But I will provide an alternative solution at the end that doesn’t require quoted &lt;code&gt;pollutant&lt;/code&gt; names.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;id&lt;/code&gt;: Which monitoring stations we should look at&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Within the function we take everything we did in the above steps but generalize it to a function. We identify the files in the directory provided (&lt;code&gt;specdata&lt;/code&gt;), subset the files positionally based on the provided &lt;code&gt;id&lt;/code&gt; vector, and then iterate over the file names and read them in with &lt;code&gt;map_df()&lt;/code&gt; and &lt;code&gt;read_csv()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Next we take our data and calculate the mean on both &lt;code&gt;sulfate&lt;/code&gt; and &lt;code&gt;nitrate&lt;/code&gt; columns. We then &lt;code&gt;pull()&lt;/code&gt; the specified column from the &lt;code&gt;pollutant&lt;/code&gt; argument and then &lt;code&gt;return()&lt;/code&gt; that value.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollutant_mean &amp;lt;- function(directory, pollutant, id = 1:332) {
-  files &amp;lt;- list.files(directory, full.names = TRUE)
-  files_filtered &amp;lt;- files[id]
-  specdata &amp;lt;- map_df(files_filtered, read_csv, 
-                     col_types = list(
-                       col_date(),
-                       col_double(),
-                       col_double(),
-                       col_integer()
-                     ))
-  
-  specdata %&amp;gt;% 
-    select(-Date) %&amp;gt;% 
-    summarise_if(is.double, mean, na.rm = TRUE) %&amp;gt;% 
-    pull(pollutant) %&amp;gt;% 
-    return()
-
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here we can test out the function with both types of pollutants and different &lt;code&gt;id&lt;/code&gt; values.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollutant_mean(directory = &amp;quot;../../data/specdata&amp;quot;, pollutant = &amp;quot;sulfate&amp;quot;, id = sample(1:332, 20))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3.300254&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#pollutant_mean(&amp;quot;../../data/specdata&amp;quot;, &amp;quot;nitrate&amp;quot;, 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;part-ii&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Part II:&lt;/h1&gt;
-&lt;p&gt;Let us continue to the second problem in the problem set.&lt;/p&gt;
-&lt;p&gt;Problem 2:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Write a function that reads a directory full of files and reports the number of completely observed cases in each data file. The function should return a data frame where the first column is the name of the file and the second column is the number of complete cases.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The assignment provides an example function format, but I think it to be a bit misleading. So I will go about this in the way I think is best. We will work on creating a function called &lt;code&gt;complete_spec_cases()&lt;/code&gt; which will take only two arguments, &lt;code&gt;directory&lt;/code&gt;, and &lt;code&gt;id&lt;/code&gt;. &lt;code&gt;directory&lt;/code&gt; and &lt;code&gt;id&lt;/code&gt; will be used in the the same way as the previous problem.&lt;/p&gt;
-&lt;p&gt;For this problem our goal is to identify how many complete cases there are by provided ID. This should be exceptionally simple. We will have to identify our files, subset them, and read them in the same way as before. Next we can identify complete cases by piping our &lt;code&gt;specdata&lt;/code&gt; object to &lt;code&gt;na.omit()&lt;/code&gt; which will remove any row with a missing value. Next, we have to group by the &lt;code&gt;ID&lt;/code&gt; column and pipe our grouped data frame to &lt;code&gt;count()&lt;/code&gt; which will count how many observations there are by group. We will then return this data frame to the user.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;complete_spec_cases &amp;lt;- function(directory, id = 1:332) {
-
-  files &amp;lt;- list.files(directory, full.names = TRUE)
-  
-  specdata &amp;lt;- map_df(files[id], read_csv,
-                     col_types = list(
-                       col_date(),
-                       col_double(),
-                       col_double(),
-                       col_integer()
-                     ))
-  
-  complete_specdata &amp;lt;- specdata %&amp;gt;% 
-    na.omit() %&amp;gt;% 
-    group_by(ID) %&amp;gt;% 
-    summarise(nobs = n())
-  
-  return(complete_specdata)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;complete_spec_cases(&amp;quot;../../data/specdata&amp;quot;, id = sample(1:332, 20))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 19 x 2
-##       ID  nobs
-##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
-##  1    11   443
-##  2    44   283
-##  3    48    62
-##  4    77   345
-##  5   116   806
-##  6   127   428
-##  7   171   614
-##  8   182   465
-##  9   184   816
-## 10   198   858
-## 11   209   151
-## 12   249   230
-## 13   272   253
-## 14   290    91
-## 15   302   937
-## 16   306   203
-## 17   314   888
-## 18   326   215
-## 19   327   162&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;/div&gt;
-&lt;div id=&#34;part-iii&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Part III:&lt;/h1&gt;
-&lt;p&gt;This final problem is probably the most complicated, but with the method we just used above and with a bit more help from the &lt;code&gt;purrr&lt;/code&gt; and &lt;code&gt;dplyr&lt;/code&gt; packages, we can do this no problem.&lt;/p&gt;
-&lt;p&gt;Problem 3:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Write a function that takes a directory of data files and a threshold for complete cases and calculates the correlation between sulfate and nitrate for monitor locations where the &lt;em&gt;number of completely observed cases&lt;/em&gt; (on all variables) is greater than the threshold. The function should return a vector of correlations for the monitors that meet the threshold requirement. If no monitors meet the threshold requirement, then the function should return a numeric vector of length 0. A prototype of this function follows:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;Correct &amp;lt;- function(directory, threshold = 0){
-    ## &amp;#39;directory&amp;#39; is a character vector of length 1 indicating
-    ## the location of the CSV files
-
-    ## &amp;#39;threshold&amp;#39; is a numeric vector of length 1 indicating the
-    ## number of completely observed observations (on all
-    ## variables) required to compute the correlation between
-    ## nitrate and sulfate; the default is 0
-
-    ## Return a numeric vector of correlations
-    ## NOTE: Do not round the result!
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let keep this simple. The above statement essentially is asking that we find the correlation between &lt;code&gt;nitrate&lt;/code&gt; and &lt;code&gt;sulfate&lt;/code&gt; for each monitoring station (ID). But there is a catch! Each ID must meet a specified threshold of complete cases, and if none of the monitors meet the requirement the function must return a &lt;code&gt;numeric(0)&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The way we will structure this function will be to first read in the data—as we have done twice now, except this time there will be no subsetting of IDs. Then we need to identify the number of complete cases by ID—as we did in problem 2—and identify the stations that meet the threshold requirement. At this point we will use an &lt;code&gt;if&lt;/code&gt; statement to check if we have at least 1 monitoring station that meets our threshold, if we do not, we return the &lt;code&gt;numeric(0)&lt;/code&gt;—there is most likely a more tidy way to do this, but I am not aware. If we have at least 1 monitoring station that meets the specified threshold we will use an &lt;code&gt;inner_join()&lt;/code&gt; to make sure that &lt;code&gt;specdata&lt;/code&gt; contains only those IDs that meet the requirement.&lt;/p&gt;
-&lt;p&gt;For the sake of this example, we will continue to use the &lt;code&gt;specdata&lt;/code&gt; object we created in previous examples, and we will set our threshold to &lt;code&gt;100.&lt;/code&gt; Once we identify the stations with the proper number of counts (&lt;code&gt;&amp;gt; 100&lt;/code&gt;), we will store that data frame in an object called &lt;code&gt;id_counts&lt;/code&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;id_counts &amp;lt;- specdata %&amp;gt;% 
-    na.omit() %&amp;gt;% 
-    group_by(ID) %&amp;gt;% 
-    count() %&amp;gt;% 
-    filter(n &amp;gt; 100) 
-  
-  if (nrow(id_counts) &amp;lt; 1) {
-    return(numeric(0))
-  } else {
-    print(&amp;quot;All is well.&amp;quot;)
-  }&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;All is well.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  specdata &amp;lt;- id_counts %&amp;gt;% 
-    inner_join(specdata, by = &amp;quot;ID&amp;quot;) %&amp;gt;%
-    na.omit() 
-  
-  specdata&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 4,138 x 5
-## # Groups:   ID [9]
-##       ID     n Date       sulfate nitrate
-##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;date&amp;gt;       &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;
-##  1    59   445 2004-09-09    2.40   0.383
-##  2    59   445 2004-09-12    1.45   0.383
-##  3    59   445 2004-09-18    4.75   0.281
-##  4    59   445 2004-09-24    9.47   0.623
-##  5    59   445 2004-09-30    6.67   0.381
-##  6    59   445 2004-10-03    2.90   0.326
-##  7    59   445 2004-10-06    4.20   0.351
-##  8    59   445 2004-10-09    2.41   0.539
-##  9    59   445 2004-10-12    1.61   0.491
-## 10    59   445 2004-10-15    1.95   0.306
-## # ... with 4,128 more rows&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is where it gets kind of funky. Once we have filtered down our data set, we need to calculate the correlations for each ID. The way that we do this is by nesting our data frame on the &lt;code&gt;ID&lt;/code&gt; column. Calling &lt;code&gt;nest(-ID)&lt;/code&gt; allows us to, for each value of ID, create a data frame for just those rows where the &lt;code&gt;ID&lt;/code&gt; is the same. We will then have a new list type column where each value is actually a data frame. Let’s check out what this looks like before we hop into the function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;specdata %&amp;gt;% 
-  nest(-ID)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 9 x 2
-##      ID data              
-##   &amp;lt;int&amp;gt; &amp;lt;list&amp;gt;            
-## 1    59 &amp;lt;tibble [445 × 4]&amp;gt;
-## 2    78 &amp;lt;tibble [275 × 4]&amp;gt;
-## 3   104 &amp;lt;tibble [385 × 4]&amp;gt;
-## 4   140 &amp;lt;tibble [407 × 4]&amp;gt;
-## 5   147 &amp;lt;tibble [302 × 4]&amp;gt;
-## 6   181 &amp;lt;tibble [286 × 4]&amp;gt;
-## 7   232 &amp;lt;tibble [886 × 4]&amp;gt;
-## 8   302 &amp;lt;tibble [937 × 4]&amp;gt;
-## 9   326 &amp;lt;tibble [215 × 4]&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now that we know how to nest our data, we need to calculate the correlations for each row (ID value). We will do this by combining &lt;code&gt;mutate()&lt;/code&gt; and &lt;code&gt;map()&lt;/code&gt;. Here &lt;code&gt;.x&lt;/code&gt; references the data that is within each nested tibble. To learn more about &lt;code&gt;purrr&lt;/code&gt; I recommend the &lt;a href=&#34;http://r4ds.had.co.nz/iteration.html&#34;&gt;chapter&lt;/a&gt; on iteration from &lt;em&gt;R For Data Science&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;After we have done our calculations we undo our nesting using &lt;code&gt;unnest()&lt;/code&gt; on the new column we created, and deselect the &lt;code&gt;data&lt;/code&gt; column.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;specdata %&amp;gt;% 
-  na.omit() %&amp;gt;% 
-    nest(-ID) %&amp;gt;% 
-    mutate(correlation = map(data, ~cor(.x$sulfate, .x$nitrate))) %&amp;gt;% 
-  unnest(correlation) %&amp;gt;% 
-  select(-data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 9 x 2
-##      ID correlation
-##   &amp;lt;int&amp;gt;       &amp;lt;dbl&amp;gt;
-## 1    59     0.0911 
-## 2    78     0.00564
-## 3   104    -0.129  
-## 4   140     0.248  
-## 5   147    -0.00120
-## 6   181     0.0872 
-## 7   232    -0.0745 
-## 8   302     0.192  
-## 9   326     0.140&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can now place these above examples within a new function called &lt;code&gt;pollutant_cor()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollutant_cor &amp;lt;- function(directory, threshold = 0) {
-  files &amp;lt;- list.files(directory, full.names = TRUE)
-  specdata &amp;lt;- map_df(files, read_csv, 
-                     col_types = list(
-                       col_date(),
-                       col_double(),
-                       col_double(),
-                       col_integer()
-                     )) %&amp;gt;% na.omit()
-  
-  id_counts &amp;lt;- specdata %&amp;gt;% 
-    group_by(ID) %&amp;gt;% 
-    count() %&amp;gt;% 
-    filter(n &amp;gt; threshold) 
-  
-  if (nrow(id_counts) &amp;lt; 1) {
-    return(numeric(0))
-  }
-  
-  correlations &amp;lt;- id_counts %&amp;gt;% 
-    inner_join(specdata, by = &amp;quot;ID&amp;quot;) %&amp;gt;% 
-    nest(-ID) %&amp;gt;% 
-    mutate(correlation = map(data, ~cor(.x$sulfate, .x$nitrate))) %&amp;gt;% 
-    unnest(correlation)
-  
-  return(correlations)
-
-  
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can now test our function against two different thresholds to see how it reacts.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollutant_cor(&amp;quot;../../data/specdata&amp;quot;, 100)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 254 x 3
-##       ID data                 correlation
-##    &amp;lt;int&amp;gt; &amp;lt;list&amp;gt;                     &amp;lt;dbl&amp;gt;
-##  1     1 &amp;lt;tibble [117 × 4]&amp;gt;       -0.223 
-##  2     2 &amp;lt;tibble [1,041 × 4]&amp;gt;     -0.0190
-##  3     3 &amp;lt;tibble [243 × 4]&amp;gt;       -0.141 
-##  4     4 &amp;lt;tibble [474 × 4]&amp;gt;       -0.0439
-##  5     5 &amp;lt;tibble [402 × 4]&amp;gt;       -0.0682
-##  6     6 &amp;lt;tibble [228 × 4]&amp;gt;       -0.124 
-##  7     7 &amp;lt;tibble [442 × 4]&amp;gt;       -0.0759
-##  8     8 &amp;lt;tibble [192 × 4]&amp;gt;       -0.160 
-##  9     9 &amp;lt;tibble [275 × 4]&amp;gt;       -0.0868
-## 10    10 &amp;lt;tibble [148 × 4]&amp;gt;        0.161 
-## # ... with 244 more rows&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If we set the threshold to 100,000, we should expect a &lt;code&gt;numeric(0)&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollutant_cor(&amp;quot;../../data/specdata&amp;quot;, 100000)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## numeric(0)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It all works!&lt;/p&gt;
-&lt;/div&gt;
-</description>
     </item>
     
   </channel>
