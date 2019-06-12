@@ -42,7 +42,7 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -63,6 +63,15 @@
       <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>campaigns</title>
+      <link>/tags/campaigns/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/campaigns/</guid>
       <description></description>
     </item>
     
@@ -213,7 +222,7 @@
     <item>
       <title>politics</title>
       <link>/tags/politics/</link>
-      <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/politics/</guid>
       <description></description>
@@ -285,9 +294,18 @@
     <item>
       <title>tutorial</title>
       <link>/tags/tutorial/</link>
-      <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>youthvote</title>
+      <link>/tags/youthvote/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/youthvote/</guid>
       <description></description>
     </item>
     

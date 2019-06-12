@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>youthvote on Josiah Parry</title>
+    <link>/tags/youthvote/</link>
+    <description>Recent content in youthvote on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019</copyright>
+    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/youthvote/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web-scraping for Campaigns</title>
+      <link>/post/scraping-4-campaigns/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/scraping-4-campaigns/</guid>
+      <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement. One of my largest concerns is that progressive campaigns are stuck in a sort of antiquated but nonetheless entrenched workflow. Google Sheets reign in metric reporting. Here I want to present one use case (of a few more to come) where R can be leveraged by your data team.
+In this post I show you how to scrape the most recent polling data from FiveThirtyEight.</description>
+    </item>
+    
+  </channel>
+</rss>

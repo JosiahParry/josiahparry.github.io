@@ -11,6 +11,437 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Web-scraping for Campaigns</title>
+      <link>/post/scraping-4-campaigns/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/scraping-4-campaigns/</guid>
+      <description>
+
+
+&lt;p&gt;As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement. One of my largest concerns is that progressive campaigns are stuck in a sort of antiquated but nonetheless entrenched workflow. Google Sheets reign in metric reporting. Here I want to present one use case (of a few more to come) where R can be leveraged by your data team.&lt;/p&gt;
+&lt;p&gt;In this post I show you how to scrape the most recent polling data from FiveThirtyEight. FiveThirtyEight aggregates this data in an available way. This can allow you as a Data Manager to provide a useful report to your Media Manager.&lt;/p&gt;
+&lt;p&gt;As always, please feel free to contact me on Twitter &lt;a href=&#34;https://twitter.com/josiahparry&#34;&gt;@josiahparry&lt;/a&gt; if you have any questions or want to discuss this further.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;polling-use-case&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Polling use case&lt;/h1&gt;
+&lt;p&gt;A very important metric to keep track of is how your candidate is polling. Are they gaining a lead in the polls or falling behind? This data is often reported via traditional news organizations or some other mediums. The supposed demi-God and mythical pollster Nate Silver’s organization FiveThirtyEight does a wonderful job aggregating polls. Their page &lt;a href=&#34;https://projects.fivethirtyeight.com/2020-primaries/democratic/national/&#34;&gt;National 2020 Democratic Presidential Primary Polls&lt;/a&gt; has a table of the most recent polls from many different pollsters.&lt;/p&gt;
+&lt;p&gt;In this use case we will acquire this data by web scraping using &lt;code&gt;rvest&lt;/code&gt;. We will also go over ways to programatically save polls results to a text file. Saving polling results can allow you present a long term view of your candidate’s growth during the quarter.&lt;/p&gt;
+&lt;div id=&#34;understanding-rvest&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Understanding &lt;code&gt;rvest&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;This use case will provide a cursory overview of the package &lt;code&gt;rvest&lt;/code&gt;. To learn more go &lt;a href=&#34;http://rvest.tidyverse.org/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Web scraping is the process of extracting data from a website. Websites are written in HTML and CSS. There are a few aspects of these languages that are used in web scraping that is important to know. HTML is written in a series of what are call tags. A tag is a set of characters wrapped in angle brackets—i.e. &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With CSS (cascading style sheets), web developers can give unique identifiers to a tag. Classes can also be assigned to a tag. Think of these as group. With web scraping we can specify a particular part of a website by it’s HTML tag and perhaps it’s class or ID. &lt;code&gt;rvest&lt;/code&gt; provides a large set of functions to make this simpler.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;p&gt;For this example we will be scraping FiveThirtyEight’s aggregated poll table. The table can be found at &lt;a href=&#34;https://projects.fivethirtyeight.com/2020-primaries/democratic/national/&#34; class=&#34;uri&#34;&gt;https://projects.fivethirtyeight.com/2020-primaries/democratic/national/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Before we begin, we must always prepare our workspace. Mise en place.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: xml2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.1.0          ✔ purrr   0.3.0.9000
+## ✔ tibble  2.1.1          ✔ dplyr   0.7.8     
+## ✔ tidyr   0.8.2          ✔ stringr 1.4.0     
+## ✔ readr   1.2.1          ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter()         masks stats::filter()
+## ✖ readr::guess_encoding() masks rvest::guess_encoding()
+## ✖ dplyr::lag()            masks stats::lag()
+## ✖ purrr::pluck()          masks rvest::pluck()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The first thing we will have to do is specify what page we will be scraping from. &lt;code&gt;html_session()&lt;/code&gt; will simulate a session in an html browser. By providing a URL to &lt;code&gt;html_session()&lt;/code&gt; we will then be able to access the underlying code of that page. Create an object called &lt;code&gt;session&lt;/code&gt; by providing the FiveThirtyEight URL to &lt;code&gt;html_session()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;session &amp;lt;- html_session(&amp;quot;https://projects.fivethirtyeight.com/2020-primaries/democratic/national/&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The next and most important step is to identify which piece of HTML code contains the table. The easiest way to do this is to open up the webpage in Chrome and open up the Inspect Elements view (on Mac - ⌘ + Shift + C). Now that this is open, click the select element button at the top left corner of the inspection pane. Now hover over the table.&lt;/p&gt;
+&lt;p&gt;You will see that the HTML element is highlighted. We can see that it is a &lt;code&gt;table&lt;/code&gt; tag. Additionally we see that there are two different classes &lt;code&gt;polls-table&lt;/code&gt; and &lt;code&gt;tracker&lt;/code&gt;. To specify a class we put a preceding &lt;code&gt;.&lt;/code&gt; to the class name—i.e. &lt;code&gt;.class-name&lt;/code&gt;. If there are multiple classes we just append the second class name to it—i.e. &lt;code&gt;.first-class.second-class&lt;/code&gt;. Be aware that these selectors can be quite finicky and be a bit difficult to figure out. You might need to do some googling or playing around with the selector.&lt;/p&gt;
+&lt;p&gt;To actually access the content of this HTML element, we must specify the element using the proper selector. &lt;code&gt;html_node()&lt;/code&gt; will be used to do this. Provide the html session and the CSS selector to &lt;code&gt;html_node()&lt;/code&gt; to extract the HTML element.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;session %&amp;gt;% 
+  html_node(&amp;quot;.polls-table.tracker&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {xml_node}
+## &amp;lt;table class=&amp;quot;polls-table tracker&amp;quot;&amp;gt;
+## [1] &amp;lt;thead class=&amp;quot;hide-mobile&amp;quot; id=&amp;quot;table-header&amp;quot;&amp;gt;&amp;lt;tr&amp;gt;\n&amp;lt;th class=&amp;quot;new&amp;quot;&amp;gt;&amp;lt; ...
+## [2] &amp;lt;tbody&amp;gt;\n&amp;lt;tr class=&amp;quot;visible-row&amp;quot; data-id=&amp;quot;97723&amp;quot;&amp;gt;\n&amp;lt;!-- Shared--&amp;gt;&amp;lt;td ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here we see that this returns on object of class &lt;code&gt;xml_node&lt;/code&gt;. This object returns some HTML code but it is still not entirely workable. Since this is an HTML table we want to extract we can use the handy &lt;code&gt;html_table()&lt;/code&gt;. Note that if this wasn’t a table but rather text, you can use &lt;code&gt;html_text()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;session %&amp;gt;% 
+  html_node(&amp;quot;.polls-table.tracker&amp;quot;) %&amp;gt;% 
+  html_table()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Take note of the extremely informative error. It appears we might have to deal with mismatching columns.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;session %&amp;gt;% 
+  html_node(&amp;quot;.polls-table.tracker&amp;quot;) %&amp;gt;% 
+  html_table(fill = TRUE) %&amp;gt;% 
+  head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                          Dates           Pollster                  Sample
+## 1 •       Jun 6-10, 2019503 RV     Jun 6-10, 2019 A-Quinnipiac University
+## 2 •     Jun 3-9, 201917,012 LV      Jun 3-9, 2019       B-Morning Consult
+## 3 • May 29-Jun 5, 20192,271 RV May 29-Jun 5, 2019                 B+Ipsos
+## 4 •  May 29-Jun 5, 20192,525 A May 29-Jun 5, 2019                 B+Ipsos
+## 5 •        Jun 2-4, 2019500 RV      Jun 2-4, 2019                 BYouGov
+## 6 •         Jun 2-4, 2019550 A      Jun 2-4, 2019                 BYouGov
+##   Sample Biden Sanders Harris Warren O&amp;#39;Rourke Buttigieg Booker Klobuchar
+## 1    503    RV     30%    19%     7%      15%        3%     8%        1%
+## 2 17,012    LV     37%    19%     7%      11%        4%     7%        3%
+## 3  2,271    RV     31%    14%     6%       9%        3%     5%        2%
+## 4  2,525     A     30%    15%     6%       8%        4%     5%        2%
+## 5    500    RV     27%    15%     9%      12%        2%    10%        2%
+## 6    550     A     27%    16%     8%      11%        2%     9%        2%
+##   Castro Yang Gillibrand Hickenlooper Gabbard Delaney Inslee Ryan Bullock
+## 1     1%   0%         1%           0%      0%      0%     0%   0%      1%
+## 2     2%   1%         1%           1%      1%      1%     1%   1%      1%
+## 3     2%   1%         1%           0%      1%      1%     0%   0%      1%
+## 4     1%   0%         1%           0%      1%      1%     0%   0%      1%
+## 5     1%   0%         1%           0%      1%      1%     1%   0%      0%
+## 6     1%   0%         1%           0%      1%      1%     1%   0%      0%
+##   de Blasio Bennet Williamson Gravel Swalwell Moulton Messam H. Clinton
+## 1        0%     0%         0%     0%       0%      0%     0%         0%
+## 2        1%     0%         1%     0%               0%     0%           
+## 3        0%     1%         0%     0%       0%      0%     0%         0%
+## 4        0%     1%         0%     0%       0%      0%     0%         0%
+## 5        1%     2%         0%     0%       0%      0%     0%         0%
+## 6        1%     2%         0%     0%       0%      0%     0%         0%
+##   Bloomberg M. Obama Brown Kerry Abrams Holder McAuliffe Winfrey Ojeda
+## 1                                                                     
+## 2                                                                     
+## 3                                                                     
+## 4                                                                     
+## 5                                                                     
+## 6                                                                     
+##   Trump Cuomo Avenatti Kennedy Patrick Zuckerberg Pelosi Garcetti Newsom
+## 1                                                                       
+## 2                                                                       
+## 3                                                                       
+## 4                                                                       
+## 5                                                                       
+## 6                                                                       
+##   Steyer Schultz Kaine Johnson Kucinich Lee Scott Sinema Warner NA
+## 1                                                                 
+## 2                                                                 
+## 3                                                                 
+## 4                                                                 
+## 5                                                                 
+## 6                                                                 
+##                                                                                                                                                                                                                                NA
+## 1  Biden30%Sanders19%Warren15%Buttigieg8%Harris7%O&amp;#39;Rourke3%Booker1%Klobuchar1%Yang1%Ryan1%Gillibrand0%Castro0%Gabbard0%Inslee0%Hickenlooper0%Delaney0%Williamson0%Messam0%Swalwell0%Moulton0%Bennet0%Bullock0%de Blasio0%Gravel0%
+## 2                  Biden37%Sanders19%Warren11%Buttigieg7%Harris7%O&amp;#39;Rourke4%Booker3%Klobuchar2%Bennet1%Bullock1%Castro1%Delaney1%Gabbard1%Gillibrand1%Hickenlooper1%Inslee1%Yang1%Ryan1%de Blasio0%Moulton0%Swalwell0%Williamson0%
+## 3   Biden31%Sanders14%Warren9%Harris6%Buttigieg5%O&amp;#39;Rourke3%Booker2%Klobuchar2%Castro1%Gabbard1%Hickenlooper1%Yang1%Ryan1%de Blasio1%Gillibrand0%Bullock0%Inslee0%Delaney0%Williamson0%Messam0%Swalwell0%Moulton0%Bennet0%Gravel0%
+## 4   Biden30%Sanders15%Warren8%Harris6%Buttigieg5%O&amp;#39;Rourke4%Booker2%Klobuchar1%Gabbard1%Hickenlooper1%Yang1%Ryan1%de Blasio1%Castro0%Gillibrand0%Bullock0%Inslee0%Delaney0%Williamson0%Messam0%Swalwell0%Moulton0%Bennet0%Gravel0%
+## 5 Biden27%Sanders15%Warren12%Buttigieg10%Harris9%Booker2%de Blasio2%O&amp;#39;Rourke2%Bullock1%Delaney1%Gabbard1%Hickenlooper1%Klobuchar1%Yang1%Bennet0%Castro0%Gillibrand0%Gravel0%Inslee0%Messam0%Moulton0%Ryan0%Swalwell0%Williamson0%
+## 6  Biden27%Sanders16%Warren11%Buttigieg9%Harris8%Booker2%de Blasio2%O&amp;#39;Rourke2%Bullock1%Delaney1%Gabbard1%Hickenlooper1%Klobuchar1%Yang1%Bennet0%Castro0%Gillibrand0%Gravel0%Inslee0%Messam0%Moulton0%Ryan0%Swalwell0%Williamson0%&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is much better! But based on visual inspection the column headers are not properly matched. There are a few things that need to be sorted out: there are two date columns, there are commas and percents where numeric columns should be, the column headers are a little messy, and the table isn’t a tibble (this is just personal preference).&lt;/p&gt;
+&lt;p&gt;We will handle the final two issues first as they are easiest to deal with. The function &lt;code&gt;clean_names()&lt;/code&gt; from &lt;code&gt;janitor&lt;/code&gt; will handle the column headers, and &lt;code&gt;as_tibble()&lt;/code&gt; will coerce the data.frame into a proper tibble. Save this semi-clean tibble into an object called &lt;code&gt;polls&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls &amp;lt;- session %&amp;gt;% 
+  html_node(&amp;quot;.polls-table.tracker&amp;quot;) %&amp;gt;% 
+  html_table(fill = TRUE) %&amp;gt;% 
+  janitor::clean_names() %&amp;gt;% 
+  as_tibble()
+
+polls&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 116 x 59
+##    x     dates pollster sample sample_2 biden sanders harris warren
+##    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; 
+##  1 •     Jun … Jun 6-1… A-Qui… 503      RV    30%     19%    7%    
+##  2 •     Jun … Jun 3-9… B-Mor… 17,012   LV    37%     19%    7%    
+##  3 •     May … May 29-… B+Ips… 2,271    RV    31%     14%    6%    
+##  4 •     May … May 29-… B+Ips… 2,525    A     30%     15%    6%    
+##  5 •     Jun … Jun 2-4… BYouG… 500      RV    27%     15%    9%    
+##  6 •     Jun … Jun 2-4… BYouG… 550      A     27%     16%    8%    
+##  7 •     Jun … Jun 1-2… C+Har… 431      RV    35%     16%    4%    
+##  8 •     May … May 27-… B-Mor… 16,587   LV    38%     19%    7%    
+##  9 •     May … May 28-… A-CNN… 412      RV    32%     18%    8%    
+## 10 •     May … May 29-… C+Har… 471      RV    36%     17%    8%    
+## # … with 106 more rows, and 50 more variables: o_rourke &amp;lt;chr&amp;gt;,
+## #   buttigieg &amp;lt;chr&amp;gt;, booker &amp;lt;chr&amp;gt;, klobuchar &amp;lt;chr&amp;gt;, castro &amp;lt;chr&amp;gt;,
+## #   yang &amp;lt;chr&amp;gt;, gillibrand &amp;lt;chr&amp;gt;, hickenlooper &amp;lt;chr&amp;gt;, gabbard &amp;lt;chr&amp;gt;,
+## #   delaney &amp;lt;chr&amp;gt;, inslee &amp;lt;chr&amp;gt;, ryan &amp;lt;chr&amp;gt;, bullock &amp;lt;chr&amp;gt;,
+## #   de_blasio &amp;lt;chr&amp;gt;, bennet &amp;lt;chr&amp;gt;, williamson &amp;lt;chr&amp;gt;, gravel &amp;lt;chr&amp;gt;,
+## #   swalwell &amp;lt;chr&amp;gt;, moulton &amp;lt;chr&amp;gt;, messam &amp;lt;chr&amp;gt;, h_clinton &amp;lt;chr&amp;gt;,
+## #   bloomberg &amp;lt;chr&amp;gt;, m_obama &amp;lt;chr&amp;gt;, brown &amp;lt;chr&amp;gt;, kerry &amp;lt;chr&amp;gt;,
+## #   abrams &amp;lt;chr&amp;gt;, holder &amp;lt;chr&amp;gt;, mc_auliffe &amp;lt;chr&amp;gt;, winfrey &amp;lt;chr&amp;gt;,
+## #   ojeda &amp;lt;chr&amp;gt;, trump &amp;lt;chr&amp;gt;, cuomo &amp;lt;chr&amp;gt;, avenatti &amp;lt;chr&amp;gt;, kennedy &amp;lt;chr&amp;gt;,
+## #   patrick &amp;lt;chr&amp;gt;, zuckerberg &amp;lt;chr&amp;gt;, pelosi &amp;lt;chr&amp;gt;, garcetti &amp;lt;chr&amp;gt;,
+## #   newsom &amp;lt;chr&amp;gt;, steyer &amp;lt;chr&amp;gt;, schultz &amp;lt;chr&amp;gt;, kaine &amp;lt;chr&amp;gt;, johnson &amp;lt;chr&amp;gt;,
+## #   kucinich &amp;lt;chr&amp;gt;, lee &amp;lt;chr&amp;gt;, scott &amp;lt;chr&amp;gt;, sinema &amp;lt;chr&amp;gt;, warner &amp;lt;chr&amp;gt;,
+## #   na &amp;lt;chr&amp;gt;, na_2 &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want to shift over the column names to the right just once. Unfortunately there is no elegant way to do this (that I am aware of). We can see that the first column is completely useless so that can be removed. Once that column is removed we can reset the names this way they will be well aligned.&lt;/p&gt;
+&lt;p&gt;We will start by creating a vector of the original column names.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;col_names &amp;lt;- names(polls)
+col_names&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;x&amp;quot;            &amp;quot;dates&amp;quot;        &amp;quot;pollster&amp;quot;     &amp;quot;sample&amp;quot;      
+##  [5] &amp;quot;sample_2&amp;quot;     &amp;quot;biden&amp;quot;        &amp;quot;sanders&amp;quot;      &amp;quot;harris&amp;quot;      
+##  [9] &amp;quot;warren&amp;quot;       &amp;quot;o_rourke&amp;quot;     &amp;quot;buttigieg&amp;quot;    &amp;quot;booker&amp;quot;      
+## [13] &amp;quot;klobuchar&amp;quot;    &amp;quot;castro&amp;quot;       &amp;quot;yang&amp;quot;         &amp;quot;gillibrand&amp;quot;  
+## [17] &amp;quot;hickenlooper&amp;quot; &amp;quot;gabbard&amp;quot;      &amp;quot;delaney&amp;quot;      &amp;quot;inslee&amp;quot;      
+## [21] &amp;quot;ryan&amp;quot;         &amp;quot;bullock&amp;quot;      &amp;quot;de_blasio&amp;quot;    &amp;quot;bennet&amp;quot;      
+## [25] &amp;quot;williamson&amp;quot;   &amp;quot;gravel&amp;quot;       &amp;quot;swalwell&amp;quot;     &amp;quot;moulton&amp;quot;     
+## [29] &amp;quot;messam&amp;quot;       &amp;quot;h_clinton&amp;quot;    &amp;quot;bloomberg&amp;quot;    &amp;quot;m_obama&amp;quot;     
+## [33] &amp;quot;brown&amp;quot;        &amp;quot;kerry&amp;quot;        &amp;quot;abrams&amp;quot;       &amp;quot;holder&amp;quot;      
+## [37] &amp;quot;mc_auliffe&amp;quot;   &amp;quot;winfrey&amp;quot;      &amp;quot;ojeda&amp;quot;        &amp;quot;trump&amp;quot;       
+## [41] &amp;quot;cuomo&amp;quot;        &amp;quot;avenatti&amp;quot;     &amp;quot;kennedy&amp;quot;      &amp;quot;patrick&amp;quot;     
+## [45] &amp;quot;zuckerberg&amp;quot;   &amp;quot;pelosi&amp;quot;       &amp;quot;garcetti&amp;quot;     &amp;quot;newsom&amp;quot;      
+## [49] &amp;quot;steyer&amp;quot;       &amp;quot;schultz&amp;quot;      &amp;quot;kaine&amp;quot;        &amp;quot;johnson&amp;quot;     
+## [53] &amp;quot;kucinich&amp;quot;     &amp;quot;lee&amp;quot;          &amp;quot;scott&amp;quot;        &amp;quot;sinema&amp;quot;      
+## [57] &amp;quot;warner&amp;quot;       &amp;quot;na&amp;quot;           &amp;quot;na_2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Unfortunately this also presents another issue. Once a column is deselected, there will be one more column name than column. So we will need to select all but the last element of the original names. We will create a vector called &lt;code&gt;new_names&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# identify the integer number of the last column
+last_col &amp;lt;- length(col_names) - 1
+
+# create a vector which will be used for the new names
+new_names &amp;lt;- col_names[1:last_col]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can try implementing the hacky solution. Here we will deselect the first column and reset the names using &lt;code&gt;setNames()&lt;/code&gt;. Following, we will use the &lt;a href=&#34;https://dplyr.tidyverse.org/reference/mutate_all.html&#34;&gt;&lt;code&gt;mutate_at()&lt;/code&gt;&lt;/a&gt; variant to remove the percent sign from every candidate column and coerce them into integer columns. Here we will specify which variables to &lt;em&gt;not&lt;/em&gt; mutate at within &lt;code&gt;vars()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls %&amp;gt;% 
+  select(-1) %&amp;gt;%  
+  setNames(new_names)%&amp;gt;%
+  select(-1) %&amp;gt;%
+  mutate_at(vars(-c(&amp;quot;dates&amp;quot;, &amp;quot;pollster&amp;quot;, &amp;quot;sample&amp;quot;, &amp;quot;sample_2&amp;quot;)), 
+            ~as.integer(str_remove(., &amp;quot;%&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in (structure(function (..., .x = ..1, .y = ..2, . = ..1) : NAs
+## introduced by coercion&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 116 x 57
+##    dates pollster sample sample_2 biden sanders harris warren o_rourke
+##    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt;  &amp;lt;int&amp;gt;  &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
+##  1 Jun … A-Quinn… 503    RV          30      19      7     15        3
+##  2 Jun … B-Morni… 17,012 LV          37      19      7     11        4
+##  3 May … B+Ipsos  2,271  RV          31      14      6      9        3
+##  4 May … B+Ipsos  2,525  A           30      15      6      8        4
+##  5 Jun … BYouGov  500    RV          27      15      9     12        2
+##  6 Jun … BYouGov  550    A           27      16      8     11        2
+##  7 Jun … C+Harri… 431    RV          35      16      4      5        4
+##  8 May … B-Morni… 16,587 LV          38      19      7     10        4
+##  9 May … A-CNN/S… 412    RV          32      18      8      7        5
+## 10 May … C+Harri… 471    RV          36      17      8      5        4
+## # … with 106 more rows, and 48 more variables: buttigieg &amp;lt;int&amp;gt;,
+## #   booker &amp;lt;int&amp;gt;, klobuchar &amp;lt;int&amp;gt;, castro &amp;lt;int&amp;gt;, yang &amp;lt;int&amp;gt;,
+## #   gillibrand &amp;lt;int&amp;gt;, hickenlooper &amp;lt;int&amp;gt;, gabbard &amp;lt;int&amp;gt;, delaney &amp;lt;int&amp;gt;,
+## #   inslee &amp;lt;int&amp;gt;, ryan &amp;lt;int&amp;gt;, bullock &amp;lt;int&amp;gt;, de_blasio &amp;lt;int&amp;gt;,
+## #   bennet &amp;lt;int&amp;gt;, williamson &amp;lt;int&amp;gt;, gravel &amp;lt;int&amp;gt;, swalwell &amp;lt;int&amp;gt;,
+## #   moulton &amp;lt;int&amp;gt;, messam &amp;lt;int&amp;gt;, h_clinton &amp;lt;int&amp;gt;, bloomberg &amp;lt;int&amp;gt;,
+## #   m_obama &amp;lt;int&amp;gt;, brown &amp;lt;int&amp;gt;, kerry &amp;lt;int&amp;gt;, abrams &amp;lt;int&amp;gt;, holder &amp;lt;int&amp;gt;,
+## #   mc_auliffe &amp;lt;int&amp;gt;, winfrey &amp;lt;int&amp;gt;, ojeda &amp;lt;int&amp;gt;, trump &amp;lt;int&amp;gt;,
+## #   cuomo &amp;lt;int&amp;gt;, avenatti &amp;lt;int&amp;gt;, kennedy &amp;lt;int&amp;gt;, patrick &amp;lt;int&amp;gt;,
+## #   zuckerberg &amp;lt;int&amp;gt;, pelosi &amp;lt;int&amp;gt;, garcetti &amp;lt;int&amp;gt;, newsom &amp;lt;int&amp;gt;,
+## #   steyer &amp;lt;int&amp;gt;, schultz &amp;lt;int&amp;gt;, kaine &amp;lt;int&amp;gt;, johnson &amp;lt;int&amp;gt;,
+## #   kucinich &amp;lt;int&amp;gt;, lee &amp;lt;int&amp;gt;, scott &amp;lt;int&amp;gt;, sinema &amp;lt;int&amp;gt;, warner &amp;lt;int&amp;gt;,
+## #   na &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we must tidy the data. We will use &lt;code&gt;tidyr::gather()&lt;/code&gt; to transform the data from wide to long. In short, gather takes the column headers (the &lt;code&gt;key&lt;/code&gt; argument) and creates a new variable from the values of the columns (the &lt;code&gt;value&lt;/code&gt; argument). In this case, we will create a new column called &lt;code&gt;candidate&lt;/code&gt; from the column headers and a second column called &lt;code&gt;points&lt;/code&gt; which are a candidates polling percentage. Next we deselect any columns that we do not want to be gathered.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls %&amp;gt;% 
+  select(-1) %&amp;gt;% 
+  setNames(new_names)%&amp;gt;%
+  select(-1) %&amp;gt;%
+  mutate_at(vars(-c(&amp;quot;dates&amp;quot;, &amp;quot;pollster&amp;quot;, &amp;quot;sample&amp;quot;, &amp;quot;sample_2&amp;quot;)),
+            ~as.integer(str_remove(., &amp;quot;%&amp;quot;))) %&amp;gt;% 
+  gather(candidate, points, -dates, -pollster, -sample, -sample_2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in (structure(function (..., .x = ..1, .y = ..2, . = ..1) : NAs
+## introduced by coercion&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6,148 x 6
+##    dates             pollster              sample sample_2 candidate points
+##    &amp;lt;chr&amp;gt;             &amp;lt;chr&amp;gt;                 &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;      &amp;lt;int&amp;gt;
+##  1 Jun 6-10, 2019    A-Quinnipiac Univers… 503    RV       biden         30
+##  2 Jun 3-9, 2019     B-Morning Consult     17,012 LV       biden         37
+##  3 May 29-Jun 5, 20… B+Ipsos               2,271  RV       biden         31
+##  4 May 29-Jun 5, 20… B+Ipsos               2,525  A        biden         30
+##  5 Jun 2-4, 2019     BYouGov               500    RV       biden         27
+##  6 Jun 2-4, 2019     BYouGov               550    A        biden         27
+##  7 Jun 1-2, 2019     C+HarrisX             431    RV       biden         35
+##  8 May 27-Jun 2, 20… B-Morning Consult     16,587 LV       biden         38
+##  9 May 28-31, 2019   A-CNN/SSRS            412    RV       biden         32
+## 10 May 29-30, 2019   C+Harris Interactive  471    RV       biden         36
+## # … with 6,138 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are a few more house-keeping things that need to be done to improve this data set. &lt;code&gt;sample_2&lt;/code&gt; is rather uninformative. On the FiveThirtyEight website there is a key which describes what these values represent (&lt;code&gt;A = ADULTS, RV = REGISTERED VOTERS, V = VOTERS, LV = LIKELY VOTERS&lt;/code&gt;). This should be specified in our data set. In addition the &lt;code&gt;sample&lt;/code&gt; column ought to be cast into an integer column. And finally, those messy dates will need to be cleaned. My approach to this requires creating a function to handle this cleaning. First, the simple stuff.&lt;/p&gt;
+&lt;p&gt;To do the first two above steps, we will continue our function chain and save it to a new variable &lt;code&gt;polls_tidy&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls_tidy &amp;lt;- polls %&amp;gt;% 
+  select(-1) %&amp;gt;% 
+  setNames(new_names)%&amp;gt;%
+  select(-1) %&amp;gt;%
+  mutate_at(vars(-c(&amp;quot;dates&amp;quot;, &amp;quot;pollster&amp;quot;, &amp;quot;sample&amp;quot;, &amp;quot;sample_2&amp;quot;)), 
+            ~as.integer(str_remove(., &amp;quot;%&amp;quot;))) %&amp;gt;% 
+  gather(candidate, points, -dates, -pollster, -sample, -sample_2) %&amp;gt;% 
+  mutate(sample_2 = case_when(
+    sample_2 == &amp;quot;RV&amp;quot; ~ &amp;quot;Registered Voters&amp;quot;,
+    sample_2 == &amp;quot;LV&amp;quot; ~ &amp;quot;Likely Voters&amp;quot;,
+    sample_2 == &amp;quot;A&amp;quot; ~ &amp;quot;Adults&amp;quot;,
+    sample_2 == &amp;quot;V&amp;quot; ~ &amp;quot;Voters&amp;quot;
+  ),
+  sample = as.integer(str_remove(sample, &amp;quot;,&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in (structure(function (..., .x = ..1, .y = ..2, . = ..1) : NAs
+## introduced by coercion&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls_tidy&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6,148 x 6
+##    dates          pollster           sample sample_2       candidate points
+##    &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;               &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;      &amp;lt;int&amp;gt;
+##  1 Jun 6-10, 2019 A-Quinnipiac Univ…    503 Registered Vo… biden         30
+##  2 Jun 3-9, 2019  B-Morning Consult   17012 Likely Voters  biden         37
+##  3 May 29-Jun 5,… B+Ipsos              2271 Registered Vo… biden         31
+##  4 May 29-Jun 5,… B+Ipsos              2525 Adults         biden         30
+##  5 Jun 2-4, 2019  BYouGov               500 Registered Vo… biden         27
+##  6 Jun 2-4, 2019  BYouGov               550 Adults         biden         27
+##  7 Jun 1-2, 2019  C+HarrisX             431 Registered Vo… biden         35
+##  8 May 27-Jun 2,… B-Morning Consult   16587 Likely Voters  biden         38
+##  9 May 28-31, 20… A-CNN/SSRS            412 Registered Vo… biden         32
+## 10 May 29-30, 20… C+Harris Interact…    471 Registered Vo… biden         36
+## # … with 6,138 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;date-cleaning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Date cleaning&lt;/h3&gt;
+&lt;p&gt;Next we must work to clean the date field. I find that when working with a messy column, creating a single function which handles the cleaning is one of the most effective approaches. Here we will create a function which takes a value provided from the &lt;code&gt;dates&lt;/code&gt; field and return a cleaned date. There are two unique cases I identified. There are poll dates which occurred during a single month, or a poll that spanned two months. The dates are separated by a single hyphen &lt;code&gt;-&lt;/code&gt;. If we split the date at &lt;code&gt;-&lt;/code&gt; we will either receive two elements with a month indicated or one month with a day and a day number. In the latter case we will have to carry over the month. Then the year can be appended to it and parsed as a date using the &lt;code&gt;lubridate&lt;/code&gt; package. For more on &lt;code&gt;lubridate&lt;/code&gt; visit &lt;a href=&#34;https://lubridate.tidyverse.org/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The function will only return one date at a time. The two arguments will be &lt;code&gt;date&lt;/code&gt; and &lt;code&gt;.return&lt;/code&gt; to indicate whether the first or second date should be provided. The internals of this function rely heavily on the &lt;code&gt;stringr&lt;/code&gt; package (see R for Data Science &lt;a href=&#34;https://r4ds.had.co.nz/strings.html&#34;&gt;Chapter 14&lt;/a&gt;). &lt;code&gt;switch()&lt;/code&gt; at the end of the function determines which date should be returned (see Advanced R &lt;a href=&#34;https://adv-r.hadley.nz/control-flow.html&#34;&gt;Chapter 5&lt;/a&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;clean_date &amp;lt;- function(date, .return = &amp;quot;first&amp;quot;) {
+  # take date and split at the comma to get the year and the month-day combo
+  date_split &amp;lt;- str_split(date, &amp;quot;,&amp;quot;) %&amp;gt;% 
+    # remove from list / coerce to vector
+    unlist() %&amp;gt;% 
+    # remove extra white space
+    str_trim()
+  
+  # extract the year
+  date_year &amp;lt;- date_split[2]
+  
+  # split the month day portion and coerce to vector
+  dates &amp;lt;- unlist(str_split(date_split[1],  &amp;quot;-&amp;quot;))
+  
+  # paste the month day and year together then parse as date using `mdy()`
+  first_date &amp;lt;- paste(dates[1], date_year) %&amp;gt;% 
+    lubridate::mdy()
+  
+  second_date &amp;lt;- ifelse(!str_detect(dates[2], &amp;quot;[A-z]+&amp;quot;),
+                        yes = paste(str_extract(dates[1], &amp;quot;[A-z]+&amp;quot;), 
+                              dates[2], 
+                              date_year), 
+                        no = paste(dates[2], date_year)) %&amp;gt;% 
+    lubridate::mdy()
+  
+  switch(.return, 
+         first = return(first_date),
+         second = return(second_date)
+         )
+  
+}
+
+# test on a date
+clean_date(polls_tidy$dates[10], .return = &amp;quot;first&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2019-05-29&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;clean_date(polls_tidy$dates[10], .return = &amp;quot;second&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2019-05-30&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can use this new function to create two new columns &lt;code&gt;poll_start&lt;/code&gt; and &lt;code&gt;poll_end&lt;/code&gt; using &lt;code&gt;mutate()&lt;/code&gt;. Following this we can deselect the original &lt;code&gt;dates&lt;/code&gt; column, remove any observations missing a &lt;code&gt;points&lt;/code&gt; value, remove duplicates using &lt;code&gt;distinct()&lt;/code&gt;, and save this to &lt;code&gt;polls_clean&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls_clean &amp;lt;- polls_tidy %&amp;gt;% 
+  mutate(poll_start = clean_date(dates, &amp;quot;first&amp;quot;),
+         poll_end = clean_date(dates, &amp;quot;second&amp;quot;)) %&amp;gt;% 
+  select(-dates) %&amp;gt;% 
+  filter(!is.na(points)) %&amp;gt;% 
+  distinct()
+
+polls_clean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1,955 x 7
+##    pollster       sample sample_2    candidate points poll_start poll_end  
+##    &amp;lt;chr&amp;gt;           &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;      &amp;lt;int&amp;gt; &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;    
+##  1 A-Quinnipiac …    503 Registered… biden         30 2019-06-06 2019-06-10
+##  2 B-Morning Con…  17012 Likely Vot… biden         37 2019-06-06 2019-06-10
+##  3 B+Ipsos          2271 Registered… biden         31 2019-06-06 2019-06-10
+##  4 B+Ipsos          2525 Adults      biden         30 2019-06-06 2019-06-10
+##  5 BYouGov           500 Registered… biden         27 2019-06-06 2019-06-10
+##  6 BYouGov           550 Adults      biden         27 2019-06-06 2019-06-10
+##  7 C+HarrisX         431 Registered… biden         35 2019-06-06 2019-06-10
+##  8 B-Morning Con…  16587 Likely Vot… biden         38 2019-06-06 2019-06-10
+##  9 A-CNN/SSRS        412 Registered… biden         32 2019-06-06 2019-06-10
+## 10 C+Harris Inte…    471 Registered… biden         36 2019-06-06 2019-06-10
+## # … with 1,945 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualization&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Visualization&lt;/h3&gt;
+&lt;p&gt;The cleaned data can be aggregated and visualized.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;avg_polls &amp;lt;- polls_clean %&amp;gt;% 
+  group_by(candidate) %&amp;gt;% 
+  summarise(avg_points = mean(points, na.rm = TRUE),
+            min_points = min(points, na.rm = TRUE),
+            max_points = max(points, na.rm = TRUE),
+            n_polls = n() - sum(is.na(points))) %&amp;gt;% # identify how many polls candidate is in
+  # remove candidates who appear in 50 or fewer polls: i.e. HRC
+  filter(n_polls &amp;gt; 50) %&amp;gt;% 
+  arrange(-avg_points)
+
+avg_polls&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 16 x 5
+##    candidate    avg_points min_points max_points n_polls
+##    &amp;lt;chr&amp;gt;             &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt;
+##  1 biden            32.1            9         66     108
+##  2 sanders          19.4            4         42     110
+##  3 harris            8.62           2         38     110
+##  4 warren            8.05           2         43     109
+##  5 o_rourke          6.50           2         21     105
+##  6 buttigieg         4.88           0         21      80
+##  7 booker            3.30           0          9     105
+##  8 klobuchar         1.77           0          5      94
+##  9 yang              1.13           0          3      62
+## 10 castro            1.10           0         12      97
+## 11 gillibrand        0.929          0          9      98
+## 12 hickenlooper      0.728          0          2      81
+## 13 gabbard           0.723          0          3      83
+## 14 delaney           0.530          0          8      83
+## 15 bullock           0.509          0          1      55
+## 16 inslee            0.429          0          2      77&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;avg_polls %&amp;gt;% 
+  mutate(candidate = fct_reorder(candidate, avg_points)) %&amp;gt;% 
+  ggplot(aes(candidate, avg_points)) +
+  geom_col() + 
+  theme_minimal() +
+  coord_flip() +
+  labs(title = &amp;quot;Polls Standings&amp;quot;, x = &amp;quot;&amp;quot;, y = &amp;quot;%&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-06-11-scraping-4-campaigns_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-historic-polling-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Creating historic polling data&lt;/h2&gt;
+&lt;p&gt;It may become useful to have a running history of how candidates have been polling. We can use R to write a csv file of the data from FiveThirtyEight. However, what happens when the polls update? How we can we keep the previous data &lt;em&gt;and&lt;/em&gt; the new data? We will work through an example using a combination of &lt;code&gt;bind_rows()&lt;/code&gt; and &lt;code&gt;distinct()&lt;/code&gt;. I want to emphasize that this is not a good practice if you need to scale to hundreds of thousand of rows. This works in this case as the data are inherently small.&lt;/p&gt;
+&lt;p&gt;To start, I have created a sample dataset which contains 80% of these polls (maybe less by the time you do this!). Note that is probably best to version control this or have multiple copies as a failsafe.&lt;/p&gt;
+&lt;p&gt;The approach we will take is to read in the historic polls data set and bind rows with the &lt;code&gt;polls_clean&lt;/code&gt; data we have scraped. Next we remove duplicate rows using &lt;code&gt;distinct()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;old_polls &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/JosiahParry/r-4-campaigns/master/data/polls.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   pollster = col_character(),
+##   sample = col_double(),
+##   sample_2 = col_character(),
+##   candidate = col_character(),
+##   points = col_double(),
+##   poll_start = col_date(format = &amp;quot;&amp;quot;),
+##   poll_end = col_date(format = &amp;quot;&amp;quot;)
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;old_polls&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1,564 x 7
+##    pollster       sample sample_2    candidate points poll_start poll_end  
+##    &amp;lt;chr&amp;gt;           &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;      &amp;lt;dbl&amp;gt; &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;    
+##  1 C+HarrisX         370 Registered… klobuchar      2 2019-06-06 2019-06-10
+##  2 C+HarrisX         448 Registered… gillibra…      1 2019-06-06 2019-06-10
+##  3 B-Morning Con…  11627 Likely Vot… harris        13 2019-06-06 2019-06-10
+##  4 B-Morning Con…    699 Registered… delaney        0 2019-06-06 2019-06-10
+##  5 C+HarrisX         743 Registered… williams…      1 2019-06-06 2019-06-10
+##  6 A-Quinnipiac …    559 Registered… gabbard        0 2019-06-06 2019-06-10
+##  7 B-Morning Con…  14250 Likely Vot… gillibra…      2 2019-06-06 2019-06-10
+##  8 A-Quinnipiac …    559 Registered… gillibra…      0 2019-06-06 2019-06-10
+##  9 B-Morning Con…  14250 Likely Vot… harris         6 2019-06-06 2019-06-10
+## 10 A+Monmouth Un…    330 Registered… warren         8 2019-06-06 2019-06-10
+## # … with 1,554 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;updated_polls &amp;lt;- bind_rows(old_polls, polls_clean) %&amp;gt;% 
+  distinct()
+
+updated_polls&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1,955 x 7
+##    pollster       sample sample_2    candidate points poll_start poll_end  
+##    &amp;lt;chr&amp;gt;           &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;      &amp;lt;dbl&amp;gt; &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;    
+##  1 C+HarrisX         370 Registered… klobuchar      2 2019-06-06 2019-06-10
+##  2 C+HarrisX         448 Registered… gillibra…      1 2019-06-06 2019-06-10
+##  3 B-Morning Con…  11627 Likely Vot… harris        13 2019-06-06 2019-06-10
+##  4 B-Morning Con…    699 Registered… delaney        0 2019-06-06 2019-06-10
+##  5 C+HarrisX         743 Registered… williams…      1 2019-06-06 2019-06-10
+##  6 A-Quinnipiac …    559 Registered… gabbard        0 2019-06-06 2019-06-10
+##  7 B-Morning Con…  14250 Likely Vot… gillibra…      2 2019-06-06 2019-06-10
+##  8 A-Quinnipiac …    559 Registered… gillibra…      0 2019-06-06 2019-06-10
+##  9 B-Morning Con…  14250 Likely Vot… harris         6 2019-06-06 2019-06-10
+## 10 A+Monmouth Un…    330 Registered… warren         8 2019-06-06 2019-06-10
+## # … with 1,945 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you have a cleaned data set which has been integrated with the recently scraped data. Write this to a csv using &lt;code&gt;write_csv()&lt;/code&gt; for later use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Introducing trendyy</title>
       <link>/post/2019-05-25-introducing-trendyy/</link>
       <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
@@ -1904,15 +2335,6 @@ specdata %&amp;gt;%
 &lt;p&gt;It all works!&lt;/p&gt;
 &lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>geniusR</title>
-      <link>/project/geniusr/</link>
-      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/geniusr/</guid>
-      <description></description>
     </item>
     
   </channel>

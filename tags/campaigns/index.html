@@ -20,7 +20,7 @@
   <meta name="description" content="Social Data Scientist">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tags/tutorial/">
+  <link rel="alternate" hreflang="en-us" href="/tags/campaigns/">
 
   
 
@@ -96,15 +96,15 @@
   
 
   
-  <link rel="alternate" href="/tags/tutorial/index.xml" type="application/rss+xml" title="Josiah Parry">
-  <link rel="feed" href="/tags/tutorial/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="alternate" href="/tags/campaigns/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/tags/campaigns/index.xml" type="application/rss+xml" title="Josiah Parry">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/tutorial/">
+  <link rel="canonical" href="/tags/campaigns/">
 
   
   
@@ -115,8 +115,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Josiah Parry">
-  <meta property="og:url" content="/tags/tutorial/">
-  <meta property="og:title" content="tutorial | Josiah Parry">
+  <meta property="og:url" content="/tags/campaigns/">
+  <meta property="og:title" content="campaigns | Josiah Parry">
   <meta property="og:description" content="Social Data Scientist"><meta property="og:image" content="/img/img/bubbles.jpg">
   <meta property="og:locale" content="en-us">
   
@@ -127,7 +127,7 @@
 
   
 
-  <title>tutorial | Josiah Parry</title>
+  <title>campaigns | Josiah Parry</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -291,7 +291,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1 itemprop="name">tutorial</h1>
+  <h1 itemprop="name">campaigns</h1>
 
   
 
@@ -311,90 +311,6 @@
       
       As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement. One of my largest concerns is that progressive campaigns are stuck in a sort of antiquated but nonetheless entrenched workflow. Google Sheets reign in metric reporting. Here I want to present one use case (of a few more to come) where R can be leveraged by your data team.
 In this post I show you how to scrape the most recent polling data from FiveThirtyEight.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/2019-05-25-introducing-trendyy/">Introducing trendyy</a></h2>
-    <div class="article-style">
-      
-      trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
-The inspiration for this package was to provide a tidy interface to the trends data.
-Getting Started Installation You can install trendyy from CRAN using install.packages(&quot;trendyy&quot;).
- Usage Use trendy() to search Google Trends. The only mandatory argument is search_terms. This is a character vector with the terms of interest.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/2019-05-08-genius-learnr-tutorial/">genius tutorial</a></h2>
-    <div class="article-style">
-      
-      Introducing genius You want to start analysing song lyrics, where do you go? There have been music information retrieval papers written on the topic of programmatically extracting lyrics from the web. Dozens of people have gone through the laborious task of scraping song lyrics from websites. Even a recent winner of the Shiny competition scraped lyrics from Genius.com.
-I too have been there. Scraping websites is not always the best use of your time.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/genius-api/">genius Plumber API</a></h2>
-    <div class="article-style">
-      
-      get started here
-Since I created genius, I’ve wanted to make a version for python. But frankly, that’s a daunting task for me seeing as my python skills are intermediate at best. But recently I’ve been made aware of the package plumber. To put it plainly, plumber takes your R code and makes it accessible via an API.
-I thought this would be difficult. I was so wrong.
- Using plumber Plumber works by using roxygen like comments (#*).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/xgb-feature-importance/">xgboost feature importance</a></h2>
-    <div class="article-style">
-      
-      This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it. I will draw on the simplicity of Chris Albon’s post. For steps to do the following in Python, I recommend his post.
-If you’ve ever created a decision tree, you’ve probably looked at measures of feature importance. In the above flashcard, impurity refers to how many times a feature was use and lead to a misclassification.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/function-methods/">[Not so] generic functions</a></h2>
-    <div class="article-style">
-      
-      The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occurred. To this end, I officially filed my complaint as an issue.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/write-chunked-csv/">Chunking your csv</a></h2>
-    <div class="article-style">
-      
-      Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using Relay. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.
-In order to solve this problem, a large csv must be split into multiple csv’s for upload.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></h2>
-    <div class="article-style">
-      
-      In an earlier posting I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs.
-Thankfully purrr has a beautiful function called map_df() which will make this into a two liner. This process has essentially 3 steps.
-Create a vector of all .csv files that should be merged together. Read each file using readr::read_csv() Combine each dataframe into one.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a></h2>
-    <div class="article-style">
-      
-      Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R. During this time one this has become apparent, people are teaching the old paradigm of R and avoiding the tidyverse all together.
-I recently had a student reach out to me in need of help with the first programming assignment from the Coursera R-Programming course (part of the Johns Hopkins Data Science Specialization).
       
     </div>
   </div>
