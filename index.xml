@@ -90,133 +90,133 @@ pull(white_males, name)&lt;/code&gt;&lt;/pre&gt;
 ## [59] &amp;quot;James Oliver Huberty&amp;quot;      &amp;quot;Abdelkrim Belachheb&amp;quot;      
 ## [61] &amp;quot;Carl Robert Brown&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;am_i &amp;lt;- function(terrorist) {
-  msg &amp;lt;- paste(&amp;quot;`I am` ==&amp;quot;, terrorist)
+  msg &amp;lt;- paste(&amp;quot;am i ==&amp;quot;, terrorist)
   print(msg)
-  print(`I am` == terrorist)
+  print(`am i` == terrorist)
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pull(white_males, name) %&amp;gt;% 
   walk(~am_i(.))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;`I am` == Jordan Witmer&amp;quot;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;`am i` == Jordan Witmer&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Zephen A. Xaver&amp;quot;
+## [1] &amp;quot;`am i` == Zephen A. Xaver&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Robert D. Bowers&amp;quot;
+## [1] &amp;quot;`am i` == Robert D. Bowers&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Jarrod W. Ramos&amp;quot;
+## [1] &amp;quot;`am i` == Jarrod W. Ramos&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Dimitrios Pagourtzis&amp;quot;
+## [1] &amp;quot;`am i` == Dimitrios Pagourtzis&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Travis Reinking&amp;quot;
+## [1] &amp;quot;`am i` == Travis Reinking&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Nikolas J. Cruz&amp;quot;
+## [1] &amp;quot;`am i` == Nikolas J. Cruz&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Timothy O&amp;#39;Brien Smith&amp;quot;
+## [1] &amp;quot;`am i` == Timothy O&amp;#39;Brien Smith&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Kevin Janson Neal&amp;quot;
+## [1] &amp;quot;`am i` == Kevin Janson Neal&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Devin Patrick Kelley&amp;quot;
+## [1] &amp;quot;`am i` == Devin Patrick Kelley&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Scott Allen Ostrem&amp;quot;
+## [1] &amp;quot;`am i` == Scott Allen Ostrem&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Stephen Craig Paddock&amp;quot;
+## [1] &amp;quot;`am i` == Stephen Craig Paddock&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Randy Stair&amp;quot;
+## [1] &amp;quot;`am i` == Randy Stair&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Thomas Hartless&amp;quot;
+## [1] &amp;quot;`am i` == Thomas Hartless&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Jason B. Dalton&amp;quot;
+## [1] &amp;quot;`am i` == Jason B. Dalton&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Robert Lewis Dear&amp;quot;
+## [1] &amp;quot;`am i` == Robert Lewis Dear&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Noah Harpham&amp;quot;
+## [1] &amp;quot;`am i` == Noah Harpham&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Dylann Storm Roof&amp;quot;
+## [1] &amp;quot;`am i` == Dylann Storm Roof&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Elliot Rodger&amp;quot;
+## [1] &amp;quot;`am i` == Elliot Rodger&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == John Zawahri&amp;quot;
+## [1] &amp;quot;`am i` == John Zawahri&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Kurt Myers&amp;quot;
+## [1] &amp;quot;`am i` == Kurt Myers&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Adam Lanza&amp;quot;
+## [1] &amp;quot;`am i` == Adam Lanza&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Andrew Engeldinger&amp;quot;
+## [1] &amp;quot;`am i` == Andrew Engeldinger&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Wade Michael Page&amp;quot;
+## [1] &amp;quot;`am i` == Wade Michael Page&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == James Holmes&amp;quot;
+## [1] &amp;quot;`am i` == James Holmes&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Ian Stawicki&amp;quot;
+## [1] &amp;quot;`am i` == Ian Stawicki&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Scott Evans Dekraai&amp;quot;
+## [1] &amp;quot;`am i` == Scott Evans Dekraai&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Jared Loughner&amp;quot;
+## [1] &amp;quot;`am i` == Jared Loughner&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Robert Stewart&amp;quot;
+## [1] &amp;quot;`am i` == Robert Stewart&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Wesley Neal Higdon&amp;quot;
+## [1] &amp;quot;`am i` == Wesley Neal Higdon&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Steven Kazmierczak&amp;quot;
+## [1] &amp;quot;`am i` == Steven Kazmierczak&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Robert A. Hawkins&amp;quot;
+## [1] &amp;quot;`am i` == Robert A. Hawkins&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Tyler Peterson&amp;quot;
+## [1] &amp;quot;`am i` == Tyler Peterson&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Sulejman Talović\u0087&amp;quot;
+## [1] &amp;quot;`am i` == Sulejman Talović\u0087&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Charles Carl Roberts&amp;quot;
+## [1] &amp;quot;`am i` == Charles Carl Roberts&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Kyle Aaron Huff&amp;quot;
+## [1] &amp;quot;`am i` == Kyle Aaron Huff&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Terry Michael Ratzmann&amp;quot;
+## [1] &amp;quot;`am i` == Terry Michael Ratzmann&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Nathan Gale&amp;quot;
+## [1] &amp;quot;`am i` == Nathan Gale&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Douglas Williams&amp;quot;
+## [1] &amp;quot;`am i` == Douglas Williams&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Michael McDermott&amp;quot;
+## [1] &amp;quot;`am i` == Michael McDermott&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Larry Gene Ashbrook&amp;quot;
+## [1] &amp;quot;`am i` == Larry Gene Ashbrook&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Day trader Mark O. Barton&amp;quot;
+## [1] &amp;quot;`am i` == Day trader Mark O. Barton&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Eric Harris&amp;quot;
+## [1] &amp;quot;`am i` == Eric Harris&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Kipland P. Kinkel&amp;quot;
+## [1] &amp;quot;`am i` == Kipland P. Kinkel&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Mitchell Scott Johnson&amp;quot;
+## [1] &amp;quot;`am i` == Mitchell Scott Johnson&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Matthew Beck&amp;quot;
+## [1] &amp;quot;`am i` == Matthew Beck&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Dean Allen Mellberg&amp;quot;
+## [1] &amp;quot;`am i` == Dean Allen Mellberg&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Kenneth Junior French&amp;quot;
+## [1] &amp;quot;`am i` == Kenneth Junior French&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Gian Luigi Ferri&amp;quot;
+## [1] &amp;quot;`am i` == Gian Luigi Ferri&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == John T. Miller&amp;quot;
+## [1] &amp;quot;`am i` == John T. Miller&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Eric Houston&amp;quot;
+## [1] &amp;quot;`am i` == Eric Houston&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Thomas McIlvane&amp;quot;
+## [1] &amp;quot;`am i` == Thomas McIlvane&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == George Hennard&amp;quot;
+## [1] &amp;quot;`am i` == George Hennard&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Joseph T. Wesbecker&amp;quot;
+## [1] &amp;quot;`am i` == Joseph T. Wesbecker&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Patrick Purdy&amp;quot;
+## [1] &amp;quot;`am i` == Patrick Purdy&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Richard Farley&amp;quot;
+## [1] &amp;quot;`am i` == Richard Farley&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == William Cruse&amp;quot;
+## [1] &amp;quot;`am i` == William Cruse&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Patrick Sherrill&amp;quot;
+## [1] &amp;quot;`am i` == Patrick Sherrill&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == James Oliver Huberty&amp;quot;
+## [1] &amp;quot;`am i` == James Oliver Huberty&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Abdelkrim Belachheb&amp;quot;
+## [1] &amp;quot;`am i` == Abdelkrim Belachheb&amp;quot;
 ## [1] FALSE
-## [1] &amp;quot;`I am` == Carl Robert Brown&amp;quot;
+## [1] &amp;quot;`am i` == Carl Robert Brown&amp;quot;
 ## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;`I am` &amp;gt; sum(my_parts)&lt;/code&gt;&lt;/pre&gt;
 </description>
