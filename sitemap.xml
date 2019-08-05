@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/my-parts/</loc>
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/trendyy-4-campaigns/</loc>
       <lastmod>2019-06-11T00:00:00+00:00</lastmod>
     </url>
@@ -200,7 +208,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -244,7 +252,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -253,7 +261,7 @@
     <url>
     
       <loc>/categories/r/</loc>
-      <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -271,7 +279,7 @@
     <url>
     
       <loc>/tags/us/</loc>
-      <lastmod>2019-03-17T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -299,6 +307,15 @@
     
       <loc>/tags/coursera/</loc>
       <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/crime/</loc>
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -469,7 +486,7 @@
     <url>
     
       <loc>/tags/politics/</loc>
-      <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -478,7 +495,7 @@
     <url>
     
       <loc>/categories/politics/</loc>
-      <lastmod>2019-03-17T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

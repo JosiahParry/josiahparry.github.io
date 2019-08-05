@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.1.1">
+  <meta name="generator" content="Hugo 0.52" />
+  <meta name="author" content="Josiah Parry">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="library(tidyverse) terrorists &lt;- googlesheets::gs_url(&quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&quot;) %&gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; ## 1 white 63 554 1067 1621 69.3 ## 2 other 5 90 115 205 8.77 ## 3 black 19 108 89 197 8.43 ## 4 asian 8 77 33 110 4.70 ## 5 unclear 6 40 61 101 4.32 ## 6 latino 10 44 33 77 3.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/my-parts/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/cv.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-90934606-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Josiah Parry">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/my-parts/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Josiah Parry">
+  <meta property="og:url" content="/post/my-parts/">
+  <meta property="og:title" content="∑ { my parts } | Josiah Parry">
+  <meta property="og:description" content="library(tidyverse) terrorists &lt;- googlesheets::gs_url(&quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&quot;) %&gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; ## 1 white 63 554 1067 1621 69.3 ## 2 other 5 90 115 205 8.77 ## 3 black 19 108 89 197 8.43 ## 4 asian 8 77 33 110 4.70 ## 5 unclear 6 40 61 101 4.32 ## 6 latino 10 44 33 77 3."><meta property="og:image" content="/img/img/bubbles.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-08-04T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-08-04T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>∑ { my parts } | Josiah Parry</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Josiah Parry</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post/">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">∑ { my parts }</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-08-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Aug 4, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Josiah Parry">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/r/">R</a>, 
+    
+    <a href="/categories/politics/">politics</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=%e2%88%91%20%7b%20my%20parts%20%7d&amp;url=%2fpost%2fmy-parts%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fmy-parts%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fmy-parts%2f&amp;title=%e2%88%91%20%7b%20my%20parts%20%7d"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fmy-parts%2f&amp;title=%e2%88%91%20%7b%20my%20parts%20%7d"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=%e2%88%91%20%7b%20my%20parts%20%7d&amp;body=%2fpost%2fmy-parts%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<pre class="r"><code>library(tidyverse)
+
+terrorists &lt;- googlesheets::gs_url(&quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&quot;) %&gt;% 
+  googlesheets::gs_read()</code></pre>
+<p><img src="/post/2019-08-04-my-parts_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>terrorist_by_race</code></pre>
+<pre><code>## # A tibble: 7 x 6
+##   race                n fatalities injured total_victims   `%`
+##   &lt;chr&gt;           &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
+## 1 white              63        554    1067          1621 69.3 
+## 2 other               5         90     115           205  8.77
+## 3 black              19        108      89           197  8.43
+## 4 asian               8         77      33           110  4.70
+## 5 unclear             6         40      61           101  4.32
+## 6 latino             10         44      33            77  3.29
+## 7 native american     3         19       8            27  1.15</code></pre>
+<p><img src="/post/2019-08-04-my-parts_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>terrorist_by_gender</code></pre>
+<pre><code>## # A tibble: 3 x 6
+##   gender            n fatalities injured total_victims    `%`
+##   &lt;chr&gt;         &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;
+## 1 male            110        903    1380          2283 97.6  
+## 2 male &amp; female     1         14      21            35  1.50 
+## 3 female            3         15       5            20  0.855</code></pre>
+<pre class="r"><code>terrorist &lt;- c(&quot;angry&quot;, &quot;white&quot;, &quot;male&quot;)
+my_parts &lt;- c(&quot;angry&quot;, &quot;white&quot;, &quot;male&quot;)</code></pre>
+<pre class="r"><code>my_parts == terrorist</code></pre>
+<pre><code>## [1] TRUE TRUE TRUE</code></pre>
+<pre class="r"><code>`I am` &gt; sum(parts)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>`I am` == sum(terrorist)</code></pre>
+<pre class="r"><code>FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>white_males &lt;- filter(terrorists,
+                      race == &quot;white&quot;,
+                      tolower(gender) == &quot;male&quot;,
+                      !is.na(name))
+
+pull(white_males, name)</code></pre>
+<pre><code>##  [1] &quot;Jordan Witmer&quot;             &quot;Zephen A. Xaver&quot;          
+##  [3] &quot;Robert D. Bowers&quot;          &quot;Jarrod W. Ramos&quot;          
+##  [5] &quot;Dimitrios Pagourtzis&quot;      &quot;Travis Reinking&quot;          
+##  [7] &quot;Nikolas J. Cruz&quot;           &quot;Timothy O&#39;Brien Smith&quot;    
+##  [9] &quot;Kevin Janson Neal&quot;         &quot;Devin Patrick Kelley&quot;     
+## [11] &quot;Scott Allen Ostrem&quot;        &quot;Stephen Craig Paddock&quot;    
+## [13] &quot;Randy Stair&quot;               &quot;Thomas Hartless&quot;          
+## [15] &quot;Jason B. Dalton&quot;           &quot;Robert Lewis Dear&quot;        
+## [17] &quot;Noah Harpham&quot;              &quot;Dylann Storm Roof&quot;        
+## [19] &quot;Elliot Rodger&quot;             &quot;John Zawahri&quot;             
+## [21] &quot;Kurt Myers&quot;                &quot;Adam Lanza&quot;               
+## [23] &quot;Andrew Engeldinger&quot;        &quot;Wade Michael Page&quot;        
+## [25] &quot;James Holmes&quot;              &quot;Ian Stawicki&quot;             
+## [27] &quot;Scott Evans Dekraai&quot;       &quot;Jared Loughner&quot;           
+## [29] &quot;Robert Stewart&quot;            &quot;Wesley Neal Higdon&quot;       
+## [31] &quot;Steven Kazmierczak&quot;        &quot;Robert A. Hawkins&quot;        
+## [33] &quot;Tyler Peterson&quot;            &quot;Sulejman Talović\u0087&quot;   
+## [35] &quot;Charles Carl Roberts&quot;      &quot;Kyle Aaron Huff&quot;          
+## [37] &quot;Terry Michael Ratzmann&quot;    &quot;Nathan Gale&quot;              
+## [39] &quot;Douglas Williams&quot;          &quot;Michael McDermott&quot;        
+## [41] &quot;Larry Gene Ashbrook&quot;       &quot;Day trader Mark O. Barton&quot;
+## [43] &quot;Eric Harris&quot;               &quot;Kipland P. Kinkel&quot;        
+## [45] &quot;Mitchell Scott Johnson&quot;    &quot;Matthew Beck&quot;             
+## [47] &quot;Dean Allen Mellberg&quot;       &quot;Kenneth Junior French&quot;    
+## [49] &quot;Gian Luigi Ferri&quot;          &quot;John T. Miller&quot;           
+## [51] &quot;Eric Houston&quot;              &quot;Thomas McIlvane&quot;          
+## [53] &quot;George Hennard&quot;            &quot;Joseph T. Wesbecker&quot;      
+## [55] &quot;Patrick Purdy&quot;             &quot;Richard Farley&quot;           
+## [57] &quot;William Cruse&quot;             &quot;Patrick Sherrill&quot;         
+## [59] &quot;James Oliver Huberty&quot;      &quot;Abdelkrim Belachheb&quot;      
+## [61] &quot;Carl Robert Brown&quot;</code></pre>
+<pre class="r"><code>am_i &lt;- function(terrorist) {
+  msg &lt;- paste(&quot;`I am` ==&quot;, terrorist)
+  print(msg)
+  print(`I am` == terrorist)
+}</code></pre>
+<pre class="r"><code>pull(white_males, name) %&gt;% 
+  walk(~am_i(.))</code></pre>
+<pre><code>## [1] &quot;`I am` == Jordan Witmer&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Zephen A. Xaver&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Robert D. Bowers&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Jarrod W. Ramos&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Dimitrios Pagourtzis&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Travis Reinking&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Nikolas J. Cruz&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Timothy O&#39;Brien Smith&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Kevin Janson Neal&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Devin Patrick Kelley&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Scott Allen Ostrem&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Stephen Craig Paddock&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Randy Stair&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Thomas Hartless&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Jason B. Dalton&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Robert Lewis Dear&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Noah Harpham&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Dylann Storm Roof&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Elliot Rodger&quot;
+## [1] FALSE
+## [1] &quot;`I am` == John Zawahri&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Kurt Myers&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Adam Lanza&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Andrew Engeldinger&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Wade Michael Page&quot;
+## [1] FALSE
+## [1] &quot;`I am` == James Holmes&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Ian Stawicki&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Scott Evans Dekraai&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Jared Loughner&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Robert Stewart&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Wesley Neal Higdon&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Steven Kazmierczak&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Robert A. Hawkins&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Tyler Peterson&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Sulejman Talović\u0087&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Charles Carl Roberts&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Kyle Aaron Huff&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Terry Michael Ratzmann&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Nathan Gale&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Douglas Williams&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Michael McDermott&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Larry Gene Ashbrook&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Day trader Mark O. Barton&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Eric Harris&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Kipland P. Kinkel&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Mitchell Scott Johnson&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Matthew Beck&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Dean Allen Mellberg&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Kenneth Junior French&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Gian Luigi Ferri&quot;
+## [1] FALSE
+## [1] &quot;`I am` == John T. Miller&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Eric Houston&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Thomas McIlvane&quot;
+## [1] FALSE
+## [1] &quot;`I am` == George Hennard&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Joseph T. Wesbecker&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Patrick Purdy&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Richard Farley&quot;
+## [1] FALSE
+## [1] &quot;`I am` == William Cruse&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Patrick Sherrill&quot;
+## [1] FALSE
+## [1] &quot;`I am` == James Oliver Huberty&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Abdelkrim Belachheb&quot;
+## [1] FALSE
+## [1] &quot;`I am` == Carl Robert Brown&quot;
+## [1] FALSE</code></pre>
+<pre class="r"><code>`I am` &gt; sum(my_parts)</code></pre>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/politics/">politics</a>
+  
+  <a class="badge badge-light" href="/tags/us/">US</a>
+  
+  <a class="badge badge-light" href="/tags/crime/">crime</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/portrait.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Josiah Parry</a></h5>
+    <h6 class="card-subtitle">Social Data Scientist</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/josiahparry" >
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//github.com/josiahparry" >
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//linkedin.com/in/josiahparry" >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:josiah.parry@yahoo.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/trendyy-4-campaigns/">Google Trends for Campaigns</a></li>
+        
+        <li><a href="/post/scraping-4-campaigns/">Web-scraping for Campaigns</a></li>
+        
+        <li><a href="/post/2019-03-17-the-fallacy-of-one-person-one-vote/">The Fallacy of one person, one vote</a></li>
+        
+        <li><a href="/post/shutdown-politics/">The Cost of Gridlock</a></li>
+        
+        <li><a href="/post/us-representation-i/">US Representation: Part I</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/R.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.74b0d3361475b08c40cf31120e82937b.js"></script>
+
+    
+
+  </body>
+</html>
+

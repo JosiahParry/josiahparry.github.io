@@ -11,6 +11,218 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>∑ { my parts }</title>
+      <link>/post/my-parts/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/my-parts/</guid>
+      <description>
+
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&amp;quot;) %&amp;gt;% 
+  googlesheets::gs_read()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-08-04-my-parts_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;terrorist_by_race&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 7 x 6
+##   race                n fatalities injured total_victims   `%`
+##   &amp;lt;chr&amp;gt;           &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 white              63        554    1067          1621 69.3 
+## 2 other               5         90     115           205  8.77
+## 3 black              19        108      89           197  8.43
+## 4 asian               8         77      33           110  4.70
+## 5 unclear             6         40      61           101  4.32
+## 6 latino             10         44      33            77  3.29
+## 7 native american     3         19       8            27  1.15&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-08-04-my-parts_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;terrorist_by_gender&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 6
+##   gender            n fatalities injured total_victims    `%`
+##   &amp;lt;chr&amp;gt;         &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 male            110        903    1380          2283 97.6  
+## 2 male &amp;amp; female     1         14      21            35  1.50 
+## 3 female            3         15       5            20  0.855&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;terrorist &amp;lt;- c(&amp;quot;angry&amp;quot;, &amp;quot;white&amp;quot;, &amp;quot;male&amp;quot;)
+my_parts &amp;lt;- c(&amp;quot;angry&amp;quot;, &amp;quot;white&amp;quot;, &amp;quot;male&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_parts == terrorist&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE TRUE TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;`I am` &amp;gt; sum(parts)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;`I am` == sum(terrorist)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;white_males &amp;lt;- filter(terrorists,
+                      race == &amp;quot;white&amp;quot;,
+                      tolower(gender) == &amp;quot;male&amp;quot;,
+                      !is.na(name))
+
+pull(white_males, name)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Jordan Witmer&amp;quot;             &amp;quot;Zephen A. Xaver&amp;quot;          
+##  [3] &amp;quot;Robert D. Bowers&amp;quot;          &amp;quot;Jarrod W. Ramos&amp;quot;          
+##  [5] &amp;quot;Dimitrios Pagourtzis&amp;quot;      &amp;quot;Travis Reinking&amp;quot;          
+##  [7] &amp;quot;Nikolas J. Cruz&amp;quot;           &amp;quot;Timothy O&amp;#39;Brien Smith&amp;quot;    
+##  [9] &amp;quot;Kevin Janson Neal&amp;quot;         &amp;quot;Devin Patrick Kelley&amp;quot;     
+## [11] &amp;quot;Scott Allen Ostrem&amp;quot;        &amp;quot;Stephen Craig Paddock&amp;quot;    
+## [13] &amp;quot;Randy Stair&amp;quot;               &amp;quot;Thomas Hartless&amp;quot;          
+## [15] &amp;quot;Jason B. Dalton&amp;quot;           &amp;quot;Robert Lewis Dear&amp;quot;        
+## [17] &amp;quot;Noah Harpham&amp;quot;              &amp;quot;Dylann Storm Roof&amp;quot;        
+## [19] &amp;quot;Elliot Rodger&amp;quot;             &amp;quot;John Zawahri&amp;quot;             
+## [21] &amp;quot;Kurt Myers&amp;quot;                &amp;quot;Adam Lanza&amp;quot;               
+## [23] &amp;quot;Andrew Engeldinger&amp;quot;        &amp;quot;Wade Michael Page&amp;quot;        
+## [25] &amp;quot;James Holmes&amp;quot;              &amp;quot;Ian Stawicki&amp;quot;             
+## [27] &amp;quot;Scott Evans Dekraai&amp;quot;       &amp;quot;Jared Loughner&amp;quot;           
+## [29] &amp;quot;Robert Stewart&amp;quot;            &amp;quot;Wesley Neal Higdon&amp;quot;       
+## [31] &amp;quot;Steven Kazmierczak&amp;quot;        &amp;quot;Robert A. Hawkins&amp;quot;        
+## [33] &amp;quot;Tyler Peterson&amp;quot;            &amp;quot;Sulejman Talović\u0087&amp;quot;   
+## [35] &amp;quot;Charles Carl Roberts&amp;quot;      &amp;quot;Kyle Aaron Huff&amp;quot;          
+## [37] &amp;quot;Terry Michael Ratzmann&amp;quot;    &amp;quot;Nathan Gale&amp;quot;              
+## [39] &amp;quot;Douglas Williams&amp;quot;          &amp;quot;Michael McDermott&amp;quot;        
+## [41] &amp;quot;Larry Gene Ashbrook&amp;quot;       &amp;quot;Day trader Mark O. Barton&amp;quot;
+## [43] &amp;quot;Eric Harris&amp;quot;               &amp;quot;Kipland P. Kinkel&amp;quot;        
+## [45] &amp;quot;Mitchell Scott Johnson&amp;quot;    &amp;quot;Matthew Beck&amp;quot;             
+## [47] &amp;quot;Dean Allen Mellberg&amp;quot;       &amp;quot;Kenneth Junior French&amp;quot;    
+## [49] &amp;quot;Gian Luigi Ferri&amp;quot;          &amp;quot;John T. Miller&amp;quot;           
+## [51] &amp;quot;Eric Houston&amp;quot;              &amp;quot;Thomas McIlvane&amp;quot;          
+## [53] &amp;quot;George Hennard&amp;quot;            &amp;quot;Joseph T. Wesbecker&amp;quot;      
+## [55] &amp;quot;Patrick Purdy&amp;quot;             &amp;quot;Richard Farley&amp;quot;           
+## [57] &amp;quot;William Cruse&amp;quot;             &amp;quot;Patrick Sherrill&amp;quot;         
+## [59] &amp;quot;James Oliver Huberty&amp;quot;      &amp;quot;Abdelkrim Belachheb&amp;quot;      
+## [61] &amp;quot;Carl Robert Brown&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;am_i &amp;lt;- function(terrorist) {
+  msg &amp;lt;- paste(&amp;quot;`I am` ==&amp;quot;, terrorist)
+  print(msg)
+  print(`I am` == terrorist)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pull(white_males, name) %&amp;gt;% 
+  walk(~am_i(.))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;`I am` == Jordan Witmer&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Zephen A. Xaver&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Robert D. Bowers&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Jarrod W. Ramos&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Dimitrios Pagourtzis&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Travis Reinking&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Nikolas J. Cruz&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Timothy O&amp;#39;Brien Smith&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Kevin Janson Neal&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Devin Patrick Kelley&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Scott Allen Ostrem&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Stephen Craig Paddock&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Randy Stair&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Thomas Hartless&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Jason B. Dalton&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Robert Lewis Dear&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Noah Harpham&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Dylann Storm Roof&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Elliot Rodger&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == John Zawahri&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Kurt Myers&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Adam Lanza&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Andrew Engeldinger&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Wade Michael Page&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == James Holmes&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Ian Stawicki&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Scott Evans Dekraai&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Jared Loughner&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Robert Stewart&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Wesley Neal Higdon&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Steven Kazmierczak&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Robert A. Hawkins&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Tyler Peterson&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Sulejman Talović\u0087&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Charles Carl Roberts&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Kyle Aaron Huff&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Terry Michael Ratzmann&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Nathan Gale&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Douglas Williams&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Michael McDermott&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Larry Gene Ashbrook&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Day trader Mark O. Barton&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Eric Harris&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Kipland P. Kinkel&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Mitchell Scott Johnson&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Matthew Beck&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Dean Allen Mellberg&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Kenneth Junior French&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Gian Luigi Ferri&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == John T. Miller&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Eric Houston&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Thomas McIlvane&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == George Hennard&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Joseph T. Wesbecker&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Patrick Purdy&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Richard Farley&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == William Cruse&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Patrick Sherrill&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == James Oliver Huberty&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Abdelkrim Belachheb&amp;quot;
+## [1] FALSE
+## [1] &amp;quot;`I am` == Carl Robert Brown&amp;quot;
+## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;`I am` &amp;gt; sum(my_parts)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Google Trends for Campaigns</title>
       <link>/post/trendyy-4-campaigns/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
@@ -2093,15 +2305,6 @@ head(all_csvs)&lt;/code&gt;&lt;/pre&gt;
 ## 5 female        1982           0 Hawthorne            1      3
 ## 6 male          1981           0 Control              0      3&lt;/code&gt;&lt;/pre&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Boston useR presentation (2018-07-15)</title>
-      <link>/project/2018-07-15-user/</link>
-      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/2018-07-15-user/</guid>
-      <description></description>
     </item>
     
   </channel>
