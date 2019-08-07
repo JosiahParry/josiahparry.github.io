@@ -47,7 +47,7 @@ terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spre
 my_parts &amp;lt;- c(&amp;quot;angry&amp;quot;, &amp;quot;white&amp;quot;, &amp;quot;male&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_parts == terrorist&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE TRUE TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;`I am` &amp;gt; sum(parts)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;`I am` &amp;gt; sum(my_parts)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;`I am` == sum(terrorist)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;FALSE&lt;/code&gt;&lt;/pre&gt;
