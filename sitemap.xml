@@ -4,6 +4,22 @@
     
     <url>
     
+      <loc>/post/2019-09-12-intro-tidymodels/</loc>
+      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/post/2019-08-09-epa-waterquality/</loc>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/my-parts/</loc>
       <lastmod>2019-08-04T00:00:00+00:00</lastmod>
     </url>
@@ -208,7 +224,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -252,7 +268,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -261,7 +277,7 @@
     <url>
     
       <loc>/categories/r/</loc>
-      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -395,8 +411,26 @@
     
     <url>
     
+      <loc>/tags/gis/</loc>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/history/</loc>
       <lastmod>2019-03-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/leaflet/</loc>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -442,6 +476,15 @@
     
       <loc>/tags/methods/</loc>
       <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/modeling/</loc>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -512,6 +555,15 @@
     
     <url>
     
+      <loc>/tags/sf/</loc>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/social-science/</loc>
       <lastmod>2019-03-17T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -549,7 +601,7 @@
     <url>
     
       <loc>/tags/tidyverse/</loc>
-      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -576,7 +628,7 @@
     <url>
     
       <loc>/categories/tutorial/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

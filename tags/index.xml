@@ -42,7 +42,7 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -157,11 +157,29 @@
     </item>
     
     <item>
+      <title>gis</title>
+      <link>/tags/gis/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/gis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>history</title>
       <link>/tags/history/</link>
       <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/history/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leaflet</title>
+      <link>/tags/leaflet/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/leaflet/</guid>
       <description></description>
     </item>
     
@@ -189,6 +207,15 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modeling</title>
+      <link>/tags/modeling/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/modeling/</guid>
       <description></description>
     </item>
     
@@ -247,6 +274,15 @@
     </item>
     
     <item>
+      <title>sf</title>
+      <link>/tags/sf/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>social science</title>
       <link>/tags/social-science/</link>
       <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
@@ -285,7 +321,7 @@
     <item>
       <title>tidyverse</title>
       <link>/tags/tidyverse/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/tidyverse/</guid>
       <description></description>

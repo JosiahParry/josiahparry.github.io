@@ -7,10 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Intro to Tidy Modeling</title>
+      <link>/post/2019-09-12-intro-tidymodels/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-09-12-intro-tidymodels/</guid>
+      <description>This is a resource intended to provide a top-level introduction into the main aspects of tidymodels. The introduction into tidyverse concepts largely adapted from Thomas Mock’s Intro to the Tidyverse. Content was also adapted from the Max Kuhn’s Applied Machine Learning content as well as Edgar Ruiz’s Gentle Introduction to Tidymodels.
+View source code here.
+Intro to Tidy modeling  Prediction API Prediction App  This repository contains the resources used for a brief (~1hr) introduction to tidymodels.</description>
+    </item>
+    
+    <item>
+      <title>Water Quality Analysis</title>
+      <link>/post/2019-08-09-epa-waterquality/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-08-09-epa-waterquality/</guid>
+      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA. This serves as a quick example of using the tidyverse for spatial analysis, modeling, and interactive mapping.
+The source code and data can be found here.
+EPA Water Quality Analysis Data Cleaning This section outlines the process needed for cleaning data taken from EPA.gov.
+There are two datasets:</description>
+    </item>
     
     <item>
       <title>∑ { my parts }</title>

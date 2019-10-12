@@ -120,7 +120,7 @@
   <meta property="og:description" content="Social Data Scientist"><meta property="og:image" content="/img/img/bubbles.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-04-14T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-10-27T00:00:00&#43;00:00">
   
 
   
@@ -304,6 +304,17 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a></h2>
+    <div class="article-style">
+      
+      In an earlier posting I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs.
+Thankfully purrr has a beautiful function called map_df() which will make this into a two liner. This process has essentially 3 steps.
+Create a vector of all .csv files that should be merged together. Read each file using readr::read_csv() Combine each dataframe into one.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a></h2>
