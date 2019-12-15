@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on Josiah Parry</title>
+    <title>r on Josiah Parry</title>
     <link>/tags/r/</link>
-    <description>Recent content in R on Josiah Parry</description>
+    <description>Recent content in r on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
@@ -19,6 +19,15 @@
       
       <guid>/post/2019-12-14-spss-haven/</guid>
       <description>My education as a social scientist—undergratuate studies in sociology and anthropology—was largely focused on theory and the application of theory to social problems. For the most part, I taught myself how to apply those methods through R. I was fortunate enough to have avoided ever using SPSS. Perhaps that is good. Perhaps it is not. The use of R in the social sciences is increasing and I will go as far as to say that that is great news.</description>
+    </item>
+    
+    <item>
+      <title>{genius}</title>
+      <link>/project/geniusr/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/geniusr/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -136,15 +145,6 @@ Create a vector of all .csv files that should be merged together. Read each file
     </item>
     
     <item>
-      <title>Boston useR presentation (2018-07-15)</title>
-      <link>/project/2018-07-15-user/</link>
-      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/2018-07-15-user/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Coursera R-Programming: Week 2 Problems</title>
       <link>/post/tidy-coursera-r-programming/</link>
       <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
@@ -152,15 +152,6 @@ Create a vector of all .csv files that should be merged together. Read each file
       <guid>/post/tidy-coursera-r-programming/</guid>
       <description>Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R. During this time one this has become apparent, people are teaching the old paradigm of R and avoiding the tidyverse all together.
 I recently had a student reach out to me in need of help with the first programming assignment from the Coursera R-Programming course (part of the Johns Hopkins Data Science Specialization).</description>
-    </item>
-    
-    <item>
-      <title>geniusR</title>
-      <link>/project/geniusr/</link>
-      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/geniusr/</guid>
-      <description></description>
     </item>
     
     <item>

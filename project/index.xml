@@ -7,35 +7,53 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Thu, 15 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Letters to a layperson</title>
-      <link>/project/letters/</link>
-      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      <title>{genius}</title>
+      <link>/project/geniusr/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/project/letters/</guid>
-      <description>I have been in the world of academia for nearly five years now. During this time I’ve read countless scholarly journal articles that I’ve struggled to wrap my head around. The academic language is riddled with obfuscating words like “milieux” and “nexus” which are often used to explain relatively simple concepts in a not so simple language. I’ve had to train myself to understand the academic language and translate it to regular people (layperson) speak.</description>
-    </item>
-    
-    <item>
-      <title>Boston useR presentation (2018-07-15)</title>
-      <link>/project/2018-07-15-user/</link>
-      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/2018-07-15-user/</guid>
+      <guid>/project/geniusr/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>geniusR</title>
-      <link>/project/geniusr/</link>
-      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <title>r4campaigns</title>
+      <link>/project/r4c/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/project/geniusr/</guid>
+      <guid>/project/r4c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>{opensecrets}</title>
+      <link>/project/opensecrets/</link>
+      <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/opensecrets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Music Information Retrieval in R (MIRR)</title>
+      <link>/project/mirr/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/mirr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>{bbcharts}</title>
+      <link>/project/bbcharts/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/bbcharts/</guid>
       <description></description>
     </item>
     

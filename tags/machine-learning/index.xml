@@ -24,6 +24,15 @@ Intro to Tidy modeling  Prediction API Prediction App  This repository contains 
     </item>
     
     <item>
+      <title>Music Information Retrieval in R (MIRR)</title>
+      <link>/project/mirr/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/mirr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>xgboost feature importance</title>
       <link>/post/xgb-feature-importance/</link>
       <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
