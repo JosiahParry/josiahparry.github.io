@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Fri, 09 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Finding an SPSS {haven}</title>
+      <link>/post/2019-12-14-spss-haven/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-12-14-spss-haven/</guid>
+      <description>My education as a social scientist—undergratuate studies in sociology and anthropology—was largely focused on theory and the application of theory to social problems. For the most part, I taught myself how to apply those methods through R. I was fortunate enough to have avoided ever using SPSS. Perhaps that is good. Perhaps it is not. The use of R in the social sciences is increasing and I will go as far as to say that that is great news.</description>
+    </item>
+    
+    <item>
+      <title>Intro to Tidy Modeling</title>
+      <link>/post/2019-09-12-intro-tidymodels/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-09-12-intro-tidymodels/</guid>
+      <description>This is a resource intended to provide a top-level introduction into the main aspects of tidymodels. The introduction into tidyverse concepts largely adapted from Thomas Mock’s Intro to the Tidyverse. Content was also adapted from the Max Kuhn’s Applied Machine Learning content as well as Edgar Ruiz’s Gentle Introduction to Tidymodels.
+View source code here.
+Intro to Tidy modeling  Prediction API Prediction App  This repository contains the resources used for a brief (~1hr) introduction to tidymodels.</description>
+    </item>
     
     <item>
       <title>Water Quality Analysis</title>

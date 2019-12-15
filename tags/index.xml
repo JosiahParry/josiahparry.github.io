@@ -42,9 +42,18 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R theory</title>
+      <link>/tags/r-theory/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-theory/</guid>
       <description></description>
     </item>
     
@@ -54,6 +63,15 @@
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/us/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>advanced R</title>
+      <link>/tags/advanced-r/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/advanced-r/</guid>
       <description></description>
     </item>
     
@@ -108,6 +126,15 @@
       <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/decision-trees/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dplyr</title>
+      <link>/tags/dplyr/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/dplyr/</guid>
       <description></description>
     </item>
     
@@ -195,7 +222,7 @@
     <item>
       <title>machine learning</title>
       <link>/tags/machine-learning/</link>
-      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/machine-learning/</guid>
       <description></description>
@@ -238,6 +265,15 @@
     </item>
     
     <item>
+      <title>parsnip</title>
+      <link>/tags/parsnip/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/parsnip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>plumber</title>
       <link>/tags/plumber/</link>
       <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
@@ -261,6 +297,33 @@
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/politics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>purrr</title>
+      <link>/tags/purrr/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/purrr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recipes</title>
+      <link>/tags/recipes/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/recipes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rsample</title>
+      <link>/tags/rsample/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rsample/</guid>
       <description></description>
     </item>
     
@@ -301,6 +364,15 @@
     </item>
     
     <item>
+      <title>spss</title>
+      <link>/tags/spss/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/spss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>talks</title>
       <link>/tags/talks/</link>
       <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
@@ -319,9 +391,18 @@
     </item>
     
     <item>
+      <title>tidymodels</title>
+      <link>/tags/tidymodels/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidymodels/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>tidyverse</title>
       <link>/tags/tidyverse/</link>
-      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/tidyverse/</guid>
       <description></description>

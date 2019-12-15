@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>talks on Josiah Parry</title>
+    <link>/categories/talks/</link>
+    <description>Recent content in talks on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019</copyright>
+    <lastBuildDate>Thu, 12 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intro to Tidy Modeling</title>
+      <link>/post/2019-09-12-intro-tidymodels/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-09-12-intro-tidymodels/</guid>
+      <description>This is a resource intended to provide a top-level introduction into the main aspects of tidymodels. The introduction into tidyverse concepts largely adapted from Thomas Mock’s Intro to the Tidyverse. Content was also adapted from the Max Kuhn’s Applied Machine Learning content as well as Edgar Ruiz’s Gentle Introduction to Tidymodels.
+View source code here.
+Intro to Tidy modeling  Prediction API Prediction App  This repository contains the resources used for a brief (~1hr) introduction to tidymodels.</description>
+    </item>
+    
+  </channel>
+</rss>

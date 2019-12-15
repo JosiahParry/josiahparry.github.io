@@ -11,6 +11,339 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Finding an SPSS {haven}</title>
+      <link>/post/2019-12-14-spss-haven/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-12-14-spss-haven/</guid>
+      <description>
+
+
+&lt;p&gt;My education as a social scientist—undergratuate studies in sociology and anthropology—was largely focused on theory and the application of theory to social problems. For the most part, I taught myself how to apply those methods through R. I was fortunate enough to have avoided ever using SPSS. Perhaps that is good. Perhaps it is not. The use of R in the social sciences is increasing and I will go as far as to say that that is great news. However, there are still holdouts.&lt;/p&gt;
+&lt;p&gt;Very recently I came across data exported from SPSS in the wild. In the work that I get to engage in at the Boston Area Research Initiative (&lt;a href=&#34;https://www.northeastern.edu/csshresearch/bostonarearesearchinitiative/&#34;&gt;BARI&lt;/a&gt;) we receive data from various sources, whether these be municipal organizations, the police department, or non-profits, and as Tolstoy said:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;
+&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;
+“All clean datasets are alike; every messy dataset is messy in its own way.”, Leo Tolstoy. &lt;a href=&#34;https://t.co/Z70eXgKRaK&#34;&gt;https://t.co/Z70eXgKRaK&lt;/a&gt;
+&lt;/p&gt;
+— Maria Khalusova (&lt;span class=&#34;citation&#34;&gt;@mariaKhalusova&lt;/span&gt;) &lt;a href=&#34;https://twitter.com/mariaKhalusova/status/1204853611743842304?ref_src=twsrc%5Etfw&#34;&gt;December 11, 2019&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;In this post I want to illustrate two of the main pain points I encountered while working with data from SPSS.I also go rather deep into the weeds about R data structures and how we can manipulate them. While this is “about” SPSS data, folks looking for a better understanding of R object may benefit from this as well (specifically Gripe 2).&lt;/p&gt;
+&lt;div id=&#34;haven&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;{haven}&lt;/h2&gt;
+&lt;p&gt;I am not sure where the inspiration for the name “haven” came from. But I am sure that its name does indeed speak for itself. haven enables R programmers that are SPSS—Stata and SAS as well—illiterate to work with data that is not naturally intended for R use. There are two key behaviors of SPSS data that I was unaware of and that plagued me. I break these down into three gripes below.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gripes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Gripes&lt;/h2&gt;
+&lt;p&gt;I maintain three gripes about SPSS data.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Factor values are represented numerically and the values that they represent are stored in metadata.&lt;/li&gt;
+&lt;li&gt;Column names are vague. The values they represent are stored as a label (metadata).&lt;/li&gt;
+&lt;li&gt;Missing values can be represented innumerably. Each column can have user defined missing values, i.e. &lt;code&gt;9999&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now, I must say that I have found it best practice to try and combat my own gripes.&lt;/p&gt;
+&lt;p&gt;In regards to the former two gripes, this is not unheard of behavior nor is it rare. Associating numeric values with &lt;em&gt;related&lt;/em&gt; values—oh, I don’t know…think of a user ID and an email address—is in essence the core of relational database systems (RDBMS). One may even have the gall to argue that RDBMS power many of the tools I use and take for granted. I would most likely be willing to concede that point.&lt;/p&gt;
+&lt;p&gt;The third gripe can be quite easily countered if I am to be frank. Missing data is in of itself data. An &lt;code&gt;NA&lt;/code&gt; is an &lt;code&gt;NA&lt;/code&gt; is an &lt;code&gt;NA&lt;/code&gt; may not be a generalizable statement. Providing values such as &lt;code&gt;9999&lt;/code&gt; in place of a missing value in some cases may be a relic of antiquity where missingness could not be handled by software. Or, perhaps we can frame missingness other ways. Let’s imagine we are conducting a study and we want to keep track of why there was missing data. This could have been from a non-response, or a withdrawal, or erroneously entered data, or any other number of reasons. Keeping a record of that missing data may useful.&lt;/p&gt;
+&lt;div id=&#34;gripe-1-numbers-representing-characters-or-labels&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Gripe 1: numbers representing characters (or labels)&lt;/h3&gt;
+&lt;p&gt;Sometimes I really would like &lt;code&gt;stringsAsFactors = TRUE&lt;/code&gt;. Working with survey data tends to be one of those times. R has a robust method of creating, handling, and manipulating factors&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; and because of this, we aren’t required to numerically encode our data. This may be a personal preference, but I really like to be reminded of &lt;em&gt;what&lt;/em&gt; I am working with and seeing the factor levels clearly spelled out for me is quite nice.&lt;/p&gt;
+&lt;p&gt;Since the data I am working with at BARI is confidential, I’ve found some SPSS data hosted by the &lt;a href=&#34;https://www.bath.ac.uk/&#34;&gt;University of Bath&lt;/a&gt;&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; to illustrate this with.&lt;/p&gt;
+&lt;p&gt;Reading in data is rather straightforward. SPSS data come with a &lt;code&gt;.sav&lt;/code&gt; file extension. Following standard &lt;a href=&#34;https://readr.tidyverse.org/&#34;&gt;&lt;code&gt;readr&lt;/code&gt;&lt;/a&gt; convention we can read a .sav file with &lt;code&gt;haven::read_sav()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: the syntax above is used for referencing an exported function from a namespace (package name). The syntax is &lt;code&gt;pkgname::function()&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The below line reads in the sav file from the University of Bath.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: by wrapping an object assignment expression, such as the below, in parentheses the object is then printed (I just recently figured this out).&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(haven)
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ───────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
+## ✔ readr   1.2.1     ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ──────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# read in sav file
+(noise &amp;lt;- haven::read_sav(&amp;quot;http://staff.bath.ac.uk/pssiw/stats2/noisedata.sav&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 20 x 6
+##    SUBJECT GENDER     NONE   LOW MEDIUM  HIGH
+##      &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1       1 1            46    55     68    44
+##  2       2 1            44    61     72    51
+##  3       3 1            51    59     79    38
+##  4       4 1            34    45     51    37
+##  5       5 1            55    58     45    45
+##  6       6 1            29    64     74    39
+##  7       7 1            34    60     79    46
+##  8       8 1            44    57     66    51
+##  9       9 1            50    61     59    40
+## 10      10 1            41    63     68    50
+## 11      11 2            46    58     72    47
+## 12      12 2            47    55     74    55
+## 13      13 2            38    44     70    46
+## 14      14 2            38    47     61    53
+## 15      15 2            50    20     58    51
+## 16      16 2            46    51     74    42
+## 17      17 2            44    54     78    46
+## 18      18 2            38    48     69    51
+## 19      19 2            40    50     70    47
+## 20      20 2            46    52     66    41&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The above shows &lt;code&gt;GENDER&lt;/code&gt; codes as a numeric value. But if you print out the tibble to your console you will see labels. So in this case, where there is a &lt;code&gt;1&lt;/code&gt; under &lt;code&gt;GENDER&lt;/code&gt;, the printed console shows &lt;code&gt;[male]&lt;/code&gt;, and the same is true for &lt;code&gt;2&lt;/code&gt; and &lt;code&gt;[female]&lt;/code&gt;. We can get a sense of this by viewing the structure of the tibble.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(noise)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Classes &amp;#39;tbl_df&amp;#39;, &amp;#39;tbl&amp;#39; and &amp;#39;data.frame&amp;#39;:    20 obs. of  6 variables:
+##  $ SUBJECT: num  1 2 3 4 5 6 7 8 9 10 ...
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F8.2&amp;quot;
+##  $ GENDER : &amp;#39;haven_labelled&amp;#39; num  1 1 1 1 1 1 1 1 1 1 ...
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F8.2&amp;quot;
+##   ..- attr(*, &amp;quot;labels&amp;quot;)= Named num  1 2
+##   .. ..- attr(*, &amp;quot;names&amp;quot;)= chr  &amp;quot;male&amp;quot; &amp;quot;female&amp;quot;
+##  $ NONE   : num  46 44 51 34 55 29 34 44 50 41 ...
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F8.2&amp;quot;
+##  $ LOW    : num  55 61 59 45 58 64 60 57 61 63 ...
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F8.2&amp;quot;
+##  $ MEDIUM : num  68 72 79 51 45 74 79 66 59 68 ...
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F8.2&amp;quot;
+##  $ HIGH   : num  44 51 38 37 45 39 46 51 40 50 ...
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F8.2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Above we can see that &lt;code&gt;GENDER&lt;/code&gt; has an attribute &lt;code&gt;labels&lt;/code&gt; which is a named numeric vector. The unique values are 1 and 2 representing “male” and “female” respectively. I struggle to keep this mental association. I’d prefer to have this shown explicitly. Fortunately, haven provides the function &lt;code&gt;haven::as_factor()&lt;/code&gt; which will convert these pesky integer columns to their respective factor values. We just need to pass the data frame as the only argument—sure, there are other arguments if you want to get fancy.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# selecting just 2 columns and 2 rows for simlicity.
+small_lil_df &amp;lt;- slice(noise, 1, 20) %&amp;gt;% 
+  select(1, 2)
+
+# convert coded response to response text
+haven::as_factor(small_lil_df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 2
+##   SUBJECT GENDER
+##     &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt; 
+## 1       1 male  
+## 2      20 female&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And now we can just forget those integers ever existed in the firstplace!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gripe-2-uninformative-column-names&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Gripe 2: uninformative column names&lt;/h3&gt;
+&lt;p&gt;There are three key rules to &lt;a href=&#34;https://vita.had.co.nz/papers/tidy-data.pdf&#34;&gt;tidy data&lt;/a&gt;.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Each variable forms a column.&lt;/li&gt;
+&lt;li&gt;Each observation forms a row.&lt;/li&gt;
+&lt;li&gt;Each type of observational unit forms a table.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Each variable forms a column. Got it. So this means that any thing that can help describe our observation should be a column. Say we have a table of survey respondents. In this case each row should be a respondent and each column should be a variable (or feature, or predictor, or x, or whatever) associate with that respondent. This could be something like age, birth date, or the respondents response to a survey question.&lt;/p&gt;
+&lt;p&gt;In the &lt;a href=&#34;https://style.tidyverse.org/index.html&#34;&gt;tidyverse style guide&lt;/a&gt; Hadley Wickham writes&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Generally, variable names should be nouns and function names should be verbs. Strive for names that are concise and meaningful (this is not easy!).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I personaly try to extend this to column names as well. Feature names are important so I, as a researcher, can remember what is what. From my encounters with SPSS data, I’ve found that feature names can be rather uninformative e.g. “Q12.” Much like factors, columns may have associated information hidden somewhere within them.&lt;/p&gt;
+&lt;p&gt;We read in the personality data set from the Universit of Bath below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# read in sav file with column labels
+personality &amp;lt;- haven::read_sav(&amp;quot;http://staff.bath.ac.uk/pssiw/stats2/personality.sav&amp;quot;)
+select(personality, 1:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 459 x 10
+##    PERS01 PERS02 PERS03 PERS04 PERS05 PERS06 PERS07 PERS08 PERS09 PERS10
+##     &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+##  1      5      4      5      1      4      3      3      1      2      3
+##  2      1      1      5      2      1      2      5      1      5      1
+##  3      4      1      5      3      3      4      5      3      1      4
+##  4      4      2      5      1      4      3      4      4      4      5
+##  5      2      3      5      1      2      4      5      2      3      3
+##  6      1      1      5      4      3      4      4      2      1      4
+##  7      3      2      5      1      2      1      1      2      5      4
+##  8      5      2      4      2      4      1      4      3      3      5
+##  9      5      1      4      3      2      1      4      4      2      3
+## 10      4      1      5      1      4      3      4      1      5      4
+## # … with 449 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The first thing that I notice is rather apalling: each &lt;em&gt;column&lt;/em&gt; represents a &lt;em&gt;person&lt;/em&gt;. oof, untidy. But this issue isn’t what brought me to these data. If you print the data to the console, you see something similar as what is above. If you &lt;em&gt;view&lt;/em&gt; (&lt;code&gt;View(df)&lt;/code&gt;) the data, the story is different. There is associated information underneath each column header.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(personality[,1:5])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Classes &amp;#39;tbl_df&amp;#39;, &amp;#39;tbl&amp;#39; and &amp;#39;data.frame&amp;#39;:    459 obs. of  5 variables:
+##  $ PERS01: num  5 1 4 4 2 1 3 5 5 4 ...
+##   ..- attr(*, &amp;quot;label&amp;quot;)= chr &amp;quot;talkative&amp;quot;
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F1.0&amp;quot;
+##  $ PERS02: num  4 1 1 2 3 1 2 2 1 1 ...
+##   ..- attr(*, &amp;quot;label&amp;quot;)= chr &amp;quot;finds fault&amp;quot;
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F1.0&amp;quot;
+##  $ PERS03: num  5 5 5 5 5 5 5 4 4 5 ...
+##   ..- attr(*, &amp;quot;label&amp;quot;)= chr &amp;quot;does a thorough job&amp;quot;
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F1.0&amp;quot;
+##  $ PERS04: num  1 2 3 1 1 4 1 2 3 1 ...
+##   ..- attr(*, &amp;quot;label&amp;quot;)= chr &amp;quot;depressed&amp;quot;
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F1.0&amp;quot;
+##  $ PERS05: num  4 1 3 4 2 3 2 4 2 4 ...
+##   ..- attr(*, &amp;quot;label&amp;quot;)= chr &amp;quot;original&amp;quot;
+##   ..- attr(*, &amp;quot;format.spss&amp;quot;)= chr &amp;quot;F1.0&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Yikes. These labels seem to be character judgements! Whatever the labels represent, I want them, and I want them as the column headers.&lt;/p&gt;
+&lt;p&gt;From looking at the structure of the data frame we can glean that each column has a label.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: I’m going to walk through a fair bit of the theory and under the hood work to make these labels column names. Scroll to the bottom of this section to find the function definition.&lt;/p&gt;
+&lt;div id=&#34;aside-r-theory&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Aside: R theory:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Each column of a data frame is actually just a vector. Each vector can have it’s own attributes (as above).&lt;/li&gt;
+&lt;li&gt;A data frame is actually just a list of equal length vectors (same number of observations).&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;“All objects can have arbitrary additional attributes, used to store metadata about the object.”&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;We can fetch list elements using &lt;code&gt;[[&lt;/code&gt; notation, e.g. &lt;code&gt;my_list[[1]]&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;purrr::pluck()&lt;/code&gt; is an alternative to using &lt;code&gt;[[&lt;/code&gt; for grabbing the underlying elements inside of a data structure. This means we can use &lt;code&gt;pluck(my_list, 1)&lt;/code&gt; in place of &lt;code&gt;my_list[[1]]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Okay, but &lt;em&gt;how&lt;/em&gt; does one actually get the label from the vector? The first step is to actually grab the vector. Below I use &lt;code&gt;purrr::pluck()&lt;/code&gt;to pull the first column. Note that &lt;code&gt;slice()&lt;/code&gt; is used for grabing specific row indexes. The below code is equivalent to &lt;code&gt;personality[1:10,][[1]]&lt;/code&gt;. I prefer using the purrr functions because they are more legible.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;col_1 &amp;lt;- slice(personality, 1:10) %&amp;gt;% 
+  pluck(1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can access all of the vectors attributes with, you guessed it, the &lt;code&gt;attributes()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attributes(col_1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $label
+## [1] &amp;quot;talkative&amp;quot;
+## 
+## $format.spss
+## [1] &amp;quot;F1.0&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This returns a named list. We can access (or set) specific attributes using the &lt;code&gt;attr()&lt;/code&gt; function. The two arguments we must supply are &lt;code&gt;x&lt;/code&gt;, the object, and &lt;code&gt;which&lt;/code&gt;, which attribute we seek. In this case the values are &lt;code&gt;col_1&lt;/code&gt; and &lt;code&gt;label&lt;/code&gt; respectively.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attr(col_1, &amp;quot;label&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;talkative&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;purrr yet again makes working with list objects easy. purrr exports a function factory&lt;a href=&#34;#fn5&#34; class=&#34;footnote-ref&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt; called &lt;code&gt;purrr::attr_getter()&lt;/code&gt;. This function generates a function which accesses specific attributes. We can create a function &lt;code&gt;get_label()&lt;/code&gt; using &lt;code&gt;attr_getter()&lt;/code&gt; all we have to do is tell it &lt;em&gt;which&lt;/em&gt; attribute we would like.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# generate a get_label f(x) via purr
+get_label &amp;lt;- purrr::attr_getter(&amp;quot;label&amp;quot;)
+
+get_label(col_1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;talkative&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Well, lovely. Let’s just use this on our &lt;code&gt;personality&lt;/code&gt; data frame.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_label(personality)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ope. Welp. That didn’t work. We should just give up 🤷.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://media.giphy.com/media/O5xChSjqUIxsk/giphy.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The reason this didn’t work is because we tried to use &lt;code&gt;get_label()&lt;/code&gt; on a tibble which didn’t have the “label” attribute. We can verify this by looking at the list names of the attributes of &lt;code&gt;personality&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(attributes(personality))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;names&amp;quot;     &amp;quot;row.names&amp;quot; &amp;quot;class&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But what about the attribtues of each column? We can iterate over each column using &lt;code&gt;map()&lt;/code&gt; to look at the attributes. Below I iterate over the first five columns. More on &lt;code&gt;map()&lt;/code&gt;&lt;a href=&#34;#fn6&#34; class=&#34;footnote-ref&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;map(select(personality, 1:5), ~names(attributes(.)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $PERS01
+## [1] &amp;quot;label&amp;quot;       &amp;quot;format.spss&amp;quot;
+## 
+## $PERS02
+## [1] &amp;quot;label&amp;quot;       &amp;quot;format.spss&amp;quot;
+## 
+## $PERS03
+## [1] &amp;quot;label&amp;quot;       &amp;quot;format.spss&amp;quot;
+## 
+## $PERS04
+## [1] &amp;quot;label&amp;quot;       &amp;quot;format.spss&amp;quot;
+## 
+## $PERS05
+## [1] &amp;quot;label&amp;quot;       &amp;quot;format.spss&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Well, now that we’ve iterated over the columns and illustrated that the attributes live there, why not iterate over the columns and use &lt;code&gt;get_label()&lt;/code&gt;?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# use get_label to retrieve column labels
+map_chr(select(personality, 1:5), get_label)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                PERS01                PERS02                PERS03 
+##           &amp;quot;talkative&amp;quot;         &amp;quot;finds fault&amp;quot; &amp;quot;does a thorough job&amp;quot; 
+##                PERS04                PERS05 
+##           &amp;quot;depressed&amp;quot;            &amp;quot;original&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Again, yikes @ the labels. Let’s store these results into a vector so we can rename the original columns.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pers_labels &amp;lt;- map_chr(personality, get_label)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can now change the names using &lt;code&gt;setNames()&lt;/code&gt; from base R. We will then make the column headers tidy (personal definition of tidy column names) using &lt;code&gt;janitor::clean_names()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;setNames(personality, pers_labels) %&amp;gt;% 
+  janitor::clean_names() %&amp;gt;% 
+  select(1:5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 459 x 5
+##    talkative finds_fault does_a_thorough_job depressed original
+##        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;               &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;
+##  1         5           4                   5         1        4
+##  2         1           1                   5         2        1
+##  3         4           1                   5         3        3
+##  4         4           2                   5         1        4
+##  5         2           3                   5         1        2
+##  6         1           1                   5         4        3
+##  7         3           2                   5         1        2
+##  8         5           2                   4         2        4
+##  9         5           1                   4         3        2
+## 10         4           1                   5         1        4
+## # … with 449 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the case that a column doesn’t have a label, &lt;code&gt;get_label()&lt;/code&gt; will return &lt;code&gt;NULL&lt;/code&gt; and then &lt;code&gt;setNames()&lt;/code&gt; will fail. To work around this, you can use the name of the column rather than the label value. Below is a function definition which handles this for you and, optionally, lets you specify which columns to rename based on a regex pattern. I think we’ve done enough list manipulation for the day. If you have questions about the function definition I’d be happy to work through it one on one with you via twitter DMs.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;label_to_colname &amp;lt;- function(df, pattern) {
+  get_label &amp;lt;- purrr::attr_getter(&amp;quot;label&amp;quot;)
+  col_labels &amp;lt;- purrr::map(df, get_label)
+
+  col_labels[unlist(map(col_labels, is.null))]  &amp;lt;- names(col_labels[unlist(purrr::map(col_labels, is.null))])
+
+  if (missing(pattern)) {
+    names_to_replace &amp;lt;- rep(TRUE, ncol(df))
+  } else {
+    names_to_replace &amp;lt;- stringr::str_detect(names(col_labels), pattern)
+  }
+  
+  colnames(df)[names_to_replace] &amp;lt;- janitor::make_clean_names(unlist(col_labels[names_to_replace]))
+
+  haven::zap_label(df)
+}
+
+label_to_colname(personality) %&amp;gt;% 
+  select(1:5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 459 x 5
+##    talkative finds_fault does_a_thorough_job depressed original
+##        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;               &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;
+##  1         5           4                   5         1        4
+##  2         1           1                   5         2        1
+##  3         4           1                   5         3        3
+##  4         4           2                   5         1        4
+##  5         2           3                   5         1        2
+##  6         1           1                   5         4        3
+##  7         3           2                   5         1        2
+##  8         5           2                   4         2        4
+##  9         5           1                   4         3        2
+## 10         4           1                   5         1        4
+## # … with 449 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# heh.
+label_to_colname(personality, &amp;quot;PERS37&amp;quot;) %&amp;gt;% 
+  select(37)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 459 x 1
+##    sometimes_rude
+##             &amp;lt;dbl&amp;gt;
+##  1              4
+##  2              1
+##  3              3
+##  4              3
+##  5              5
+##  6              1
+##  7              2
+##  8              2
+##  9              1
+## 10              1
+## # … with 449 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gripe-3-user-defined-missing-values&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Gripe 3: user defined missing values&lt;/h3&gt;
+&lt;p&gt;I’ll keep this one short. If there are user defined missing values in a &lt;code&gt;.sav&lt;/code&gt; file, you can encode these as &lt;code&gt;NA&lt;/code&gt; by setting the &lt;code&gt;user_na&lt;/code&gt; arugment to &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# there aren&amp;#39;t any missing values but you get the idea
+noise &amp;lt;- haven::read_sav(&amp;quot;http://staff.bath.ac.uk/pssiw/stats2/noisedata.sav&amp;quot;,
+                         user_na = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And if for any reason that did not suffice, you can replace missing values with &lt;code&gt;replace_na()&lt;/code&gt;&lt;a href=&#34;#fn7&#34; class=&#34;footnote-ref&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;take-aways&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Take aways&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;All data is messy in it’s own way.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;haven::read_sav()&lt;/code&gt; will read SPSS data.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;haven::as_factor()&lt;/code&gt; will apply column labels in place of the numeric values (if present).&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Replace user defined NA values by setting &lt;code&gt;user_na = TRUE&lt;/code&gt; i.e. &lt;code&gt;haven::read_sav(&amp;quot;filepath.sav&amp;quot;, user_na = TRUE)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;All R objects can have attributes.&lt;/li&gt;
+&lt;li&gt;You can access attributes using &lt;code&gt;attributes()&lt;/code&gt; or &lt;code&gt;attr()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Data frames are made of vectors.&lt;/li&gt;
+&lt;li&gt;Data frames are actually just lists masquerading as rectangles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Check out &lt;a href=&#34;https://forcats.tidyverse.org/&#34;&gt;forcats&lt;/a&gt; for working with factors.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Anthony Horowitz wrote a rather fun murder mystery novel titled &lt;a href=&#34;https://www.amazon.com/Magpie-Murders-Novel-Anthony-Horowitz/dp/0062645226&#34;&gt;Magpie Murders&lt;/a&gt; which takes place in a small town outside of Bath. I recommend it.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://adv-r.had.co.nz/Data-structures.html#data-frames&#34; class=&#34;uri&#34;&gt;http://adv-r.had.co.nz/Data-structures.html#data-frames&lt;/a&gt;&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://adv-r.had.co.nz/Data-structures.html#attributes&#34; class=&#34;uri&#34;&gt;http://adv-r.had.co.nz/Data-structures.html#attributes&lt;/a&gt;&lt;a href=&#34;#fnref4&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;A function factory is an object which creates other function objects.&lt;a href=&#34;#fnref5&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://adv-r.hadley.nz/functionals.html#map&#34; class=&#34;uri&#34;&gt;https://adv-r.hadley.nz/functionals.html#map&lt;/a&gt;&lt;a href=&#34;#fnref6&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://tidyr.tidyverse.org/reference/replace_na.html&#34; class=&#34;uri&#34;&gt;https://tidyr.tidyverse.org/reference/replace_na.html&lt;/a&gt;&lt;a href=&#34;#fnref7&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Intro to Tidy Modeling</title>
       <link>/post/2019-09-12-intro-tidymodels/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
@@ -2275,24 +2608,6 @@ test_graph&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/introducing-letters-to-a-layperson/</guid>
-      <description>&lt;p&gt;I have been in the world of academia for nearly five years now. During this time I’ve read countless &lt;em&gt;scholarly&lt;/em&gt; journal articles that I’ve struggled to wrap my head around. The academic language is riddled with obfuscating words like “milieux” and “nexus” which are often used to explain relatively simple concepts in a not so simple language. I’ve had to train myself to understand the academic language and translate it to regular people (layperson) speak.&lt;/p&gt;
-
-&lt;p&gt;The academic dialect is often associated with the &amp;ldquo;elitist media” (see &lt;a href=&#34;https://chomsky.info/199710__/&#34; target=&#34;_blank&#34;&gt;Chomsky&lt;/a&gt;) which has recently been blamed for creating a strong divide in American politics—as we’ve seen since the beginning of the 2016 presidential primaries. Many words, phrases, and ideas have been shrouded by this language barrier.  I have been trying to break down this barrier for myself for years now. I feel like I’ve only made a small dent. I have been trying to educate myself, a layperson, on these phrases and concepts.&lt;/p&gt;
-
-&lt;p&gt;As an undergraduate student I studied sociology and anthropology, but I found that I was enamored with economics, political science, urban theory, data science, psychology, and other disciplines. Across these fields there are identical concepts represented by different words or phrases—an ever frustrating thing. This is a barrier to understanding these fields. You must know certain ideas, words, and histories to understand the content.&lt;/p&gt;
-
-&lt;p&gt;I have been collecting notes on these ideas and often revisit them to remind myself of what they are, what they mean, and why they exist. These notes were created for a myself, a layperson.&lt;/p&gt;
-
-&lt;p&gt;In this series of forthcoming posts, I will write about concepts that I wish I knew better in a language that I can understand. I call this collection of posts &lt;em&gt;Letters To a Layperson&lt;/em&gt;, inspired by the phenomenal book &lt;em&gt;Letters to a Young Contrarian&lt;/em&gt; by Christopher Hitchens.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Letters to a layperson</title>
-      <link>/project/letters/</link>
-      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/letters/</guid>
       <description>&lt;p&gt;I have been in the world of academia for nearly five years now. During this time I’ve read countless &lt;em&gt;scholarly&lt;/em&gt; journal articles that I’ve struggled to wrap my head around. The academic language is riddled with obfuscating words like “milieux” and “nexus” which are often used to explain relatively simple concepts in a not so simple language. I’ve had to train myself to understand the academic language and translate it to regular people (layperson) speak.&lt;/p&gt;
 
 &lt;p&gt;The academic dialect is often associated with the &amp;ldquo;elitist media” (see &lt;a href=&#34;https://chomsky.info/199710__/&#34; target=&#34;_blank&#34;&gt;Chomsky&lt;/a&gt;) which has recently been blamed for creating a strong divide in American politics—as we’ve seen since the beginning of the 2016 presidential primaries. Many words, phrases, and ideas have been shrouded by this language barrier.  I have been trying to break down this barrier for myself for years now. I feel like I’ve only made a small dent. I have been trying to educate myself, a layperson, on these phrases and concepts.&lt;/p&gt;

@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/2019-12-14-spss-haven/</loc>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/2019-09-12-intro-tidymodels/</loc>
       <lastmod>2019-09-12T00:00:00+00:00</lastmod>
     </url>
@@ -224,7 +232,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -268,7 +276,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -277,7 +285,16 @@
     <url>
     
       <loc>/categories/r/</loc>
-      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/r-theory/</loc>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -296,6 +313,15 @@
     
       <loc>/tags/us/</loc>
       <lastmod>2019-08-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/advanced-r/</loc>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -350,6 +376,15 @@
     
       <loc>/tags/decision-trees/</loc>
       <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/dplyr/</loc>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -457,7 +492,7 @@
     <url>
     
       <loc>/tags/machine-learning/</loc>
-      <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -510,6 +545,15 @@
     
     <url>
     
+      <loc>/tags/parsnip/</loc>
+      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/plumber/</loc>
       <lastmod>2019-03-30T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -539,6 +583,33 @@
     
       <loc>/categories/politics/</loc>
       <lastmod>2019-08-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/purrr/</loc>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/recipes/</loc>
+      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/rsample/</loc>
+      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -582,8 +653,26 @@
     
     <url>
     
+      <loc>/tags/spss/</loc>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/talks/</loc>
       <lastmod>2018-07-15T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/talks/</loc>
+      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -600,8 +689,17 @@
     
     <url>
     
+      <loc>/tags/tidymodels/</loc>
+      <lastmod>2019-09-12T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/tidyverse/</loc>
-      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -628,7 +726,7 @@
     <url>
     
       <loc>/categories/tutorial/</loc>
-      <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+      <lastmod>2019-12-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
