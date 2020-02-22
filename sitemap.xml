@@ -3,327 +3,322 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/about/</loc>
+    <loc>http://josiahparry.com/about/</loc>
     <lastmod>2020-02-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>http://josiahparry.com/</loc>
     <lastmod>2020-02-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>http://josiahparry.com/projects/</loc>
     <lastmod>2020-02-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/googlesheets4/</loc>
+    <loc>http://josiahparry.com/tags/googlesheets4/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2020-01-13-gs4-auth/</loc>
+    <loc>http://josiahparry.com/post/2020-01-13-gs4-auth/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>http://josiahparry.com/post/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>http://josiahparry.com/tags/r/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rstudio-connect/</loc>
+    <loc>http://josiahparry.com/tags/rstudio-connect/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>http://josiahparry.com/tags/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tutorial/</loc>
+    <loc>http://josiahparry.com/tags/tutorial/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2019-12-14-spss-haven/</loc>
+    <loc>http://josiahparry.com/post/2019-12-14-spss-haven/</loc>
     <lastmod>2019-12-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2019-09-12-intro-tidymodels/</loc>
+    <loc>http://josiahparry.com/post/2019-09-12-intro-tidymodels/</loc>
     <lastmod>2019-09-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/gis/</loc>
+    <loc>http://josiahparry.com/tags/gis/</loc>
     <lastmod>2019-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/leaflet/</loc>
+    <loc>http://josiahparry.com/tags/leaflet/</loc>
     <lastmod>2019-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/modeling/</loc>
+    <loc>http://josiahparry.com/tags/modeling/</loc>
     <lastmod>2019-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/sf/</loc>
+    <loc>http://josiahparry.com/tags/sf/</loc>
     <lastmod>2019-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tidyverse/</loc>
+    <loc>http://josiahparry.com/tags/tidyverse/</loc>
     <lastmod>2019-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2019-08-09-epa-waterquality/</loc>
+    <loc>http://josiahparry.com/post/2019-08-09-epa-waterquality/</loc>
     <lastmod>2019-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/crime/</loc>
+    <loc>http://josiahparry.com/tags/crime/</loc>
     <lastmod>2019-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/politics/</loc>
+    <loc>http://josiahparry.com/tags/politics/</loc>
     <lastmod>2019-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/us/</loc>
+    <loc>http://josiahparry.com/tags/us/</loc>
     <lastmod>2019-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/my-parts/</loc>
+    <loc>http://josiahparry.com/post/my-parts/</loc>
     <lastmod>2019-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/campaigns/</loc>
+    <loc>http://josiahparry.com/tags/campaigns/</loc>
     <lastmod>2019-06-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/trendyy-4-campaigns/</loc>
+    <loc>http://josiahparry.com/post/trendyy-4-campaigns/</loc>
     <lastmod>2019-06-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/trendyy/</loc>
+    <loc>http://josiahparry.com/tags/trendyy/</loc>
     <lastmod>2019-06-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/scraping-4-campaigns/</loc>
+    <loc>http://josiahparry.com/post/scraping-4-campaigns/</loc>
     <lastmod>2019-06-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/youthvote/</loc>
+    <loc>http://josiahparry.com/tags/youthvote/</loc>
     <lastmod>2019-06-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/archives/</loc>
+    <loc>http://josiahparry.com/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2019-05-25-introducing-trendyy/</loc>
+    <loc>http://josiahparry.com/post/2019-05-25-introducing-trendyy/</loc>
     <lastmod>2019-05-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/genius/</loc>
-    <lastmod>2019-05-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/2019-05-08-genius-learnr-tutorial/</loc>
-    <lastmod>2019-05-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/api/</loc>
+    <loc>http://josiahparry.com/tags/api/</loc>
     <lastmod>2019-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/docker/</loc>
+    <loc>http://josiahparry.com/tags/docker/</loc>
     <lastmod>2019-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/genius-api/</loc>
+    <loc>http://josiahparry.com/tags/genius/</loc>
     <lastmod>2019-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/plumber/</loc>
+    <loc>http://josiahparry.com/post/genius-api/</loc>
     <lastmod>2019-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
+    <loc>http://josiahparry.com/tags/plumber/</loc>
     <lastmod>2019-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/history/</loc>
+    <loc>http://josiahparry.com/tags/python/</loc>
+    <lastmod>2019-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://josiahparry.com/tags/history/</loc>
     <lastmod>2019-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/political-science/</loc>
+    <loc>http://josiahparry.com/tags/political-science/</loc>
     <lastmod>2019-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/social-science/</loc>
+    <loc>http://josiahparry.com/tags/social-science/</loc>
     <lastmod>2019-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2019-03-17-the-fallacy-of-one-person-one-vote/</loc>
+    <loc>http://josiahparry.com/post/2019-03-17-the-fallacy-of-one-person-one-vote/</loc>
     <lastmod>2019-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/bari/</loc>
+    <loc>http://josiahparry.com/tags/bari/</loc>
     <lastmod>2019-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/shutdown-politics/</loc>
+    <loc>http://josiahparry.com/post/shutdown-politics/</loc>
     <lastmod>2019-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/decision-trees/</loc>
+    <loc>http://josiahparry.com/tags/decision-trees/</loc>
     <lastmod>2018-12-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/ggplot/</loc>
+    <loc>http://josiahparry.com/tags/ggplot/</loc>
     <lastmod>2018-12-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/machine-learning/</loc>
+    <loc>http://josiahparry.com/tags/machine-learning/</loc>
     <lastmod>2018-12-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/xgb-feature-importance/</loc>
+    <loc>http://josiahparry.com/post/xgb-feature-importance/</loc>
     <lastmod>2018-12-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/function-methods/</loc>
+    <loc>http://josiahparry.com/post/function-methods/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/functions/</loc>
+    <loc>http://josiahparry.com/tags/functions/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/generics/</loc>
+    <loc>http://josiahparry.com/tags/generics/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/methods/</loc>
+    <loc>http://josiahparry.com/tags/methods/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/packages/</loc>
+    <loc>http://josiahparry.com/tags/packages/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/s3/</loc>
+    <loc>http://josiahparry.com/tags/s3/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/letters/</loc>
+    <loc>http://josiahparry.com/tags/letters/</loc>
     <lastmod>2018-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/sociology/</loc>
+    <loc>http://josiahparry.com/tags/sociology/</loc>
     <lastmod>2018-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/us-representation-i/</loc>
+    <loc>http://josiahparry.com/post/us-representation-i/</loc>
     <lastmod>2018-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/introducing-letters-to-a-layperson/</loc>
+    <loc>http://josiahparry.com/post/introducing-letters-to-a-layperson/</loc>
     <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/write-chunked-csv/</loc>
+    <loc>http://josiahparry.com/post/write-chunked-csv/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/data-manipulation/</loc>
+    <loc>http://josiahparry.com/tags/data-manipulation/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/read-chunked-csv/</loc>
+    <loc>http://josiahparry.com/post/read-chunked-csv/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/coursera/</loc>
+    <loc>http://josiahparry.com/tags/coursera/</loc>
     <lastmod>2018-04-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/tidy-coursera-r-programming/</loc>
+    <loc>http://josiahparry.com/post/tidy-coursera-r-programming/</loc>
     <lastmod>2018-04-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/geniusr/</loc>
+    <loc>http://josiahparry.com/tags/geniusr/</loc>
     <lastmod>2018-01-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/introducing-geniusr/</loc>
+    <loc>http://josiahparry.com/post/introducing-geniusr/</loc>
     <lastmod>2018-01-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/nlp/</loc>
+    <loc>http://josiahparry.com/tags/nlp/</loc>
     <lastmod>2018-01-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/text-mining/</loc>
+    <loc>http://josiahparry.com/tags/text-mining/</loc>
     <lastmod>2018-01-27T00:00:00+00:00</lastmod>
   </url>
   

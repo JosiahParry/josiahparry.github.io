@@ -132,9 +132,86 @@
 </nav>
         <div id="content" class="content-container">
         
-    <h1 class="not-found-title">404: Not found</h1>
-    <h2>Sorry, we couldn't find the page you're looking for.</h2>
-    <a href="/">Go back home</a>
+<h1 class="post-title">Non-interactive user tokens with googlesheets4</h1>
+    <time>January 13, 2020</time>
+    <div>
+        <p>
+        
+
+
+<p><a href="https://github.com/JosiahParry/rsc-gsheets">This repository</a> contains an example of an R Markdown document that uses googlesheets4 to read from a private Google Sheet and is deployed to <a href="https://rstudio.com/products/connect/">RStudio Connect</a>.</p>
+<p>The path of least resistance for Google auth is to sit back and respond to some interactive prompts, but this won’t work for something that is deployed to a headless machine. You have to do some advance planning to provide your deployed product with a token.</p>
+<p>The <a href="https://gargle.r-lib.org/">gargle</a> vignette <a href="https://gargle.r-lib.org/articles/non-interactive-auth.html">Non-interactive auth</a> is the definitive document for how to do this. The gargle package handles auth for several packages, such as bigrquery, googledrive, gmailr, and googlesheets4.</p>
+<p>This repo provides a detailed example for the scenario where you are using an OAuth2 user token for a product deployed on RStudio Connect (see vignette section <a href="https://gargle.r-lib.org/articles/non-interactive-auth.html#project-level-oauth-cache">Project-level OAuth cache</a> from which this was adapted). <strong>Note</strong> that service account tokens are the preferred strategy for a deployed product, but sometimes there are reasons to use a user token.</p>
+<div id="authenticating" class="section level2">
+<h2>Authenticating</h2>
+<p>Load the <a href="https://googlesheets4.tidyverse.org/"><code>googlesheets4</code></a> package.</p>
+<pre class="r"><code>library(googlesheets4)</code></pre>
+<p>By default, gargle uses a central token store, outside of the project, which isn’t going to work for us. Instead we specify a project level directory <code>.secrets</code> which will contain our Google token. We will set the <code>gargle_oauth_cache</code> option to refer to this <code>.secrets</code> directory. We can check where the token will be cached with <code>gargle::gargle_oauth_cache()</code>.</p>
+<pre class="r"><code># designate project-specific cache
+options(gargle_oauth_cache = &quot;.secrets&quot;)
+
+# check the value of the option, if you like
+gargle::gargle_oauth_cache()</code></pre>
+<p>Next we will have to perform the interactive authentication just once. Doing this will generate the token and store it for us. You will be required to select an email account to authenticate with.</p>
+<pre class="r"><code># trigger auth on purpose --&gt; store a token in the specified cache
+# a broswer will be opened
+googlesheets4::sheets_auth()</code></pre>
+<p>Now that you have completed the authentication and returned to R, we can double check that the token was cached in <code>.secrets</code>.</p>
+<pre class="r"><code># see your token file in the cache, if you like
+list.files(&quot;.secrets/&quot;)</code></pre>
+<p>Voila! Let’s deauthorize in our session so we can try authenticating once more, but this time without interactivity.</p>
+<pre class="r"><code># deauth
+sheets_deauth()</code></pre>
+<p>In <code>sheets_auth()</code> we can specify where the token is cached and which email we used to authenticate.</p>
+<pre class="r"><code># sheets reauth with specified token and email address
+sheets_auth(
+  cache = &quot;.secrets&quot;,
+  email = &quot;josiah@email.com&quot;
+  )</code></pre>
+<p>Alternatively, we can specify these in the <code>options()</code> and run the authentication without an arguments supplied. Let’s first deauth in our session to try authenticating again.</p>
+<pre class="r"><code># deauth again
+sheets_deauth()
+
+# set values in options
+options(
+  gargle_oauth_cache = &quot;.secrets&quot;,
+  gargle_oauth_email = &quot;josiah@email.com&quot;
+)
+
+# run sheets auth
+sheets_auth()</code></pre>
+<p>Now that we are sure that authorization works without an interactive browser session, we should migrate the options into an <code>.Rprofile</code> file. This way, when an R session is spun up the options will be set from session start. Meaning, if you use <code>sheets_auth()</code> within your R Markdown document it will knit without having to open the browser.</p>
+</div>
+<div id="deploying-to-connect" class="section level2">
+<h2>Deploying to Connect</h2>
+<p>In order for the deployment to RStudio Connect to work, the <code>.secrets</code> directory and <code>.Rprofile</code> files need to be in the bundle. Be sure to do this from the <code>Add Files</code> button. If you cannot see the files because they are hidden from Finder you cran press <code>cmnd + shift + .</code>. Then publish!</p>
+</div>
+<div id="other-google-platforms" class="section level2">
+<h2>Other Google Platforms</h2>
+<p>This same process can be replicated for other packages that use gargle authentication. By virtue of having gargle as the central auth package for Google APIs, the workflow outlined here, and the others in the non-interactive auth vignette, can can be utilized for other google API packages (i.e. googledrive).</p>
+<pre class="r"><code># authenticate with googledrive and create a token
+googledrive::drive_auth()</code></pre>
+<p>Thank you to Jenny Bryan for her help editing this!</p>
+</div>
+
+        </p>
+    </div>
+    
+
+    <div class="page-footer">
+        <hr class="footer-divider">
+        
+        
+            <a class="tag" href="/tags/rstudio-connect">#RStudio Connect</a>
+        
+            <a class="tag" href="/tags/tutorial">#tutorial</a>
+        
+            <a class="tag" href="/tags/googlesheets4">#googlesheets4</a>
+        
+      
+    </div>
+
 
         
 
