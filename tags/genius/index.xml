@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>genius on Josiah Parry</title>
@@ -6,20 +6,10 @@
     <description>Recent content in genius on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/genius/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>{genius}</title>
-      <link>/project/geniusr/</link>
-      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/project/geniusr/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>genius tutorial</title>
@@ -27,8 +17,7 @@
       <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-05-08-genius-learnr-tutorial/</guid>
-      <description>Introducing genius You want to start analysing song lyrics, where do you go? There have been music information retrieval papers written on the topic of programmatically extracting lyrics from the web. Dozens of people have gone through the laborious task of scraping song lyrics from websites. Even a recent winner of the Shiny competition scraped lyrics from Genius.com.
-I too have been there. Scraping websites is not always the best use of your time.</description>
+      <description>Introducing genius You want to start analysing song lyrics, where do you go?</description>
     </item>
     
     <item>
@@ -38,9 +27,7 @@ I too have been there. Scraping websites is not always the best use of your time
       
       <guid>/post/genius-api/</guid>
       <description>get started here
-Since I created genius, I’ve wanted to make a version for python. But frankly, that’s a daunting task for me seeing as my python skills are intermediate at best. But recently I’ve been made aware of the package plumber. To put it plainly, plumber takes your R code and makes it accessible via an API.
-I thought this would be difficult. I was so wrong.
- Using plumber Plumber works by using roxygen like comments (#*).</description>
+Since I created genius, I’ve wanted to make a version for python.</description>
     </item>
     
   </channel>

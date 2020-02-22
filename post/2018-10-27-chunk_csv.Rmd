@@ -1,0 +1,80 @@
+---
+title: "Chunking your csv"
+subtitle: "Writing data subsets"
+date: '2018-10-27'
+slug: write-chunked-csv
+categories:
+  - R
+  - tutorial
+tags:
+  - R 
+  - tidyverse
+  - tutorial
+  - data manipulation
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval=FALSE)
+```
+
+Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using [Relay](relaytxt.io). Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative. 
+
+In order to solve this problem, a large csv must be split into multiple csv's for upload. Though this could be solved with excel and Google Sheets, who wants to labor over that?
+
+Here I will go through the methodology of writing a csv into multiple. I will use data from the [Quantitative Social Science](https://www.google.com/search?q=quantitative+social+science&oq=quantitative+social+science&aqs=chrome..69i57j69i61j69i65j69i60l2j69i59.5035j0j1&sourceid=chrome&ie=UTF-8) book by Kosuke Imai.  
+
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(tidyverse)
+
+social <- read_csv("https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/social.csv")
+
+dim(social)
+```
+
+
+This dataset has 305k observations and 6 columns. For this example let's say we wanted to split this into files of 15,000 rows or fewer. We can use the following custom funciton:
+
+```{r}
+write_csv_chunk <- function(filepath, n, output_name) {
+  df <- read_csv(filepath) # 1. read original file
+  
+  n_files <- ceiling(nrow(df)/n) # 2. identify how many files to make
+  
+  chunk_starts <- seq(1, n*n_files, by = n) #  3. identify the rown number to start on
+  
+  for (i in 1:n_files) { # 4. iterate through the csv to write the files
+    chunk_end <- n*i # 4a
+    df_to_write <- slice(df, chunk_starts[i]:chunk_end) # 4b
+    fpath <- paste0(output_name, "_", i, ".csv") # 4c
+    write_csv(df_to_write,  fpath) # 4d
+    message(paste0(fpath, " was written.")) # 4e
+  }
+}
+```
+
+
+The function has a few steps. Let's walk through them. The step numbers are commented above.
+
+1. Read in the csv.
+2. Identify the number of files that will have to be created.
+  * This will be the number of rows of the data frame divided by the number of rows we want each file to have. This number will be rounded up to handle a remainder. 
+  * In this case `ceiling(nrow(social) / 15000)` is equal to ` ceiling(nrow(social) / 15000)`. 
+3. Identify the row number to begin splitting the dataframe for each file. 
+  * This will be a factor of our `n` plus 1, but will never exceed the `nrow(df)`,
+4. This is the fun part, writing our files. The number of iterations is the number of files.
+  * _4a_: The ending row number is the iteration number multiplied by the number of rows. 
+  * _4b_: use `slice()` to cute the original data frame into the chunk beginning and chunk end
+  * _4c_: Creating the file paththat will be written.
+  * _4d_: Write the csv!
+  * _4e_: Print a message about the file being printed.
+  
+```{r}
+soc_fpath <- "https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/social.csv"
+write_csv_chunk(filepath = soc_fpath, n = 25000, "../../static/data/chunk_data/social_chunked")
+```
+
+Now that we have these files split up, it will be good to know how to get them back into one piece! Check out my blog post on reading multiple csvs in as one data frame [here](josiahparry.com/post/read-chunked-csv).
+
+
+

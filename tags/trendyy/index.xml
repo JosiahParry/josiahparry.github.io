@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>trendyy on Josiah Parry</title>
@@ -6,7 +6,6 @@
     <description>Recent content in trendyy on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
     <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/trendyy/index.xml" rel="self" type="application/rss+xml" />
@@ -18,8 +17,7 @@
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/trendyy-4-campaigns/</guid>
-      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics. Pundits have used Google seach trends as talking points. It is not uncommon to hear news about a candidates search trends the days following a town hall or significant rally. It seems that Google trends are becoming the go to proxy for a candidate’s salience.
-As a campaign, you are interested in the popularity of a candidate relative to another one.</description>
+      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</description>
     </item>
     
     <item>
@@ -28,10 +26,7 @@ As a campaign, you are interested in the popularity of a candidate relative to a
       <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-05-25-introducing-trendyy/</guid>
-      <description>trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
-The inspiration for this package was to provide a tidy interface to the trends data.
-Getting Started Installation You can install trendyy from CRAN using install.packages(&amp;quot;trendyy&amp;quot;).
- Usage Use trendy() to search Google Trends. The only mandatory argument is search_terms. This is a character vector with the terms of interest.</description>
+      <description>trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.</description>
     </item>
     
   </channel>
