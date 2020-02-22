@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>youthvote on Josiah Parry</title>
@@ -6,7 +6,6 @@
     <description>Recent content in youthvote on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
     <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/youthvote/index.xml" rel="self" type="application/rss+xml" />
@@ -18,8 +17,7 @@
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/trendyy-4-campaigns/</guid>
-      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics. Pundits have used Google seach trends as talking points. It is not uncommon to hear news about a candidates search trends the days following a town hall or significant rally. It seems that Google trends are becoming the go to proxy for a candidate’s salience.
-As a campaign, you are interested in the popularity of a candidate relative to another one.</description>
+      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</description>
     </item>
     
     <item>
@@ -28,8 +26,7 @@ As a campaign, you are interested in the popularity of a candidate relative to a
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/scraping-4-campaigns/</guid>
-      <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement. One of my largest concerns is that progressive campaigns are stuck in a sort of antiquated but nonetheless entrenched workflow. Google Sheets reign in metric reporting. Here I want to present one use case (of a few more to come) where R can be leveraged by your data team.
-In this post I show you how to scrape the most recent polling data from FiveThirtyEight.</description>
+      <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.</description>
     </item>
     
   </channel>

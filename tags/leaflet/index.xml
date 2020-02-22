@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>leaflet on Josiah Parry</title>
@@ -6,7 +6,6 @@
     <description>Recent content in leaflet on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
     <lastBuildDate>Fri, 09 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/leaflet/index.xml" rel="self" type="application/rss+xml" />
@@ -18,10 +17,7 @@
       <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-08-09-epa-waterquality/</guid>
-      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA. This serves as a quick example of using the tidyverse for spatial analysis, modeling, and interactive mapping.
-The source code and data can be found here.
-EPA Water Quality Analysis Data Cleaning This section outlines the process needed for cleaning data taken from EPA.gov.
-There are two datasets:</description>
+      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA.</description>
     </item>
     
   </channel>

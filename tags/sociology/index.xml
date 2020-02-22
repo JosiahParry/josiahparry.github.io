@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sociology on Josiah Parry</title>
@@ -6,7 +6,6 @@
     <description>Recent content in sociology on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
     <lastBuildDate>Sun, 25 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/sociology/index.xml" rel="self" type="application/rss+xml" />
@@ -18,7 +17,7 @@
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/us-representation-i/</guid>
-      <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like. It was the first attempt at creating some sort of agreement between the 13 original states to form a central government. In the end, the Articles of Confederation made the new central government too weak to accomplish anything. Then, in 1787 representatives from each state met in Philadelphia to entirely scrap the Articles of Confederation in a meeting that became known as the Constitutional Convention.</description>
+      <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like.</description>
     </item>
     
   </channel>

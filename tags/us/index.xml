@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>US on Josiah Parry</title>
@@ -6,7 +6,6 @@
     <description>Recent content in US on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
     <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/us/index.xml" rel="self" type="application/rss+xml" />
@@ -18,7 +17,7 @@
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/my-parts/</guid>
-      <description>library(tidyverse) terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&amp;quot;) %&amp;gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 white 63 554 1067 1621 69.3 ## 2 other 5 90 115 205 8.77 ## 3 black 19 108 89 197 8.43 ## 4 asian 8 77 33 110 4.70 ## 5 unclear 6 40 61 101 4.32 ## 6 latino 10 44 33 77 3.</description>
+      <description>library(tidyverse) terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&amp;quot;) %&amp;gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 white 63 554 1067 1621 69.</description>
     </item>
     
     <item>
@@ -27,7 +26,7 @@
       <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-03-17-the-fallacy-of-one-person-one-vote/</guid>
-      <description>On October 6, 2018, the US Senate voted 50–48 in favor of the appointment of Associate Justice Brett Kavanaugh. This led many pundits to point out a “disconnect” between the Senate and the body politic. The 50 senators who voted “yea” represent only 44% of the nation’s population. The year prior, Supreme Court Justice Neil Gorsuch was confirmed by 54 senators representing approximately 45% of the population.</description>
+      <description>On October 6, 2018, the US Senate voted 50–48 in favor of the appointment of Associate Justice Brett Kavanaugh.</description>
     </item>
     
     <item>
@@ -37,7 +36,7 @@
       
       <guid>/post/shutdown-politics/</guid>
       <description>Originally posted via Boston Area Research Initiative
-The nation heaved a sigh of relief as President Trump signed a bill on Friday, January 25th, that ended the longest government shutdown in US history. This bill, the Continuing Appropriation Act, provides enough funding to keep the government open until February 15th. After thirty-four days of turmoil for federal workers, it is hard to believe that in another three short weeks, the government can shutdown once again.</description>
+The nation heaved a sigh of relief as President Trump signed a bill on Friday, January 25th, that ended the longest government shutdown in US history.</description>
     </item>
     
     <item>
@@ -46,7 +45,7 @@ The nation heaved a sigh of relief as President Trump signed a bill on Friday, J
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/us-representation-i/</guid>
-      <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like. It was the first attempt at creating some sort of agreement between the 13 original states to form a central government. In the end, the Articles of Confederation made the new central government too weak to accomplish anything. Then, in 1787 representatives from each state met in Philadelphia to entirely scrap the Articles of Confederation in a meeting that became known as the Constitutional Convention.</description>
+      <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like.</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tidyverse on Josiah Parry</title>
@@ -6,20 +6,10 @@
     <description>Recent content in tidyverse on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Finding an SPSS {haven}</title>
-      <link>/post/2019-12-14-spss-haven/</link>
-      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-12-14-spss-haven/</guid>
-      <description>My education as a social scientist—undergratuate studies in sociology and anthropology—was largely focused on theory and the application of theory to social problems. For the most part, I taught myself how to apply those methods through R. I was fortunate enough to have avoided ever using SPSS. Perhaps that is good. Perhaps it is not. The use of R in the social sciences is increasing and I will go as far as to say that that is great news.</description>
-    </item>
     
     <item>
       <title>Water Quality Analysis</title>
@@ -27,10 +17,7 @@
       <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-08-09-epa-waterquality/</guid>
-      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA. This serves as a quick example of using the tidyverse for spatial analysis, modeling, and interactive mapping.
-The source code and data can be found here.
-EPA Water Quality Analysis Data Cleaning This section outlines the process needed for cleaning data taken from EPA.gov.
-There are two datasets:</description>
+      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA.</description>
     </item>
     
     <item>
@@ -39,8 +26,7 @@ There are two datasets:</description>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/write-chunked-csv/</guid>
-      <description>Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using Relay. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.
-In order to solve this problem, a large csv must be split into multiple csv’s for upload.</description>
+      <description>Sometimes due to limitations of software, file uploads often have a row limit.</description>
     </item>
     
     <item>
@@ -49,9 +35,7 @@ In order to solve this problem, a large csv must be split into multiple csv’s 
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/read-chunked-csv/</guid>
-      <description>In an earlier posting I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs.
-Thankfully purrr has a beautiful function called map_df() which will make this into a two liner. This process has essentially 3 steps.
-Create a vector of all .csv files that should be merged together. Read each file using readr::read_csv() Combine each dataframe into one.</description>
+      <description>In an earlier posting I wrote about having to break a single csv into multiple csvs.</description>
     </item>
     
     <item>
@@ -60,8 +44,7 @@ Create a vector of all .csv files that should be merged together. Read each file
       <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/tidy-coursera-r-programming/</guid>
-      <description>Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R. During this time one this has become apparent, people are teaching the old paradigm of R and avoiding the tidyverse all together.
-I recently had a student reach out to me in need of help with the first programming assignment from the Coursera R-Programming course (part of the Johns Hopkins Data Science Specialization).</description>
+      <description>Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R.</description>
     </item>
     
   </channel>

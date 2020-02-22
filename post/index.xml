@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Josiah Parry</title>
@@ -6,7 +6,6 @@
     <description>Recent content in Posts on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
     <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
@@ -18,7 +17,7 @@
       <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-12-14-spss-haven/</guid>
-      <description>My education as a social scientist—undergratuate studies in sociology and anthropology—was largely focused on theory and the application of theory to social problems. For the most part, I taught myself how to apply those methods through R. I was fortunate enough to have avoided ever using SPSS. Perhaps that is good. Perhaps it is not. The use of R in the social sciences is increasing and I will go as far as to say that that is great news.</description>
+      <description>My education as a social scientist—undergratuate studies in sociology and anthropology—was largely focused on theory and the application of theory to social problems.</description>
     </item>
     
     <item>
@@ -27,9 +26,7 @@
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-09-12-intro-tidymodels/</guid>
-      <description>This is a resource intended to provide a top-level introduction into the main aspects of tidymodels. The introduction into tidyverse concepts largely adapted from Thomas Mock’s Intro to the Tidyverse. Content was also adapted from the Max Kuhn’s Applied Machine Learning content as well as Edgar Ruiz’s Gentle Introduction to Tidymodels.
-View source code here.
-Intro to Tidy modeling  Prediction API Prediction App  This repository contains the resources used for a brief (~1hr) introduction to tidymodels.</description>
+      <description>This is a resource intended to provide a top-level introduction into the main aspects of tidymodels.</description>
     </item>
     
     <item>
@@ -38,10 +35,7 @@ Intro to Tidy modeling  Prediction API Prediction App  This repository contains 
       <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-08-09-epa-waterquality/</guid>
-      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA. This serves as a quick example of using the tidyverse for spatial analysis, modeling, and interactive mapping.
-The source code and data can be found here.
-EPA Water Quality Analysis Data Cleaning This section outlines the process needed for cleaning data taken from EPA.gov.
-There are two datasets:</description>
+      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA.</description>
     </item>
     
     <item>
@@ -50,7 +44,7 @@ There are two datasets:</description>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/my-parts/</guid>
-      <description>library(tidyverse) terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&amp;quot;) %&amp;gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 white 63 554 1067 1621 69.3 ## 2 other 5 90 115 205 8.77 ## 3 black 19 108 89 197 8.43 ## 4 asian 8 77 33 110 4.70 ## 5 unclear 6 40 61 101 4.32 ## 6 latino 10 44 33 77 3.</description>
+      <description>library(tidyverse) terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&amp;quot;) %&amp;gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 white 63 554 1067 1621 69.</description>
     </item>
     
     <item>
@@ -59,8 +53,7 @@ There are two datasets:</description>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/trendyy-4-campaigns/</guid>
-      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics. Pundits have used Google seach trends as talking points. It is not uncommon to hear news about a candidates search trends the days following a town hall or significant rally. It seems that Google trends are becoming the go to proxy for a candidate’s salience.
-As a campaign, you are interested in the popularity of a candidate relative to another one.</description>
+      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</description>
     </item>
     
     <item>
@@ -69,8 +62,7 @@ As a campaign, you are interested in the popularity of a candidate relative to a
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/scraping-4-campaigns/</guid>
-      <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement. One of my largest concerns is that progressive campaigns are stuck in a sort of antiquated but nonetheless entrenched workflow. Google Sheets reign in metric reporting. Here I want to present one use case (of a few more to come) where R can be leveraged by your data team.
-In this post I show you how to scrape the most recent polling data from FiveThirtyEight.</description>
+      <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.</description>
     </item>
     
     <item>
@@ -79,10 +71,7 @@ In this post I show you how to scrape the most recent polling data from FiveThir
       <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-05-25-introducing-trendyy/</guid>
-      <description>trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
-The inspiration for this package was to provide a tidy interface to the trends data.
-Getting Started Installation You can install trendyy from CRAN using install.packages(&amp;quot;trendyy&amp;quot;).
- Usage Use trendy() to search Google Trends. The only mandatory argument is search_terms. This is a character vector with the terms of interest.</description>
+      <description>trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.</description>
     </item>
     
     <item>
@@ -91,8 +80,7 @@ Getting Started Installation You can install trendyy from CRAN using install.pac
       <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-05-08-genius-learnr-tutorial/</guid>
-      <description>Introducing genius You want to start analysing song lyrics, where do you go? There have been music information retrieval papers written on the topic of programmatically extracting lyrics from the web. Dozens of people have gone through the laborious task of scraping song lyrics from websites. Even a recent winner of the Shiny competition scraped lyrics from Genius.com.
-I too have been there. Scraping websites is not always the best use of your time.</description>
+      <description>Introducing genius You want to start analysing song lyrics, where do you go?</description>
     </item>
     
     <item>
@@ -102,9 +90,7 @@ I too have been there. Scraping websites is not always the best use of your time
       
       <guid>/post/genius-api/</guid>
       <description>get started here
-Since I created genius, I’ve wanted to make a version for python. But frankly, that’s a daunting task for me seeing as my python skills are intermediate at best. But recently I’ve been made aware of the package plumber. To put it plainly, plumber takes your R code and makes it accessible via an API.
-I thought this would be difficult. I was so wrong.
- Using plumber Plumber works by using roxygen like comments (#*).</description>
+Since I created genius, I’ve wanted to make a version for python.</description>
     </item>
     
     <item>
@@ -113,7 +99,7 @@ I thought this would be difficult. I was so wrong.
       <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-03-17-the-fallacy-of-one-person-one-vote/</guid>
-      <description>On October 6, 2018, the US Senate voted 50–48 in favor of the appointment of Associate Justice Brett Kavanaugh. This led many pundits to point out a “disconnect” between the Senate and the body politic. The 50 senators who voted “yea” represent only 44% of the nation’s population. The year prior, Supreme Court Justice Neil Gorsuch was confirmed by 54 senators representing approximately 45% of the population.</description>
+      <description>On October 6, 2018, the US Senate voted 50–48 in favor of the appointment of Associate Justice Brett Kavanaugh.</description>
     </item>
     
     <item>
@@ -123,7 +109,7 @@ I thought this would be difficult. I was so wrong.
       
       <guid>/post/shutdown-politics/</guid>
       <description>Originally posted via Boston Area Research Initiative
-The nation heaved a sigh of relief as President Trump signed a bill on Friday, January 25th, that ended the longest government shutdown in US history. This bill, the Continuing Appropriation Act, provides enough funding to keep the government open until February 15th. After thirty-four days of turmoil for federal workers, it is hard to believe that in another three short weeks, the government can shutdown once again.</description>
+The nation heaved a sigh of relief as President Trump signed a bill on Friday, January 25th, that ended the longest government shutdown in US history.</description>
     </item>
     
     <item>
@@ -132,8 +118,7 @@ The nation heaved a sigh of relief as President Trump signed a bill on Friday, J
       <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/xgb-feature-importance/</guid>
-      <description>This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it. I will draw on the simplicity of Chris Albon’s post. For steps to do the following in Python, I recommend his post.
-If you’ve ever created a decision tree, you’ve probably looked at measures of feature importance. In the above flashcard, impurity refers to how many times a feature was use and lead to a misclassification.</description>
+      <description>This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it.</description>
     </item>
     
     <item>
@@ -142,7 +127,7 @@ If you’ve ever created a decision tree, you’ve probably looked at measures o
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/function-methods/</guid>
-      <description>The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package. One shapefile I was working with had some horrendously named columns, and naturally, I tried to clean them using the clean_names() function from the janitor package. But lo, an egregious error occurred. To this end, I officially filed my complaint as an issue.</description>
+      <description>The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package.</description>
     </item>
     
     <item>
@@ -151,7 +136,7 @@ If you’ve ever created a decision tree, you’ve probably looked at measures o
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/us-representation-i/</guid>
-      <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like. It was the first attempt at creating some sort of agreement between the 13 original states to form a central government. In the end, the Articles of Confederation made the new central government too weak to accomplish anything. Then, in 1787 representatives from each state met in Philadelphia to entirely scrap the Articles of Confederation in a meeting that became known as the Constitutional Convention.</description>
+      <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like.</description>
     </item>
     
     <item>
@@ -160,7 +145,7 @@ If you’ve ever created a decision tree, you’ve probably looked at measures o
       <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/introducing-letters-to-a-layperson/</guid>
-      <description>I have been in the world of academia for nearly five years now. During this time I’ve read countless scholarly journal articles that I’ve struggled to wrap my head around. The academic language is riddled with obfuscating words like “milieux” and “nexus” which are often used to explain relatively simple concepts in a not so simple language. I’ve had to train myself to understand the academic language and translate it to regular people (layperson) speak.</description>
+      <description>I have been in the world of academia for nearly five years now.</description>
     </item>
     
     <item>
@@ -169,8 +154,7 @@ If you’ve ever created a decision tree, you’ve probably looked at measures o
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/write-chunked-csv/</guid>
-      <description>Sometimes due to limitations of software, file uploads often have a row limit. I recently encountered this while creating texting campaigns using Relay. Relay is a peer-to-peer texting platform. It has a limitation of 20k contacts per texting campaign. This is a limitation when running a massive Get Out the Vote (GOTV) texting initiative.
-In order to solve this problem, a large csv must be split into multiple csv’s for upload.</description>
+      <description>Sometimes due to limitations of software, file uploads often have a row limit.</description>
     </item>
     
     <item>
@@ -179,9 +163,7 @@ In order to solve this problem, a large csv must be split into multiple csv’s 
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/read-chunked-csv/</guid>
-      <description>In an earlier posting I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs.
-Thankfully purrr has a beautiful function called map_df() which will make this into a two liner. This process has essentially 3 steps.
-Create a vector of all .csv files that should be merged together. Read each file using readr::read_csv() Combine each dataframe into one.</description>
+      <description>In an earlier posting I wrote about having to break a single csv into multiple csvs.</description>
     </item>
     
     <item>
@@ -190,8 +172,7 @@ Create a vector of all .csv files that should be merged together. Read each file
       <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/tidy-coursera-r-programming/</guid>
-      <description>Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R. During this time one this has become apparent, people are teaching the old paradigm of R and avoiding the tidyverse all together.
-I recently had a student reach out to me in need of help with the first programming assignment from the Coursera R-Programming course (part of the Johns Hopkins Data Science Specialization).</description>
+      <description>Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R.</description>
     </item>
     
     <item>
@@ -200,17 +181,7 @@ I recently had a student reach out to me in need of help with the first programm
       <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/introducing-geniusr/</guid>
-      <description>Introducing geniusR geniusR enables quick and easy download of song lyrics. The intent behind the package is to be able to perform text based analyses on songs in a tidy[text] format.
-This package was inspired by the release of Kendrick Lamar’s most recent album, DAMN.. As most programmers do, I spent way too long to simplify a task, that being accessing song lyrics. Genius (formerly Rap Genius) is the most widly accessible platform for lyrics.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/post/2019-03-30-plumber-genius-api.nb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-03-30-plumber-genius-api.nb/</guid>
-      <description>code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
+      <description>knitr::opts_chunk$set(eval=FALSE) Introducing geniusR geniusR enables quick and easy download of song lyrics.</description>
     </item>
     
   </channel>
