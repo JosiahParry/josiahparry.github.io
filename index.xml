@@ -31,6 +31,15 @@ I&amp;rsquo;m Josiah Parry. I am a person of eclectic interests; some of which a
     </item>
     
     <item>
+      <title>Non-interactive user tokens with googlesheets4</title>
+      <link>/post/2020-01-13-gs4-auth/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-01-13-gs4-auth/</guid>
+      <description>This repository contains an example of an R Markdown document that uses googlesheets4 to read from a private Google Sheet and is deployed to RStudio Connect.</description>
+    </item>
+    
+    <item>
       <title>Finding an SPSS {haven}</title>
       <link>/post/2019-12-14-spss-haven/</link>
       <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
