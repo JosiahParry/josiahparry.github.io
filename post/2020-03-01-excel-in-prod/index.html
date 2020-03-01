@@ -150,7 +150,7 @@
 <li>How can we incorporate Excel into production?</li>
 </ol>
 <blockquote>
-<p>Note that this is no time to 💩 on Excel. It serves very real business purposes and unforutnately not everyone can learn to program 😕. Here’s a fun one for the h8rs: almost every presidential election campaign’s data program is based on the back of Google Sheets.</p>
+<p>Note that this is no time to 💩 on Excel. It serves very real business purposes and unfortunately not everyone can learn to program 😕. Here’s a fun one for the h8rs: almost every presidential election campaign’s data program is based on the back of Google Sheets.</p>
 </blockquote>
 <p>In this post I set out to explore if and how one can incorporate Excel into productionized code. Please see the <a href="https://github.com/JosiahParry/plumber-excel">GitHub repository</a> for the code used here.</p>
 <p>What does it mean to productionize code—aka put it in prod<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>? There is no one definition of what this mean and each and every organization will operationalize it differently.</p>
@@ -160,8 +160,8 @@
 <p>Greg Wilson has defined it as “code that <em>isn’t</em> going to make the operations team cry” <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (emphasis his). This is my favorite definition because it is whimsical, sardonic, honest, and acknowledges that the code will have to leave the data science inner circle.</p>
 <p>As I understand it, the current data science discourse emphasizes the use of RESTful APIs as the best, or at least the dominant, way of <em>productionizing</em> code.</p>
 <p>An API is an application programming interface. When I was first learning what APIs were my uncle told me to think of them as “machines talking to other machines.” That’s not so far off!</p>
-<p>A RESTful API is a special kind of API that does <em><strong>re</strong>presentational <strong>s</strong>tate <strong>t</strong>ransfer</em>. Frankly, I do not know what that really means. As I understand it, REST is actually an opinionated way of architecting APIs. RESTful APIs use HTTP requests which makes them very easy to access. RESTful APIs are key in developing microservices and microservices are at the core of putting code in prod<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Within the python ecosystem Flask is one of the leading libraries for making microservices. Within the R space a package called <code>plumber</code> is taking on that role.</p>
-<p>We can envisage a hypothetical scenario in which we receive Excel files via some data collection process. Once that Excel file is received it is used to kick off some other process—e.g. report writing or data processing. Often people may create Shiny applications to provide a UI for uploading and data input. This is really great when we want to develop a user-centric interface. But what about when we want to automate the process or at least make the processing available to other tools? This is when we can turn to plumber as a way to create a microservice to handle this.</p>
+<p>A RESTful API is a special kind of API that does <em><strong>re</strong>presentational <strong>s</strong>tate <strong>t</strong>ransfer</em>. Frankly, I do not know what that really means. As I understand it, REST is actually an opinionated way of architecting APIs. RESTful APIs use HTTP requests which makes them very easy to access. RESTful APIs are key in developing micro-services and micro-services are at the core of putting code in prod<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Within the python ecosystem Flask is one of the leading libraries for making micro-services. Within the R space a package called <code>plumber</code> is taking on that role.</p>
+<p>We can envisage a hypothetical scenario in which we receive Excel files via some data collection process. Once that Excel file is received it is used to kick off some other process—e.g. report writing or data processing. Often people may create Shiny applications to provide a UI for uploading and data input. This is really great when we want to develop a user-centric interface. But what about when we want to automate the process or at least make the processing available to other tools? This is when we can turn to plumber as a way to create a micro-service to handle this.</p>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="nomnoml html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"code":"\n  #fill: #FEFEFF\n  #lineWidth: 1\n  #zoom: 4\n  #direction: right\n   [<frame> Plumber API |\n   [<abstract>Recieve Excel File]-:> [<abstract>1: upload]\n   [<abstract>Recieve Excel File] -:> [2: use data]\n  ]\n","svg":false},"evals":[],"jsHooks":[]}</script>
 <p>The above graphic (made with <a href="https://github.com/javierluraschi/nomnoml"><code>nomnoml</code></a>) illustrates two different ways we can approach this. First, we will receive the Excel file. From there we may want to upload the file into a shared drive, a database, or both. Alternatively, we may not want to store the data, but rather use it immediately.</p>
@@ -239,7 +239,7 @@ function(req) {
 <div id="uploading-files" class="section level2">
 <h2>Uploading files</h2>
 <p><strong>Disclaimer</strong>: Uploading files is inherently risky business. Every time you put a new file into your system you are creating an opportunity for vulnerabilities. I am not a security expert nor an API expert so take me with a grain of salt.</p>
-<p>Defining an upload process is rather straight forward now that we are able to access the temporary file. We will use <code>fs::file_copy()</code> to copy the temporary file to a permanent location. To do this, we need to determine where it will be uploaded. For the sake of example I am hard coding the upload path to be at <code>./data</code>. You could feasibily create another parameter which determines where the file will be copied to, but I didn’t 🤷🏻‍♂️.</p>
+<p>Defining an upload process is rather straight forward now that we are able to access the temporary file. We will use <code>fs::file_copy()</code> to copy the temporary file to a permanent location. To do this, we need to determine where it will be uploaded. For the sake of example I am hard coding the upload path to be at <code>./data</code>. You could feasibly create another parameter which determines where the file will be copied to, but I didn’t 🤷🏻‍♂️.</p>
 <pre class="r"><code>#* Upload excel file
 #* @post /upload
 function(req) {
@@ -329,7 +329,7 @@ post_excel &lt;- function(file) {
   res
   
 }</code></pre>
-<p>You’ve created a wrapper to your API! Now you have a microservice running and accessible via an R wrapper.</p>
+<p>You’ve created a wrapper to your API! Now you have a micro-service running and accessible via an R wrapper.</p>
 <pre class="r"><code>post_excel(&quot;data/test.xls&quot;)</code></pre>
 <pre><code>## # A tibble: 52 x 27
 ##    statefip costelec costgas costwatr costfuel condofee  rent proptx99
@@ -366,7 +366,7 @@ post_excel &lt;- function(file) {
 <p>Note: I recommend using the <code>ui_*()</code> functions from {usethis} to provide informative messages to the user.
 <br> Second note: If you intend on only allowing a file to be uploaded once, as this function does, you should probably actually be using a PUT request.</p>
 </blockquote>
-<p>Badah-bing badah-boom. You now have the ability to create a microservice with plumber that is able to handle Microsoft Excel files. That is no small feat! What’s next? You should create a nice little python wrapper for your newly created API. The python wrapper will be a great asset to your team and now your R based tools are accessible to anyone or anything that can make HTTP requests!!!</p>
+<p>Badah-bing badah-boom. You now have the ability to create a micro-service with plumber that is able to handle Microsoft Excel files. That is no small feat! What’s next? You should create a nice little python wrapper for your newly created API. The python wrapper will be a great asset to your team and now your R based tools are accessible to anyone or anything that can make HTTP requests!!!</p>
 </div>
 <div class="footnotes">
 <hr />

@@ -21,7 +21,7 @@ I recently had a conversation that touched on using [`plumber`](https://rplumber
 1. Excel is sometimes unavoidable and we need to be okay with that.
 2. How can we incorporate Excel into production? 
 
-> Note that this is no time to `r emo::ji("poop")` on Excel. It serves very real business purposes and unforutnately not everyone can learn to program `r emo::ji("confused")`. Here's a fun one for the h8rs: almost every presidential election campaign's data program is based on the back of Google Sheets.
+> Note that this is no time to `r emo::ji("poop")` on Excel. It serves very real business purposes and unfortunately not everyone can learn to program `r emo::ji("confused")`. Here's a fun one for the h8rs: almost every presidential election campaign's data program is based on the back of Google Sheets.
 
 In this post I set out to explore if and how one can incorporate Excel into productionized code. Please see the [GitHub repository](https://github.com/JosiahParry/plumber-excel) for the code used here.
 
@@ -35,9 +35,9 @@ As I understand it, the current data science discourse emphasizes the use of RES
 
 An API is an application programming interface. When I was first learning what APIs were my uncle told me to think of them as "machines talking to other machines." That's not so far off!
 
-A RESTful API is a special kind of API that does _**re**presentational **s**tate **t**ransfer_. Frankly, I do not know what that really means. As I understand it, REST is actually an opinionated way of architecting APIs. RESTful APIs use HTTP requests which makes them very easy to access. RESTful APIs are key in developing microservices and microservices are at the core of putting code in prod[^micromedium]. Within the python ecosystem Flask is one of the leading libraries for making microservices. Within the R space a package called `plumber` is taking on that role. 
+A RESTful API is a special kind of API that does _**re**presentational **s**tate **t**ransfer_. Frankly, I do not know what that really means. As I understand it, REST is actually an opinionated way of architecting APIs. RESTful APIs use HTTP requests which makes them very easy to access. RESTful APIs are key in developing micro-services and micro-services are at the core of putting code in prod[^micromedium]. Within the python ecosystem Flask is one of the leading libraries for making micro-services. Within the R space a package called `plumber` is taking on that role. 
 
-We can envisage a hypothetical scenario in which we receive Excel files via some data collection process. Once that Excel file is received it is used to kick off some other process—e.g. report writing or data processing. Often people may create Shiny applications to provide a UI for uploading and data input. This is really great when we want to develop a user-centric interface. But what about when we want to automate the process or at least make the processing available to other tools? This is when we can turn to plumber as a way to create a microservice to handle this.
+We can envisage a hypothetical scenario in which we receive Excel files via some data collection process. Once that Excel file is received it is used to kick off some other process—e.g. report writing or data processing. Often people may create Shiny applications to provide a UI for uploading and data input. This is really great when we want to develop a user-centric interface. But what about when we want to automate the process or at least make the processing available to other tools? This is when we can turn to plumber as a way to create a micro-service to handle this.
 
 ```{nomnoml, echo=FALSE}
 [<frame> Plumber API |
@@ -152,7 +152,7 @@ allowing me to work with the resultant object from an active R session.
 
 **Disclaimer**: Uploading files is inherently risky business. Every time you put a new file into your system you are creating an opportunity for vulnerabilities. I am not a security expert nor an API expert so take me with a grain of salt. 
 
-Defining an upload process is rather straight forward now that we are able to access the temporary file. We will use `fs::file_copy()` to copy the temporary file to a permanent location. To do this, we need to determine where it will be uploaded. For the sake of example I am hard coding the upload path to be at `./data`. You could feasibily create another parameter which determines where the file will be copied to, but I didn't `r emo::ji("man_shrugging_light_skin_tone")`. 
+Defining an upload process is rather straight forward now that we are able to access the temporary file. We will use `fs::file_copy()` to copy the temporary file to a permanent location. To do this, we need to determine where it will be uploaded. For the sake of example I am hard coding the upload path to be at `./data`. You could feasibly create another parameter which determines where the file will be copied to, but I didn't `r emo::ji("man_shrugging_light_skin_tone")`. 
 
 ```{r eval=FALSE}
 
@@ -239,7 +239,7 @@ post_excel <- function(file) {
 
 ```
 
-You've created a wrapper to your API! Now you have a microservice running and accessible via an R wrapper.
+You've created a wrapper to your API! Now you have a micro-service running and accessible via an R wrapper.
 
 ```{r}
 post_excel("data/test.xls")
@@ -266,7 +266,7 @@ upload("data/test.xls")
 > Note: I recommend using the `ui_*()` functions from {usethis} to provide informative messages to the user. 
 > <br> Second note: If you intend on only allowing a file to be uploaded once, as this function does, you should probably actually be using a PUT request. 
 
-Badah-bing badah-boom. You now have the ability to create a microservice with plumber that is able to handle Microsoft Excel files. That is no small feat! What's next? You should create a nice little python wrapper for your newly created API. The python wrapper will be a great asset to your team and now your R based tools are accessible to anyone or anything that can make HTTP requests!!!
+Badah-bing badah-boom. You now have the ability to create a micro-service with plumber that is able to handle Microsoft Excel files. That is no small feat! What's next? You should create a nice little python wrapper for your newly created API. The python wrapper will be a great asset to your team and now your R based tools are accessible to anyone or anything that can make HTTP requests!!!
 
 
 
