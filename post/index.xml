@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Excel in prod</title>
+      <link>/post/2020-03-01-excel-in-prod/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-03-01-excel-in-prod/</guid>
+      <description>I recently had a conversation that touched on using plumber to automate the parsing of Excel documents for administering data science assets.</description>
+    </item>
+    
+    <item>
+      <title>Non-interactive user tokens with googlesheets4</title>
+      <link>/post/2020-01-13-gs4-auth/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-01-13-gs4-auth/</guid>
+      <description>This repository contains an example of an R Markdown document that uses googlesheets4 to read from a private Google Sheet and is deployed to RStudio Connect.</description>
+    </item>
     
     <item>
       <title>Finding an SPSS {haven}</title>
