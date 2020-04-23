@@ -132,44 +132,93 @@
 </nav>
         <div id="content" class="content-container">
         
-<h1 class="post-title">projects</h1>
-    <time>February 22, 2020</time>
+<h1 class="post-title">R Security Concerns and 2019 CRAN downloads</h1>
+    <time>February 4, 2020</time>
     <div>
         <p>
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<p>The number of downloads that a package has can tell us a number of things. For example, how much other packages rely on it. A great case of this is <a href="https://github.com/r-lib/rlang"><code>rlang</code></a>. Not many of use <code>rlang</code>, know what it does, or even bother to dive into it. But in reality it is the backbone of so many packages that we know and love and use every day.</p>
+<p>The other thing that we can infer from the download numbers is how trusted a package may be. Packages that have been downloaded time and time and again have <em>likely</em> been scoped out thoroughly for any bugs. This can be rather comforting for security conscious groups.</p>
+<p>With a little <a href="https://github.com/tidyverse/rvest"><code>rvest</code></a>-web-scraping-magic we can obtain the name of every package published to <a href="https://cran.r-project.org/">CRAN</a>.</p>
+<pre class="r"><code>library(rvest)
+library(tidyverse)
+url &lt;- &quot;https://cran.r-project.org/web/packages/available_packages_by_name.html&quot;
+cran_packages &lt;- html_session(url) %&gt;% 
+    html_nodes(&quot;table a&quot;) %&gt;% 
+    html_text()</code></pre>
+<p>RStudio keeps daily logs of packages downloaded from their CRAN mirror. The package <a href="https://r-hub.github.io/cranlogs"><code>cranlogs</code></a> makes the data available via and API and an R package. Below is a lightweight function which sums the total number of downloads for the entire year. <code>furrr</code> was used to speed up the computation a bit. This takes ~40 minutes to run, as such use the exported data in <code>data/cran-2019-total-downloads.csv</code>.</p>
+<pre class="r"><code>get_year_downloads &lt;- function(pkg) {
+  cranlogs::cran_downloads(pkg, 
+                           from = &quot;2019-01-01&quot;,
+                           to = &quot;2019-12-31&quot;) %&gt;% 
+    group_by(package) %&gt;% 
+    summarise(total_downloads = sum(count))
+}
+total_cran_downloads &lt;- furrr::future_map_dfr(
+  cran_packages, 
+  .f = possibly(get_year_downloads, otherwise = tibble())
+  )</code></pre>
+<pre class="r"><code>total_cran_downloads &lt;- read_csv(&quot;data/cran-2019-total-downloads.csv&quot;)
+glimpse(total_cran_downloads)</code></pre>
+<p>While this is helpful, these packges also have dependencies, and those dependencies have dependencies. The R core team have built out the <code>tools</code> package which contains, yes, wonderful tools. The function <code>tools::package_dependencies()</code> provides us with the dependencies.</p>
+<p>The below code identifies the top 500 downloaded packages and their dependencies.</p>
+<pre class="r"><code>top_500_cran &lt;- top_n(total_cran_downloads, 500, total_downloads)
+#pull the package dependencies
+pkg_deps &lt;- top_500_cran %&gt;%
+  pull(package) %&gt;%
+  tools::package_dependencies(recursive = TRUE)</code></pre>
+<pre class="r"><code>head(pkg_deps)</code></pre>
+<div id="package-checks" class="section level2">
+<h2>Package Checks</h2>
+<p>Each package on CRAN goes through a rigorous checking process. The r cmd check is ran on each package for twelve different flavors from a combination of Linux and Windows. If you trust the checks that the R Core team do, I wouldn’t reinvent the wheel.</p>
+<p>The data are not provided directly from CRAN though an individual has provided these data via an API. I recommend using the API as a check against packages on ingest. I’d also do this process for every time you’re syncing. Again, this doesn’t mean that there are no vulnerabilities. But if there are functions that will literally break the machine, then the checks in general shouldn’t work.</p>
+<p>The biggest risk is really in the development and publication of applications. The greatest risk you are likely to face are going to be internal or accidental. For example using base R and Shiny, a developer can make an app unintentionally malicious—i.e. permitting system calls or creating a SQL injection. Though this would be rather difficult to build into an app, it is possible. The process here would be to institute a peer review process for the apps developed. Also, you’re going to want to sandbox the applications—which Connect does and will improve with launcher in the future.</p>
+</div>
+<div id="instituting-checks" class="section level2">
+<h2>Instituting Checks</h2>
+<p>We can use the <a href="https://github.com/ropenscilabs/cchecks"><code>cchecks</code></a> packge to interact with R-Hub’s CRAN check API. They have done a wonderful job aggregating package check data. The data it returns, however, is in a rather deeply nested list. Below is a function defintion which can tidy up some of the important information produced from the API query.</p>
+<pre class="r"><code>#devtools::install_github(&quot;ropenscilabs/cchecks&quot;)
+library(cchecks)
+library(tidyverse)
+tidy_checks &lt;- function(checks) {
+  
+  check_res &lt;- map(checks, pluck, &quot;data&quot;, &quot;checks&quot;)
+  check_pkg &lt;- map(checks, pluck, &quot;data&quot;, &quot;package&quot;)
+  check_deets &lt;- map(checks, pluck, &quot;data&quot;, &quot;check_details&quot;)
+  check_summ &lt;- map(checks, pluck, &quot;data&quot;, &quot;summary&quot;)
+  
+  tibble(pkg = unlist(check_pkg),
+         check_results = check_res,
+         check_details = check_deets,
+         check_summary = check_summ) %&gt;% 
+    unnest_wider(check_summary)
+  
+}</code></pre>
+<pre class="r"><code># query the API for packages
+checks  &lt;- cch_pkgs(c(&quot;spotifyr&quot;, &quot;genius&quot;))
+# tidy up the checks
+clean_checks &lt;- tidy_checks(checks)
+# get check results
+clean_checks %&gt;% 
+  unnest(check_results)
+# get check details
+clean_checks %&gt;% 
+  unnest_wider(check_details)</code></pre>
+<p>You can pull these checks for the top 500 packages and their dependencies in a rather straightforward manner now. You can iterate through these all. Note that this is an API and you may see some lag time. So go make some tea.</p>
+<pre class="r"><code>top_checks &lt;- cch_pkgs(head(top_500_cran$package))
+tidy_checks(top_checks)</code></pre>
+<div id="resources" class="section level3">
+<h3>Resources</h3>
 <ul>
-<li><strong><a href="https://urban-informatics.netlify.com">Urban Informatics Toolkit (uitk)</a></strong>:
-<ul>
-<li>Urban Informatics Toolkit—currently being drafted—is the culmination of Master’s degree. This book introduces new students in urban informatics to R and fundamental concepts in the field.</li>
-</ul></li>
-<li><strong><a href="https://github.com/JosiahParry/genius">{genius}</a></strong>:
-<ul>
-<li>an R package for accessing song lyrics in an analysis ready format.</li>
-</ul></li>
-<li><strong><a href="https://github.com/josiahparry/bbcharts">{bbcharts}</a></strong>:
-<ul>
-<li>a package for accessing the Billboard music charts.</li>
-</ul></li>
-<li><strong><a href="https://mirr.netlify.com/">Music Information Retrieval in R (mirr)</a></strong>:
-<ul>
-<li>a case study on music information retrieval using {spotifyr}, {genius}, and {bbcharts}. Using {tidymodels} three genre classifiers are created—one based on lyrics, another on the audio features, and a third stacked ensemble model.</li>
-</ul></li>
-<li><strong><a href="https://r4campaigns.netlify.com/">R for Progressive Campaigns</a></strong>:
-<ul>
-<li>a cookbook to help progressive data managers build out their reporting, texting, among others using R. This short book assumes familiarity with the tidyverse.</li>
-</ul></li>
-<li><strong><a href="https://github.com/JosiahParry/opensecrets/">{opensecrets}</a></strong>:
-<ul>
-<li>an experimental R wrapper to the <a href="https://www.opensecrets.org/">OpenSecrets</a> API.</li>
-</ul></li>
-<li><strong><a href="https://github.com/charlie86/spotifyr">{spotifyr}</a></strong>:
-<ul>
-<li>{spotifyr} is an R package created by <a href="https://rcharlie.com/">Charlie Thompson</a> which provides access to the spotify API. My contributions include functionality for retrieving song lyrics and building in pagination to the <code>get_playlist()</code> function.</li>
-</ul></li>
+<li><a href="https://environments.rstudio.com/validation.html" class="uri">https://environments.rstudio.com/validation.html</a></li>
+<li><a href="https://www.r-bloggers.com/overview-of-the-cran-checks-api/amp" class="uri">https://www.r-bloggers.com/overview-of-the-cran-checks-api/amp</a></li>
+<li><a href="https://blog.r-hub.io/2019/04/25/r-devel-linux-x86-64-debian-clang/" class="uri">https://blog.r-hub.io/2019/04/25/r-devel-linux-x86-64-debian-clang/</a></li>
 </ul>
+</div>
+</div>
 
         </p>
     </div>
@@ -178,6 +227,16 @@
     <div class="page-footer">
         <hr class="footer-divider">
         
+        
+            <a class="tag" href="/tags/r">#R</a>
+        
+            <a class="tag" href="/tags/r-admins">#R admins</a>
+        
+            <a class="tag" href="/tags/tutorial">#tutorial</a>
+        
+            <a class="tag" href="/tags/security">#security</a>
+        
+      
     </div>
 
 

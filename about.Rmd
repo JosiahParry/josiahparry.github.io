@@ -1,0 +1,98 @@
+---
+date: "2020-02-22"
+type: section
+---
+
+Hello! 
+
+I'm Josiah Parry. I am a person of eclectic interests; some of which are social science, politics, espresso, data science, and music. I get to indulge in some of these interests as a Customer Success Representative at RStudio.
+
+I am also a Master of Science Candidate at Northeastern University studying Urban Informatics in the School of Public Policy and Urban Affairs under [Dr. Dan O'Brien](https://cssh.northeastern.edu/people/faculty/daniel-t-obrien/).
+
+
+If you would like to [sponsor a cup of coffee](https://ko-fi.com/josiahparry), I'd greatly appreciate it :) 
+
+---
+
+## Talks
+
+<details>
+  <summary>details</summary>
+
+* ["Old Town Road" Rap or Country?: Putting R in Production with Tidymodels, Plumber, and Shiny](https://github.com/JosiahParry/R-in-prod)
+  * Boston useR group
+  * December 10th, 2019
+* [Tidy Lyrical Analysis](https://github.com/JosiahParry/useR-2018-07-17)
+  * Boston useR group
+  * July 17th, 2018
+* [Newfound Lake Landscape Value Analysis: Exploring the efficacy of PPGIS, NESTVAL 2016](https://prezi.com/uchr4_g_qzns/newfound-lake-watershed/)
+  * New England St. Lawrence River Valley regional American Associations of Geographers Conference
+  * 2016
+</details>
+
+## Experience:
+
+
+**Government — Customer Success, RStudio**  
+
+_April 2019 - Present_ 
+
+* As a member of the Customer Success team here at RStudio, I focus on building strong relationships with our Government / Public Sector customers. I attempt to empower folks in the public sector via education, consultation, and aiding data science adoption.
+
+**Data Science Consultant, International Consulting Associates Inc.** 
+
+_November 2018 - April 2019_
+
+* Provide advisory services for key leadership of FDA medical device unit
+* Improved internal dashboard by identifying inefficiencies and creating new KPIs
+* Developed anomaly detection models performing at 90-98% accuracy (no information rate ~70%)
+
+**Research Assistant, Boston Area Research Initiative**
+
+_January - April 2019_
+
+* Use Census data to uncover and communicate insights about the Boston region in the context of a government shutdown
+* Update internal databases with ‘13-’17 American Community Survey data and create novel regional metrics
+
+**Data Analytics Instructor, Level Education**
+
+_January - April 2019_ 
+  * Modify lecture material to utilize contemporary tooling in R
+  * Instruct students on effective data analysis, visualization, and presentation
+  * Cultivate an interactive learning environment based on discourse and experiences
+  
+**NH Data Director, NextGen America**
+
+_April - November 2018_
+
+* Created Intro to GitHub curriculum for in-person training of data team members
+* Developed an interactive field performance dashboard via R and Civis Analytics
+* Cleaned, aggregated, and integrated legacy database which expanded target universes by ~50% 
+* Utilized R (and adapted to Excel) to create semi-automated Relay text campaign creation that allows creative messaging for diverse universes. This process saved 10-15 hours of staff time during  GOTV and was adopted by other state leadership
+* Cut and administered statewide canvassing turf to organizers. 
+* Validated canvassing data integrity and rectified data entry errors via a semi-automated process utilizing R
+
+**Database Administrator, Accenture**
+
+_June - August 2017_ 
+
+* Maintained Oracle 11g & 12c databases
+* Automated daily reporting utilizing Linux & PL/SQL scripts
+* Analyzed & Optimized production queries
+* Managed DB versioning with Git, Gerrit, and Jenkins
+* Facilitated twice daily handover calls with offshore team
+  
+**DataCamp, Content Creation Intern**
+
+_May - September 2016_
+
+* Collaborated in the development of finance courses in R:
+  * Introduction to Portfolio Analysis in R
+  * Manipulating Time Series Data in R with xts & zoo
+  * Financial Trading in R
+
+
+</details>
+
+
+

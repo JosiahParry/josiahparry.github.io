@@ -144,6 +144,8 @@
 <script src="/rmarkdown-libs/nomnoml-binding/nomnoml.js"></script>
 
 
+<div id="or-how-to-incorporate-excel-into-a-production-api-using-plumber-or-a-micro-excel-micro-service." class="section level2">
+<h2>or <em>how to incorporate excel into a production API using plumber</em> or, <em>a micro-excel-micro-service</em>.</h2>
 <p>I recently had a conversation that touched on using <a href="https://rplumber.io"><code>plumber</code></a> to automate the parsing of Excel documents for administering data science assets. This brings up some very interesting points:</p>
 <ol style="list-style-type: decimal">
 <li>Excel is sometimes unavoidable and we need to be okay with that.</li>
@@ -194,6 +196,7 @@
 <pre class="r"><code>POST(end_point, 
      body = list(param = upload_file(&quot;file-path.ext&quot;))
      )</code></pre>
+</div>
 <div id="building-the-first-endpoint" class="section level2">
 <h2>Building the first endpoint</h2>
 <p>Now we get <em>how</em> the file will be sent. But the tough part is actually building the plumber API endpoint which will receive it. There is a fair amount of discourse on how files should be uploaded via plumber<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. Fortunately, <a href="https://github.com/krlmlr">@krlmlr</a> pointed out <code>mime::parse_multipart()</code> which can be used for handling files sent in requests<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.</p>

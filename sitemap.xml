@@ -63,6 +63,21 @@
   </url>
   
   <url>
+    <loc>/tags/r-admins/</loc>
+    <lastmod>2020-02-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/cran-2019/</loc>
+    <lastmod>2020-02-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/security/</loc>
+    <lastmod>2020-02-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/googlesheets4/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>

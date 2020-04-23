@@ -17,7 +17,16 @@
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020-03-01-excel-in-prod/</guid>
-      <description>I recently had a conversation that touched on using plumber to automate the parsing of Excel documents for administering data science assets.</description>
+      <description>or how to incorporate excel into a production API using plumber or, a micro-excel-micro-service.</description>
+    </item>
+    
+    <item>
+      <title>R Security Concerns and 2019 CRAN downloads</title>
+      <link>/post/cran-2019/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/cran-2019/</guid>
+      <description>The number of downloads that a package has can tell us a number of things.</description>
     </item>
     
     <item>

@@ -17,7 +17,7 @@
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020-03-01-excel-in-prod/</guid>
-      <description>I recently had a conversation that touched on using plumber to automate the parsing of Excel documents for administering data science assets.</description>
+      <description>or how to incorporate excel into a production API using plumber or, a micro-excel-micro-service.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       
       <guid>/about/</guid>
       <description>Hello!
-I&amp;rsquo;m Josiah Parry. I am a person of eclectic interests; some of which are social science, politics, espresso, data science, and music.</description>
+I’m Josiah Parry. I am a person of eclectic interests; some of which are social science, politics, espresso, data science, and music.</description>
     </item>
     
     <item>
@@ -36,7 +36,16 @@ I&amp;rsquo;m Josiah Parry. I am a person of eclectic interests; some of which a
       <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/</guid>
-      <description>Urban Informatics Toolkit (uitk):  Urban Informatics Toolkit—currently being drafted—is the culmination of Master&amp;rsquo;s degree.</description>
+      <description>Urban Informatics Toolkit (uitk):  Urban Informatics Toolkit—currently being drafted—is the culmination of Master’s degree.</description>
+    </item>
+    
+    <item>
+      <title>R Security Concerns and 2019 CRAN downloads</title>
+      <link>/post/cran-2019/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/cran-2019/</guid>
+      <description>The number of downloads that a package has can tell us a number of things.</description>
     </item>
     
     <item>

@@ -1,6 +1,5 @@
 ---
-title: "Excel in prod"
-subtitle: "or _how to incorporate excel into a production API using plumber_ or, _a micro-excel-micro-service_."
+title: "Excel in pRod"
 date: "2020-03-01"
 tags:
   - plumber
@@ -15,6 +14,8 @@ tags:
 knitr::opts_chunk$set(echo = TRUE, message=FALSE)
 library(nomnoml)
 ```
+
+## or _how to incorporate excel into a production API using plumber_ or, _a micro-excel-micro-service_.
 
 I recently had a conversation that touched on using [`plumber`](https://rplumber.io) to automate the parsing of Excel documents for administering data science assets. This brings up some very interesting points:
 
