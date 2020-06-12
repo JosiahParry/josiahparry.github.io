@@ -6,10 +6,19 @@
     <description>Recent content in letters on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/letters/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Red Queen Effect</title>
+      <link>/post/red-queen-effect/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/red-queen-effect/</guid>
+      <description>The Red Queen and maintenance of state and society It’s Monday morning.</description>
+    </item>
     
     <item>
       <title>US Representation: Part I</title>

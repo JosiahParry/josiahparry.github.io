@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/letters/</loc>
+    <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/political-science/</loc>
+    <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/red-queen-effect/</loc>
+    <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/api/</loc>
     <lastmod>2020-03-01T00:00:00+00:00</lastmod>
   </url>
@@ -23,22 +48,12 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/r/</loc>
     <lastmod>2020-03-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/r-in-prod/</loc>
-    <lastmod>2020-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-03-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -218,11 +233,6 @@
   </url>
   
   <url>
-    <loc>/tags/political-science/</loc>
-    <lastmod>2019-03-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/social-science/</loc>
     <lastmod>2019-03-17T00:00:00+00:00</lastmod>
   </url>
@@ -290,11 +300,6 @@
   <url>
     <loc>/tags/s3/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/letters/</loc>
-    <lastmod>2018-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>letters</title>
+      <link>/tags/letters/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/letters/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>political science</title>
+      <link>/tags/political-science/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/political-science/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>api</title>
@@ -237,15 +255,6 @@
     </item>
     
     <item>
-      <title>political science</title>
-      <link>/tags/political-science/</link>
-      <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/political-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>social science</title>
       <link>/tags/social-science/</link>
       <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
@@ -332,15 +341,6 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/s3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>letters</title>
-      <link>/tags/letters/</link>
-      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/letters/</guid>
       <description></description>
     </item>
     
