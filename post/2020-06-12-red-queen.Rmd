@@ -14,7 +14,7 @@ tags:
 
 # The Red Queen and maintenance of state and society
 
-It’s Monday morning. You’re back at work after a few days off. Your inbox is a lot more full than you hoped with 70 emails. Time to get reading and sending. It’s been an hour and you’ve read and sent at least 20 emails but your inbox is still at 70. You’ve been working hard and yet it feels like you’ve gone nowhere. This idea of working really hard but feeling like you’ve gone nowhere is at the center of the [Red Queen Effect](). 
+It’s Monday morning. You’re back at work after a few days off. Your inbox is a lot more full than you hoped with 70 emails. Time to get reading and sending. It’s been an hour and you've read and sent at least 20 emails but your inbox is still at 70. You've been working hard and yet it feels like you’ve gone nowhere. This idea of working really hard but feeling like you've gone nowhere is at the center of the [Red Queen Effect](). 
 
 There are a number of "Red Queen Effect"s in the scientific literature all of which are inspired from the Red Queen’s race from Lewis Carrols’s Through the Looking Glass. 
 
@@ -22,7 +22,7 @@ There are a number of "Red Queen Effect"s in the scientific literature all of wh
 >
 > "A slow sort of country!" said the Queen. "Now, here, you see, it takes all the running you can do, to keep in the same place. If you want to get somewhere else, you must run at least twice as fast as that!" 
 
-Alice is running and running and getting nowhere. Much like how as you read emails you get new ones. Daron Acemoglu and James A. Robinson adapt this concept to the evolution of states and connect it to their idea of a "Narrow Corridor." The path to a "successful" society is a race between the power of the people and the power of the state. States in which the pace of growth in both the peoples’ power and the power / ability of the state are similar often produce more liberal (in the sense of liberty) nations. 
+Alice is running and running and getting nowhere. Much like how as you read emails you get new ones. Daron Acemoglu and James A. Robinson adapt this concept to the evolution of states and connect it to their idea of the [_Narrow Corridor_](https://www.penguinrandomhouse.com/books/555400/the-narrow-corridor-by-daron-acemoglu-and-james-a-robinson/). The path to a "successful" society is a race between the power of the people and the power of the state. States in which the pace of growth in both the peoples’ power and the power / ability of the state are similar often produce more liberal (in the sense of liberty) nations. 
 
 ![](https://pbs.twimg.com/media/EF9NLixXkAAX226.jpg) 
 
