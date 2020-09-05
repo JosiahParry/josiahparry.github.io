@@ -1,17 +1,23 @@
 ---
-date: "2020-02-22"
+date: "`r Sys.Date()`"
 type: section
 ---
 
-Hello! 
 
-I'm Josiah Parry. I am a person of eclectic interests; some of which are social science, politics, espresso, data science, and music. I get to indulge in some of these interests as a Customer Success Representative at RStudio.
+Hey there! 
 
-I am also a Master of Science Candidate at Northeastern University studying Urban Informatics in the School of Public Policy and Urban Affairs under [Dr. Dan O'Brien](https://cssh.northeastern.edu/people/faculty/daniel-t-obrien/).
+I'm Josiah Parry and I am a self-avowed social data scientist. That is, my existence in academe was focused on the social sciences and my professional "career" has been focused on data science. 
+
+I am a graduate of Plymouth State University class of 2018 with a degree in Sociology and Anthropology, a minor in Mathematics, and a certificate in geographic information systems (GIS). This April, 2020, I earned my MS in Urban Informatics from Northeastern University under Daniel T. O'Brien. The culmination of my MS is the ["Urban Informatic Toolkit"](https://ui.josiahparry.com/), a free online text intended to introduce new students of the field to R.
+
+Currently, I am fortunate enough to work at RStudio, PBC, on our customer success team engaging our public sector customers. This has been a fantastic convergence of my interests. It has been extremely fulfilling to work with organizations who are so tied to our social life and assist them in adopting and modernizing their data science toolbox. 
+
+The highlights of my work can be found on my ["projects" page](https://josiahparry.com). The vast majority of my work has been completed with a cortado in hand. If you'd like to sponsor my next [cup of coffee](https://ko-fi.com/josiahparry), I'd greatly appreciate it. :) 
+
+If you'd like to contact me you can reach me via [email](mailto:josiah.parry@gmail.com) or on twitter [\@josiahparry](https://twitter.com/josiahparry).
 
 
-If you would like to [sponsor a cup of coffee](https://ko-fi.com/josiahparry), I'd greatly appreciate it :) 
-
+<!--
 ---
 
 ## Talks
@@ -94,5 +100,5 @@ _May - September 2016_
 
 </details>
 
-
+-->
 
