@@ -22,6 +22,15 @@ I’m Josiah Parry and I am a self-avowed social data scientist.</description>
     </item>
     
     <item>
+      <title>Medium Data and Production API Pipeline</title>
+      <link>/post/gzip-api/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/gzip-api/</guid>
+      <description>“[P]arsing huge json strings is difficult and inefficient.”1 If you have an API that needs to receive a large amount of json, sending that over will be slow.</description>
+    </item>
+    
+    <item>
       <title>The Red Queen Effect</title>
       <link>/post/red-queen-effect/</link>
       <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>

@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>api</title>
+      <link>/tags/api/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>httr</title>
+      <link>/tags/httr/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/httr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>production</title>
+      <link>/tags/production/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/production/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>letters</title>
@@ -26,15 +53,6 @@
       <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/political-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>api</title>
-      <link>/tags/api/</link>
-      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/api/</guid>
       <description></description>
     </item>
     

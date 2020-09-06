@@ -1,0 +1,191 @@
+---
+title: Medium Data and Production API Pipeline
+subtitle: "Compress your JSON with gzip to increase API speed and reduce memory utilization in R"
+author: ~
+date: '2020-09-05'
+slug: gzip-api
+categories: [production, api]
+tags: [production, api, httr]
+draft: no
+---
+
+
+
+
+
+"[P]arsing huge json strings is difficult and inefficient."[^streaming] If you have an API that needs to receive a large amount of json, sending that over will be slow. 
+
+Q: How can we improve that? 
+A: Compression. 
+
+
+## Background
+
+An API is an application programming interface. APIs are how machines talk to other machines. APIs are useful because they are language agnostic meaning that the same API request from Python, or R, or JavaScript will work and return the same results. To send data to an API we use a POST request. The data that we send is usually required to be in json format.
+
+## Context
+
+**Problem**: With large data API POST requests can become extremely slow and take up a lot of storage space. This can cause a bottleneck.
+
+**Solution**: Compress your data and send a file instead of sending plain text json.
+
+## Standard approach
+
+Interacting with an API from R is usually done with the `{httr}` package. Imagine you want to send a dataframe to an API as json. We can do that by using the `httr::POST()`, providing a dataframe to the body, and encoding it to json by setting `encode = "json"`. 
+
+First let's load our libraries:
+
+```{r}
+library(httr)          # interacts with apis
+library(jsonlite)      # works with json (for later)
+library(nycflights13)  # data for posting 
+```
+
+Next, let's create a sample `POST()` request to illustrate how posting a dataframe as json works. 
+
+```{r}
+
+b_url <- "http://httpbin.org/post" # an easy to work with sample API POST endpoint
+
+POST(url = b_url, 
+     body = list(x = cars),
+     encode = "json")
+```
+
+## Alternative approach
+
+An alternative approach would be to write our dataframe as json to a compressed gzip file. The process will be to:
+
+1. Create a temporary file which will store our compressed json.
+2. Create a gzip file connection to write the temporary file as a gzip.
+3. Upload the temporary file to the API.
+4. Remove the temporary file.
+
+Writing to a temporary gzipped file looks like:
+
+```{r}
+# create the tempfile 
+tmp <- tempfile()
+
+# create a gzfile connection (to enable writing gz)
+gz_tmp <- gzfile(tmp)
+
+# write json to the gz file connection
+write_json(cars, gz_tmp)
+
+# close the gz file connection
+close(gz_tmp)
+```
+
+Let's read the temp file to see what it contains.
+
+```{r}
+# read the temp file for illustration 
+readLines(tmp)
+```
+
+### POSTing a file
+
+To post a file we use the function `httr::upload_file()`. The argument we provide is the path, in this case the file path is stored in the `tmp` object. 
+
+```{r}
+POST(b_url, body = list(x = upload_file(tmp)))
+```
+
+
+### Comparing R object to gzip
+
+Now, you may be asking, is this really that big of a difference? It actually is. If you'll notice from the first response where we POSTed the `cars` dataframe the response size was 4.81kB. This response with the compressed file was only 870B. Thats a whole lot smaller.
+
+We can compare the object size to the file size for another look. The below is in bytes. 
+
+```{r}
+cat(" cars: ", object.size(cars), "\n",
+    "compressed cars: ", file.size(tmp))
+```
+
+
+## Benchmarking 
+
+Let's extend this example to some larger datasets as well as benchmark the results. We'll use data from `nycflights13`. In this example we'll send two dataset to an API as the parameters `metadata` and `data`. Generally metadata is smaller than the data. So for this example we'll send 1,000 rows as the metadata and 10,000 rows as the data. We'll call on the `weather` and `flights` datasets from `nycflights13`. 
+
+```{r}
+small_weather <- dplyr::sample_n(weather, 1000)
+small_flights <- dplyr::sample_n(flights, 10000)
+
+```
+
+### Making it functional
+
+As always, I recommend making your repetitive tasks into functions. Here we will create two functions. One for posting the data as gzip files and the second as pure json. These will be labeled `post_gz()` and `post_json()` respectively. 
+
+These functions will take two parameters: `metadata` and `data`. 
+
+Define `post_gz()`
+
+```{r}
+post_gz <- function(metadata, data) {
+  
+  # write metadata to temp file
+  tmp_meta <- tempfile("metadata")
+  gz_temp_meta <- gzfile(tmp_meta)
+  write_json(metadata, gz_temp_meta)
+  close(gz_temp_meta)
+  
+  # write data to temp file
+  tmp_data <- tempfile("data")
+  gz_temp_data <- gzfile(tmp_data)
+  write_json(data, gz_temp_data)
+  close(gz_temp_data)
+  
+  # post 
+  q <- POST(b_url, 
+       body = list(
+         metadata = upload_file(tmp_meta),
+         data = upload_file(tmp_data)
+       ))
+  
+  # remove temp files
+  unlink(tmp_meta)
+  unlink(tmp_data)
+  
+  # return a character for purposes of bench marking
+  "Posted..."
+}
+```
+
+
+Define `post_json()`. 
+```{r}
+post_json <- function(metadata, data) {
+  q <- POST(b_url, 
+       body = list(
+         metadata = metadata,
+         data = data
+       ),
+       encode = "json") 
+  
+  "Posted..."
+}
+```
+
+
+Now that these functions have been defined, let's compare their performance using the package `bench`. We'll run each function 50 times to get a good understanding of their respective performance. 
+
+```{r}
+bm <- bench::mark(
+  post_gz(small_weather, small_flights),
+  post_json(small_weather, small_flights),
+  iterations = 50
+  )
+
+bm
+```
+
+```{r}
+ggplot2::autoplot(bm)
+```
+
+[^streaming]: https://www.opencpu.org/posts/jsonlite-streaming/
+
+
