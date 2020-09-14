@@ -6,18 +6,27 @@
     <description>Recent content in race on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/race/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Demographic Change, White Fear, and the Social Construction of Race</title>
-      <link>/post/demographic-change-white-fear/</link>
+      <title>What is critical race theory, anyways?</title>
+      <link>/post/critical-race-theory/</link>
+      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/critical-race-theory/</guid>
+      <description>TL;DR critical race theory is a mental framework used for understanding racial inequality that focuses on power imbalances.</description>
+    </item>
+    
+    <item>
+      <title>Demographic Change, White Fear, and Social Construction of Race</title>
+      <link>/post/demographic-change-white-fear-and-social-construction-of-race/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/demographic-change-white-fear/</guid>
-      <description>Two or three weeks ago, somewhere between Carter Dome and Mout Hight in the White Mountains of New Hampshire my friend posed a thought experiment to me.</description>
+      <guid>/post/demographic-change-white-fear-and-social-construction-of-race/</guid>
+      <description>Two or three weeks ago, somewhere between Carter Dome and Mount Hight in the White Mountains of New Hampshire my friend posed a thought experiment to me.</description>
     </item>
     
   </channel>
