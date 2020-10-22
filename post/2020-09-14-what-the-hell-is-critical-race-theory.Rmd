@@ -4,7 +4,9 @@ author: ~
 date: '2020-09-14'
 slug: critical-race-theory
 tags: [sociology, race, letters, social science, politics, theory]
-draft: yes
+output:
+  html_document:
+    toc: true
 ---
 
 _TL;DR critical race theory is a mental framework used for understanding racial inequality that focuses on power imbalances._
