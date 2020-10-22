@@ -21,7 +21,7 @@ output:
 What we will cover:
 
 * A brief introduction to tidymodeling
-* Productionalizing models with plumber
+* Productionizing models with plumber
 * Deploying and hosting with connect
 ---
 
@@ -88,13 +88,13 @@ data %>%
 
 ---
 
-# Tidyverse Worflow
+# Tidyverse Workflow
 
 ![](images/tidyv-flow.png)
 
 ---
 
-# Modeling Worflow
+# Modeling Workflow
 
 ![](images/diagram-simple.svg)
 
@@ -157,7 +157,7 @@ data %>%
 
 ```{r}
 # model
-decision_tree(mode =  "classification") %>% 
+iris_fit <- decision_tree(mode =  "classification") %>% 
   # engine
   set_engine("rpart") %>% 
   # fit 
@@ -168,7 +168,7 @@ decision_tree(mode =  "classification") %>%
 
 ## Changing engines
 
-```{r}
+```{r, eval=F}
 # model
 iris_fit <- decision_tree(mode =  "classification") %>% 
   # engine
