@@ -1,0 +1,20 @@
+---
+date: "2020-02-22"
+title: "projects"
+---
+
+* **[Urban Informatics Toolkit (uitk)](https://urban-informatics.netlify.com)**:
+  - Urban Informatics Toolkit—currently being drafted—is the culmination of Master's degree. This book introduces new students in urban informatics to R and fundamental concepts in the field.
+* **[{genius}](https://github.com/JosiahParry/genius)**: 
+  - an R package for accessing song lyrics in an analysis ready format. 
+* **[{bbcharts}](https://github.com/josiahparry/bbcharts)**:
+  - a package for accessing the Billboard music charts.
+* **[Music Information Retrieval in R (mirr)](https://mirr.netlify.com/)**:
+  - a case study on music information retrieval using {spotifyr}, {genius}, and {bbcharts}. Using {tidymodels} three genre classifiers are created—one based on lyrics, another on the audio features, and a third stacked ensemble model.
+* **[R for Progressive Campaigns](https://r4campaigns.netlify.com/)**:
+  - a cookbook to help progressive data managers build out their reporting, texting, among others using R. This short book assumes familiarity with the tidyverse. 
+* **[{opensecrets}](https://github.com/JosiahParry/opensecrets/)**:
+  - an experimental R wrapper to the [OpenSecrets](https://www.opensecrets.org/) API.
+* **[{spotifyr}](https://github.com/charlie86/spotifyr)**:
+  - {spotifyr} is an R package created by [Charlie Thompson](https://rcharlie.com/) which provides access to the spotify API. My contributions include functionality for retrieving song lyrics and building in pagination to the `get_playlist()` function.
+

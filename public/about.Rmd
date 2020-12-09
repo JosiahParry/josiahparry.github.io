@@ -1,0 +1,104 @@
+---
+date: "`r Sys.Date()`"
+type: section
+---
+
+
+Hey there! 
+
+I'm Josiah Parry and I am a self-avowed social data scientist. That is, my existence in academe was focused on the social sciences and my professional "career" has been focused on data science. 
+
+I am a graduate of Plymouth State University class of 2018 with a degree in Sociology and Anthropology, a minor in Mathematics, and a certificate in geographic information systems (GIS). This April, 2020, I earned my MS in Urban Informatics from Northeastern University under Daniel T. O'Brien. The culmination of my MS is the ["Urban Informatic Toolkit"](https://ui.josiahparry.com/), a free online text intended to introduce new students of the field to R.
+
+Currently, I am fortunate enough to work at RStudio, PBC, on our customer success team engaging our public sector customers. This has been a fantastic convergence of my interests. It has been extremely fulfilling to work with organizations who are so tied to our social life and assist them in adopting and modernizing their data science toolbox. 
+
+The highlights of my work can be found on my ["projects" page](https://josiahparry.com). The vast majority of my work has been completed with a cortado in hand. If you'd like to sponsor my next [cup of coffee](https://ko-fi.com/josiahparry), I'd greatly appreciate it. :) 
+
+If you'd like to contact me you can reach me via [email](mailto:josiah.parry@gmail.com) or on twitter [\@josiahparry](https://twitter.com/josiahparry).
+
+
+<!--
+---
+
+## Talks
+
+<details>
+  <summary>details</summary>
+
+* ["Old Town Road" Rap or Country?: Putting R in Production with Tidymodels, Plumber, and Shiny](https://github.com/JosiahParry/R-in-prod)
+  * Boston useR group
+  * December 10th, 2019
+* [Tidy Lyrical Analysis](https://github.com/JosiahParry/useR-2018-07-17)
+  * Boston useR group
+  * July 17th, 2018
+* [Newfound Lake Landscape Value Analysis: Exploring the efficacy of PPGIS, NESTVAL 2016](https://prezi.com/uchr4_g_qzns/newfound-lake-watershed/)
+  * New England St. Lawrence River Valley regional American Associations of Geographers Conference
+  * 2016
+</details>
+
+## Experience:
+
+
+**Government — Customer Success, RStudio**  
+
+_April 2019 - Present_ 
+
+* As a member of the Customer Success team here at RStudio, I focus on building strong relationships with our Government / Public Sector customers. I attempt to empower folks in the public sector via education, consultation, and aiding data science adoption.
+
+**Data Science Consultant, International Consulting Associates Inc.** 
+
+_November 2018 - April 2019_
+
+* Provide advisory services for key leadership of FDA medical device unit
+* Improved internal dashboard by identifying inefficiencies and creating new KPIs
+* Developed anomaly detection models performing at 90-98% accuracy (no information rate ~70%)
+
+**Research Assistant, Boston Area Research Initiative**
+
+_January - April 2019_
+
+* Use Census data to uncover and communicate insights about the Boston region in the context of a government shutdown
+* Update internal databases with ‘13-’17 American Community Survey data and create novel regional metrics
+
+**Data Analytics Instructor, Level Education**
+
+_January - April 2019_ 
+  * Modify lecture material to utilize contemporary tooling in R
+  * Instruct students on effective data analysis, visualization, and presentation
+  * Cultivate an interactive learning environment based on discourse and experiences
+  
+**NH Data Director, NextGen America**
+
+_April - November 2018_
+
+* Created Intro to GitHub curriculum for in-person training of data team members
+* Developed an interactive field performance dashboard via R and Civis Analytics
+* Cleaned, aggregated, and integrated legacy database which expanded target universes by ~50% 
+* Utilized R (and adapted to Excel) to create semi-automated Relay text campaign creation that allows creative messaging for diverse universes. This process saved 10-15 hours of staff time during  GOTV and was adopted by other state leadership
+* Cut and administered statewide canvassing turf to organizers. 
+* Validated canvassing data integrity and rectified data entry errors via a semi-automated process utilizing R
+
+**Database Administrator, Accenture**
+
+_June - August 2017_ 
+
+* Maintained Oracle 11g & 12c databases
+* Automated daily reporting utilizing Linux & PL/SQL scripts
+* Analyzed & Optimized production queries
+* Managed DB versioning with Git, Gerrit, and Jenkins
+* Facilitated twice daily handover calls with offshore team
+  
+**DataCamp, Content Creation Intern**
+
+_May - September 2016_
+
+* Collaborated in the development of finance courses in R:
+  * Introduction to Portfolio Analysis in R
+  * Manipulating Time Series Data in R with xts & zoo
+  * Financial Trading in R
+
+
+</details>
+
+-->
+
