@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Secure R Package Environments</title>
+      <link>/post/secure-package-environment/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/secure-package-environment/</guid>
+      <description>Securing your R Package Environment One of the biggest challenges faced by public sector organizations and other security conscious groups is package management.</description>
+    </item>
+    
+    <item>
       <title>What is critical race theory, anyways?</title>
       <link>/post/critical-race-theory/</link>
       <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>

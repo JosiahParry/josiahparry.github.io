@@ -3,22 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/packages/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-admin/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rspm/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/secure-package-environment/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/security/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/letters/</loc>
     <lastmod>2020-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/politics/</loc>
-    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r/</loc>
     <lastmod>2020-09-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -34,11 +64,6 @@
   
   <url>
     <loc>/tags/sociology/</loc>
-    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-09-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -134,11 +159,6 @@
   
   <url>
     <loc>/post/cran-2019/</loc>
-    <lastmod>2020-02-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/security/</loc>
     <lastmod>2020-02-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -329,11 +349,6 @@
   
   <url>
     <loc>/tags/methods/</loc>
-    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/packages/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
