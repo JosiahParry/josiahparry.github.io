@@ -17,7 +17,7 @@ The highlights of my work can be found on my ["projects" page](https://josiahpar
 If you'd like to contact me you can reach me via [email](mailto:josiah.parry@gmail.com) or on twitter [\@josiahparry](https://twitter.com/josiahparry).
 
 
-<!--
+
 ---
 
 ## Talks
@@ -25,6 +25,9 @@ If you'd like to contact me you can reach me via [email](mailto:josiah.parry@gma
 <details>
   <summary>details</summary>
 
+* [APIs: you’re probably not using them and why you probably should](https://github.com/JosiahParry/you-should-use-APIs)
+  * [Government Advances in Statistical Programming](https://sites.google.com/view/gasp2020/agenda?authuser=0)
+  * November 6th, 2020
 * ["Old Town Road" Rap or Country?: Putting R in Production with Tidymodels, Plumber, and Shiny](https://github.com/JosiahParry/R-in-prod)
   * Boston useR group
   * December 10th, 2019
@@ -36,6 +39,7 @@ If you'd like to contact me you can reach me via [email](mailto:josiah.parry@gma
   * 2016
 </details>
 
+<!--
 ## Experience:
 
 

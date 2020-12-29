@@ -1,78 +1,134 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Josiah Parry</title>
+    <title>Josiah Parry on Josiah Parry</title>
     <link>/</link>
-    <description>Recent content on Josiah Parry</description>
+    <description>Recent content in Josiah Parry on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Secure R Package Environments</title>
-      <link>/post/secure-package-environment/</link>
-      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/secure-package-environment/</guid>
-      <description>Securing your R Package Environment One of the biggest challenges faced by public sector organizations and other security conscious groups is package management.</description>
-    </item>
-    
-    <item>
-      <title>What is critical race theory, anyways?</title>
-      <link>/post/critical-race-theory/</link>
-      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/critical-race-theory/</guid>
-      <description>TL;DR critical race theory is a mental framework used for understanding racial inequality that focuses on power imbalances.</description>
-    </item>
-    
-    <item>
-      <title>Demographic Change, White Fear, and Social Construction of Race</title>
-      <link>/post/demographic-change-white-fear-and-social-construction-of-race/</link>
-      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/demographic-change-white-fear-and-social-construction-of-race/</guid>
-      <description>Two or three weeks ago, somewhere between Carter Dome and Mount Hight in the White Mountains of New Hampshire my friend posed a thought experiment to me.</description>
-    </item>
+    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
       <link>/about/</link>
-      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Hey there!
-I’m Josiah Parry and I am a self-avowed social data scientist.</description>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Hey there!&lt;/p&gt;
+&lt;p&gt;I’m Josiah Parry and I am a self-avowed social data scientist. That is, my existence in academe was focused on the social sciences and my professional “career” has been focused on data science.&lt;/p&gt;
+&lt;p&gt;I am a graduate of Plymouth State University class of 2018 with a degree in Sociology and Anthropology, a minor in Mathematics, and a certificate in geographic information systems (GIS). This April, 2020, I earned my MS in Urban Informatics from Northeastern University under Daniel T. O’Brien. The culmination of my MS is the &lt;a href=&#34;https://ui.josiahparry.com/&#34;&gt;“Urban Informatic Toolkit”&lt;/a&gt;, a free online text intended to introduce new students of the field to R.&lt;/p&gt;
+&lt;p&gt;Currently, I am fortunate enough to work at RStudio, PBC, on our customer success team engaging our public sector customers. This has been a fantastic convergence of my interests. It has been extremely fulfilling to work with organizations who are so tied to our social life and assist them in adopting and modernizing their data science toolbox.&lt;/p&gt;
+&lt;p&gt;The highlights of my work can be found on my &lt;a href=&#34;https://josiahparry.com&#34;&gt;“projects” page&lt;/a&gt;. The vast majority of my work has been completed with a cortado in hand. If you’d like to sponsor my next &lt;a href=&#34;https://ko-fi.com/josiahparry&#34;&gt;cup of coffee&lt;/a&gt;, I’d greatly appreciate it. :)&lt;/p&gt;
+&lt;p&gt;If you’d like to contact me you can reach me via &lt;a href=&#34;mailto:josiah.parry@gmail.com&#34;&gt;email&lt;/a&gt; or on twitter &lt;a href=&#34;https://twitter.com/josiahparry&#34;&gt;@josiahparry&lt;/a&gt;.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;talks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Talks&lt;/h2&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;details&lt;/summary&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JosiahParry/you-should-use-APIs&#34;&gt;APIs: you’re probably not using them and why you probably should&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.google.com/view/gasp2020/agenda?authuser=0&#34;&gt;Government Advances in Statistical Programming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;November 6th, 2020&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JosiahParry/R-in-prod&#34;&gt;“Old Town Road” Rap or Country?: Putting R in Production with Tidymodels, Plumber, and Shiny&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Boston useR group&lt;/li&gt;
+&lt;li&gt;December 10th, 2019&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JosiahParry/useR-2018-07-17&#34;&gt;Tidy Lyrical Analysis&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Boston useR group&lt;/li&gt;
+&lt;li&gt;July 17th, 2018&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://prezi.com/uchr4_g_qzns/newfound-lake-watershed/&#34;&gt;Newfound Lake Landscape Value Analysis: Exploring the efficacy of PPGIS, NESTVAL 2016&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;New England St. Lawrence River Valley regional American Associations of Geographers Conference&lt;/li&gt;
+&lt;li&gt;2016&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;!--
+## Experience:
+
+
+**Government — Customer Success, RStudio**  
+
+_April 2019 - Present_ 
+
+* As a member of the Customer Success team here at RStudio, I focus on building strong relationships with our Government / Public Sector customers. I attempt to empower folks in the public sector via education, consultation, and aiding data science adoption.
+
+**Data Science Consultant, International Consulting Associates Inc.** 
+
+_November 2018 - April 2019_
+
+* Provide advisory services for key leadership of FDA medical device unit
+* Improved internal dashboard by identifying inefficiencies and creating new KPIs
+* Developed anomaly detection models performing at 90-98% accuracy (no information rate ~70%)
+
+**Research Assistant, Boston Area Research Initiative**
+
+_January - April 2019_
+
+* Use Census data to uncover and communicate insights about the Boston region in the context of a government shutdown
+* Update internal databases with ‘13-’17 American Community Survey data and create novel regional metrics
+
+**Data Analytics Instructor, Level Education**
+
+_January - April 2019_ 
+  * Modify lecture material to utilize contemporary tooling in R
+  * Instruct students on effective data analysis, visualization, and presentation
+  * Cultivate an interactive learning environment based on discourse and experiences
+  
+**NH Data Director, NextGen America**
+
+_April - November 2018_
+
+* Created Intro to GitHub curriculum for in-person training of data team members
+* Developed an interactive field performance dashboard via R and Civis Analytics
+* Cleaned, aggregated, and integrated legacy database which expanded target universes by ~50% 
+* Utilized R (and adapted to Excel) to create semi-automated Relay text campaign creation that allows creative messaging for diverse universes. This process saved 10-15 hours of staff time during  GOTV and was adopted by other state leadership
+* Cut and administered statewide canvassing turf to organizers. 
+* Validated canvassing data integrity and rectified data entry errors via a semi-automated process utilizing R
+
+**Database Administrator, Accenture**
+
+_June - August 2017_ 
+
+* Maintained Oracle 11g &amp; 12c databases
+* Automated daily reporting utilizing Linux &amp; PL/SQL scripts
+* Analyzed &amp; Optimized production queries
+* Managed DB versioning with Git, Gerrit, and Jenkins
+* Facilitated twice daily handover calls with offshore team
+  
+**DataCamp, Content Creation Intern**
+
+_May - September 2016_
+
+* Collaborated in the development of finance courses in R:
+  * Introduction to Portfolio Analysis in R
+  * Manipulating Time Series Data in R with xts &amp; zoo
+  * Financial Trading in R
+
+
+&lt;/details&gt;
+
+--&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
-      <title>Medium Data and Production API Pipeline</title>
-      <link>/post/gzip-api/</link>
-      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      <title>Posts</title>
+      <link>/post/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/gzip-api/</guid>
-      <description>“[P]arsing huge json strings is difficult and inefficient.”1 If you have an API that needs to receive a large amount of json, sending that over will be slow.</description>
-    </item>
-    
-    <item>
-      <title>The Red Queen Effect</title>
-      <link>/post/red-queen-effect/</link>
-      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/red-queen-effect/</guid>
-      <description>The Red Queen and maintenance of state and society It’s Monday morning.</description>
-    </item>
-    
-    <item>
-      <title>Excel in prod</title>
-      <link>/post/2020-03-01-excel-in-prod/</link>
-      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020-03-01-excel-in-prod/</guid>
-      <description>or how to incorporate excel into a production API using plumber or, a micro-excel-micro-service.</description>
+      <guid>/post/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -81,79 +137,41 @@ I’m Josiah Parry and I am a self-avowed social data scientist.</description>
       <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/</guid>
-      <description>Urban Informatics Toolkit (uitk):  Urban Informatics Toolkit—currently being drafted—is the culmination of Master’s degree.</description>
-    </item>
-    
-    <item>
-      <title>R Security Concerns and 2019 CRAN downloads</title>
-      <link>/post/cran-2019/</link>
-      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/cran-2019/</guid>
-      <description>The number of downloads that a package has can tell us a number of things.</description>
-    </item>
-    
-    <item>
-      <title>Non-interactive user tokens with googlesheets4</title>
-      <link>/post/2020-01-13-gs4-auth/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020-01-13-gs4-auth/</guid>
-      <description>This repository contains an example of an R Markdown document that uses googlesheets4 to read from a private Google Sheet and is deployed to RStudio Connect.</description>
-    </item>
-    
-    <item>
-      <title>Finding an SPSS {haven}</title>
-      <link>/post/2019-12-14-spss-haven/</link>
-      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-12-14-spss-haven/</guid>
-      <description>My education as a social scientist—undergratuate studies in sociology and anthropology—was largely focused on theory and the application of theory to social problems.</description>
-    </item>
-    
-    <item>
-      <title>Intro to Tidy Modeling</title>
-      <link>/post/2019-09-12-intro-tidymodels/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-09-12-intro-tidymodels/</guid>
-      <description>This is a resource intended to provide a top-level introduction into the main aspects of tidymodels.</description>
-    </item>
-    
-    <item>
-      <title>Water Quality Analysis</title>
-      <link>/post/2019-08-09-epa-waterquality/</link>
-      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-08-09-epa-waterquality/</guid>
-      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA.</description>
-    </item>
-    
-    <item>
-      <title>∑ { my parts }</title>
-      <link>/post/my-parts/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/my-parts/</guid>
-      <description>library(tidyverse) terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&amp;quot;) %&amp;gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 white 63 554 1067 1621 69.</description>
-    </item>
-    
-    <item>
-      <title>Google Trends for Campaigns</title>
-      <link>/post/trendyy-4-campaigns/</link>
-      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/trendyy-4-campaigns/</guid>
-      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</description>
-    </item>
-    
-    <item>
-      <title>Web-scraping for Campaigns</title>
-      <link>/post/scraping-4-campaigns/</link>
-      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/scraping-4-campaigns/</guid>
-      <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.</description>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://urban-informatics.netlify.com&#34;&gt;Urban Informatics Toolkit (uitk)&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Urban Informatics Toolkit—currently being drafted—is the culmination of Master’s degree. This book introduces new students in urban informatics to R and fundamental concepts in the field.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/JosiahParry/genius&#34;&gt;{genius}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;an R package for accessing song lyrics in an analysis ready format.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/josiahparry/bbcharts&#34;&gt;{bbcharts}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;a package for accessing the Billboard music charts.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://mirr.netlify.com/&#34;&gt;Music Information Retrieval in R (mirr)&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;a case study on music information retrieval using {spotifyr}, {genius}, and {bbcharts}. Using {tidymodels} three genre classifiers are created—one based on lyrics, another on the audio features, and a third stacked ensemble model.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://r4campaigns.netlify.com/&#34;&gt;R for Progressive Campaigns&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;a cookbook to help progressive data managers build out their reporting, texting, among others using R. This short book assumes familiarity with the tidyverse.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/JosiahParry/opensecrets/&#34;&gt;{opensecrets}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;an experimental R wrapper to the &lt;a href=&#34;https://www.opensecrets.org/&#34;&gt;OpenSecrets&lt;/a&gt; API.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/charlie86/spotifyr&#34;&gt;{spotifyr}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;{spotifyr} is an R package created by &lt;a href=&#34;https://rcharlie.com/&#34;&gt;Charlie Thompson&lt;/a&gt; which provides access to the spotify API. My contributions include functionality for retrieving song lyrics and building in pagination to the &lt;code&gt;get_playlist()&lt;/code&gt; function.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -163,125 +181,6 @@ I’m Josiah Parry and I am a self-avowed social data scientist.</description>
       
       <guid>/archives/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Introducing trendyy</title>
-      <link>/post/2019-05-25-introducing-trendyy/</link>
-      <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-05-25-introducing-trendyy/</guid>
-      <description>trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.</description>
-    </item>
-    
-    <item>
-      <title>genius tutorial</title>
-      <link>/post/2019-05-08-genius-learnr-tutorial/</link>
-      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-05-08-genius-learnr-tutorial/</guid>
-      <description>Introducing genius You want to start analysing song lyrics, where do you go?</description>
-    </item>
-    
-    <item>
-      <title>genius Plumber API</title>
-      <link>/post/genius-api/</link>
-      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/genius-api/</guid>
-      <description>get started here
-Since I created genius, I’ve wanted to make a version for python.</description>
-    </item>
-    
-    <item>
-      <title>The Fallacy of one person, one vote</title>
-      <link>/post/2019-03-17-the-fallacy-of-one-person-one-vote/</link>
-      <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-03-17-the-fallacy-of-one-person-one-vote/</guid>
-      <description>On October 6, 2018, the US Senate voted 50–48 in favor of the appointment of Associate Justice Brett Kavanaugh.</description>
-    </item>
-    
-    <item>
-      <title>The Cost of Gridlock</title>
-      <link>/post/shutdown-politics/</link>
-      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/shutdown-politics/</guid>
-      <description>Originally posted via Boston Area Research Initiative
-The nation heaved a sigh of relief as President Trump signed a bill on Friday, January 25th, that ended the longest government shutdown in US history.</description>
-    </item>
-    
-    <item>
-      <title>xgboost feature importance</title>
-      <link>/post/xgb-feature-importance/</link>
-      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/xgb-feature-importance/</guid>
-      <description>This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it.</description>
-    </item>
-    
-    <item>
-      <title>[Not so] generic functions</title>
-      <link>/post/function-methods/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/function-methods/</guid>
-      <description>The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package.</description>
-    </item>
-    
-    <item>
-      <title>US Representation: Part I</title>
-      <link>/post/us-representation-i/</link>
-      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/us-representation-i/</guid>
-      <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like.</description>
-    </item>
-    
-    <item>
-      <title>Introducing: Letters to a layperson</title>
-      <link>/post/introducing-letters-to-a-layperson/</link>
-      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/introducing-letters-to-a-layperson/</guid>
-      <description>I have been in the world of academia for nearly five years now.</description>
-    </item>
-    
-    <item>
-      <title>Chunking your csv</title>
-      <link>/post/write-chunked-csv/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/write-chunked-csv/</guid>
-      <description>Sometimes due to limitations of software, file uploads often have a row limit.</description>
-    </item>
-    
-    <item>
-      <title>Reading Multiple csvs as 1 data frame</title>
-      <link>/post/read-chunked-csv/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/read-chunked-csv/</guid>
-      <description>In an earlier posting I wrote about having to break a single csv into multiple csvs.</description>
-    </item>
-    
-    <item>
-      <title>Coursera R-Programming: Week 2 Problems</title>
-      <link>/post/tidy-coursera-r-programming/</link>
-      <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidy-coursera-r-programming/</guid>
-      <description>Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R.</description>
-    </item>
-    
-    <item>
-      <title>Introducing geniusR</title>
-      <link>/post/introducing-geniusr/</link>
-      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/introducing-geniusr/</guid>
-      <description>knitr::opts_chunk$set(eval=FALSE) Introducing geniusR geniusR enables quick and easy download of song lyrics.</description>
     </item>
     
   </channel>

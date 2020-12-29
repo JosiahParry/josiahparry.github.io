@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/about/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/packages/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
   </url>
@@ -80,16 +90,6 @@
   <url>
     <loc>/post/demographic-change-white-fear-and-social-construction-of-race/</loc>
     <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2020-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-09-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
