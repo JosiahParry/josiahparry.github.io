@@ -2,7 +2,6 @@
 
 <html lang="en-us">
     <head>
-	<meta name="generator" content="Hugo 0.69.1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,8 +26,6 @@
     
     
  
-    
-    <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Josiah Parry" />
     
     
     
@@ -146,178 +143,136 @@
 </nav>
         <div id="content" class="content-container">
         
-<div class = "article-content">
-        
-        <div class="description">
-            <p>recent posts</p>
-        </div>
-        
-        
-        
-        
-        <article>
-            <h2>
-                <a href="/post/2019-09-12-intro-tidymodels/">
-                    Intro to Tidy Modeling
-                </a>
-            </h2>
-            <div><p>This is a resource intended to provide a top-level introduction into the main aspects of tidymodels.</p></div>
-            <div class="post-footer">
-            <time>September 12, 2019</time>
 
-            
-            
-            </div> 
-           
-        </article>
+<h1 class="post-title">Color Palette Cinema</h1>
+    
+    <time>March 14, 2021</time>
+    
+    <div>
+        <p>
         
-        <article>
-            <h2>
-                <a href="/post/2019-08-09-epa-waterquality/">
-                    Water Quality Analysis
-                </a>
-            </h2>
-            <div><p>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA.</p></div>
-            <div class="post-footer">
-            <time>August 9, 2019</time>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
-            
-            
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/tidyverse">#tidyverse</a>
-                
-                    <a class="tag" href="/tags/gis">#gis</a>
-                
-                    <a class="tag" href="/tags/sf">#sf</a>
-                
-                    <a class="tag" href="/tags/modeling">#modeling</a>
-                
-                    <a class="tag" href="/tags/leaflet">#leaflet</a>
-                
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/my-parts/">
-                    ∑ { my parts }
-                </a>
-            </h2>
-            <div><p>library(tidyverse) terrorists &lt;- googlesheets::gs_url(&quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&quot;) %&gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; ## 1 white 63 554 1067 1621 69.</p></div>
-            <div class="post-footer">
-            <time>August 4, 2019</time>
 
-            
-            
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/politics">#politics</a>
-                
-                    <a class="tag" href="/tags/us">#US</a>
-                
-                    <a class="tag" href="/tags/crime">#crime</a>
-                
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/trendyy-4-campaigns/">
-                    Google Trends for Campaigns
-                </a>
-            </h2>
-            <div><p>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</p></div>
-            <div class="post-footer">
-            <time>June 11, 2019</time>
+<p>Friday night I found myself trying to make a plot look pretty. When I’m looking for color palette inspiration I often turn to the Instagram page <a href="https://www.instagram.com/colorpalette.cinema/">@colorpalette.cinema</a> for inspiration. Color Palette Cinema is an awesome page that takes stills from films and creates a nice palette of 10 colors from the image. These can range from bright hues, to monochromatic masterpieces. I settled on the <a href="https://en.wikipedia.org/wiki/Hayao_Miyazaki">Miyasaki</a> masterpiece <a href="https://en.wikipedia.org/wiki/Spirited_Away">Spirited Away</a> (streaming on HBO Max, by the way). I extracted the colors with the 3/4 baked package <a href="https://github.com/JosiahParry/cpcinema/"><code>{cpcinema}</code></a> that I created right as the pandemic began at the end of March. (Thinking back, it’s slightly wild that I wrote this package sitting inside of the Cambridge library without a mask.)</p>
+<p><img src="https://i.pinimg.com/originals/90/ec/34/90ec34736dd66d3d38f401aac60893da.png" /><!-- --></p>
+<p>Around midnight, I tossed a silly #rstats tweet into the void thinking nothing of it—as I usually do.</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+The most wonderful <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> package I've ever made for myself. <a href="https://t.co/o4C3g0Mtpj">pic.twitter.com/o4C3g0Mtpj</a>
+</p>
+— jo-sigh-ughhh (<span class="citation">@JosiahParry</span>) <a href="https://twitter.com/JosiahParry/status/1370595896405209091?ref_src=twsrc%5Etfw">March 13, 2021</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>I awoke to what felt celebrity levels of likes and interactions on the tweet. As of right now, there are 343 likes on the tweet. That’s 340 more likes than I’m used to. Apparently people thought this package idea was fun. I was surprised. One of the first replies stuck out to me the most:</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+Beautiful and private :(
+</p>
+— Emil Hvitfeldt (<span class="citation">@Emil_Hvitfeldt</span>) <a href="https://twitter.com/Emil_Hvitfeldt/status/1370597608536743940?ref_src=twsrc%5Etfw">March 13, 2021</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>It hadn’t crossed my mind that others would want to utilize this package—hence why I didn’t share the package URL. The package is public in fact. But I’ve not once publicized it until this post.</p>
+<div id="why-didnt-i-release-cpcinema" class="section level2">
+<h2>Why didn’t I “release” cpcinema?</h2>
+<p>There are two distinct reasons why I didn’t tweet the package into the void.</p>
+<p>The first reason is that I struggled for hours on end trying to figure out an easy way to get the color palettes directly from an Instagram post. I am only familiar with one endpoint of an undocumented Instagram API and that only returns the URL for the first image in a post. I want <em>all</em> of them. I then attempted to do this via the official Facebook Instagram API—a truly insurmountable task for those seeking simple <code>GET</code> requests for data. The Instagram Basic API is intended for those who are seeking to build true applications—not for data scientists. The good news is that I’ve figured this out. h/t to <a href="https://github.com/colearendt">Cole Arendt</a> for teaching me how to use the networking tab of Chrome. We wouldn’t be here without him.</p>
+<p>The second reason is less technical. The functionality I was (and am) most excited about creating was 1) an S3 vectors class using <code>{vctrs}</code>; 2) a printing method that displayed the colors; and 3) color interpolation for continuous color scales. As I was nearing completion of this package I learned about <a href="https://www.hvitfeldt.me/about/">Emil Hvitfeldt’s</a> awesome package <a href="https://github.com/EmilHvitfeldt/paletteer"><code>{paletteer}</code></a>. paletteer accomplishes 1) and 2) through the dependency <a href="https://emilhvitfeldt.github.io/prismatic/"><code>{prismatic}</code></a> which Emil, also created—a prolofic software engineer if there ever was one. (Though I will stand on my petty hill that I prefer my printing method 😉, it’s something about the squares and the vertical orientation—except it gets out of hand with like 20+ colors.) And 3) is accomplished by paletteer itself.</p>
+</div>
+<div id="using-cpcinema" class="section level2">
+<h2>Using cpcinema</h2>
+<p>cpcinema is a rather somewhat simple package to use!</p>
+<p>First things first: install the package.</p>
+<pre class="r"><code># install.packages(&quot;remotes&quot;)
+remotes::install_github(&quot;JosiahParry/cpcinema&quot;)</code></pre>
+<p>Next, find a post from Color Palette Cinema that you really like and grab the URL.</p>
+<p><a href="https://www.instagram.com/p/CEuS3Y_oEbw/">This post</a> with an image of Blade Runner is awesome.</p>
+<p><img src="/images/blade-runner.png" width="100%" /></p>
+<p>So I’ll grab the URL and pass it to <code>pal_from_post()</code></p>
+<pre class="r"><code>library(cpcinema)
+library(tidyverse)
 
-            
-            
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/tutorial">#tutorial</a>
-                
-                    <a class="tag" href="/tags/politics">#politics</a>
-                
-                    <a class="tag" href="/tags/youthvote">#youthvote</a>
-                
-                    <a class="tag" href="/tags/campaigns">#campaigns</a>
-                
-                    <a class="tag" href="/tags/trendyy">#trendyy</a>
-                
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/scraping-4-campaigns/">
-                    Web-scraping for Campaigns
-                </a>
-            </h2>
-            <div><p>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.</p></div>
-            <div class="post-footer">
-            <time>June 11, 2019</time>
+blade &lt;- pal_from_post(&quot;https://www.instagram.com/p/CEuS3Y_oEbw/&quot;)</code></pre>
+<p>Unfortunately R Markdown doesn’t render the beautiful printing. But try it out for yourself!</p>
+<pre class="r"><code># this is stored in a list because sometimes a post 
+# has more than one color palette
+(pal &lt;- blade[[1]])</code></pre>
+<pre><code>## &lt;cpcinema[10]&gt;
+##     #0A1C1C 
+##     #173243 
+##     #296273 
+##     #366C78 
+##     #2F8383 
+##     #4C8187 
+##     #6A9697 
+##     #85A5A0 
+##     #B2BFB5 
+##     #DFD9C1</code></pre>
+<p>Now we can use the palette for plotting! The below example takes the built in object <code>USArrests</code> and samples 10 random states and creates a ranked bar chart colored by state.</p>
+<pre class="r"><code>as_tibble(USArrests, rownames = &quot;state&quot;) %&gt;% 
+  sample_n(10) %&gt;% 
+  mutate(state = fct_reorder(state, UrbanPop)) %&gt;% 
+  ggplot(aes(UrbanPop, state, fill = state)) +
+  geom_col() +
+  theme_light() +
+  labs(title = &quot;States ranked by urban population&quot;) +
+  # This is where we add the palette
+  scale_fill_manual(values = pal)</code></pre>
+<p><img src="/post/2021-03-14-cpcinema_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>You can even use the color palettes for continuous data. The function <code>color_palette()</code> will create a color palette from a vector of color codes. If <code>n</code> is greater than the number of colors provided, color interpolation will be done to create a smooth palette!</p>
+<p>Below we create a heat map with the built it object <code>volcano_df</code>. First we create the new color palette with 100 values, then create the heatmap. The important line is <code>scale_fill_gradientn()</code>!</p>
+<pre class="r"><code>continuous_pal &lt;- color_palette(pal, n = 100, &quot;continuous&quot;)
 
-            
-            
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/tutorial">#tutorial</a>
-                
-                    <a class="tag" href="/tags/politics">#politics</a>
-                
-                    <a class="tag" href="/tags/youthvote">#youthvote</a>
-                
-                    <a class="tag" href="/tags/campaigns">#campaigns</a>
-                
-            
-            </div> 
-           
-        </article>
-        
+ggplot(volcano_df, aes(x = id, y = y, fill = z)) +
+  geom_tile() + 
+  scale_fill_gradientn(colours = continuous_pal) + 
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_y_discrete(expand = c(0, 0)) + 
+  coord_equal() +
+  theme_void()</code></pre>
+<p><img src="/post/2021-03-14-cpcinema_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="what-next" class="section level2">
+<h2>What next?</h2>
+<p>Next, I’ll work to make this package work nicely with <code>prismatic</code> and <code>paletteer</code>. The challenge with the latter is that you can’t provide character strings directly to the <code>scale_color/fill_paletteer_d/c()</code> functions directly. They have to be provided as <code>pkgname::palette</code>. I am not too sure how to incorporate cpcinema in there. But I think my preference would be to provide a character vector as that is more flexible.</p>
+</div>
+
+        </p>
     </div>
+    
+    
+
+    
+
+    <div class="page-footer">
         
-        <div class="paginator">
+        <hr class="footer-divider">
         
+            <a class="tag" href="/tags/r">#R</a>
         
-        <p>Page 3 of 6</p>
-        <div class="paginator-group">
-            
-            <a class="color-link" href="/page/2/">
-                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
-                            <polygon id="Path" points="1.75929935 4.50000282 5.3292523 7.62371165 4.6707477 8.37628835 0.240700645 4.49999718 4.67081049 0.623709205 5.32930951 1.37629079"></polygon>
-                            <polygon id="Path" points="13 4 13 5 1 5 1 4"></polygon>
-                        </g>
-                </svg>  
-                Newer          
-            </a>
-            
-            
-                <a class="color-link older" href="/page/4/">
-                    Older
-                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
-                                <polygon points="7.6707477 1.37628835 8.3292523 0.623711653 12.7592994 4.50000282 8.32918951 8.37629079 7.67069049 7.62370921 11.2407006 4.49999718"></polygon>
-                                <polygon id="Path" points="0 5 0 4 12 4 12 5"></polygon>
-                            </g>
-                    </svg>
-                        
-                </a>
-            
-        </div>
+            <a class="tag" href="/tags/visualization">#visualization</a>
         
+            <a class="tag" href="/tags/cpcinema">#cpcinema</a>
+        
+            <a class="tag" href="/tags/packages">#packages</a>
+        
+            <a class="tag" href="/tags/blog">#blog</a>
+        
+      
     </div>
+    
+      
+<div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://josiahparry.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
         
 

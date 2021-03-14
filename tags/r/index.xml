@@ -6,10 +6,19 @@
     <description>Recent content in R on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Color Palette Cinema</title>
+      <link>/post/2021-03-14-cpcinema/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-03-14-cpcinema/</guid>
+      <description>Friday night I found myself trying to make a plot look pretty.</description>
+    </item>
     
     <item>
       <title>R Security Concerns and 2019 CRAN downloads</title>

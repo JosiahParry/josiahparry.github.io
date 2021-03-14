@@ -9,6 +9,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Posts</title>
+      <link>/post/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/about/</link>
       <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
@@ -123,64 +132,72 @@ _May - September 2016_
     </item>
     
     <item>
-      <title>Posts</title>
-      <link>/post/</link>
-      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>projects</title>
-      <link>/projects/</link>
-      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/</guid>
-      <description>
-&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://urban-informatics.netlify.com&#34;&gt;Urban Informatics Toolkit (uitk)&lt;/a&gt;&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;Urban Informatics Toolkit—currently being drafted—is the culmination of Master’s degree. This book introduces new students in urban informatics to R and fundamental concepts in the field.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/JosiahParry/genius&#34;&gt;{genius}&lt;/a&gt;&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;an R package for accessing song lyrics in an analysis ready format.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/josiahparry/bbcharts&#34;&gt;{bbcharts}&lt;/a&gt;&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;a package for accessing the Billboard music charts.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://mirr.netlify.com/&#34;&gt;Music Information Retrieval in R (mirr)&lt;/a&gt;&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;a case study on music information retrieval using {spotifyr}, {genius}, and {bbcharts}. Using {tidymodels} three genre classifiers are created—one based on lyrics, another on the audio features, and a third stacked ensemble model.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://r4campaigns.netlify.com/&#34;&gt;R for Progressive Campaigns&lt;/a&gt;&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;a cookbook to help progressive data managers build out their reporting, texting, among others using R. This short book assumes familiarity with the tidyverse.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/JosiahParry/opensecrets/&#34;&gt;{opensecrets}&lt;/a&gt;&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;an experimental R wrapper to the &lt;a href=&#34;https://www.opensecrets.org/&#34;&gt;OpenSecrets&lt;/a&gt; API.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/charlie86/spotifyr&#34;&gt;{spotifyr}&lt;/a&gt;&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;{spotifyr} is an R package created by &lt;a href=&#34;https://rcharlie.com/&#34;&gt;Charlie Thompson&lt;/a&gt; which provides access to the spotify API. My contributions include functionality for retrieving song lyrics and building in pagination to the &lt;code&gt;get_playlist()&lt;/code&gt; function.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title></title>
       <link>/archives/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/archives/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Packages&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/JosiahParry/genius&#34;&gt;{genius}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;an R package for accessing song lyrics in an analysis ready format.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://sonatype-nexus-community.github.io/oysteR/&#34;&gt;{oysteR}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;An R package to search for package vulnerabilities in the &lt;a href=&#34;https://ossindex.sonatype.org/&#34;&gt;Sonatype Nexus Open Source Software Index&lt;/a&gt;. My contributions include:
+&lt;ul&gt;
+&lt;li&gt;Creating functionality to search any requested package in all supported repository types (supports all possible &lt;a href=&#34;https://github.com/package-url/purl-spec&#34;&gt;purls&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Functionality to search packages in &lt;code&gt;renv.lock&lt;/code&gt; and &lt;code&gt;requirements.txt&lt;/code&gt; files for both R and Python packages.&lt;/li&gt;
+&lt;li&gt;Designing {pkgdown} site.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/charlie86/spotifyr&#34;&gt;{spotifyr}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;{spotifyr} is an R package created by &lt;a href=&#34;https://rcharlie.com/&#34;&gt;Charlie Thompson&lt;/a&gt; which provides access to the spotify API. My contributions include functionality for retrieving song lyrics and building in pagination to the &lt;code&gt;get_playlist()&lt;/code&gt; function.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/josiahparry/bbcharts&#34;&gt;{bbcharts}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;a package for accessing the Billboard music charts.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/JosiahParry/opensecrets/&#34;&gt;{opensecrets}&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;an experimental R wrapper to the &lt;a href=&#34;https://www.opensecrets.org/&#34;&gt;OpenSecrets&lt;/a&gt; API.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;writing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Writing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://urban-informatics.netlify.com&#34;&gt;Urban Informatics Toolkit (uitk)&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Urban Informatics Toolkit—currently being drafted—is the culmination of Master’s degree. This book introduces new students in urban informatics to R and fundamental concepts in the field.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://r4campaigns.netlify.com/&#34;&gt;R for Progressive Campaigns&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;a cookbook to help progressive data managers build out their reporting, texting, among others using R. This short book assumes familiarity with the tidyverse.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://mirr.netlify.com/&#34;&gt;Music Information Retrieval in R (mirr)&lt;/a&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;a case study on music information retrieval using {spotifyr}, {genius}, and {bbcharts}. Using {tidymodels} three genre classifiers are created—one based on lyrics, another on the audio features, and a third stacked ensemble model.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>
