@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data.table on Josiah Parry</title>
+    <link>/tags/data.table/</link>
+    <description>Recent content in data.table on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/data.table/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Design Paradigms in R</title>
+      <link>/post/2020-02-19-r-history/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-02-19-r-history/</guid>
+      <description>Lately I have been developing a deep curiosity of the origins of the R language.</description>
+    </item>
+    
+  </channel>
+</rss>

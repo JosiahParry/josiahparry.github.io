@@ -255,6 +255,33 @@
     </item>
     
     <item>
+      <title>data.table</title>
+      <link>/tags/data.table/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data.table/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>history</title>
+      <link>/tags/history/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/history/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>/tags/tidyverse/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R admins</title>
       <link>/tags/r-admins/</link>
       <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
@@ -318,15 +345,6 @@
     </item>
     
     <item>
-      <title>tidyverse</title>
-      <link>/tags/tidyverse/</link>
-      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tidyverse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>crime</title>
       <link>/tags/crime/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
@@ -386,15 +404,6 @@
       <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>history</title>
-      <link>/tags/history/</link>
-      <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/history/</guid>
       <description></description>
     </item>
     

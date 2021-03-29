@@ -203,6 +203,26 @@
   </url>
   
   <url>
+    <loc>/tags/data.table/</loc>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2020-02-19-r-history/</loc>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/history/</loc>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyverse/</loc>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/r-admins/</loc>
     <lastmod>2020-02-04T00:00:00+00:00</lastmod>
   </url>
@@ -254,11 +274,6 @@
   
   <url>
     <loc>/tags/sf/</loc>
-    <lastmod>2019-08-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyverse/</loc>
     <lastmod>2019-08-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -335,11 +350,6 @@
   <url>
     <loc>/post/genius-api/</loc>
     <lastmod>2019-03-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/history/</loc>
-    <lastmod>2019-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
