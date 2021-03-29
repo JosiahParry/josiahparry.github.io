@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data manipulation on Josiah Parry</title>
+    <link>/tags/data-manipulation/</link>
+    <description>Recent content in data manipulation on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/data-manipulation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chunking your csv</title>
+      <link>/post/write-chunked-csv/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/write-chunked-csv/</guid>
+      <description>Sometimes due to limitations of software, file uploads often have a row limit.</description>
+    </item>
+    
+    <item>
+      <title>Reading Multiple csvs as 1 data frame</title>
+      <link>/post/read-chunked-csv/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/read-chunked-csv/</guid>
+      <description>In an earlier posting I wrote about having to break a single csv into multiple csvs.</description>
+    </item>
+    
+  </channel>
+</rss>

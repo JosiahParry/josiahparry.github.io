@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>r-admin on Josiah Parry</title>
+    <link>/tags/r-admin/</link>
+    <description>Recent content in r-admin on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r-admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Secure R Package Environments</title>
+      <link>/post/secure-package-environment/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/secure-package-environment/</guid>
+      <description>Securing your R Package Environment One of the biggest challenges faced by public sector organizations and other security conscious groups is package management.</description>
+    </item>
+    
+  </channel>
+</rss>

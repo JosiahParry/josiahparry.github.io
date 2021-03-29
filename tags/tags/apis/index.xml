@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apis on Josiah Parry</title>
+    <link>/tags/apis/</link>
+    <description>Recent content in apis on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/apis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>APIs: the language agnostic love story</title>
+      <link>/post/2021-03-28-language-agnostic/</link>
+      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-03-28-language-agnostic/</guid>
+      <description>Extending the love story through design choices Disclaimer: This is a personal opinion and not endorsed or published by RStudio.</description>
+    </item>
+    
+    <item>
+      <title>Python &amp; R in production — the API way</title>
+      <link>/post/2021-03-28-python-r/</link>
+      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-03-28-python-r/</guid>
+      <description>In my previous post I discussed how we can alter the R &amp;amp; Python story to be predicated on APIs as a way to bridge the language divide.</description>
+    </item>
+    
+  </channel>
+</rss>

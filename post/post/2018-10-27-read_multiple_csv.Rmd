@@ -1,0 +1,42 @@
+---
+title: "Reading Multiple csvs as 1 data frame"
+subtitle: "Reading chunked csv files"
+date: '2018-10-27'
+slug: read-chunked-csv
+categories:
+  - R
+  - tutorial
+tags:
+  - R 
+  - tidyverse
+  - tutorial
+  - data manipulation
+---
+
+
+In an earlier [posting](josiahparry.com/post/write-chunked-csv) I wrote about having to break a single csv into multiple csvs. In other scenarios one data set maybe provided as multiple a csvs. 
+
+Thankfully `purrr` has a beautiful function called `map_df()` which will make this into a two liner. This process has essentially 3 steps.
+
+1. Create a vector of all `.csv` files that should be merged together.
+2. Read each file using `readr::read_csv()`
+3. Combine each dataframe into one.
+
+`map_df()` maps (applys) a function to each value of an object and produces a dataframe of all outputs. 
+
+For this example I will use the csvs I created in a previous tutorial utilizing a dataset from the Quantitative Social Science book. 
+
+```{r}
+# Get all csv file names 
+file_names <- list.files("../../static/data/chunk_data", pattern = "\\.csv", full.names = TRUE)
+file_names
+```
+
+```{r}
+library(tidyverse)
+# apply 
+all_csvs <- map_df(file_names, read_csv)
+
+# preview the data
+head(all_csvs)
+```
