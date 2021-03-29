@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>campaigns on Josiah Parry</title>
+    <link>/tags/campaigns/</link>
+    <description>Recent content in campaigns on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/campaigns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google Trends for Campaigns</title>
+      <link>/post/trendyy-4-campaigns/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/trendyy-4-campaigns/</guid>
+      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</description>
+    </item>
+    
+    <item>
+      <title>Web-scraping for Campaigns</title>
+      <link>/post/scraping-4-campaigns/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/scraping-4-campaigns/</guid>
+      <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.</description>
+    </item>
+    
+  </channel>
+</rss>

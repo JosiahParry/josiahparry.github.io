@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>googlesheets4 on Josiah Parry</title>
+    <link>/tags/googlesheets4/</link>
+    <description>Recent content in googlesheets4 on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/googlesheets4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Non-interactive user tokens with googlesheets4</title>
+      <link>/post/2020-01-13-gs4-auth/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-01-13-gs4-auth/</guid>
+      <description>This repository contains an example of an R Markdown document that uses googlesheets4 to read from a private Google Sheet and is deployed to RStudio Connect.</description>
+    </item>
+    
+  </channel>
+</rss>

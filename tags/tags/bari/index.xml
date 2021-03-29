@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BARI on Josiah Parry</title>
+    <link>/tags/bari/</link>
+    <description>Recent content in BARI on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/bari/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Cost of Gridlock</title>
+      <link>/post/shutdown-politics/</link>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/shutdown-politics/</guid>
+      <description>Originally posted via Boston Area Research Initiative
+The nation heaved a sigh of relief as President Trump signed a bill on Friday, January 25th, that ended the longest government shutdown in US history.</description>
+    </item>
+    
+  </channel>
+</rss>
