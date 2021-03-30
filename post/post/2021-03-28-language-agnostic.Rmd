@@ -73,6 +73,6 @@ By incorporating APIs into your data science toolkit, you can greatly extend the
 
 ## Motivating examples
 
-In another post which can be found [here](tbd), I will briefly go over two motivating examples that illustrate how a plumber API can be used to fit an XGBoost model with Scikit Learn and an exploratory analysis of financial data provided from a Flask app. 
+In another post which can be found [here](http://josiahparry.com/post/2021-03-28-python-r/), I will briefly go over two motivating examples that illustrate how a plumber API can be used to fit an XGBoost model with Scikit Learn and an exploratory analysis of financial data provided from a Flask app. 
 
 _Disclaimer: This is a personal opinion and not endorsed or published by RStudio. My statements represent no one but myself—sometimes not even that._
