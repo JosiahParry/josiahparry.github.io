@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>crime on Josiah Parry</title>
-    <link>/tags/crime/</link>
+    <link>http://josiahparry.com/tags/crime/</link>
     <description>Recent content in crime on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/crime/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://josiahparry.com/tags/crime/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>∑ { my parts }</title>
-      <link>/post/my-parts/</link>
+      <link>http://josiahparry.com/post/my-parts/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/my-parts/</guid>
+      <guid>http://josiahparry.com/post/my-parts/</guid>
       <description>library(tidyverse) terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&amp;quot;) %&amp;gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 white 63 554 1067 1621 69.</description>
     </item>
     

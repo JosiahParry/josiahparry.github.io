@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R admins on Josiah Parry</title>
-    <link>/tags/r-admins/</link>
+    <link>http://josiahparry.com/tags/r-admins/</link>
     <description>Recent content in R admins on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/r-admins/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://josiahparry.com/tags/r-admins/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R Security Concerns and 2019 CRAN downloads</title>
-      <link>/post/cran-2019/</link>
+      <link>http://josiahparry.com/post/cran-2019/</link>
       <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/cran-2019/</guid>
+      <guid>http://josiahparry.com/post/cran-2019/</guid>
       <description>The number of downloads that a package has can tell us a number of things.</description>
     </item>
     

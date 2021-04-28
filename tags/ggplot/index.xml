@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ggplot on Josiah Parry</title>
-    <link>/tags/ggplot/</link>
+    <link>http://josiahparry.com/tags/ggplot/</link>
     <description>Recent content in ggplot on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 01 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://josiahparry.com/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>xgboost feature importance</title>
-      <link>/post/xgb-feature-importance/</link>
+      <link>http://josiahparry.com/post/xgb-feature-importance/</link>
       <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/xgb-feature-importance/</guid>
+      <guid>http://josiahparry.com/post/xgb-feature-importance/</guid>
       <description>This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it.</description>
     </item>
     

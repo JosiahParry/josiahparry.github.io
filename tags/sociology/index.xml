@@ -2,30 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sociology on Josiah Parry</title>
-    <link>/tags/sociology/</link>
+    <link>http://josiahparry.com/tags/sociology/</link>
     <description>Recent content in sociology on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/sociology/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://josiahparry.com/tags/sociology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is critical race theory, anyways?</title>
-      <link>/post/critical-race-theory/</link>
+      <link>http://josiahparry.com/post/critical-race-theory/</link>
       <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/critical-race-theory/</guid>
+      <guid>http://josiahparry.com/post/critical-race-theory/</guid>
       <description>TL;DR critical race theory is a mental framework used for understanding racial inequality that focuses on power imbalances.</description>
     </item>
     
     <item>
       <title>US Representation: Part I</title>
-      <link>/post/us-representation-i/</link>
+      <link>http://josiahparry.com/post/us-representation-i/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/us-representation-i/</guid>
+      <guid>http://josiahparry.com/post/us-representation-i/</guid>
       <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like.</description>
     </item>
     

@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>methods on Josiah Parry</title>
-    <link>/tags/methods/</link>
+    <link>http://josiahparry.com/tags/methods/</link>
     <description>Recent content in methods on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/methods/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://josiahparry.com/tags/methods/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Not so] generic functions</title>
-      <link>/post/function-methods/</link>
+      <link>http://josiahparry.com/post/function-methods/</link>
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/function-methods/</guid>
+      <guid>http://josiahparry.com/post/function-methods/</guid>
       <description>The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package.</description>
     </item>
     

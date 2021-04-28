@@ -2,130 +2,117 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tutorial on Josiah Parry</title>
-    <link>/tags/tutorial/</link>
+    <link>http://josiahparry.com/tags/tutorial/</link>
     <description>Recent content in tutorial on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://josiahparry.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Excel in prod</title>
-      <link>/post/2020-03-01-excel-in-prod/</link>
+      <link>http://josiahparry.com/post/2020-03-01-excel-in-prod/</link>
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-03-01-excel-in-prod/</guid>
+      <guid>http://josiahparry.com/post/2020-03-01-excel-in-prod/</guid>
       <description>or how to incorporate excel into a production API using plumber or, a micro-excel-micro-service.</description>
     </item>
     
     <item>
       <title>R Security Concerns and 2019 CRAN downloads</title>
-      <link>/post/cran-2019/</link>
+      <link>http://josiahparry.com/post/cran-2019/</link>
       <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/cran-2019/</guid>
+      <guid>http://josiahparry.com/post/cran-2019/</guid>
       <description>The number of downloads that a package has can tell us a number of things.</description>
     </item>
     
     <item>
       <title>Non-interactive user tokens with googlesheets4</title>
-      <link>/post/2020-01-13-gs4-auth/</link>
+      <link>http://josiahparry.com/post/2020-01-13-gs4-auth/</link>
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-01-13-gs4-auth/</guid>
+      <guid>http://josiahparry.com/post/2020-01-13-gs4-auth/</guid>
       <description>This repository contains an example of an R Markdown document that uses googlesheets4 to read from a private Google Sheet and is deployed to RStudio Connect.</description>
     </item>
     
     <item>
       <title>Google Trends for Campaigns</title>
-      <link>/post/trendyy-4-campaigns/</link>
+      <link>http://josiahparry.com/post/trendyy-4-campaigns/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/trendyy-4-campaigns/</guid>
+      <guid>http://josiahparry.com/post/trendyy-4-campaigns/</guid>
       <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</description>
     </item>
     
     <item>
       <title>Web-scraping for Campaigns</title>
-      <link>/post/scraping-4-campaigns/</link>
+      <link>http://josiahparry.com/post/scraping-4-campaigns/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/scraping-4-campaigns/</guid>
+      <guid>http://josiahparry.com/post/scraping-4-campaigns/</guid>
       <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.</description>
     </item>
     
     <item>
       <title>Introducing trendyy</title>
-      <link>/post/2019-05-25-introducing-trendyy/</link>
+      <link>http://josiahparry.com/post/2019-05-25-introducing-trendyy/</link>
       <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019-05-25-introducing-trendyy/</guid>
+      <guid>http://josiahparry.com/post/2019-05-25-introducing-trendyy/</guid>
       <description>trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.</description>
     </item>
     
     <item>
-      <title>genius tutorial</title>
-      <link>/post/2019-05-08-genius-learnr-tutorial/</link>
-      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-05-08-genius-learnr-tutorial/</guid>
-      <description>Introducing genius You want to start analysing song lyrics, where do you go?</description>
-    </item>
-    
-    <item>
       <title>genius Plumber API</title>
-      <link>/post/genius-api/</link>
+      <link>http://josiahparry.com/post/genius-api/</link>
       <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/genius-api/</guid>
+      <guid>http://josiahparry.com/post/genius-api/</guid>
       <description>get started here
 Since I created genius, I’ve wanted to make a version for python.</description>
     </item>
     
     <item>
       <title>xgboost feature importance</title>
-      <link>/post/xgb-feature-importance/</link>
+      <link>http://josiahparry.com/post/xgb-feature-importance/</link>
       <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/xgb-feature-importance/</guid>
+      <guid>http://josiahparry.com/post/xgb-feature-importance/</guid>
       <description>This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it.</description>
     </item>
     
     <item>
       <title>[Not so] generic functions</title>
-      <link>/post/function-methods/</link>
+      <link>http://josiahparry.com/post/function-methods/</link>
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/function-methods/</guid>
+      <guid>http://josiahparry.com/post/function-methods/</guid>
       <description>The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package.</description>
     </item>
     
     <item>
       <title>Chunking your csv</title>
-      <link>/post/write-chunked-csv/</link>
+      <link>http://josiahparry.com/post/write-chunked-csv/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/write-chunked-csv/</guid>
+      <guid>http://josiahparry.com/post/write-chunked-csv/</guid>
       <description>Sometimes due to limitations of software, file uploads often have a row limit.</description>
     </item>
     
     <item>
       <title>Reading Multiple csvs as 1 data frame</title>
-      <link>/post/read-chunked-csv/</link>
+      <link>http://josiahparry.com/post/read-chunked-csv/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/read-chunked-csv/</guid>
+      <guid>http://josiahparry.com/post/read-chunked-csv/</guid>
       <description>In an earlier posting I wrote about having to break a single csv into multiple csvs.</description>
     </item>
     
     <item>
       <title>Coursera R-Programming: Week 2 Problems</title>
-      <link>/post/tidy-coursera-r-programming/</link>
+      <link>http://josiahparry.com/post/tidy-coursera-r-programming/</link>
       <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/tidy-coursera-r-programming/</guid>
+      <guid>http://josiahparry.com/post/tidy-coursera-r-programming/</guid>
       <description>Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R.</description>
     </item>
     
