@@ -11,6 +11,8 @@ tags: [cpcinema, r, presentation]
 Yesterday I had the chance to discuss my R package, {cpcinema} with the Boston useR group. If you're not familiar with {cpcinema}, please read my [previous post](http://josiahparry.com/post/2021-03-14-cpcinema/). 
 I intended for my talk to be focused on the package's functionality, how / why I made it, and then briefly on why I didn't share it widely, my feelings after my seeing the response to my tweet, and why contributing to the open source community in any manner is always appreciated. But as I was preparing my slides on Monday night I encountered some challenges. That became the subject of much of my talk. 
 
+The talk can be found [here](https://zoom.us/rec/share/hBx2iXVFb3cUGIepi87KC5Arnkt1uMWpg-xLwyF1mr_7wz6c5j7GB_K6TlGjh1KB.v50ZyzvWXgRzd1lo) and the passcode is `D=L?nHQ0`.  
+
 ```{r, out.width="80%", out.height="420px", fig.align='center', echo=FALSE, }
 knitr::include_graphics("./cpcinema.pdf")
 ``` 
