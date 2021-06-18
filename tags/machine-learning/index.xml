@@ -6,7 +6,16 @@
     <description>Recent content in machine learning on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://josiahparry.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://josiahparry.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SLICED! a brief reflection</title>
+      <link>http://josiahparry.com/post/2021-06-18-sliced-a-brief-reflection/</link>
+      <pubDate>Fri, 18 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://josiahparry.com/post/2021-06-18-sliced-a-brief-reflection/</guid>
+      <description>A few weeks ago I was a contestant on the machine learning game show #SLICED!</description>
+    </item>
+    
     <item>
       <title>xgboost feature importance</title>
       <link>http://josiahparry.com/post/xgb-feature-importance/</link>

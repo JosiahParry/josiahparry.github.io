@@ -5,25 +5,34 @@
     <loc>http://josiahparry.com/about/</loc>
     <lastmod>2021-06-18T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://josiahparry.com/</loc>
+    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://josiahparry.com/tags/machine-learning/</loc>
+    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://josiahparry.com/post/</loc>
+    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://josiahparry.com/post/2021-06-18-sliced-a-brief-reflection/</loc>
+    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://josiahparry.com/tags/</loc>
+    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://josiahparry.com/tags/tidymodels/</loc>
+    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://josiahparry.com/post/2021-04-27-boston-user/</loc>
     <lastmod>2021-04-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://josiahparry.com/tags/cpcinema/</loc>
     <lastmod>2021-04-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://josiahparry.com/</loc>
-    <lastmod>2021-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://josiahparry.com/post/</loc>
-    <lastmod>2021-04-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://josiahparry.com/tags/presentation/</loc>
     <lastmod>2021-04-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://josiahparry.com/tags/r/</loc>
-    <lastmod>2021-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://josiahparry.com/tags/</loc>
     <lastmod>2021-04-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://josiahparry.com/tags/osint/</loc>
@@ -234,9 +243,6 @@
     <lastmod>2018-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://josiahparry.com/tags/ggplot/</loc>
-    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://josiahparry.com/tags/machine-learning/</loc>
     <lastmod>2018-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://josiahparry.com/post/xgb-feature-importance/</loc>
