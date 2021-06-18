@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://josiahparry.com/about/</loc>
+    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://josiahparry.com/post/2021-04-27-boston-user/</loc>
     <lastmod>2021-04-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -64,9 +67,6 @@
   </url><url>
     <loc>http://josiahparry.com/tags/visualization/</loc>
     <lastmod>2021-03-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://josiahparry.com/about/</loc>
-    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://josiahparry.com/tags/r-admin/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
