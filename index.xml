@@ -9,49 +9,64 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title></title>
-      <link>http://josiahparry.com/about/</link>
+      <title>Posts</title>
+      <link>http://josiahparry.com/post/</link>
       <pubDate>Fri, 18 Jun 2021 00:00:00 +0000</pubDate>
       
+      <guid>http://josiahparry.com/post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://josiahparry.com/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://josiahparry.com/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://josiahparry.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>http://josiahparry.com/about/</guid>
-      <description>
-&lt;script src=&#34;http://josiahparry.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;p&gt;Hey there!&lt;/p&gt;
-&lt;p&gt;I’m Josiah Parry and I am a self-avowed social data scientist. That is, my existence in academe was focused on the social sciences and my professional “career” has been focused on data science.&lt;/p&gt;
-&lt;p&gt;I am a graduate of Plymouth State University class of 2018 with a degree in Sociology and Anthropology, a minor in Mathematics, and a certificate in geographic information systems (GIS). This April, 2020, I earned my MS in Urban Informatics from Northeastern University under Daniel T. O’Brien. The culmination of my MS is the &lt;a href=&#34;https://ui.josiahparry.com/&#34;&gt;“Urban Informatic Toolkit”&lt;/a&gt;, a free online text intended to introduce new students of the field to R.&lt;/p&gt;
+      <description>&lt;p&gt;Hey there!&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m Josiah Parry and I am a self-avowed social data scientist. That is, my existence in academe was focused on the social sciences and my professional &amp;ldquo;career&amp;rdquo; has been focused on data science.&lt;/p&gt;
+&lt;p&gt;I am a graduate of Plymouth State University class of 2018 with a degree in Sociology and Anthropology, a minor in Mathematics, and a certificate in geographic information systems (GIS). This April, 2020, I earned my MS in Urban Informatics from Northeastern University under Daniel T. O&amp;rsquo;Brien. The culmination of my MS is the &lt;a href=&#34;https://ui.josiahparry.com/&#34;&gt;&amp;ldquo;Urban Informatic Toolkit&amp;rdquo;&lt;/a&gt;, a free online text intended to introduce new students of the field to R.&lt;/p&gt;
 &lt;p&gt;Currently, I am fortunate enough to work at RStudio, PBC, on our customer success team engaging our public sector customers. This has been a fantastic convergence of my interests. It has been extremely fulfilling to work with organizations who are so tied to our social life and assist them in adopting and modernizing their data science toolbox.&lt;/p&gt;
-&lt;p&gt;The highlights of my work can be found on my &lt;a href=&#34;https://josiahparry.com&#34;&gt;“projects” page&lt;/a&gt;. The vast majority of my work has been completed with a cortado in hand. If you’d like to sponsor my next &lt;a href=&#34;https://ko-fi.com/josiahparry&#34;&gt;cup of coffee&lt;/a&gt;, I’d greatly appreciate it. :)&lt;/p&gt;
-&lt;p&gt;If you’d like to contact me you can reach me via &lt;a href=&#34;mailto:josiah.parry@gmail.com&#34;&gt;email&lt;/a&gt; or on twitter &lt;a href=&#34;https://twitter.com/josiahparry&#34;&gt;@josiahparry&lt;/a&gt;.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;div id=&#34;talks&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Talks&lt;/h2&gt;
+&lt;p&gt;The highlights of my work can be found on my &lt;a href=&#34;https://josiahparry.com&#34;&gt;&amp;ldquo;projects&amp;rdquo; page&lt;/a&gt;. The vast majority of my work has been completed with a cortado in hand. If you&amp;rsquo;d like to sponsor my next &lt;a href=&#34;https://ko-fi.com/josiahparry&#34;&gt;cup of coffee&lt;/a&gt;, I&amp;rsquo;d greatly appreciate it. :)&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;d like to contact me you can reach me via &lt;a href=&#34;mailto:josiah.parry@gmail.com&#34;&gt;email&lt;/a&gt; or on twitter &lt;a href=&#34;https://twitter.com/josiahparry&#34;&gt;@josiahparry&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;talks&#34;&gt;Talks&lt;/h2&gt;
 &lt;details&gt;
-&lt;summary&gt;
-details
-&lt;/summary&gt;
+  &lt;summary&gt;details&lt;/summary&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/JosiahParry/you-should-use-APIs&#34;&gt;APIs: you’re probably not using them and why you probably should&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sites.google.com/view/gasp2020/agenda?authuser=0&#34;&gt;Government Advances in Statistical Programming&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;November 6th, 2020&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/JosiahParry/R-in-prod&#34;&gt;“Old Town Road” Rap or Country?: Putting R in Production with Tidymodels, Plumber, and Shiny&lt;/a&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JosiahParry/R-in-prod&#34;&gt;&amp;ldquo;Old Town Road&amp;rdquo; Rap or Country?: Putting R in Production with Tidymodels, Plumber, and Shiny&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;Boston useR group&lt;/li&gt;
 &lt;li&gt;December 10th, 2019&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/JosiahParry/useR-2018-07-17&#34;&gt;Tidy Lyrical Analysis&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;Boston useR group&lt;/li&gt;
 &lt;li&gt;July 17th, 2018&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://prezi.com/uchr4_g_qzns/newfound-lake-watershed/&#34;&gt;Newfound Lake Landscape Value Analysis: Exploring the efficacy of PPGIS, NESTVAL 2016&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;New England St. Lawrence River Valley regional American Associations of Geographers Conference&lt;/li&gt;
+&lt;li&gt;New England St. Lawrence River Valley regional American Associations of Geographers Conference&lt;/li&gt;
 &lt;li&gt;2016&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/details&gt;
 &lt;!--
@@ -120,26 +135,7 @@ _May - September 2016_
 &lt;/details&gt;
 
 --&gt;
-&lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Posts</title>
-      <link>http://josiahparry.com/post/</link>
-      <pubDate>Fri, 18 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://josiahparry.com/post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://josiahparry.com/archives/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://josiahparry.com/archives/</guid>
-      <description></description>
     </item>
     
     <item>
