@@ -1,1 +1,1 @@
-/Users/josiah/github/parry-site/public/robots.txt
+User-agent: *
