@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tidyverse on Josiah Parry</title>
+    <link>/tags/tidyverse/</link>
+    <description>Recent content in tidyverse on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Design Paradigms in R</title>
+      <link>/post/2020-02-19-r-history/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-02-19-r-history/</guid>
+      <description>Lately I have been developing a deep curiosity of the origins of the R language.</description>
+    </item>
+    
+    <item>
+      <title>Water Quality Analysis</title>
+      <link>/post/2019-08-09-epa-waterquality/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-08-09-epa-waterquality/</guid>
+      <description>This small tutorial was developed for a talk / workshop that Phil Bowsher gave at the EPA.</description>
+    </item>
+    
+    <item>
+      <title>Chunking your csv</title>
+      <link>/post/write-chunked-csv/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/write-chunked-csv/</guid>
+      <description>Sometimes due to limitations of software, file uploads often have a row limit.</description>
+    </item>
+    
+    <item>
+      <title>Reading Multiple csvs as 1 data frame</title>
+      <link>/post/read-chunked-csv/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/read-chunked-csv/</guid>
+      <description>In an earlier posting I wrote about having to break a single csv into multiple csvs.</description>
+    </item>
+    
+    <item>
+      <title>Coursera R-Programming: Week 2 Problems</title>
+      <link>/post/tidy-coursera-r-programming/</link>
+      <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidy-coursera-r-programming/</guid>
+      <description>Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R.</description>
+    </item>
+    
+  </channel>
+</rss>

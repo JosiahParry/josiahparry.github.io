@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Josiah Parry</title>
+    <link>/tags/blog/</link>
+    <description>Recent content in blog on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Color Palette Cinema</title>
+      <link>/post/2021-03-14-cpcinema/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-03-14-cpcinema/</guid>
+      <description>Friday night I found myself trying to make a plot look pretty.</description>
+    </item>
+    
+  </channel>
+</rss>

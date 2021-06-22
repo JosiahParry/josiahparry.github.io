@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>politics on Josiah Parry</title>
+    <link>/tags/politics/</link>
+    <description>Recent content in politics on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/politics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What is critical race theory, anyways?</title>
+      <link>/post/critical-race-theory/</link>
+      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/critical-race-theory/</guid>
+      <description>TL;DR critical race theory is a mental framework used for understanding racial inequality that focuses on power imbalances.</description>
+    </item>
+    
+    <item>
+      <title>∑ { my parts }</title>
+      <link>/post/my-parts/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/my-parts/</guid>
+      <description>library(tidyverse) terrorists &amp;lt;- googlesheets::gs_url(&amp;quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&amp;quot;) %&amp;gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 white 63 554 1067 1621 69.</description>
+    </item>
+    
+    <item>
+      <title>Google Trends for Campaigns</title>
+      <link>/post/trendyy-4-campaigns/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/trendyy-4-campaigns/</guid>
+      <description>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</description>
+    </item>
+    
+    <item>
+      <title>Web-scraping for Campaigns</title>
+      <link>/post/scraping-4-campaigns/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/scraping-4-campaigns/</guid>
+      <description>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.</description>
+    </item>
+    
+    <item>
+      <title>The Fallacy of one person, one vote</title>
+      <link>/post/2019-03-17-the-fallacy-of-one-person-one-vote/</link>
+      <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-03-17-the-fallacy-of-one-person-one-vote/</guid>
+      <description>On October 6, 2018, the US Senate voted 50–48 in favor of the appointment of Associate Justice Brett Kavanaugh.</description>
+    </item>
+    
+    <item>
+      <title>The Cost of Gridlock</title>
+      <link>/post/shutdown-politics/</link>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/shutdown-politics/</guid>
+      <description>Originally posted via Boston Area Research Initiative
+The nation heaved a sigh of relief as President Trump signed a bill on Friday, January 25th, that ended the longest government shutdown in US history.</description>
+    </item>
+    
+    <item>
+      <title>US Representation: Part I</title>
+      <link>/post/us-representation-i/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/us-representation-i/</guid>
+      <description>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like.</description>
+    </item>
+    
+  </channel>
+</rss>

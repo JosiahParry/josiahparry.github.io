@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>packages on Josiah Parry</title>
+    <link>/tags/packages/</link>
+    <description>Recent content in packages on Josiah Parry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/packages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Color Palette Cinema</title>
+      <link>/post/2021-03-14-cpcinema/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-03-14-cpcinema/</guid>
+      <description>Friday night I found myself trying to make a plot look pretty.</description>
+    </item>
+    
+    <item>
+      <title>Secure R Package Environments</title>
+      <link>/post/secure-package-environment/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/secure-package-environment/</guid>
+      <description>Securing your R Package Environment One of the biggest challenges faced by public sector organizations and other security conscious groups is package management.</description>
+    </item>
+    
+    <item>
+      <title>[Not so] generic functions</title>
+      <link>/post/function-methods/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/function-methods/</guid>
+      <description>The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package.</description>
+    </item>
+    
+  </channel>
+</rss>
