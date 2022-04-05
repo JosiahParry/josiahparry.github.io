@@ -2,7 +2,6 @@
 
 <html lang="en-us">
     <head>
-	<meta name="generator" content="Hugo 0.92.1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,8 +26,6 @@
     
     
  
-    
-    <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Josiah Parry" />
     
     
     
@@ -151,140 +148,59 @@
 </nav>
         <div id="content" class="content-container">
         
-<div class = "article-content">
-        
-        <div class="description">
-            <p>recent posts</p>
-        </div>
-        
-        
-        
-        
-        <article>
-            <h2>
-                <a href="/post/2022-04-05-an-open-system-requirements-database/">
-                    Actually identifying R package System Requirements
-                </a>
-            </h2>
-            <div><p>During my approximately three years at RStudio there were two things that stumped system admins more than anything: proxied authentication and system dependencies for R package (god help anyone trying to install rgdal on RHEL 7).</p></div>
-            <div class="post-footer">
-            <time>April 5, 2022</time>
 
-            
-            
-                
-                    <a class="tag" href="/tags/rspm">#RSPM</a>
-                
-                    <a class="tag" href="/tags/admin">#admin</a>
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-            
-            </div> 
-           
-        </article>
+<h1 class="post-title">Actually identifying R package System Requirements</h1>
+    
+    <time>April 5, 2022</time>
+    
+    <div>
+        <p>
         
-        <article>
-            <h2>
-                <a href="/post/2022-02-12-installing-python-on-my-m1-in-under-10-minutes/">
-                    Installing Python on my M1 in under 10 minutes
-                </a>
-            </h2>
-            <div><p>Installing python has never been an easy task for me.</p></div>
-            <div class="post-footer">
-            <time>February 12, 2022</time>
+<script src="/post/2022-04-05-an-open-system-requirements-database/index_files/header-attrs/header-attrs.js"></script>
 
-            
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/2022-02-12-the-heck-is-a-statistical-moment/">
-                    The heck is a statistical moment??
-                </a>
-            </h2>
-            <div><p>I wrote myself a short story to help me remember what the moments are.</p></div>
-            <div class="post-footer">
-            <time>February 12, 2022</time>
 
-            
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/2021-06-18-sliced-a-brief-reflection/">
-                    SLICED! a brief reflection
-                </a>
-            </h2>
-            <div><p>A few weeks ago I was a contestant on the machine learning game show #SLICED!</p></div>
-            <div class="post-footer">
-            <time>June 18, 2021</time>
+<p>During my approximately three years at RStudio there were two things that stumped system admins more than anything: proxied authentication and system dependencies for R package (god help anyone trying to install rgdal on RHEL 7).
+When RStudio Package Manager (RSPM) <a href="https://docs.rstudio.com/rspm/news/#rstudio-package-manager-108">v1.0.8</a> was released there was finally an answer. RSPM can help you identify system requirements via the GUI. Also, there’s a restful API that isn’t fully supported but can provide these system requirements programatically if needed. As such, I think it is still a little used feature for most RSPM users and admins.</p>
+<p><code>{pak}</code> did a great job of providing an interface to the public installation of RSPM. Back in May 2021 <a href="https://github.com/r-lib/pak/issues/299">I suggested</a> that the API calls to RSPM be made publicly available. Since then <code>pak::pkg_system_requirements()</code> has become an exported function. It is <em>exceptionally</em> useful. I use it in my current work to create a bash script which installs system requirements into a fresh Databricks compute cluster and then install R packages from RSPM.</p>
+<p>One of my qualms about the RSPM API and thus the output of pak is that it <em>always</em> includes the installation commands for the provided OS–e.g. <code>apt-get install -y</code> which I suppose could be easily <code>stringr::str_remove()</code>d.</p>
+<p>The second qualm has been that this relies on RSPM. The logic has been semi-hidden behind a closed-source tool. However, RStudio maintains a repository <a href="https://github.com/rstudio/r-system-requirements/"><code>r-system-requirements</code></a> which is used by RSPM to identify system requirements from a packages <code>DESCRIPTION</code> file.</p>
+<p>All of the logic for RSPM is in that repository. And that’s why I made <code>https://r-sysreqs.josiahparry.com</code>. It’s a way to provide the REST API functionality from RSPM without having to rely strictly on the public installation.</p>
+<p>Users can use the functionality from <a href="https://github.com/JosiahParry/r-sysreqs"><code>{sysreqs}</code></a> to make this api available on their own machines.</p>
+<pre class="r"><code>sysreqs::get_pkgs_sysreqs(c(&quot;rgdal&quot;, &quot;igraph&quot;),
+                          &quot;ubuntu&quot;, &quot;18.04&quot;) |&gt; 
+  tidyr::unnest(dependencies)</code></pre>
+<pre><code>## # A tibble: 6 × 5
+##   pkg    name    dependencies pre_installs post_installs
+##   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;        
+## 1 rgdal  gdal    libgdal-dev  &lt;NA&gt;         &lt;NA&gt;         
+## 2 rgdal  gdal    gdal-bin     &lt;NA&gt;         &lt;NA&gt;         
+## 3 rgdal  proj    libproj-dev  &lt;NA&gt;         &lt;NA&gt;         
+## 4 igraph glpk    libglpk-dev  &lt;NA&gt;         &lt;NA&gt;         
+## 5 igraph gmp     libgmp3-dev  &lt;NA&gt;         &lt;NA&gt;         
+## 6 igraph libxml2 libxml2-dev  &lt;NA&gt;         &lt;NA&gt;</code></pre>
 
-            
-            
-                
-                    <a class="tag" href="/tags/machine-learning">#machine learning</a>
-                
-                    <a class="tag" href="/tags/tidymodels">#tidymodels</a>
-                
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/2021-04-27-boston-user/">
-                     {cpcinema} &amp; associated journey
-                </a>
-            </h2>
-            <div><p>Yesterday I had the chance to discuss my R package, {cpcinema} with the Boston useR group.</p></div>
-            <div class="post-footer">
-            <time>April 28, 2021</time>
-
-            
-            
-                
-                    <a class="tag" href="/tags/cpcinema">#cpcinema</a>
-                
-                    <a class="tag" href="/tags/r">#r</a>
-                
-                    <a class="tag" href="/tags/presentation">#presentation</a>
-                
-            
-            </div> 
-           
-        </article>
-        
+        </p>
     </div>
+    
+    
+
+    
+
+    <div class="page-footer">
         
-        <div class="paginator">
+        <hr class="footer-divider">
         
+            <a class="tag" href="/tags/rspm">#RSPM</a>
         
-        <p>Page 1 of 8</p>
-        <div class="paginator-group">
-            
-            
-                <a class="color-link older" href="/page/2/">
-                    Older
-                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
-                                <polygon points="7.6707477 1.37628835 8.3292523 0.623711653 12.7592994 4.50000282 8.32918951 8.37629079 7.67069049 7.62370921 11.2407006 4.49999718"></polygon>
-                                <polygon id="Path" points="0 5 0 4 12 4 12 5"></polygon>
-                            </g>
-                    </svg>
-                        
-                </a>
-            
-        </div>
+            <a class="tag" href="/tags/admin">#admin</a>
         
+            <a class="tag" href="/tags/r">#R</a>
+        
+      
     </div>
+    
+
+
 
         
 
