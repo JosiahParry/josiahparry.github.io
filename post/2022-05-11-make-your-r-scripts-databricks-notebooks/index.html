@@ -27,8 +27,6 @@
     
  
     
-    <link rel="alternate" type="application/rss+xml" href="/tags/tutorial/index.xml" title="Josiah Parry" />
-    
     
     
     
@@ -151,243 +149,54 @@
         <div id="content" class="content-container">
         
 
-  <h1>Tagged "tutorial"</h1>
-  
-  
+<h1 class="post-title">Make your R scripts Databricks notebooks</h1>
     
-    <article>
-            <h2>
-                <a href="/post/2022-05-11-make-your-r-scripts-databricks-notebooks/">
-                    Make your R scripts Databricks notebooks
-                </a>
-            </h2>
-            <div>
-                <p>
-                I&rsquo;ve never had a good reason to deviate from the canonical .
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>May 11, 2022</time>
-            </div> 
-        </article>
+    <time>May 11, 2022</time>
     
-  
+    <div>
+        <p>
+        <p>I&rsquo;ve never had a good reason to deviate from the canonical <code>.R</code> file extension until today.</p>
+<p>As you may have seen over the past few month from my numerous rage-tweets and <a href="https://twitter.com/JosiahParry/status/1517195634293489664">Databricks related threads</a>, I&rsquo;ve been doing <em>a lot</em> of work getting figuring out Databricks as an R user so we can get onboard with adoption here at NPD.</p>
+<p>One of my biggest qualms about Databricks is that it&rsquo;s tailored to their notebooks. The notebooks get magical superpowers that aren&rsquo;t available anywhere else. Notebooks get root permissions, they have access to <code>dbutils</code>, and are the only thing that can actually be scheduled by Databricks outside of a jar file or SparkSQL code.</p>
+<p>I&rsquo;ve spent quite a bit of time thinking about how we can schedule R scripts through a notebook. If you&rsquo;re wondering, have the notebook kickoff the R script with a shell command.</p>
+<p>But, alas, I&rsquo;ve learned something today. If you connect your Git repo to Databricks through their <code>&quot;Repos&quot;</code>, you can have your R scripts be accessible as notebooks with quite literally only two changes.</p>
+<p>First, R scripts need to have the less-preferable, though equally functional, file extension <code>.r</code>. Second, the first line of the script should be a comment that says <code># Databricks notebook source</code>. And that&rsquo;s it. Then once the git repo has been connected, it will recognize those as notebooks.</p>
+<p>If you want to create cells in your code write a comment <code># COMMAND ----------</code>—that&rsquo;s 10 hyphens at the end.</p>
+<p>If you create a file <code>main.r</code> which contains the body</p>
+<pre tabindex="0"><code class="language-{r}" data-lang="{r}"># Databricks notebook source
+
+print(&quot;Hello world&quot;)
+
+# COMMAND ---------
+
+print(&quot;Databricks! I've figured you out—sorta....&quot;)
+
+# COMMAND ---------
+
+print(&quot;I feel powerful.&quot;)
+</code></pre><p>You will have an R script that is recognized as a notebook by Databricks that can be scheduled using Databricks' scheduling wizard.</p>
+
+        </p>
+    </div>
     
-    <article>
-            <h2>
-                <a href="/post/2020-03-01-excel-in-prod/">
-                    Excel in prod
-                </a>
-            </h2>
-            <div>
-                <p>
-                or how to incorporate excel into a production API using plumber or, a micro-excel-micro-service.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>March 1, 2020</time>
-            </div> 
-        </article>
     
-  
+
     
-    <article>
-            <h2>
-                <a href="/post/cran-2019/">
-                    R Security Concerns and 2019 CRAN downloads
-                </a>
-            </h2>
-            <div>
-                <p>
-                The number of downloads that a package has can tell us a number of things.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>February 4, 2020</time>
-            </div> 
-        </article>
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="/tags/databricks">#databricks</a>
+        
+            <a class="tag" href="/tags/r">#r</a>
+        
+            <a class="tag" href="/tags/tutorial">#tutorial</a>
+        
+      
+    </div>
     
-  
-    
-    <article>
-            <h2>
-                <a href="/post/2020-01-13-gs4-auth/">
-                    Non-interactive user tokens with googlesheets4
-                </a>
-            </h2>
-            <div>
-                <p>
-                This repository contains an example of an R Markdown document that uses googlesheets4 to read from a private Google Sheet and is deployed to RStudio Connect.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>January 13, 2020</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/trendyy-4-campaigns/">
-                    Google Trends for Campaigns
-                </a>
-            </h2>
-            <div>
-                <p>
-                Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>June 11, 2019</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/scraping-4-campaigns/">
-                    Web-scraping for Campaigns
-                </a>
-            </h2>
-            <div>
-                <p>
-                As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>June 11, 2019</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/2019-05-25-introducing-trendyy/">
-                    Introducing trendyy
-                </a>
-            </h2>
-            <div>
-                <p>
-                trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>May 25, 2019</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/genius-api/">
-                    genius Plumber API
-                </a>
-            </h2>
-            <div>
-                <p>
-                get started here
-Since I created genius, I’ve wanted to make a version for python.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>March 30, 2019</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/xgb-feature-importance/">
-                    xgboost feature importance
-                </a>
-            </h2>
-            <div>
-                <p>
-                This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>December 1, 2018</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/function-methods/">
-                    [Not so] generic functions
-                </a>
-            </h2>
-            <div>
-                <p>
-                The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>November 28, 2018</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/write-chunked-csv/">
-                    Chunking your csv
-                </a>
-            </h2>
-            <div>
-                <p>
-                Sometimes due to limitations of software, file uploads often have a row limit.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>October 27, 2018</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/read-chunked-csv/">
-                    Reading Multiple csvs as 1 data frame
-                </a>
-            </h2>
-            <div>
-                <p>
-                In an earlier posting I wrote about having to break a single csv into multiple csvs.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>October 27, 2018</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="/post/tidy-coursera-r-programming/">
-                    Coursera R-Programming: Week 2 Problems
-                </a>
-            </h2>
-            <div>
-                <p>
-                Over the past several weeks I have been helping students, career professionals, and people of other backgrounds learn R.
-                </p>
-            </div>
-            <div class="post-footer">
-            <time>April 14, 2018</time>
-            </div> 
-        </article>
-    
+
 
 
         
