@@ -6,7 +6,16 @@
     <description>Recent content in RSPM on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/rspm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/rspm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Actually identifying R package System Requirements</title>
+      <link>/post/2022-04-05-an-open-system-requirements-database/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2022-04-05-an-open-system-requirements-database/</guid>
+      <description>During my approximately three years at RStudio there were two things that stumped system admins more than anything: proxied authentication and system dependencies for R package (god help anyone trying to install rgdal on RHEL 7).</description>
+    </item>
+    
     <item>
       <title>Secure R Package Environments</title>
       <link>/post/secure-package-environment/</link>

@@ -3,18 +3,54 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-10-03-spacetime-dplyr-and-regressions/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/databricks/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-05-11-make-your-r-scripts-databricks-notebooks/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/r/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tutorial/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-05-11-exploratory-spatial-data-analysis-in-r/</loc>
+    <lastmod>2022-04-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-04-06-my-new-ide-theme-xxemocandylandxx/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-04-05-an-open-system-requirements-database/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/admin/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/rspm/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-02-12-installing-python-on-my-m1-in-under-10-minutes/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-02-12-the-heck-is-a-statistical-moment/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/machine-learning/</loc>
     <lastmod>2021-06-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/post/2021-06-18-sliced-a-brief-reflection/</loc>
-    <lastmod>2021-06-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2021-06-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/tidymodels/</loc>
@@ -27,9 +63,6 @@
     <lastmod>2021-04-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/presentation/</loc>
-    <lastmod>2021-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/r/</loc>
     <lastmod>2021-04-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/osint/</loc>
@@ -75,9 +108,6 @@
     <lastmod>2021-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/r-admin/</loc>
-    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/rspm/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/secure-package-environment/</loc>
@@ -135,9 +165,6 @@
     <lastmod>2020-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/r-in-prod/</loc>
-    <lastmod>2020-03-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/tutorial/</loc>
     <lastmod>2020-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/data.table/</loc>

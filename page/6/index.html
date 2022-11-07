@@ -2,7 +2,7 @@
 
 <html lang="en-us">
     <head>
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.92.1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@
     
     
     
-    <link rel="stylesheet" href="/css/main.min.a62406a6581a81752707b1c450d32cb4f14471fda346c7dffeda0a7df0ec8886.css"/>
+    <link rel="stylesheet" href="/css/main.min.d3bf53b36f3c9a16e5cdae3b1e9f6320cf7e1833357c47d8a780ef4d7069c3bc.css"/>
 
     
     
@@ -49,7 +49,16 @@
   <header>
     <div class="site-title">
         <a href="/">Josiah Parry</a>
-    </div>  
+    </div>
+      
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atelier-estuary-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<a rel="me" href="https://fosstodon.org/@josiahparry"></a>
+<a rel="me" href="https://mapstodon.space/@josiah"></a>
+
 </header>
   <div class="nav-menu">
   
@@ -157,110 +166,24 @@
         
         <article>
             <h2>
-                <a href="/post/xgb-feature-importance/">
-                    xgboost feature importance
+                <a href="/post/my-parts/">
+                    ∑ { my parts }
                 </a>
             </h2>
-            <div><p>This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it.</p></div>
+            <div><p>library(tidyverse) terrorists &lt;- googlesheets::gs_url(&quot;https://docs.google.com/spreadsheets/d/1LYQakIwGosibDHJKJqZgjM39qpSlp_gFG29zJ6paDAI/edit#gid=956062857&quot;) %&gt;% googlesheets::gs_read() terrorist_by_race ## # A tibble: 7 x 6 ## race n fatalities injured total_victims `%` ## &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; ## 1 white 63 554 1067 1621 69.</p></div>
             <div class="post-footer">
-            <time>December 1, 2018</time>
+            <time>August 4, 2019</time>
 
             
             
                 
                     <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/machine-learning">#machine learning</a>
-                
-                    <a class="tag" href="/tags/decision-trees">#decision trees</a>
-                
-                    <a class="tag" href="/tags/tutorial">#tutorial</a>
-                
-                    <a class="tag" href="/tags/ggplot">#ggplot</a>
-                
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/function-methods/">
-                    [Not so] generic functions
-                </a>
-            </h2>
-            <div><p>The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package.</p></div>
-            <div class="post-footer">
-            <time>November 28, 2018</time>
-
-            
-            
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/tutorial">#tutorial</a>
-                
-                    <a class="tag" href="/tags/packages">#packages</a>
-                
-                    <a class="tag" href="/tags/functions">#functions</a>
-                
-                    <a class="tag" href="/tags/methods">#methods</a>
-                
-                    <a class="tag" href="/tags/generics">#generics</a>
-                
-                    <a class="tag" href="/tags/s3">#s3</a>
-                
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/us-representation-i/">
-                    US Representation: Part I
-                </a>
-            </h2>
-            <div><p>Before the United States created the Constitution, something called the Articles of Confederation defined what the US Government would look like.</p></div>
-            <div class="post-footer">
-            <time>November 25, 2018</time>
-
-            
-            
-                
-                    <a class="tag" href="/tags/letters">#letters</a>
                 
                     <a class="tag" href="/tags/politics">#politics</a>
                 
-                    <a class="tag" href="/tags/history">#history</a>
-                
-                    <a class="tag" href="/tags/political-science">#political science</a>
-                
-                    <a class="tag" href="/tags/sociology">#sociology</a>
-                
                     <a class="tag" href="/tags/us">#US</a>
                 
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/introducing-letters-to-a-layperson/">
-                    Introducing: Letters to a layperson
-                </a>
-            </h2>
-            <div><p>I have been in the world of academia for nearly five years now.</p></div>
-            <div class="post-footer">
-            <time>November 15, 2018</time>
-
-            
-            
-                
-                    <a class="tag" href="/tags/social-science">#social science</a>
-                
-                    <a class="tag" href="/tags/letters">#letters</a>
+                    <a class="tag" href="/tags/crime">#crime</a>
                 
             
             </div> 
@@ -269,24 +192,111 @@
         
         <article>
             <h2>
-                <a href="/post/write-chunked-csv/">
-                    Chunking your csv
+                <a href="/post/trendyy-4-campaigns/">
+                    Google Trends for Campaigns
                 </a>
             </h2>
-            <div><p>Sometimes due to limitations of software, file uploads often have a row limit.</p></div>
+            <div><p>Over the past few years we have seen Google Trends becoming quite ubiquitous in politics.</p></div>
             <div class="post-footer">
-            <time>October 27, 2018</time>
+            <time>June 11, 2019</time>
 
             
             
                 
                     <a class="tag" href="/tags/r">#R</a>
                 
-                    <a class="tag" href="/tags/tidyverse">#tidyverse</a>
+                    <a class="tag" href="/tags/tutorial">#tutorial</a>
+                
+                    <a class="tag" href="/tags/politics">#politics</a>
+                
+                    <a class="tag" href="/tags/youthvote">#youthvote</a>
+                
+                    <a class="tag" href="/tags/campaigns">#campaigns</a>
+                
+                    <a class="tag" href="/tags/trendyy">#trendyy</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="/post/scraping-4-campaigns/">
+                    Web-scraping for Campaigns
+                </a>
+            </h2>
+            <div><p>As the primaries approach, I am experiencing a mix of angst, FOMO, and excitement.</p></div>
+            <div class="post-footer">
+            <time>June 11, 2019</time>
+
+            
+            
+                
+                    <a class="tag" href="/tags/r">#R</a>
                 
                     <a class="tag" href="/tags/tutorial">#tutorial</a>
                 
-                    <a class="tag" href="/tags/data-manipulation">#data manipulation</a>
+                    <a class="tag" href="/tags/politics">#politics</a>
+                
+                    <a class="tag" href="/tags/youthvote">#youthvote</a>
+                
+                    <a class="tag" href="/tags/campaigns">#campaigns</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="/post/2019-05-25-introducing-trendyy/">
+                    Introducing trendyy
+                </a>
+            </h2>
+            <div><p>trendyy is a package for querying Google Trends. It is build around Philippe Massicotte’s package gtrendsR which accesses this data wonderfully.</p></div>
+            <div class="post-footer">
+            <time>May 25, 2019</time>
+
+            
+            
+                
+                    <a class="tag" href="/tags/trendyy">#trendyy</a>
+                
+                    <a class="tag" href="/tags/tutorial">#tutorial</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="/post/genius-api/">
+                    genius Plumber API
+                </a>
+            </h2>
+            <div><p>get started here
+Since I created genius, I’ve wanted to make a version for python.</p></div>
+            <div class="post-footer">
+            <time>March 30, 2019</time>
+
+            
+            
+                
+                    <a class="tag" href="/tags/docker">#Docker</a>
+                
+                    <a class="tag" href="/tags/python">#Python</a>
+                
+                    <a class="tag" href="/tags/r">#R</a>
+                
+                    <a class="tag" href="/tags/genius">#genius</a>
+                
+                    <a class="tag" href="/tags/plumber">#plumber</a>
+                
+                    <a class="tag" href="/tags/api">#api</a>
+                
+                    <a class="tag" href="/tags/tutorial">#tutorial</a>
                 
             
             </div> 
@@ -298,7 +308,7 @@
         <div class="paginator">
         
         
-        <p>Page 6 of 7</p>
+        <p>Page 6 of 8</p>
         <div class="paginator-group">
             
             <a class="color-link" href="/page/5/">
@@ -329,9 +339,11 @@
 
         
 
-<link rel="stylesheet" type="text/css" href="/css/katex.min.css">
-<script type="text/javascript" src="/js/katex.min.js"></script>
-<script type="text/javascript" src="/js/auto-render.min.js"onload="renderMathInElement(document.body);"></script>
+
+
+
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
         </div>
         <footer class="footer-mobile">
