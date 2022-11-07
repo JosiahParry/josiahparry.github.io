@@ -153,371 +153,150 @@
         <div id="content" class="content-container">
         
 
-  <h1>
-    Archives
-  </h1>
-  <div>
-     
-      
-      
-          <h3>2022</h3> 
+<h1 class="post-title">spacetime representations aren&#39;t good—yet</h1>
+    
+    <time>November 7, 2022</time>
+    
+    <div>
+        <p>
+        
 
-          <ul class="archives-list"> 
-            
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Nov 7</span>
-                    <span>
-                      <a href="/post/2022-10-03-spacetime-representations/">spacetime representations aren&#39;t good—yet</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">May 11</span>
-                    <span>
-                      <a href="/post/2022-05-11-make-your-r-scripts-databricks-notebooks/">Make your R scripts Databricks notebooks</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Apr 28</span>
-                    <span>
-                      <a href="/post/2022-05-11-exploratory-spatial-data-analysis-in-r/">Exploratory Spatial Data Analysis in R</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Apr 6</span>
-                    <span>
-                      <a href="/post/2022-04-06-my-new-ide-theme-xxemocandylandxx/">My new IDE theme: xxEmoCandyLandxx</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Apr 5</span>
-                    <span>
-                      <a href="/post/2022-04-05-an-open-system-requirements-database/">Actually identifying R package System Requirements</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Feb 12</span>
-                    <span>
-                      <a href="/post/2022-02-12-the-heck-is-a-statistical-moment/">The heck is a statistical moment??</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Feb 12</span>
-                    <span>
-                      <a href="/post/2022-02-12-installing-python-on-my-m1-in-under-10-minutes/">Installing Python on my M1 in under 10 minutes</a>
-                    </span>
-                  </li>
-              
-          </ul>
-      
-          <h3>2021</h3> 
 
-          <ul class="archives-list"> 
-            
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Jun 18</span>
-                    <span>
-                      <a href="/post/2021-06-18-sliced-a-brief-reflection/">SLICED! a brief reflection</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Apr 28</span>
-                    <span>
-                      <a href="/post/2021-04-27-boston-user/"> {cpcinema} &amp; associated journey</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Apr 4</span>
-                    <span>
-                      <a href="/post/2021-04-04-osint-youtube/">OSINT in 7 minutes</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Mar 28</span>
-                    <span>
-                      <a href="/post/2021-03-28-python-r/">Python &amp; R in production — the API way</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Mar 28</span>
-                    <span>
-                      <a href="/post/2021-03-28-language-agnostic/">APIs: the language agnostic love story</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Mar 14</span>
-                    <span>
-                      <a href="/post/2021-03-14-cpcinema/">Color Palette Cinema</a>
-                    </span>
-                  </li>
-              
-          </ul>
-      
-          <h3>2020</h3> 
+<p>My beliefs can be summarized somewhat succinctly.</p>
+<p>We should not limit space-time data to dates or timestamps.</p>
+<p>The R ecosystem should always utilize a normalized approach as described above. Further, a representation should use friendly R objects. The friendliest object is a data frame. A new representation should allow context switching between geometries and temporal data. That new representation should always use time-long formats and the geometries should <em>never</em> be repreated.</p>
+<p>A spacetime representation should give users complete and total freedom to manipulate their data as they see fit (e.g. dplyr or data.table operations).</p>
+<p>The only time to be strict in the format of spacetime data is when statstics are going to be derived from the data.</p>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>While implementing emerging hotspot analysis in <code>sfdep</code> I encountered the need for a formalized spacetime class in R. As my focus in sfdep has been tidyverse-centric functionality, I desired a “tidy” data frame that could be used as a spacetime representation. Moreover, space (in the spacetime representation) should be represented as an sf or sfc object. In sfdep I introduced the new S3 class <code>spacetime</code> based on Edzer Pebesma’s 2012 article <a href="https://www.jstatsoft.org/article/view/v051i07">“spacetime: Spatio-Temporal Data in R”</a> and Thomas Lin Pederson’s <a href="https://ggraph.data-imaginist.com/articles/tidygraph.html">tidygraph package</a>.</p>
+</div>
+<div id="representations-of-spatial-data" class="section level2">
+<h2>Representations of Spatial Data</h2>
+<p>Before describing my preferences in a spacetime representation in R, I want to review possible representations of spacetime data.</p>
+<p>Pebesma (2012) outlines three tabular representations of spatio-temporal data.</p>
+<ul>
+<li>“<strong>Time-wide</strong>: Where different columns reflect different moments in time.</li>
+<li><strong>Space-wide</strong>: Where different columns reflect different measurement locations or areas.</li>
+<li><strong>Long formats</strong>: Where each record reflects a single time and space combination.</li>
+</ul>
+<p>The “long format” is what we may consider “tidy” per <a href="https://www.jstatsoft.org/article/view/v059i10">Wickham (2014)</a>. In this case, both time and space are variables with unique combinations as rows.</p>
+<p>Pebesma further qualifies spatial data representation into a “sparse grid” and a “full grid.” Say we have a variable X. In a spatio temporal full grid we will store all combinations of time (t) and locations (i) . If Xi is missing at any of those location and time combinations (Xit is missing), the value of X is recorded as a missing value. Whereas in a sparse grid, if there is any missing data, the observation is omitted. Necessarily, in a full grid there will be i x t number of rows. In a sparse grid there will be fewer than i x t rows.</p>
+<p>Very recently in an r-spatial <a href="https://r-spatial.org/r/2022/09/12/vdc.html#multiple-long-table-forms-database-normalization">blog post, “Vector Data Cubes”</a>, Edzer describes another approach to representing spacetime using a database normalization approach. Database normalization is a process that reduces redundancy by creating a number of smaller tables containing IDs and values. These tables can then be joined only when needed. When we consider spacetime data, we have repeating geometries across time. It is inefficient to to keep multiple copies of the geometry. Instead, we can keep track of the unique ID of a geometry and store the geometry in another table.</p>
+</div>
+<div id="sfdep-spacetime-representation" class="section level2">
+<h2>sfdep spacetime representation</h2>
+<p>The spacetime class in <a href="https://sfdep.josiahparry.com">sfdep</a> is in essence a database normalization approach (see above blog post). It is implemented with the database normalization approach and the ergonomics of <a href="https://tidygraph.data-imaginist.com/">tidygraph</a> in mind.</p>
+<p>The objective of the spacetime class in sfdep is to</p>
+<ul>
+<li>allow complete freedom of data manipulation via data.frame objects,</li>
+<li>prevent duplication of geometries,</li>
+<li>and provide leeway in what “time” can be defined as.</li>
+</ul>
+<p>Similar to tidygraph, <code>spacetime</code> provides access to two contexts: data and geometry. The data context is a data frame and the geometry context. These are linked based on a unqie identifie that is present in both contexts.</p>
+<details>
+<summary>
+<em>R code</em>
+</summary>
+<pre class="r"><code>library(dplyr)
 
-          <ul class="archives-list"> 
-            
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Dec 9</span>
-                    <span>
-                      <a href="/post/secure-package-environment/">Secure R Package Environments</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Sep 14</span>
-                    <span>
-                      <a href="/post/critical-race-theory/">What is critical race theory, anyways?</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Sep 7</span>
-                    <span>
-                      <a href="/post/demographic-change-white-fear-and-social-construction-of-race/">Demographic Change, White Fear, and Social Construction of Race</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Sep 5</span>
-                    <span>
-                      <a href="/post/gzip-api/">Medium Data and Production API Pipeline</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Jun 12</span>
-                    <span>
-                      <a href="/post/red-queen-effect/">The Red Queen Effect</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Mar 1</span>
-                    <span>
-                      <a href="/post/2020-03-01-excel-in-prod/">Excel in prod</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Feb 19</span>
-                    <span>
-                      <a href="/post/2020-02-19-r-history/">Design Paradigms in R</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Feb 4</span>
-                    <span>
-                      <a href="/post/cran-2019/">R Security Concerns and 2019 CRAN downloads</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Jan 13</span>
-                    <span>
-                      <a href="/post/2020-01-13-gs4-auth/">Non-interactive user tokens with googlesheets4</a>
-                    </span>
-                  </li>
-              
-          </ul>
-      
-          <h3>2019</h3> 
+times &lt;- seq(
+  Sys.time(), 
+  Sys.time() + lubridate::hours(5),
+  length.out = 5
+)
 
-          <ul class="archives-list"> 
-            
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Dec 14</span>
-                    <span>
-                      <a href="/post/2019-12-14-spss-haven/">Finding an SPSS {haven}</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Sep 12</span>
-                    <span>
-                      <a href="/post/2019-09-12-intro-tidymodels/">Intro to Tidy Modeling</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Aug 9</span>
-                    <span>
-                      <a href="/post/2019-08-09-epa-waterquality/">Water Quality Analysis</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Aug 4</span>
-                    <span>
-                      <a href="/post/my-parts/">∑ { my parts }</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Jun 11</span>
-                    <span>
-                      <a href="/post/scraping-4-campaigns/">Web-scraping for Campaigns</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Jun 11</span>
-                    <span>
-                      <a href="/post/trendyy-4-campaigns/">Google Trends for Campaigns</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">May 25</span>
-                    <span>
-                      <a href="/post/2019-05-25-introducing-trendyy/">Introducing trendyy</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Mar 30</span>
-                    <span>
-                      <a href="/post/genius-api/">genius Plumber API</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Mar 17</span>
-                    <span>
-                      <a href="/post/2019-03-17-the-fallacy-of-one-person-one-vote/">The Fallacy of one person, one vote</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Feb 6</span>
-                    <span>
-                      <a href="/post/shutdown-politics/">The Cost of Gridlock</a>
-                    </span>
-                  </li>
-              
-          </ul>
-      
-          <h3>2018</h3> 
+locations &lt;- c(&quot;001&quot;, &quot;002&quot;)
 
-          <ul class="archives-list"> 
-            
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Dec 1</span>
-                    <span>
-                      <a href="/post/xgb-feature-importance/">xgboost feature importance</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Nov 28</span>
-                    <span>
-                      <a href="/post/function-methods/">[Not so] generic functions</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Nov 25</span>
-                    <span>
-                      <a href="/post/us-representation-i/">US Representation: Part I</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Nov 15</span>
-                    <span>
-                      <a href="/post/introducing-letters-to-a-layperson/">Introducing: Letters to a layperson</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Oct 27</span>
-                    <span>
-                      <a href="/post/read-chunked-csv/">Reading Multiple csvs as 1 data frame</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Oct 27</span>
-                    <span>
-                      <a href="/post/write-chunked-csv/">Chunking your csv</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Apr 14</span>
-                    <span>
-                      <a href="/post/tidy-coursera-r-programming/">Coursera R-Programming: Week 2 Problems</a>
-                    </span>
-                  </li>
-              
-             
-                  <li class="archives-list-item">
-                    <span class="archives-list-item-date">Jan 27</span>
-                    <span>
-                      <a href="/post/introducing-geniusr/">Introducing geniusR</a>
-                    </span>
-                  </li>
-              
-          </ul>
-      
-  </div>
+data_context &lt;- tidyr::crossing(
+  location = locations,
+  time = times
+) |&gt; 
+  mutate(value = rnorm(n())) |&gt; 
+  arrange(location)</code></pre>
+<pre class="r"><code>library(sf)</code></pre>
+<pre><code>## Linking to GEOS 3.9.1, GDAL 3.2.3, PROJ 7.2.1; sf_use_s2() is TRUE</code></pre>
+<pre class="r"><code>geometry_context &lt;- st_sfc(
+  list(st_point(c(0, 1)), st_point(c(1, 1)))
+  ) |&gt; 
+  st_as_sf() |&gt; 
+  mutate(location = c(&quot;001&quot;, &quot;002&quot;))</code></pre>
+<p>Use the spacetime constructor</p>
+<pre class="r"><code>library(sfdep)
+spt &lt;- spacetime(
+  .data = data_context,
+  .geometry = geometry_context, 
+  .loc_col = &quot;location&quot;, 
+  .time_col = &quot;time&quot;
+)</code></pre>
+<p>Swap contexts with activate</p>
+<pre class="r"><code>activate(spt, &quot;geometry&quot;)</code></pre>
+<pre><code>## spacetime ────</code></pre>
+<pre><code>## Context:`geometry`</code></pre>
+<pre><code>## 2 locations `location`</code></pre>
+<pre><code>## 5 time periods `time`</code></pre>
+<pre><code>## ── geometry context ────────────────────────────────────────────────────────────</code></pre>
+<pre><code>## Simple feature collection with 2 features and 1 field
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: 0 ymin: 1 xmax: 1 ymax: 1
+## CRS:           NA
+##             x location
+## 1 POINT (0 1)      001
+## 2 POINT (1 1)      002</code></pre>
+</details>
+<p>One of my very strong beliefs is that temporal data does not, and should not, always be represented as a date or a timestamp. This paradigm is too limiting. What about panel data where you’re measuring cohorts along periods 1 - 10? Should these be represented as dates? No, definitely not. Because of this, sfdep allows you to utilize any numeric column that can be sorted.</p>
+<blockquote>
+<p><em>Perhaps I’ve just spent too much time listening to ecometricians…</em></p>
+</blockquote>
+<details>
+<summary>
+<em>example of using integers</em>
+</summary>
+<pre class="r"><code>spacetime(
+  mutate(data_context, period = row_number()),
+  geometry_context, 
+  .loc_col = &quot;location&quot;,
+  .time_col = &quot;period&quot;
+)</code></pre>
+<pre><code>## spacetime ────</code></pre>
+<pre><code>## Context:`data`</code></pre>
+<pre><code>## 2 locations `location`</code></pre>
+<pre><code>## 10 time periods `period`</code></pre>
+<pre><code>## ── data context ────────────────────────────────────────────────────────────────</code></pre>
+<pre><code>## # A tibble: 10 × 4
+##    location time                 value period
+##  * &lt;chr&gt;    &lt;dttm&gt;               &lt;dbl&gt;  &lt;int&gt;
+##  1 001      2022-11-07 11:02:33 -1.09       1
+##  2 001      2022-11-07 12:17:33  2.11       2
+##  3 001      2022-11-07 13:32:33  1.27       3
+##  4 001      2022-11-07 14:47:33 -1.23       4
+##  5 001      2022-11-07 16:02:33  1.26       5
+##  6 002      2022-11-07 11:02:33  0.626      6
+##  7 002      2022-11-07 12:17:33 -0.627      7
+##  8 002      2022-11-07 13:32:33  0.117      8
+##  9 002      2022-11-07 14:47:33 -0.128      9
+## 10 002      2022-11-07 16:02:33  0.913     10</code></pre>
+</details>
+</div>
+<div id="qualifiers" class="section level2">
+<h2>Qualifiers</h2>
+<p>I don’t think my spacetime class is the panacea. I don’t have the technical chops to make a great data format. I also don’t want to have that burden. Additionally, the class is desgned with lattice data in mind. I don’t think it is sufficient for trajectories or point pattern without repeating locations.</p>
+<p>There’s a new R package called <code>cubble</code> for spatio-temporal data. I’ve not explored it. It may be better suited to your tidy-centric spatio-temporal data.</p>
+</div>
 
-  <div class="page-footer"></div>
+        </p>
+    </div>
+    
+    
+
+    
+
+    <div class="page-footer">
+        
+    </div>
+    
+
 
 
         
