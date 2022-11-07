@@ -5,13 +5,13 @@
     <description>Recent content in Josiah Parry on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Jun 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Posts</title>
       <link>/post/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 18 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/</guid>
       <description></description>
@@ -33,20 +33,16 @@
       
       <guid>/about/</guid>
       <description>&lt;p&gt;Hey there!&lt;/p&gt;
-&lt;p&gt;I am a Research Analyst in the Research Science division at The NPD Group focusing on modernization and methodology. Formerly I worked at RStudio, PBC on the customer success team enabling public sector adoption of data science tools. I received my master&amp;rsquo;s degree in Urban Informatics from Northeastern University. Prior to that, I earned my bachelor&amp;rsquo;s degree in sociology with focuses in geographic information systems and general mathematics from Plymouth State University.&lt;/p&gt;
-&lt;p&gt;The vast majority of my work has been completed with a cortado in hand. If you&amp;rsquo;d like to sponsor my next &lt;a href=&#34;https://ko-fi.com/josiahparry&#34;&gt;cup of coffee&lt;/a&gt;, I&amp;rsquo;d greatly appreciate it. :)&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m Josiah Parry and I am a self-avowed social data scientist. That is, my existence in academe was focused on the social sciences and my professional &amp;ldquo;career&amp;rdquo; has been focused on data science.&lt;/p&gt;
+&lt;p&gt;I am a graduate of Plymouth State University class of 2018 with a degree in Sociology and Anthropology, a minor in Mathematics, and a certificate in geographic information systems (GIS). This April, 2020, I earned my MS in Urban Informatics from Northeastern University under Daniel T. O&amp;rsquo;Brien. The culmination of my MS is the &lt;a href=&#34;https://ui.josiahparry.com/&#34;&gt;&amp;ldquo;Urban Informatic Toolkit&amp;rdquo;&lt;/a&gt;, a free online text intended to introduce new students of the field to R.&lt;/p&gt;
+&lt;p&gt;Currently, I am fortunate enough to work at RStudio, PBC, on our customer success team engaging our public sector customers. This has been a fantastic convergence of my interests. It has been extremely fulfilling to work with organizations who are so tied to our social life and assist them in adopting and modernizing their data science toolbox.&lt;/p&gt;
+&lt;p&gt;The highlights of my work can be found on my &lt;a href=&#34;https://josiahparry.com&#34;&gt;&amp;ldquo;projects&amp;rdquo; page&lt;/a&gt;. The vast majority of my work has been completed with a cortado in hand. If you&amp;rsquo;d like to sponsor my next &lt;a href=&#34;https://ko-fi.com/josiahparry&#34;&gt;cup of coffee&lt;/a&gt;, I&amp;rsquo;d greatly appreciate it. :)&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;d like to contact me you can reach me via &lt;a href=&#34;mailto:josiah.parry@gmail.com&#34;&gt;email&lt;/a&gt; or on twitter &lt;a href=&#34;https://twitter.com/josiahparry&#34;&gt;@josiahparry&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;talks&#34;&gt;Talks&lt;/h2&gt;
 &lt;details&gt;
   &lt;summary&gt;details&lt;/summary&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/josiahparry/exploratory-spatial-data-analysis/&#34;&gt;Exploratory Spatial Data Analysis in R&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=i_MA1U6SJ1Y&amp;amp;ab_channel=LanderAnalytics&#34;&gt;Recording&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;April 28th, 2022&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/JosiahParry/you-should-use-APIs&#34;&gt;APIs: you’re probably not using them and why you probably should&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sites.google.com/view/gasp2020/agenda?authuser=0&#34;&gt;Government Advances in Statistical Programming&lt;/a&gt;&lt;/li&gt;
