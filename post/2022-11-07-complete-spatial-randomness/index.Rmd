@@ -306,8 +306,8 @@ the difference is even more stark. The conditional permutation approach actually
 
 ```{r }
 par(mfrow = c(1, 2))
-hist(lags_vec)
-hist(lags2_vec)
+hist(lags_vec, breaks = 20) 
+hist(lags2_vec, breaks = 20)
 ```
 
 So, this is all for me to say that bootstrapping isn't it for creating
