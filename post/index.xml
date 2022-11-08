@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Josiah Parry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complete spatial randomness</title>
+      <link>/post/2022-11-08-spatial-randomness/</link>
+      <pubDate>Tue, 08 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2022-11-08-spatial-randomness/</guid>
+      <description>&amp;lt; this is a cliche about Tobler’s fist law and things being related in space&amp;gt;.</description>
+    </item>
+    
     <item>
       <title>spacetime representations aren&#39;t good—yet</title>
       <link>/post/2022-10-03-spacetime-representations/</link>

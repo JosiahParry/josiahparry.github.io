@@ -1,10 +1,10 @@
 ---
 title: Complete spatial randomness
-author: Package Build
-date: '2022-11-07'
+author: Josiah Parry
+date: '2022-11-08'
 slug: []
-categories: [spatstats, rstats, sfdep]
-tags: []
+categories: [spatial, rstats, sfdep]
+tags: [rspatial]
 draft: no
 ---
 
