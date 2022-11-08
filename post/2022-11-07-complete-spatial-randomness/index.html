@@ -2,7 +2,6 @@
 
 <html lang="en-us">
     <head>
-	<meta name="generator" content="Hugo 0.92.1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,8 +26,6 @@
     
     
  
-    
-    <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Josiah Parry" />
     
     
     
@@ -155,196 +152,316 @@
 </nav>
         <div id="content" class="content-container">
         
-<div class = "article-content">
-        
-        <div class="description">
-            <p>recent posts</p>
-        </div>
-        
-        
-        
-        
-        <article>
-            <h2>
-                <a href="/post/genius-api/">
-                    genius Plumber API
-                </a>
-            </h2>
-            <div><p>get started here
-Since I created genius, I’ve wanted to make a version for python.</p></div>
-            <div class="post-footer">
-            <time>March 30, 2019</time>
 
-            
-            
-                
-                    <a class="tag" href="/tags/docker">#Docker</a>
-                
-                    <a class="tag" href="/tags/python">#Python</a>
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/genius">#genius</a>
-                
-                    <a class="tag" href="/tags/plumber">#plumber</a>
-                
-                    <a class="tag" href="/tags/api">#api</a>
-                
-                    <a class="tag" href="/tags/tutorial">#tutorial</a>
-                
-            
-            </div> 
-           
-        </article>
+<h1 class="post-title">Complete spatial randomness</h1>
+    
+    <time>November 7, 2022</time>
+    
+    <div>
+        <p>
         
-        <article>
-            <h2>
-                <a href="/post/2019-03-17-the-fallacy-of-one-person-one-vote/">
-                    The Fallacy of one person, one vote
-                </a>
-            </h2>
-            <div><p>On October 6, 2018, the US Senate voted 50–48 in favor of the appointment of Associate Justice Brett Kavanaugh.</p></div>
-            <div class="post-footer">
-            <time>March 17, 2019</time>
 
-            
-            
-                
-                    <a class="tag" href="/tags/political-science">#political science</a>
-                
-                    <a class="tag" href="/tags/politics">#politics</a>
-                
-                    <a class="tag" href="/tags/us">#US</a>
-                
-                    <a class="tag" href="/tags/history">#history</a>
-                
-                    <a class="tag" href="/tags/social-science">#social science</a>
-                
-            
-            </div> 
-           
-        </article>
+
+<p>&lt; this is a cliche about Tobler’s fist law and things being related
+in space&gt;. Because of Tobler’s first law, data tend to not follow any
+specific distribution. So, p-values are sort of…not all that accurate.
+P-values in spatial statistics take a “non-parametric” approach instead
+of an “analytical” one.</p>
+<p>Let’s compare to the t-test. T-tests make the assumption that data are
+coming from a normal distribution. Then p-values are derived from the
+cumulative distribution function. The alternative hypothesis, then, is
+that the true difference in means is not 0.</p>
+<p>In the spatial case, our null hypothesis is generally “is the observed
+statistic different than what we would expect under complete spatial
+randomness?” But what really does that mean? To know, we have to
+simulate spatial randomness.</p>
+<p>There are two approaches to simulating spatial randomness that I’ll go
+over. One is better than the other. First, I’m going to describe the
+less good one: bootstrap sampling.</p>
+<p>Load the super duper cool packages. We create queen contiguity neighbors.
+From our neighbor object, we can create row-standardized weights.</p>
+<pre class="r"><code>library(sf)
+library(sfdep)
+library(tidyverse)
+
+grid &lt;- st_make_grid(cellsize = c(1, 1), n = 12, offset = c(0, 0)) |&gt; 
+  as_tibble() |&gt; 
+  st_as_sf() |&gt; 
+  mutate(
+    id = row_number(),
+    nb = st_contiguity(geometry),
+    wt = st_weights(nb)
+    )</code></pre>
+<p>Let’s generate some spatially autocorrelated data. This function is a little slow, but it works.</p>
+<pre class="r"><code>nb &lt;- grid[[&quot;nb&quot;]]
+wt &lt;- grid[[&quot;wt&quot;]]
+
+x &lt;-  geostan::sim_sar(w = wt_as_matrix(nb, wt), rho = 0.78)</code></pre>
+<div id="bootstrap-sampling" class="section level2">
+<h2>Bootstrap sampling</h2>
+<p>Under the bootstrap approach we are sampling from existing spatial
+configurations. In our case there are 144 existing neighborhoods.
+For our simulations, we will randomly sample from existing neighborhoods
+and then recalculate our statistic. It helps us by imposing randomness
+into our statistic. We can then repeat the process <code>nsim</code> times. There is
+a limitation, however. It is that there are only 2499
+possible neighborhood configurations that we can sample that are
+not our own.</p>
+<p>Here we visualize a random point and it’s neighbors.</p>
+<pre class="r"><code># block sampling for bootstrap
+# For bootstrap we sample randomly from the existing distribution
+
+color_block &lt;- function(i, nb) {
+  res &lt;- ifelse(1:length(nb) %in% nb[[i]], &quot;neighbors&quot;, NA)
+  res[i] &lt;- &quot;self&quot;
+  res
+}</code></pre>
+<p>Plot a point and its neighbors</p>
+<pre class="r"><code>grid |&gt; 
+  mutate(block = color_block(sample(1:n(), 1), nb)) |&gt; 
+  ggplot(aes(fill = block)) +
+  geom_sf() +
+  labs(title = &quot;Point and it&#39;s neighbors&quot;)</code></pre>
+<p><img src="/post/2022-11-07-complete-spatial-randomness/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>For bootstrap we grab a point and then the neighbors from another point.
+This function will randomize a <code>nb</code> list object.</p>
+<pre class="r"><code>color_sample_block &lt;- function(i, nb) {
+  index &lt;- 1:length(nb)
+  not_i &lt;- index[-i]
+  
+  sample_block_focal &lt;- sample(not_i, 1)
+  
+  res &lt;- rep(NA, length(index))
+  
+  res[nb[[sample_block_focal]]] &lt;- &quot;neighbors&quot;
+  res[i] &lt;- &quot;self&quot;
+  res
+}
+
+# visualize it
+grid |&gt; 
+  mutate(block = color_sample_block(sample(1:n(), 1), nb)) |&gt; 
+  ggplot(aes(fill = block)) +
+  geom_sf() +
+  labs(title = &quot;Point and random point&#39;s neighbors&quot;)</code></pre>
+<p><img src="/post/2022-11-07-complete-spatial-randomness/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Often, we will want to create a reference distribution by creating a large
+number of simulations—typically 999. In our case we should be okay.
+But as the simulations increase in size, we are limited in the amount of
+samples we can draw. The number of neighborhoods becomes limiting!
+It’s limiting because after we reach n - 1 simulations, we’ve ran out and
+we begin to resample our neighborhood configurations.</p>
+<p>Say we want to look at income distribution in Boston and the only data we
+have is at the census tract level. I happen to know that Boston has 207
+tracts. If we want to do 999 simulations, after the 206th simulation, we
+will likely have gone through all over the neighborhood configurations!</p>
+<p>How can we do this sampling? For each observation, we can sample another
+location, grab their neighbors, and assign them as the observed location’s
+neighbors.</p>
+</div>
+<div id="bootstrap-simulations" class="section level2">
+<h2>Bootstrap simulations</h2>
+<p>In sfdep, we use spdep’s <code>nb</code> object. These are lists that store the row
+position of the neighbors as integer vectors at each element.</p>
+<blockquote>
+<p>If you want to learn more about neighbors <a href="https://youtu.be/i_MA1U6SJ1Y?t=1301">I gave a talk</a> at NY Hackr MeetUp a few months ago that might help.</p>
+</blockquote>
+<p>Here I define a function that samples from the positions (<code>index</code>),
+then uses that sample to shuffle up the existing neighborhoods and
+return a shuffled <code>nb</code> object. Note that I add the <code>nb</code> class back
+to the list.</p>
+<pre class="r"><code>bootstrap_nbs &lt;- function(nb) {
+  index &lt;- 1:length(nb)
+  resampled_index &lt;- sample(index, replace = TRUE)
+  structure(nb[resampled_index], class = c(&quot;nb&quot;, &quot;list&quot;))
+}</code></pre>
+<p>Let’s compare some observations</p>
+<pre class="r"><code>nb[1:3]</code></pre>
+<pre><code>## [[1]]
+## [1]  2 13 14
+## 
+## [[2]]
+## [1]  1  3 13 14 15
+## 
+## [[3]]
+## [1]  2  4 14 15 16</code></pre>
+<pre class="r"><code>bootstrap_nbs(nb) |&gt; 
+  head(3)</code></pre>
+<pre><code>## [[1]]
+## [1] 11 12 23 35 36
+## 
+## [[2]]
+## [1] 123 124 125 135 137
+## 
+## [[3]]
+## [1] 109 110 111 121 123 133 134 135</code></pre>
+<p>Here we can see the random pattern. Look’s like there is fair amount of
+clustering of like values.</p>
+<pre class="r"><code>grid |&gt; 
+  mutate(x = classInt::classify_intervals(x, 7)) |&gt; 
+  ggplot(aes(fill = x)) +
+  geom_sf(color = NA, lwd = 0) +
+  scale_fill_brewer(type = &quot;div&quot;, palette = 5, direction = -1)</code></pre>
+<p><img src="/post/2022-11-07-complete-spatial-randomness/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>With the weights and the neighbors we can calculate the global moran.
+I’ll refer to this as the “observed.” Store it into an object called
+<code>obs</code>. We’ll need this to calculate a simulated p-value.</p>
+<pre class="r"><code>obs &lt;- global_moran(x, nb, wt)
+obs[[&quot;I&quot;]]</code></pre>
+<pre><code>## [1] 0.6002449</code></pre>
+<p>~0.56 is a fair amount of positive spatial autocorrelation indicating
+that like values tend to cluster. But is this due to random chance, or
+does it depend on where these locations are?
+Now that we have the observed value of Moran’s I, we can simulate the
+value under spatial randomness using the boostrapped sampling. To do so,
+we boostrap sample our neighbors, recalculate the weights and then
+the global Moran.
+Now, if you’ve read my vignette on conditional permutation, you know what
+is coming next. We need to create a reference distribution of the global
+moran under spatial randomness. To do that, we apply our boot strap <code>nsim</code>
+times and recalculate the global moran with each new neighbor list. I love
+the funciton <code>replicate()</code> for these purposes.</p>
+<pre class="r"><code>nsim = 499 </code></pre>
+<blockquote>
+<p><em>Also, a thing I’ve started doing is assigning scalars / constants with an equal sign because they typically end up becoming function arguments.</em></p>
+</blockquote>
+<pre class="r"><code>reps &lt;- replicate(
+  nsim, {
+    nb_sim &lt;- bootstrap_nbs(nb)
+    wt_sim &lt;- st_weights(nb_sim)
+    global_moran(x, nb_sim, wt_sim)[[&quot;I&quot;]]
+  }
+)
+
+hist(reps)</code></pre>
+<p><img src="/post/2022-11-07-complete-spatial-randomness/index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div id="bootstrap-limitations" class="section level3">
+<h3>Bootstrap limitations</h3>
+<p>That’s all well and good, but let’s look at this a bit more. Since we’re
+using the bootstrap approach, we’re limited in the number of unique
+combinations that are possible. Let’s try something. Let’s calculate
+the spatial lag <code>nsim</code> times and find the number of unique values that
+we get.</p>
+<pre class="r"><code>lags &lt;- replicate(
+  nsim, {
+    nb_sim &lt;- bootstrap_nbs(nb)
+    wt_sim &lt;- st_weights(nb_sim)
+    st_lag(x, nb, wt)
+  }
+)
+
+# cast from matrix to vector
+lags_vec &lt;- as.numeric(lags)
+
+# how many are there?
+length(lags_vec)</code></pre>
+<pre><code>## [1] 71856</code></pre>
+<pre class="r"><code># how many unique?
+length(unique(lags_vec))</code></pre>
+<pre><code>## [1] 144</code></pre>
+<p>See this? There are only 144 unique value! That isn’t much!
+For each location there are only a limited number of combinations that
+can occur.</p>
+</div>
+</div>
+<div id="conditional-permutation" class="section level2">
+<h2>Conditional Permutation</h2>
+<p>Now, here is where I want to introduce what I view to be the superior
+alternative: conditional permutation. Conditional permutation was
+described by Luc Anselin in his seminal 1995 paper. The idea is that we
+hold an observation constant, then we randomly assign neighbors. This
+is like the bootstrap approach but instead of grabbing a random
+observation’s neighborhood we create a totally new one. We do this be
+assigning the neighbors randomly from all possible locations.</p>
+<p>Let’s look at how we can program this. For each location we need to
+sample from an index that excludes the observation’s position. Further
+we need to ensure that there are the same number of neighbors in each
+location (cardinality).</p>
+<pre class="r"><code>permute_nb &lt;- function(nb) {
+  # first get the cardinality
+  cards &lt;- st_cardinalties(nb)
+  # instantiate empty list to fill
+  nb_perm &lt;- vector(mode = &quot;list&quot;, length = length(nb))
+  
+  # instantiate an index
+  index &lt;- seq_along(nb)
+  
+  # iterate through and full nb_perm
+  for (i in index) {
+    # remove i from the index, then sample and assign
+    nb_perm[[i]] &lt;- sample(index[-i], cards[i])
+  }
+  
+  structure(nb_perm, class = &quot;nb&quot;)
+}
+
+
+nb[1:3]</code></pre>
+<pre><code>## [[1]]
+## [1]  2 13 14
+## 
+## [[2]]
+## [1]  1  3 13 14 15
+## 
+## [[3]]
+## [1]  2  4 14 15 16</code></pre>
+<pre class="r"><code>permute_nb(nb)[1:3]</code></pre>
+<pre><code>## [[1]]
+## [1] 123  50 142
+## 
+## [[2]]
+## [1]  73 102  60 140  48
+## 
+## [[3]]
+## [1]  43 104 137  27  23</code></pre>
+<p>Now, let’s repeat the same exercise using conditional permutation.</p>
+<pre class="r"><code>lags2 &lt;- replicate(
+  nsim, {
+    nb_perm &lt;- permute_nb(nb)
+    st_lag(x, nb_perm, st_weights(nb_perm))
+  }
+)
+
+lags2_vec &lt;- as.numeric(lags2)
+  
+length(unique(lags2_vec))</code></pre>
+<pre><code>## [1] 71855</code></pre>
+<p>There are farrrrr more unique values. In fact, there is a unique value
+for each simulation - location pair. If we look at the histograms,
+the difference is even more stark. The conditional permutation approach actually begins to represent a real distribution.</p>
+<pre class="r"><code>par(mfrow = c(1, 2))
+hist(lags_vec)
+hist(lags2_vec)</code></pre>
+<p><img src="/post/2022-11-07-complete-spatial-randomness/index_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>So, this is all for me to say that bootstrapping isn’t it for creating
+simulated distributions for which to calculate your p-values.</p>
+</div>
+
+        </p>
         
-        <article>
-            <h2>
-                <a href="/post/shutdown-politics/">
-                    The Cost of Gridlock
-                </a>
-            </h2>
-            <div><p>Originally posted via Boston Area Research Initiative
-The nation heaved a sigh of relief as President Trump signed a bill on Friday, January 25th, that ended the longest government shutdown in US history.</p></div>
-            <div class="post-footer">
-            <time>February 6, 2019</time>
+                <script src="https://utteranc.es/client.js"
+        repo="josiahparry/josiahparry.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    </div>
+    
+    
 
-            
-            
-                
-                    <a class="tag" href="/tags/politics">#politics</a>
-                
-                    <a class="tag" href="/tags/bari">#BARI</a>
-                
-                    <a class="tag" href="/tags/us">#US</a>
-                
-                    <a class="tag" href="/tags/political-science">#political science</a>
-                
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/xgb-feature-importance/">
-                    xgboost feature importance
-                </a>
-            </h2>
-            <div><p>This post will go over extracting feature (variable) importance and creating a function for creating a ggplot object for it.</p></div>
-            <div class="post-footer">
-            <time>December 1, 2018</time>
 
-            
-            
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/machine-learning">#machine learning</a>
-                
-                    <a class="tag" href="/tags/decision-trees">#decision trees</a>
-                
-                    <a class="tag" href="/tags/tutorial">#tutorial</a>
-                
-                    <a class="tag" href="/tags/ggplot">#ggplot</a>
-                
-            
-            </div> 
-           
-        </article>
-        
-        <article>
-            <h2>
-                <a href="/post/function-methods/">
-                    [Not so] generic functions
-                </a>
-            </h2>
-            <div><p>The Jargon The Generic Method The Default Method sf method tbl_graph method Review (tl;dr)   Lately I have been doing more of my spatial analysis work in R with the help of the sf package.</p></div>
-            <div class="post-footer">
-            <time>November 28, 2018</time>
+    
 
-            
-            
-                
-                    <a class="tag" href="/tags/r">#R</a>
-                
-                    <a class="tag" href="/tags/tutorial">#tutorial</a>
-                
-                    <a class="tag" href="/tags/packages">#packages</a>
-                
-                    <a class="tag" href="/tags/functions">#functions</a>
-                
-                    <a class="tag" href="/tags/methods">#methods</a>
-                
-                    <a class="tag" href="/tags/generics">#generics</a>
-                
-                    <a class="tag" href="/tags/s3">#s3</a>
-                
-            
-            </div> 
-           
-        </article>
+
+    <div class="page-footer">
         
     </div>
-        
-        <div class="paginator">
-        
-        
-        <p>Page 7 of 9</p>
-        <div class="paginator-group">
-            
-            <a class="color-link" href="/page/6/">
-                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
-                            <polygon id="Path" points="1.75929935 4.50000282 5.3292523 7.62371165 4.6707477 8.37628835 0.240700645 4.49999718 4.67081049 0.623709205 5.32930951 1.37629079"></polygon>
-                            <polygon id="Path" points="13 4 13 5 1 5 1 4"></polygon>
-                        </g>
-                </svg>  
-                Newer          
-            </a>
-            
-            
-                <a class="color-link older" href="/page/8/">
-                    Older
-                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
-                                <polygon points="7.6707477 1.37628835 8.3292523 0.623711653 12.7592994 4.50000282 8.32918951 8.37629079 7.67069049 7.62370921 11.2407006 4.49999718"></polygon>
-                                <polygon id="Path" points="0 5 0 4 12 4 12 5"></polygon>
-                            </g>
-                    </svg>
-                        
-                </a>
-            
-        </div>
-        
-    </div>
+    
+
+    
+
+
 
         
 
